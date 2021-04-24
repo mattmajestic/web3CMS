@@ -8,7 +8,6 @@ crmUi <- function(id) {
                      h3("Below are some fields for clients of Majestic Data Solutions LLC"),
                      br(),
                      DTOutput(ns("contacts_dt")),
-                     h5("Select Row to Edit or Delete"),
                      br(),
                      actionBttn(ns("upload_aws"),"Upload Your Own Contacts",icon = icon("upload"),style = "jelly",color = "primary"),
                      actionBttn(ns("add_contact"),"Add Contact",icon = icon("save"),style = "jelly",color = "primary"))),
@@ -43,23 +42,34 @@ crmServer <- function(id,rv) {
           # for(i in 1:ncol(rv$contacts))
           # {tgs_lst[[i]] <- textInput(inputId = names(rv$selected_data)[i],label = names(rv$selected_data)[i],value = rv$selected_data[,i])}
           # tgs_lst 
+          # rv$tags <- tgs_lst
           box(title = "Contact Fields",solidHeader = TRUE,width = 12,status = "primary",
               # tgs_lst,
-              textInput("Company","Company",value = rv$selected_data$Company)
-              actionBttn("save_contact","Update Contact",icon = icon("save"),style = "jelly",color = "primary"),
+              textInput(ns("Company"),"Company",value = rv$selected_data$Company),
+              textInput(ns("Street"),"Street",value = rv$selected_data$Street),
+              textInput(ns("City"),"City",value = rv$selected_data$City),
+              textInput(ns("State"),"State",value = rv$selected_data$State),
+              textInput(ns("Zip"),"Zip",value = rv$selected_data$Zip),
+              textInput(ns("Sector"),"Sector",value = rv$selected_data$Sector),
+              selectInput(ns("Product"),"Product",selected = rv$selected_data$Product,choices = c("Consulting","Tutoring")),
+              selectInput(ns("Status"),"Status",selected = rv$selected_data$Status,choices = c("Active","Inactive")),
+              actionBttn(ns("save_contact"),"Update Contact",icon = icon("save"),style = "jelly",color = "primary"),
               actionBttn(ns("delete_contact"),"Delete Contact",icon = icon("trash"),style = "jelly",color = "danger"))
         })
       })
       
       observeEvent(input$save_contact,{
-        contact_inputs <- names(contacts)
-        input_test <<- input %>% reactiveValuesToList()
+        contact_inputs <- names(rv$contacts)
+        input_test <<- input
+        # print(rv$tags)
+        print(input$Company)
         updated_row <- data.frame()
-        names(updated_row) <- names(contact)
+        names(updated_row) <- names(rv$contact)
         for (col in 1:length(contact_inputs)) {
           rv$contacts[input$contacts_dt_rows_selected,col] <- input_test[[names(contacts)[col]]]
           print(input_test[[names(contacts)[col]]])
         }
+        print(rv$contacts)
       })
       
       observeEvent(input$upload_aws,{
@@ -80,7 +90,7 @@ crmServer <- function(id,rv) {
                               actionButton("upload_csv","Upload CSV to S3 Bucket")
         ))
         
-        Sys.time(2)
+        Sys.sleep(2)
         shinyalert(title = "Coming Soon",text = "Use my data as V1 demo",timer = 4000,type = "error")
       })
       
@@ -93,9 +103,9 @@ crmServer <- function(id,rv) {
       })
       
       observeEvent(input$add_contact,{
-          rv$contacts[nrow(rv$contacts)+1,] <- "Update Field"
-          write.csv(rv$contacts,"data/contacts.csv",row.names = FALSE)
-          })
+        rv$contacts[nrow(rv$contacts)+1,] <- "Update Field"
+        write.csv(rv$contacts,"data/contacts.csv",row.names = FALSE)
+      })
       
       
       observeEvent(input$delete_contact,{
