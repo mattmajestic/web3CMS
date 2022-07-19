@@ -7,7 +7,7 @@ a lightweight crm built in R Shiny
       Pre-Seed-->$50,000;
 ```
 ## Checkout the Deck
-[shinyCRM.pdf](https://github.com/mattmajestic/shinyCRM/shinyCRM.pdf)
+[shinyCRM.pdf](https://github.com/mattmajestic/shinyCRM/blob/main/shinyCRM.pdf)
 
 ## Checkout the Demo 
 [shinyCRM Demo](https://mmajestic.shinyapps.io/shinyCRM)
