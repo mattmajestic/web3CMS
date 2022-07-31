@@ -15,8 +15,6 @@ left, right = st.columns(2)
 
 right.write("Here is the Invoice Template:")
 
-right.image("template.png", width=300)
-
 env = Environment(loader=FileSystemLoader("."), autoescape=select_autoescape())
 template = env.get_template("template.html")
 
