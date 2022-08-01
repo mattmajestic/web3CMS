@@ -9,12 +9,10 @@ st.title("❄ litCRM Invoice Generator")
 
 left, right = st.columns(2)
 
-right.write("Update the Invoice Template Below:")
-
 env = Environment(loader=FileSystemLoader("."), autoescape=select_autoescape())
 template = env.get_template("template.html")
 
-left.write("Who was the client:")
+left.write("Update the Invoice Template Below:")
 form = left.form("template_form")
 service = form.text_input("Invoice Service","Analytics Consulting")
 client = form.selectbox(
