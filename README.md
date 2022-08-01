@@ -15,4 +15,4 @@ git clone https://github.com/mattmajestic/litCRM.git
 ## Update the csvs in the data/ directory
 - Contacts
 - Products
-- Oppurtunities
+- Opportunities
