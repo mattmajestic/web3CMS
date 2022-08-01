@@ -45,9 +45,5 @@ if submit:
         mime="application/octet-stream",
     )
 tab1, tab2 = st.tabs(["📈 Contacts", "🗃 Products"])
-st.header("Data Tables")
-tab1.subheader("Clients")
-tab1.line_chart(contacts)
-
-tab2.subheader("Products")
+tab1.dataframe(contacts)
 tab2.dataframe(products)
