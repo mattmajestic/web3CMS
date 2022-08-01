@@ -18,7 +18,6 @@ left.write("Update the Invoice Template Below:")
 products = pd.read_csv("./data/products.csv")
 contacts = pd.read_csv("./data/contacts.csv")
 service_choices = products[["Name"]]
-period = left.date_input("Invoice Time Period", datetime.date(2022, 8, 11))
 form = left.form("template_form")
 service = form.selectbox("Invoice Service",service_choices)
 client = form.selectbox(
@@ -26,6 +25,7 @@ client = form.selectbox(
     ["CNN", "Penn State","Coca Cola Florida LLC","McAfee"],
     index=0,
 )
+period = form.date_input("Invoice Time Period", datetime.date(2022, 8, 11))
 hours = form.number_input("Hours", 1, 80, 40)
 rate = form.number_input("Hourly Rate", 1, 10000, 120,120)
 submit = form.form_submit_button("Generate Invoice")
