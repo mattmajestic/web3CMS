@@ -17,6 +17,10 @@ left.write("Update the Invoice Template Below:")
 products = pd.read_csv("./data/products.csv")
 contacts = pd.read_csv("./data/contacts.csv")
 service_choices = products[["Name"]]
+dates = st.date_input(
+     "Invoice Time Period",
+     datetime.today().strftime('%Y-%m-%d'))
+st.write('Invoice Time Period', d)
 form = left.form("template_form")
 service = form.selectbox("Invoice Service",service_choices)
 client = form.selectbox(
@@ -44,6 +48,7 @@ if submit:
         file_name="invoice.pdf",
         mime="application/octet-stream",
     )
+st.text("Backend Data")
 tab1, tab2 = st.tabs(["📈 Contacts", "🗃 Products"])
 tab1.dataframe(contacts)
 tab2.dataframe(products)
