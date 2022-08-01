@@ -1,7 +1,7 @@
 # litCRM 🚀
 a lightweight crm built in Streamlit
   -  __Large CRM Providers require expensive & long term contracts leaving market share for flexible + nimble solutions__
-    -  **Streamlit recently bought for $800m by Snowflake**
+  - **Streamlit recently bought for $800m by Snowflake**
 
 ## Advantages
 - Free & Open Source 🎡
