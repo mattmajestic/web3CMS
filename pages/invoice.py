@@ -15,7 +15,7 @@ template = env.get_template("template.html")
 
 left.write("Update the Invoice Template Below:")
 products = pd.read_csv("./data/products.csv")
-service_choices = products['Name']
+service_choices = products[["Name"]]
 form = left.form("template_form")
 service = form.text_input("Invoice Service",service_choices)
 client = form.selectbox(
