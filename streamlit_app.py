@@ -3,7 +3,8 @@ from multiapp import MultiApp
 
 app = MultiApp()
 
-app.add_app("Home", home.py)
+st.markdown("# Home page 🎈")
+st.sidebar.markdown("# Home page 🎈")
 app.add_app("Invoice", invoice.py)
 
 app.run()
