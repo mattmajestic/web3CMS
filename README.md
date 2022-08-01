@@ -1,35 +1,34 @@
-# litCRM 🔥
+# litCRM 🚩
 a lightweight crm built in Streamlit
 
 ## Advantages
-- Python Based
 - Free & Open Source 🎡
-- Hosted on Streamlit.io Cloud
+- Hosted on Streamlit.io Cloud 🔥
 
-SDLC LifeCycle: Dev 🚝 
+__SDLC LifeCycle:__ Dev 🚝 
 
-## Tech Stack
+## Tech Stack 📡
 - Python Based
 - Streamlit Hosting
-- Docker/Container Enabled on 
+- Docker/Container Enabled on ☁️ Cloud Providers including:
   - Dockerhub
   - AWS ECR
   - Azure ACR
   - Google Cloud Container Registry
 
-## Install litCRM Boilerplate
+## Install litCRM Boilerplate 💥
 ```bash
 git clone https://github.com/mattmajestic/litCRM.git
 ```
 
-## Update the csvs in the data/ directory
+## Update the csvs in the data/ directory 📂
 - Contacts
 - Products
 - Opportunities
 
-## Product User Story
+## Product User Story 📕
 ```mermaid
 flowchart LR
     a[(Update Tables)] --> b([Upload to Github])
-    b --> c((Deploy to Streamlit Cloud))
+    b --> c((Deploy to Streamlit Cloud 🚀))
  ```
