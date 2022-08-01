@@ -17,10 +17,8 @@ left.write("Update the Invoice Template Below:")
 products = pd.read_csv("./data/products.csv")
 contacts = pd.read_csv("./data/contacts.csv")
 service_choices = products[["Name"]]
-dates = st.date_input(
-     "Invoice Time Period",
-     datetime.date(2022, 8, 1))
-st.write('Invoice Time Period', dates)
+d = st.date_input("Invoice Time Period", datetime.date(2022, 8, 11))
+st.write("Invoice Time Period", d)
 form = left.form("template_form")
 service = form.selectbox("Invoice Service",service_choices)
 client = form.selectbox(
