@@ -7,6 +7,7 @@ def my_page(st, **state):
     st.sidebar.markdown("# Home page 🎈")
 
 app = MultiApp()
+app.st = st
 
 app.add_app("Home", my_page)
 app.add_app("Invoice", invoice.py)
