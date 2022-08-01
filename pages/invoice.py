@@ -17,6 +17,7 @@ template = env.get_template("template.html")
 left.write("Update the Invoice Template Below:")
 products = pd.read_csv("./data/products.csv")
 contacts = pd.read_csv("./data/contacts.csv")
+opportunities = pd.read_csv("./data/opportunities.csv")
 service_choices = products[["Name"]]
 form = left.form("template_form")
 service = form.selectbox("Invoice Service",service_choices)
@@ -48,6 +49,7 @@ if submit:
         mime="application/octet-stream",
     )
 st.text("Backend Data a User Updates")
-tab1, tab2 = st.tabs(["📈 Contacts", "🗃 Products"])
+tab1, tab2, tab3 = st.tabs(["📈 Contacts", "🗃 Products","🎲 Opportunities"])
 tab1.dataframe(contacts)
 tab2.dataframe(products)
+tab3.dataframe(opportunities)
