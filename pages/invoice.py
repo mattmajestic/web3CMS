@@ -21,7 +21,7 @@ opportunities = pd.read_csv("./data/opportunities.csv")
 service_choices = products[["Name"]]
 form = left.form("template_form")
 service = form.selectbox("Invoice Service",service_choices)
-coin = form.selectbox("Coin Used",["ETH","BTC","USDC","USD (Cash)"])
+coin = form.selectbox("Currency Used",["ETH","BTC","USDC","USD (Cash)"])
 client = form.selectbox(
     "Client",
     ["CNN", "Penn State","Coca Cola Florida LLC","McAfee"],
