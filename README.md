@@ -1,14 +1,12 @@
 # litCRM 🚀
 a lightweight crm built in Streamlit
+
+## Business Opportunity 💸
   -  Large CRM Providers require expensive & long term contracts leaving market share for flexible + nimble solutions 💰
   - Streamlit recently bought for $800m by Snowflake ❄️
+  - Enable crypto/defi functions within CRM 🎬
 
-## Advantages
-- Free & Open Source 🎡
-- Hosted on Streamlit.io Cloud 🔥
-- Lightweight
-
-__SDLC LifeCycle:__ Dev 🚝 
+## SDLC LifeCycle: Dev 🚝 
 
 ## Tech Stack 📡
 - Python Based
