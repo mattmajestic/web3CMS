@@ -27,13 +27,6 @@ client = form.selectbox(
 hours = form.number_input("Hours", 1, 80, 40)
 rate = form.number_input("Hourly Rate", 1, 10000, 120,120)
 submit = form.form_submit_button("Generate Invoice")
-tab1, tab2 = st.tabs(["📈 Contacts", "🗃 Products"])
-right.header("Data Tables")
-right.tab1.subheader("Clients")
-right.tab1.line_chart(contacts)
-
-right.tab2.subheader("Products")
-right.tab2.dataframe(products)
 
 if submit:
     html = template.render(
@@ -43,11 +36,18 @@ if submit:
         date=date.today().strftime("%B %d, %Y"),
     )
     pdf = pdfkit.from_string(html, False)
-    st.balloons()
-    st.title("Here's your invoice")
-    st.download_button(
+    right.balloons()
+    right.title("Here's your invoice")
+    right.download_button(
         "🌀 Download PDF",
         data=pdf,
         file_name="invoice.pdf",
         mime="application/octet-stream",
     )
+tab1, tab2 = st.tabs(["📈 Contacts", "🗃 Products"])
+st.header("Data Tables")
+tab1.subheader("Clients")
+tab1.line_chart(contacts)
+
+tab2.subheader("Products")
+tab2.dataframe(products)
