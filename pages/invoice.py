@@ -26,7 +26,6 @@ client = form.selectbox(
     index=0,
 )
 start_period = form.date_input("Start of Invoice Time Period", datetime.date(2022, 8, 11))
-end_period = form.date_input("End of Invoice Time Period",datetime.date(2022, 8, 11))
 hours = form.number_input("Hours", 1, 80, 40)
 rate = form.number_input("Hourly Rate", 1, 10000, 120,120)
 submit = form.form_submit_button("Generate Invoice")
