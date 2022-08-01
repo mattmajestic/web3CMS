@@ -1,6 +1,5 @@
 import streamlit as st
 from streamlit_multipage import MultiPage
-from multiapp import MultiApp
 
 def my_page(st, **state):
     st.markdown("# Home page 🎈")
