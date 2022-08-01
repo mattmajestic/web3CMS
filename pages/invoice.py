@@ -19,8 +19,8 @@ contacts = pd.read_csv("./data/contacts.csv")
 service_choices = products[["Name"]]
 dates = st.date_input(
      "Invoice Time Period",
-     datetime.today().strftime('%Y-%m-%d'))
-st.write('Invoice Time Period', d)
+     datetime.date(2022, 8, 1))
+st.write('Invoice Time Period', dates)
 form = left.form("template_form")
 service = form.selectbox("Invoice Service",service_choices)
 client = form.selectbox(
