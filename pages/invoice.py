@@ -15,6 +15,7 @@ template = env.get_template("template.html")
 
 left.write("Update the Invoice Template Below:")
 products = pd.read_csv("./data/products.csv")
+contacts = pd.read_csv("./data/contacts.csv")
 service_choices = products[["Name"]]
 form = left.form("template_form")
 service = form.selectbox("Invoice Service",service_choices)
@@ -26,7 +27,13 @@ client = form.selectbox(
 hours = form.number_input("Hours", 1, 80, 40)
 rate = form.number_input("Hourly Rate", 1, 10000, 120,120)
 submit = form.form_submit_button("Generate Invoice")
-st.dataframe(products)
+tab1, tab2 = st.tabs(["📈 Contacts", "🗃 Products"])
+right.header("Data Tables")
+tab1.subheader("Clients")
+tab1.line_chart(contacts)
+
+tab2.subheader("Products")
+tab2.dataframe(products)
 
 if submit:
     html = template.render(
