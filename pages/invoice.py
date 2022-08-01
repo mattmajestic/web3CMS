@@ -4,8 +4,8 @@ from datetime import date
 import streamlit as st
 from streamlit.components.v1 import iframe
 
-st.set_page_config(layout="centered", page_icon="❄️", page_title="❄️ streamlitCRM Invoice Generator")
-st.title("❄️ streamlitCRM Invoice Generator")
+st.set_page_config(layout="centered", page_icon="🐪", page_title="❄ litCRM Invoice Generator")
+st.title("🔥 streamlitCRM Invoice Generator")
 
 st.write(
     "This app shows you how you can use Streamlit to make a invoice in your business!"
@@ -39,7 +39,7 @@ if submit:
     pdf = pdfkit.from_string(html, False)
     st.balloons()
     right.download_button(
-        "⬇️ Download PDF",
+        "🌀 Download PDF",
         data=pdf,
         file_name="invoice.pdf",
         mime="application/octet-stream",
