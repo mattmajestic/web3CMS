@@ -9,8 +9,6 @@ app.navbar_name = "Other Apps"
 app.start_button = "Start App"
 app.navbar_style = "VerticalButton"
 
-app.header = header
-app.footer = footer
 app.hide_navigation = True
 app.hide_menu = True
 
