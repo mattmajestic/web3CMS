@@ -7,10 +7,6 @@ from streamlit.components.v1 import iframe
 st.set_page_config(layout="centered", page_icon="🐪", page_title=" litCRM Invoice Generator")
 st.title("❄ litCRM Invoice Generator")
 
-st.write(
-    "This app shows you how you can use Streamlit to make a invoice in your business!"
-)
-
 left, right = st.columns(2)
 
 right.write("Here is the Invoice Template:")
