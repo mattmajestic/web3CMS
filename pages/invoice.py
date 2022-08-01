@@ -40,9 +40,9 @@ if submit:
     )
     pdf = pdfkit.from_string(html, False)
     right.balloons()
-    right.title("Here's your invoice")
+    right.title("Here you go")
     right.download_button(
-        "🌀 Download PDF",
+        "🌀 Download Invoice",
         data=pdf,
         file_name="invoice.pdf",
         mime="application/octet-stream",
