@@ -23,7 +23,8 @@ client = form.selectbox(
     ["CNN", "Penn State","Coca Cola Florida LLC","McAfee"],
     index=0,
 )
-rate = form.number_input("Hourly Rate", 1, 10000, 100,100)
+hours = form.number_input("Hours", 1, 80, 40)
+rate = form.number_input("Hourly Rate", 1, 10000, 120,120)
 submit = form.form_submit_button("Generate Invoice")
 st.dataframe(products)
 
