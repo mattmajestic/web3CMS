@@ -31,7 +31,7 @@ if submit:
         date=date.today().strftime("%B %d, %Y"),
     )
     pdf = pdfkit.from_string(html, False)
-    st.balloons()
+    right.balloons()
     right.title("Here's your invoice")
     right.download_button(
         "🌀 Download PDF",
