@@ -4,7 +4,7 @@ from datetime import date
 import streamlit as st
 from streamlit.components.v1 import iframe
 
-st.set_page_config(layout="centered", page_icon="❄️", page_title="streamlitCRM Invoice Generator")
+st.set_page_config(layout="centered", page_icon="❄️", page_title="❄️ streamlitCRM Invoice Generator")
 st.title("❄️ streamlitCRM Invoice Generator")
 
 st.write(
@@ -17,7 +17,6 @@ right.write("Here is the Invoice Template:")
 
 env = Environment(loader=FileSystemLoader("."), autoescape=select_autoescape())
 template = env.get_template("template.html")
-
 
 left.write("Who was the client:")
 form = left.form("template_form")
