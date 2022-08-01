@@ -1,4 +1,4 @@
-# litCRM 🚩
+# litCRM 🚀
 a lightweight crm built in Streamlit
 
 ## Advantages
@@ -30,5 +30,5 @@ git clone https://github.com/mattmajestic/litCRM.git
 ```mermaid
 flowchart LR
     a[(Update Tables)] --> b([Upload to Github])
-    b --> c((Deploy to Streamlit Cloud 🚀))
+    b --> c((Deploy to Streamlit Cloud))
  ```
