@@ -1,6 +1,7 @@
 import pdfkit
 from jinja2 import Environment, PackageLoader, select_autoescape, FileSystemLoader
 from datetime import date
+import pandas as pd
 import streamlit as st
 from streamlit.components.v1 import iframe
 
@@ -20,8 +21,10 @@ client = form.selectbox(
     ["CNN", "Penn State","Coca Cola Florida LLC","McAfee"],
     index=0,
 )
+products = pd.read_csv("./data/products.csv")
 rate = form.number_input("Hourly Rate", 1, 10000, 100,100)
 submit = form.form_submit_button("Generate Invoice")
+st.dataframe(products)
 
 if submit:
     html = template.render(
