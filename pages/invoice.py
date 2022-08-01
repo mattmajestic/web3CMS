@@ -32,7 +32,7 @@ if submit:
     )
     pdf = pdfkit.from_string(html, False)
     st.balloons()
-    st.title("Here's your invoice")
+    right.title("Here's your invoice")
     right.download_button(
         "🌀 Download PDF",
         data=pdf,
