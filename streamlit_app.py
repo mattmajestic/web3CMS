@@ -8,6 +8,7 @@ def my_page(st, **state):
 
 app = MultiApp()
 
+app.add_app("Home", my_page)
 app.add_app("Invoice", invoice.py)
 
 app.run()
