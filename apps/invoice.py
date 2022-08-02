@@ -54,8 +54,3 @@ tab1, tab2, tab3 = st.tabs(["📈 Contacts", "🗃 Products","🎲 Opportunities
 tab1.dataframe(contacts)
 tab2.dataframe(products)
 tab3.dataframe(opportunities)
-Footer
-© 2022 GitHub, Inc.
-Footer navigation
-Terms
-Priva
