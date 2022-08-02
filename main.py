@@ -1,17 +1,9 @@
-from pathlib import Path
-
 import streamlit as st
-from streamlit_multipage import MultiPage
+from multiapp import MultiApp
+from apps import home, data_stats # import your app modules here
 
-app = MultiPage()
-app.st = st
-app.navbar_name = "Other Apps"
-app.start_button = "Start App"
-app.navbar_style = "VerticalButton"
+app = MultiApp()
 
-app.hide_navigation = True
-app.hide_menu = True
-
-app.add_app("Invoice", invoice, initial_page=True)
+app.add_app("Invoice", invoice.app)
 
 app.run()
