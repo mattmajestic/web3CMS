@@ -1,4 +1,5 @@
 pdfkit
 streamlit
 streamlit-multipage
-import datetime
+datetime
+pycoingecko
