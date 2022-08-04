@@ -3,3 +3,5 @@ streamlit
 streamlit-multipage
 datetime
 pycoingecko
+streamlit-authenticator
+requests
