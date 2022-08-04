@@ -6,6 +6,7 @@ import pandas as pd
 import streamlit as st
 from streamlit.components.v1 import iframe
 import requests
+
 st.set_page_config(layout="centered", page_icon="🐪", page_title=" litCRM")
 st.title("❄ litCRM (Streamlit Based CRM)")
 
@@ -22,7 +23,7 @@ request = requests.get('https://w3schools.com/python/demopage.htm')
 service_choices = products[["Name"]]
 form = left.form("template_form")
 service = form.selectbox("Invoice Service",service_choices)
-coin = form.selectbox(request,["ETH","BTC","USDC","USD (Cash)"])
+coin = form.selectbox("Invoice Currency",["ETH","BTC","USDC","USD (Cash)"])
 client = form.selectbox(
     "Client",
     ["CNN", "Penn State","Coca Cola Florida LLC","McAfee"],
