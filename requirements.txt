@@ -5,3 +5,4 @@ datetime
 pycoingecko
 streamlit-authenticator
 requests
+yfinance
