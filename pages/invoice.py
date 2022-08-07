@@ -19,7 +19,7 @@ left.write("Update the Invoice Template Below:")
 products = pd.read_csv("./data/products.csv")
 contacts = pd.read_csv("./data/contacts.csv")
 opportunities = pd.read_csv("./data/opportunities.csv")
-start = datetime.now() - 2
+start = datetime.now() - timedelta(days=2)
 end = datetime.now()
 eth = yf.download('ETH', start, end)
 service_choices = products[["Name"]]
