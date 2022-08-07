@@ -54,8 +54,9 @@ if submit:
         mime="application/octet-stream",
     )
 st.text("Backend Data a User Updates")
-st.table(eth)
 tab1, tab2, tab3 = st.tabs(["📈 Contacts", "🗃 Products","🎲 Opportunities"])
 tab1.dataframe(contacts)
 tab2.dataframe(products)
 tab3.dataframe(opportunities)
+st.text("Coin Currency History")
+st.table(coin_history)
