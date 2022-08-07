@@ -31,7 +31,7 @@ client = form.selectbox(
     ["CNN", "Penn State","Coca Cola Florida LLC","McAfee"],
     index=0,
 )
-start_period = form.date_input("Start of Invoice Time Period", datetime.date(2022, 8, 11))
+start_period = form.date_input("Start of Invoice Time Period", start)
 hours = form.number_input("Hours", 1, 80, 40)
 rate = form.number_input("Hourly Rate", 1, 10000, 120,120)
 notes = form.text_input("Add Any Additional Notes")
