@@ -21,11 +21,11 @@ contacts = pd.read_csv("./data/contacts.csv")
 opportunities = pd.read_csv("./data/opportunities.csv")
 start = datetime.today() - timedelta(days=2)
 end = datetime.today()
-eth = yf.download('ETH', start, end)
 service_choices = products[["Name"]]
 form = left.form("template_form")
 service = form.selectbox("Invoice Service",service_choices)
 coin = form.selectbox("Invoice Currency",["ETH","BTC","USDC","USD (Cash)"])
+coin_history = yf.download(coin, "max")
 client = form.selectbox(
     "Client",
     ["CNN", "Penn State","Coca Cola Florida LLC","McAfee"],
