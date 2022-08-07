@@ -1,7 +1,7 @@
 pdfkit
 streamlit
 streamlit-multipage
-datetime
+DateTime
 pycoingecko
 streamlit-authenticator
 requests
