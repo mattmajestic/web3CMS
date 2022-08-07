@@ -1,7 +1,6 @@
 import pdfkit
 from jinja2 import Environment, PackageLoader, select_autoescape, FileSystemLoader
 from datetime import date
-import datetime
 import pandas as pd
 import streamlit as st
 from streamlit.components.v1 import iframe
@@ -20,8 +19,8 @@ left.write("Update the Invoice Template Below:")
 products = pd.read_csv("./data/products.csv")
 contacts = pd.read_csv("./data/contacts.csv")
 opportunities = pd.read_csv("./data/opportunities.csv")
-start = dt.datetime.now()
-end = dt.datetime.now()
+start = datetime.now()
+end = datetime.now()
 eth = yf.download('ETH', start, end)
 service_choices = products[["Name"]]
 form = left.form("template_form")
