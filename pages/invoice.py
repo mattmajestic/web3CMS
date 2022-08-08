@@ -13,7 +13,7 @@ import yfinance as yf
 def home_page():
     st.markdown("# Home page 🎈")
     st.text("Checkout the Shiny Demo")
-    components.html(<iframe src="https://drive.google.com/file/d/1bpHOLX8RkjMzXAj5LtHyMrsmpZ06Gipg/preview" width="640" height="480" allow="autoplay"></iframe>)
+    components.iframe("https://drive.google.com/file/d/1bpHOLX8RkjMzXAj5LtHyMrsmpZ06Gipg/preview",640,480)
     st.sidebar.markdown("# Home page 🎈")
         
 def invoice():
