@@ -8,10 +8,6 @@ import streamlit.components.v1 as components
 import requests
 import yfinance as yf
 
-products = pd.read_csv("./data/products.csv")
-contacts = pd.read_csv("./data/contacts.csv")
-opportunities = pd.read_csv("./data/opportunities.csv")
-
 def home_page():
     st.markdown("# Home page 🎈")
     st.text("Checkout the Shiny Demo")
@@ -19,6 +15,9 @@ def home_page():
     st.sidebar.markdown("# Home page 🎈")
         
 def invoice():
+    products = pd.read_csv("./data/products.csv")
+    contacts = pd.read_csv("./data/contacts.csv")
+    opportunities = pd.read_csv("./data/opportunities.csv")
     st.text("litCRM")
     st.title("❄ litCRM (Streamlit Based CRM)")
 
@@ -63,14 +62,17 @@ def invoice():
             mime="application/octet-stream",
         )
 def clients():
+    contacts = pd.read_csv("./data/contacts.csv")
     st.file_uploader("Upload your Clients", type=['csv','xlsx'],accept_multiple_files=False,key="fileUploader")
     st.dataframe(contacts)
     
 def products():
+    products = pd.read_csv("./data/products.csv")
     st.file_uploader("Upload your Products", type=['csv','xlsx'],accept_multiple_files=False,key="fileUploader")
     st.dataframe(products)
     
 def opportunities():
+    opportunities = pd.read_csv("./data/opportunities.csv")
     st.file_uploader("Upload your Opportunities", type=['csv','xlsx'],accept_multiple_files=False,key="fileUploader")
     st.dataframe(products)
     
