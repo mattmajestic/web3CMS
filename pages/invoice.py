@@ -54,7 +54,7 @@ if submit:
         mime="application/octet-stream",
     )
 st.text("Backend Data a User Updates")
-tab1, tab2, tab3, tab4 = st.tabs(["📈 Contacts", "🗃 Products","🎲 Opportunities","🐪 Crypto History])
+tab1, tab2, tab3, tab4 = st.tabs(["📈 Contacts", "🗃 Products","🎲 Opportunities","🐪 Crypto History"])
 tab1.dataframe(contacts)
 tab2.dataframe(products)
 tab3.dataframe(opportunities)
