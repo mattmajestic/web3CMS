@@ -14,20 +14,6 @@ def home_page():
     st.text("Checkout the Shiny Demo")
     components.iframe("https://drive.google.com/file/d/1bpHOLX8RkjMzXAj5LtHyMrsmpZ06Gipg/preview")
     st.sidebar.markdown("# Home page 🎈")
-    
-def clients():
-    st.text("Upload your Clients")
-    st.file_uploader(fileUploadLabel, type=['csv','xlsx'],accept_multiple_files=False,key="fileUploader")
-    st.dataframe(contacts)
-    
-def backend():
-    st.text("Backend Data a User Updates")
-    tab1, tab2, tab3, tab4 = st.tabs(["📈 Contacts", "🗃 Products","🎲 Opportunities","🐪 Crypto History"])
-    tab1.dataframe(contacts)
-    tab2.dataframe(products)
-    tab3.dataframe(opportunities)
-    tab4.text("Coin Currency History")
-    tab4.table(coin_history)
         
 def invoice():
     st.text("litCRM")
@@ -76,6 +62,19 @@ def invoice():
             file_name="invoice.pdf",
             mime="application/octet-stream",
         )
+def clients():
+    st.text("Upload your Clients")
+    st.file_uploader(fileUploadLabel, type=['csv','xlsx'],accept_multiple_files=False,key="fileUploader")
+    st.dataframe(contacts)
+    
+def backend():
+    st.text("Backend Data a User Updates")
+    tab1, tab2, tab3, tab4 = st.tabs(["📈 Contacts", "🗃 Products","🎲 Opportunities","🐪 Crypto History"])
+    tab1.dataframe(contacts)
+    tab2.dataframe(products)
+    tab3.dataframe(opportunities)
+    tab4.text("Coin Currency History")
+    tab4.table(coin_history)
 
 page_names_to_funcs = {
     "Home Page": home_page,
