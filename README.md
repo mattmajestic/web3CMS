@@ -10,7 +10,7 @@ a lightweight crm built in Streamlit
 
 ## Tech Stack 📡
 - R Based in Shiny @ https://mmajestic.shinyapps.io/shinyCRM
-- Python Based in Streamlit @ 
+- Python Based in Streamlit @ https://mattmajestic-litcrm-pagesinvoice-mh000s.streamlitapp.com/
 - Streamlit Hosting
 - Docker/Container Enabled on ☁️ Cloud Providers including:
   - Dockerhub
