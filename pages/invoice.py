@@ -10,7 +10,7 @@ import yfinance as yf
 
 def home_page():
     st.markdown("# Check out the Project ReadMe 🚀")
-    st.write("litCRM Readme [link](https://github.com/mattmajestic/litCRM/blob/main/README.md")
+    st.write("litCRM Readme(https://github.com/mattmajestic/litCRM/blob/main/README.md")
     st.text("Checkout the Shiny Demo")
     components.iframe("https://drive.google.com/file/d/1bpHOLX8RkjMzXAj5LtHyMrsmpZ06Gipg/preview",640,480)
     st.sidebar.markdown("# App Info 🎈")
