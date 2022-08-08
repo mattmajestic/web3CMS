@@ -68,12 +68,6 @@ tab4.text("Coin Currency History")
 tab4.table(coin_history)
 
 page_names_to_funcs = {
-    "Main Page": main_page,
-    "Page 2": page2,
-    "Page 3": page3,
-}
-
-page_names_to_funcs = {
     "Home Page": home_page,
     "Invoice": invoice,
 }
