@@ -13,7 +13,7 @@ def home_page():
     st.markdown("# Home page 🎈")
     st.sidebar.markdown("# Home page 🎈")
 def invoice():
-    st.txt("litCRM")
+    st.text("litCRM")
     st.title("❄ litCRM (Streamlit Based CRM)")
 
     left, right = st.columns(2)
