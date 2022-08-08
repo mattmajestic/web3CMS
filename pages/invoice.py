@@ -9,6 +9,10 @@ import yfinance as yf
 
 #page1, page2, page3 = st.tabs(["📈 Home", "🗃 Clients","🎲 Invoice"])
 
+def home_page():
+    st.markdown("# Home page 🎈")
+    st.sidebar.markdown("# Home page 🎈")
+
 st.set_page_config(layout="centered", page_icon="🐪", page_title=" litCRM")
 st.title("❄ litCRM (Streamlit Based CRM)")
 
@@ -62,3 +66,16 @@ tab2.dataframe(products)
 tab3.dataframe(opportunities)
 tab4.text("Coin Currency History")
 tab4.table(coin_history)
+
+page_names_to_funcs = {
+    "Main Page": main_page,
+    "Page 2": page2,
+    "Page 3": page3,
+}
+
+page_names_to_funcs = {
+    "Home Page": home_page,
+    "Invoice": invoice,
+}
+selected_page = st.sidebar.selectbox("Select a page", page_names_to_funcs.keys())
+page_names_to_funcs[selected_page]()
