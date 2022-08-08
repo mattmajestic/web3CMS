@@ -10,10 +10,10 @@ import yfinance as yf
 
 def home_page():
     st.markdown("# Check out the Project ReadMe 🚀")
-    st.write("litCRM Readme(https://github.com/mattmajestic/litCRM/blob/main/README.md")
-    st.text("Checkout the Shiny Demo")
+    st.write("litCRM Readme https://github.com/mattmajestic/litCRM/blob/main/README.md")
+    st.markdown("Checkout the Shiny Demo")
     components.iframe("https://drive.google.com/file/d/1bpHOLX8RkjMzXAj5LtHyMrsmpZ06Gipg/preview",640,480)
-    st.sidebar.markdown("# App Info 🎈")
+    st.sidebar.markdown("# Check out the Project Materials")
         
 def invoice():
     products = pd.read_csv("./data/products.csv")
@@ -21,6 +21,7 @@ def invoice():
     opportunities = pd.read_csv("./data/opportunities.csv")
     st.text("litCRM")
     st.title("❄ litCRM (Streamlit Based CRM)")
+    st.sidebar.markdown("# Invoicing Service")
 
     left, right = st.columns(2)
 
@@ -66,16 +67,19 @@ def clients():
     contacts = pd.read_csv("./data/contacts.csv")
     st.file_uploader("Upload your Clients", type=['csv','xlsx'],accept_multiple_files=False,key="fileUploader")
     st.dataframe(contacts)
+    st.sidebar.markdown("# Client Management")
     
 def products():
     products = pd.read_csv("./data/products.csv")
     st.file_uploader("Upload your Products", type=['csv','xlsx'],accept_multiple_files=False,key="fileUploader")
     st.dataframe(products)
+    st.sidebar.markdown("# Product Management")
     
 def opportunities():
     opportunities = pd.read_csv("./data/opportunities.csv")
     st.file_uploader("Upload your Opportunities", type=['csv','xlsx'],accept_multiple_files=False,key="fileUploader")
     st.dataframe(opportunities)
+    st.sidebar.markdown("# Opportunities Tracker")
     
 def backend():
     products = pd.read_csv("./data/products.csv")
