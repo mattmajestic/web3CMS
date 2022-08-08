@@ -81,8 +81,8 @@ page_names_to_funcs = {
     "Invoice": invoice,
     "Clients": clients,
     "Products": products,
-    "Opportunties" = opps,
-    "Backend" = backend,
+    "Opportunties": opps,
+    "Backend": backend,
     
 }
 selected_page = st.sidebar.selectbox("Select a page", page_names_to_funcs.keys())
