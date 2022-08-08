@@ -9,7 +9,8 @@ a lightweight crm built in Streamlit
 ## SDLC LifeCycle: Dev 🚝 
 
 ## Tech Stack 📡
-- Python Based
+- R Based in Shiny @ https://mmajestic.shinyapps.io/shinyCRM
+- Python Based in Streamlit @ 
 - Streamlit Hosting
 - Docker/Container Enabled on ☁️ Cloud Providers including:
   - Dockerhub
