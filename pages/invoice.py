@@ -9,11 +9,11 @@ import requests
 import yfinance as yf
 
 def home_page():
-    st.markdown("# Home page 🎈")
-    components.iframe("https://github.com/mattmajestic/litCRM/blob/main/README.md",640,480)
+    st.markdown("# Check out the Project ReadMe 🚀")
+    st.text("https://github.com/mattmajestic/litCRM/blob/main/README.md")
     st.text("Checkout the Shiny Demo")
     components.iframe("https://drive.google.com/file/d/1bpHOLX8RkjMzXAj5LtHyMrsmpZ06Gipg/preview",640,480)
-    st.sidebar.markdown("# Home page 🎈")
+    st.sidebar.markdown("# App Info 🎈")
         
 def invoice():
     products = pd.read_csv("./data/products.csv")
