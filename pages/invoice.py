@@ -68,8 +68,7 @@ tab4.text("Coin Currency History")
 tab4.table(coin_history)
 
 page_names_to_funcs = {
-    "Home Page": home_page,
-    "Invoice": invoice,
+    "Home Page": home_page
 }
 selected_page = st.sidebar.selectbox("Select a page", page_names_to_funcs.keys())
 page_names_to_funcs[selected_page]()
