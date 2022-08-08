@@ -8,7 +8,9 @@ import streamlit.components.v1 as components
 import requests
 import yfinance as yf
 
-#page1, page2, page3 = st.tabs(["📈 Home", "🗃 Clients","🎲 Invoice"])
+products = pd.read_csv("./data/products.csv")
+contacts = pd.read_csv("./data/contacts.csv")
+opportunities = pd.read_csv("./data/opportunities.csv")
 
 def home_page():
     st.markdown("# Home page 🎈")
@@ -26,9 +28,6 @@ def invoice():
     template = env.get_template("template.html")
 
     left.write("Update the Invoice Template Below:")
-    products = pd.read_csv("./data/products.csv")
-    contacts = pd.read_csv("./data/contacts.csv")
-    opportunities = pd.read_csv("./data/opportunities.csv")
     start = datetime.today() - timedelta(days=2)
     end = datetime.today()
     service_choices = products[["Name"]]
