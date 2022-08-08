@@ -64,18 +64,15 @@ def invoice():
             mime="application/octet-stream",
         )
 def clients():
-    st.text("Upload your Clients")
-    st.file_uploader(fileUploadLabel, type=['csv','xlsx'],accept_multiple_files=False,key="fileUploader")
+    st.file_uploader("Upload your Clients", type=['csv','xlsx'],accept_multiple_files=False,key="fileUploader")
     st.dataframe(contacts)
     
 def products():
-    st.text("Upload your Products")
-    st.file_uploader(fileUploadLabel, type=['csv','xlsx'],accept_multiple_files=False,key="fileUploader")
+    st.file_uploader("Upload your Products", type=['csv','xlsx'],accept_multiple_files=False,key="fileUploader")
     st.dataframe(products)
     
 def opportunities():
-    st.text("Upload your Opportunities")
-    st.file_uploader(fileUploadLabel, type=['csv','xlsx'],accept_multiple_files=False,key="fileUploader")
+    st.file_uploader("Upload your Opportunities", type=['csv','xlsx'],accept_multiple_files=False,key="fileUploader")
     st.dataframe(products)
     
 def backend():
