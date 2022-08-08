@@ -4,6 +4,7 @@ from datetime import datetime, date, time, timezone, timedelta
 import pandas as pd
 import streamlit as st
 from streamlit.components.v1 import iframe
+import streamlit.components.v1 as components
 import requests
 import yfinance as yf
 
@@ -12,7 +13,7 @@ import yfinance as yf
 def home_page():
     st.markdown("# Home page 🎈")
     st.text("Checkout the Shiny Demo")
-    st.text("https://drive.google.com/file/d/1bpHOLX8RkjMzXAj5LtHyMrsmpZ06Gipg/preview")
+    components.iframe("https://drive.google.com/file/d/1bpHOLX8RkjMzXAj5LtHyMrsmpZ06Gipg/preview")
     st.sidebar.markdown("# Home page 🎈")
         
 def invoice():
