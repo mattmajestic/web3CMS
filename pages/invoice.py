@@ -7,8 +7,10 @@ from streamlit.components.v1 import iframe
 import requests
 import yfinance as yf
 
-st.set_page_config(layout="centered", page_icon="🐪", page_title=" litCRM")
-st.title("❄ litCRM (Streamlit Based CRM)")
+page1, page2, page3 = st.tabs(["📈 Home", "🗃 Clients","🎲 Invoice"])
+
+page3.set_page_config(layout="centered", page_icon="🐪", page_title=" litCRM")
+page3.title("❄ litCRM (Streamlit Based CRM)")
 
 left, right = st.columns(2)
 
