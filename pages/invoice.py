@@ -67,6 +67,16 @@ def clients():
     st.file_uploader(fileUploadLabel, type=['csv','xlsx'],accept_multiple_files=False,key="fileUploader")
     st.dataframe(contacts)
     
+def products():
+    st.text("Upload your Products")
+    st.file_uploader(fileUploadLabel, type=['csv','xlsx'],accept_multiple_files=False,key="fileUploader")
+    st.dataframe(products)
+    
+def opportunities():
+    st.text("Upload your Opportunities")
+    st.file_uploader(fileUploadLabel, type=['csv','xlsx'],accept_multiple_files=False,key="fileUploader")
+    st.dataframe(products)
+    
 def backend():
     st.text("Backend Data a User Updates")
     tab1, tab2, tab3, tab4 = st.tabs(["📈 Contacts", "🗃 Products","🎲 Opportunities","🐪 Crypto History"])
@@ -81,7 +91,7 @@ page_names_to_funcs = {
     "Invoice": invoice,
     "Clients": clients,
     "Products": products,
-    "Opportunties": opps,
+    "Opportunties": opportunities,
     "Backend": backend,
     
 }
