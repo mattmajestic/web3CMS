@@ -6,3 +6,4 @@ pycoingecko
 streamlit-authenticator
 requests
 yfinance
+web3
