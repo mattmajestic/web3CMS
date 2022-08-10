@@ -98,7 +98,7 @@ def backend():
     apiURL = "https://api.pancakeswap.info/api/v2/tokens/"
     response = requests.get(url = apiURL + coin_addy)
     jsonRaw = response.json()
-    st.json(jsonRaw)
+    tab4.json(jsonRaw)
 
 page_names_to_funcs = {
     "Home Page": home_page,
