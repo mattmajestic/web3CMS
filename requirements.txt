@@ -7,3 +7,4 @@ streamlit-authenticator
 requests
 yfinance
 web3
+json
