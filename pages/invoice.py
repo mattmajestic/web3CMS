@@ -97,8 +97,8 @@ def backend():
     coin_addy = st.selectbox("Coin Adrress",["0x2170Ed0880ac9A755fd29B2688956BD959F933F8", "0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c"],index=0)
     apiURL = "https://api.pancakeswap.info/api/v2/tokens/"
     response = requests.get(url = apiURL + coin_addy)
-    coin_json = json.loads(response)
-    st.json(coin_json)
+    jsonRaw = response.json()
+    st.json(jsonRaw)
 
 page_names_to_funcs = {
     "Home Page": home_page,
