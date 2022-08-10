@@ -9,6 +9,7 @@ import requests
 import yfinance as yf
 import web3
 from web3 import Web3, HTTPProvider 
+import json
 
 def home_page():
     st.markdown("# Check out the Project ReadMe 🚀")
