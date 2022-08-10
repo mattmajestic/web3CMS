@@ -8,7 +8,7 @@ import streamlit.components.v1 as components
 import requests
 import yfinance as yf
 import web3
-from web3 import Web3
+from web3 import Web3, HTTPProvider 
 
 def home_page():
     st.markdown("# Check out the Project ReadMe 🚀")
@@ -93,7 +93,11 @@ def backend():
     tab2.dataframe(products)
     tab3.dataframe(opportunities)
     tab4.text("Coin Currency History")
-    tab4.table(coin_history)
+    coin_addy = st.selectbox("Coin Adrress",["0x2170Ed0880ac9A755fd29B2688956BD959F933F8", "0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c"],index=0)
+    apiURL = "https://api.pancakeswap.info/api/v2/tokens/"
+    response = requests.get(url = apiURL + coin_addy)
+    price = extractPriceFromRaw(response)
+    st.text(price)
 
 page_names_to_funcs = {
     "Home Page": home_page,
