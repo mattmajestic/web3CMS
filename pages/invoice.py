@@ -7,6 +7,8 @@ from streamlit.components.v1 import iframe
 import streamlit.components.v1 as components
 import requests
 import yfinance as yf
+import web3
+from web3 import Web3
 
 def home_page():
     st.markdown("# Check out the Project ReadMe 🚀")
