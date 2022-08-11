@@ -61,7 +61,7 @@ def invoice():
     invoice_msg = "Invoice Total " + coin
     right.text(invoice_msg)
     right.write(invoice_total)
-    right.write(cg)
+    right.markdown(cg)
 
     if submit:
         html = template.render(
