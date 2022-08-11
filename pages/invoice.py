@@ -36,7 +36,7 @@ def invoice():
     service_choices = products[["Name"]]
     form = left.form("template_form")
     service = form.selectbox("Invoice Service",service_choices)
-    coin = form.selectbox("Invoice Currency",["ETH","BTC","USDC","USD (Cash)"])
+    coin = form.selectbox("Invoice Currency",["ETH","BTC","USDC","USD (Cash)"],index=0)
     coin_history = yf.download(tickers=coin, start=start.date(), end=end.date(), interval="1d")
     client = form.selectbox(
     "Client",
