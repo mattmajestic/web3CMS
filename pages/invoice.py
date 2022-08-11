@@ -54,7 +54,7 @@ def invoice():
     jsonRaw = response.json()
     right.json(jsonRaw)
     coin_total = (hours * rate)/float(jsonRaw['data']['price'])
-    right.text("Invoice Total " + jsonRaw['data']['price'] + " " + coin)
+    right.text("Invoice Total " + coin_total + " " + coin)
 
     if submit:
         html = template.render(
