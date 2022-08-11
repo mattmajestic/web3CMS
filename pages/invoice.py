@@ -36,7 +36,16 @@ def invoice():
 
     env = Environment(loader=FileSystemLoader("."), autoescape=select_autoescape())
     template = env.get_template("template.html")
-    components.html("cg.html")
+    cg_html = '''
+     <h1>HTML string in RED</h1>
+
+     <script language="javascript">
+     document.querySelector("h1").style.color = "red";
+     console.log("Streamlit runs JavaScript");
+     alert("Streamlit runs JavaScript");
+     </script>
+     '''
+    components.html(cg_html)
 
     left.write("Update the Invoice Template Below:")
     start = datetime.today() - timedelta(days=2)
