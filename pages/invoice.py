@@ -53,7 +53,7 @@ def invoice():
     response = requests.get(url = apiURL + coin_addy)
     jsonRaw = response.json()
     right.json(jsonRaw)
-    coin_total = (hours * rate)/jsonRaw['data']['price']
+    coin_total = (hours * rate)/float(jsonRaw['data']['price'])
     right.text("Invoice Total " + jsonRaw['data']['price'] + " " + coin)
 
     if submit:
