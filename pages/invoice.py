@@ -72,13 +72,13 @@ def invoice():
             mime="application/octet-stream",
         )
 def clients():
-    contacts = pd.read_csv("./data/contacts.csv")
     uploaded_file = st.file_uploader("Upload your Clients", type=['csv','xlsx'],accept_multiple_files=False,key="fileUploader")
-    st.dataframe(contacts)
     st.sidebar.markdown("# Client Management")
     if uploaded_file is not None:
         contacts = pd.read_csv(uploaded_file)
-    st.dataframe(contacts)    
+    else:
+        contacts = pd.read_csv("./data/contacts.csv")
+    st.dataframe(contacts)
     
 def products():
     products = pd.read_csv("./data/products.csv")
