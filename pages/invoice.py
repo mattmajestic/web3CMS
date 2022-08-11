@@ -53,6 +53,8 @@ def invoice():
     invoice_msg = "Invoice Total " + coin
     right.text(invoice_msg)
     right.write(invoice_total)
+    html_string = "<script src="https://widgets.coingecko.com/coingecko-coin-price-chart-widget.js"></script><coingecko-coin-price-chart-widget  coin-id="bitcoin" currency="usd" height="300" locale="en"></coingecko-coin-price-chart-widget>"
+    st.markdown(html_string, unsafe_allow_html=True)
 
     if submit:
         html = template.render(
