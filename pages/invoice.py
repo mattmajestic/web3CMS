@@ -29,6 +29,7 @@ def invoice():
 
     env = Environment(loader=FileSystemLoader("."), autoescape=select_autoescape())
     template = env.get_template("template.html")
+    cg = env.get_template("cg.html")
 
     left.write("Update the Invoice Template Below:")
     start = datetime.today() - timedelta(days=2)
@@ -53,6 +54,7 @@ def invoice():
     invoice_msg = "Invoice Total " + coin
     right.text(invoice_msg)
     right.write(invoice_total)
+    right.write(cg)
 
     if submit:
         html = template.render(
