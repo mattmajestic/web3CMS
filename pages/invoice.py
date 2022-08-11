@@ -29,9 +29,9 @@ def invoice():
     products = pd.read_csv("./data/products.csv")
     contacts = pd.read_csv("./data/contacts.csv")
     opportunities = pd.read_csv("./data/opportunities.csv")
-     cg_html = '''
-     <script src="https://widgets.coingecko.com/coingecko-coin-price-marquee-widget.js"></script><coingecko-coin-price-marquee-widget  coin-ids="bitcoin,ethereum,eos,ripple,litecoin" currency="usd" background-color="#ffffff" locale="en"></coingecko-coin-price-marquee-widget>
-     '''
+    cg_html = '''
+    <script src="https://widgets.coingecko.com/coingecko-coin-price-marquee-widget.js"></script><coingecko-coin-price-marquee-widget  coin-ids="bitcoin,ethereum,eos,ripple,litecoin" currency="usd" background-color="#ffffff" locale="en"></coingecko-coin-price-marquee-widget>
+    '''
     components.html(cg_html)
     st.title("❄ litCRM (Streamlit Based CRM)")
     st.sidebar.markdown("Crypto Invoicing")
