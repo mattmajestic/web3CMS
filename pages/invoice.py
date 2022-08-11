@@ -25,7 +25,7 @@ def invoice():
     st.title("❄ litCRM (Streamlit Based CRM)")
     st.sidebar.markdown("Crypto Invoicing")
 
-    left, right = st.columns(4)
+    left, right = [3, 3]
 
     env = Environment(loader=FileSystemLoader("."), autoescape=select_autoescape())
     template = env.get_template("template.html")
