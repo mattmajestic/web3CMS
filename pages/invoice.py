@@ -53,7 +53,7 @@ def invoice():
     response = requests.get(url = apiURL + coin_addy)
     jsonRaw = response.json()
     right.json(jsonRaw)
-    st.text("Invoice Total" + coin)
+    right.text("Invoice Total " + jsonRaw['data']['price'] + " " + coin)
 
     if submit:
         html = template.render(
