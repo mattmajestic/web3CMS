@@ -37,13 +37,7 @@ def invoice():
     env = Environment(loader=FileSystemLoader("."), autoescape=select_autoescape())
     template = env.get_template("template.html")
     cg_html = '''
-     <h1>HTML string in RED</h1>
-
-     <script language="javascript">
-     document.querySelector("h1").style.color = "red";
-     console.log("Streamlit runs JavaScript");
-     alert("Streamlit runs JavaScript");
-     </script>
+     <script src="https://widgets.coingecko.com/coingecko-coin-price-chart-widget.js"></script><coingecko-coin-price-chart-widget  coin-id="bitcoin" currency="usd" height="300" locale="en"></coingecko-coin-price-chart-widget>
      '''
     components.html(cg_html)
 
@@ -88,6 +82,7 @@ def invoice():
             mime="application/octet-stream",
         )
 def clients():
+    st.snow()
     uploaded_file = st.file_uploader("Upload your Clients", type=['csv','xlsx'],accept_multiple_files=False,key="fileUploader")
     st.sidebar.markdown("# Client Management")
     if uploaded_file is not None:
