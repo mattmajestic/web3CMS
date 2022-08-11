@@ -81,16 +81,22 @@ def clients():
     st.dataframe(contacts)
     
 def products():
-    products = pd.read_csv("./data/products.csv")
-    st.file_uploader("Upload your Products", type=['csv','xlsx'],accept_multiple_files=False,key="fileUploader")
-    st.dataframe(products)
+    uploaded_file = st.file_uploader("Upload your Products", type=['csv','xlsx'],accept_multiple_files=False,key="fileUploader")
     st.sidebar.markdown("# Product Management")
+    if uploaded_file is not None:
+        products = pd.read_csv(uploaded_file)
+    else:
+        products = pd.read_csv("./data/products.csv")
+    st.dataframe(products)
     
 def opportunities():
-    opportunities = pd.read_csv("./data/opportunities.csv")
-    st.file_uploader("Upload your Opportunities", type=['csv','xlsx'],accept_multiple_files=False,key="fileUploader")
-    st.dataframe(opportunities)
+    uploaded_file = st.file_uploader("Upload your Opportunities", type=['csv','xlsx'],accept_multiple_files=False,key="fileUploader")
     st.sidebar.markdown("# Opportunities Tracker")
+    if uploaded_file is not None:
+        opportunities = pd.read_csv(uploaded_file)
+    else:
+        opportunities = pd.read_csv("./data/opportunities.csv")
+    st.dataframe(opportunities)
     
 def backend():
     products = pd.read_csv("./data/products.csv")
