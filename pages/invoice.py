@@ -66,7 +66,7 @@ def invoice():
     cg_html = '''
     <script src="https://widgets.coingecko.com/coingecko-coin-list-widget.js"></script><coingecko-coin-list-widget  coin-ids="bitcoin,ethereum,eos,ripple,litecoin" currency="usd" locale="en"></coingecko-coin-list-widget>
     '''
-    right.components.html(cg_html)
+    components.html(cg_html)
 
     if submit:
         html = template.render(
