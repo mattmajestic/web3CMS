@@ -78,7 +78,7 @@ def clients():
     st.sidebar.markdown("# Client Management")
     if uploaded_file is not None:
         contacts = pd.read_csv(uploaded_file)
-        st.dataframe(contacts)
+    st.dataframe(contacts)    
     
 def products():
     products = pd.read_csv("./data/products.csv")
