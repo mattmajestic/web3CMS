@@ -36,7 +36,6 @@ def invoice():
     service_choices = products[["Name"]]
     form = left.form("template_form")
     service = form.selectbox("Invoice Service",service_choices)
-    coin = form.selectbox("Invoice Currency",["ETH","BTC","USDC","USD (Cash)"],index=0)
     client = form.selectbox("Client",["CNN", "Penn State","Coca Cola Florida LLC","McAfee"],index=0)
     start_period = form.date_input("Start of Invoice Time Period", start)
     hours = form.number_input("Hours", 1, 80, 40)
@@ -47,10 +46,10 @@ def invoice():
     apiURL = "https://api.pancakeswap.info/api/v2/tokens/"
     response = requests.get(url = apiURL + coin_addy)
     jsonRaw = response.json()
-    right.json(jsonRaw)
     coin_price = float(jsonRaw['data']['price'])
     usd_total = hours * rate
     invoice_total = usd_total/coin_price
+    coin = right.selectbox("Invoice Currency",["ETH","BTC","USDC","USD (Cash)"],index=0)
     invoice_msg = "Invoice Total " + coin
     right.text(invoice_msg)
     right.write(invoice_total)
