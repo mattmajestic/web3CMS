@@ -55,7 +55,8 @@ def invoice():
     usd_total = hours * rate
     invoice_total = usd_total/coin_price
     coin = right.selectbox("Invoice Currency",["ETH","BTC","USDC","USD (Cash)"],index=0)
-    right.text("Invoice Total " + coin)
+    invoice_msg = "Invoice Total " + coin
+    right.text(invoice_msg)
     right.write(invoice_total)
 
     if submit:
