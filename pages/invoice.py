@@ -19,20 +19,20 @@ st.set_page_config(
  )
 
 def home_page():
+     cg_html = '''
+    <script src="https://widgets.coingecko.com/coingecko-coin-price-marquee-widget.js"></script><coingecko-coin-price-marquee-widget  coin-ids="bitcoin,ethereum,eos,ripple,litecoin" currency="usd" background-color="#ffffff" locale="en"></coingecko-coin-price-marquee-widget>
+    '''
+    components.html(cg_html)
     st.markdown("# Check out the Project ReadMe 🚀")
     st.write("litCRM Readme https://github.com/mattmajestic/litCRM/blob/main/README.md")
     st.markdown("Checkout the Shiny Demo")
-    components.iframe("https://drive.google.com/file/d/1bpHOLX8RkjMzXAj5LtHyMrsmpZ06Gipg/preview",640,480)
+    components.iframe("https://drive.google.com/file/d/1bpHOLX8RkjMzXAj5LtHyMrsmpZ06Gipg/preview",500,350)
     st.sidebar.markdown("# Check out the Project Materials")
         
 def invoice():
     products = pd.read_csv("./data/products.csv")
     contacts = pd.read_csv("./data/contacts.csv")
     opportunities = pd.read_csv("./data/opportunities.csv")
-    cg_html = '''
-    <script src="https://widgets.coingecko.com/coingecko-coin-price-marquee-widget.js"></script><coingecko-coin-price-marquee-widget  coin-ids="bitcoin,ethereum,eos,ripple,litecoin" currency="usd" background-color="#ffffff" locale="en"></coingecko-coin-price-marquee-widget>
-    '''
-    components.html(cg_html)
     st.title("❄ litCRM (Streamlit Based CRM)")
     st.sidebar.markdown("Crypto Invoicing")
 
@@ -63,6 +63,11 @@ def invoice():
     invoice_msg = "Invoice Total " + coin
     right.text(invoice_msg)
     right.write(invoice_total)
+    cg_html = '''
+    <script src="https://widgets.coingecko.com/coingecko-coin-list-widget.js"></script><coingecko-coin-list-widget  coin-ids="bitcoin,ethereum,eos,ripple,litecoin" currency="usd" locale="en"></coingecko-coin-list-widget>
+    '''
+    cg = components.html(cg_html)
+    right.write(cg)
 
     if submit:
         html = template.render(
