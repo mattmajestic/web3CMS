@@ -23,6 +23,7 @@ def invoice():
     contacts = pd.read_csv("./data/contacts.csv")
     opportunities = pd.read_csv("./data/opportunities.csv")
     st.title("❄ litCRM (Streamlit Based CRM)")
+    st.sidebar.markdown("Crypto Invoicing")
 
     left, right = st.columns(2)
 
@@ -52,7 +53,7 @@ def invoice():
     response = requests.get(url = apiURL + coin_addy)
     jsonRaw = response.json()
     right.json(jsonRaw)
-    st.sidebar.markdown("Current Invoice in " + coin + jsonRaw['price'] )
+    st.text("Invoice Total" + coin)
 
     if submit:
         html = template.render(
