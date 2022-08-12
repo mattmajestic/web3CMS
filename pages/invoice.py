@@ -97,6 +97,7 @@ def clients():
     else:
         contacts = pd.read_csv("./data/contacts.csv")
     st.dataframe(contacts)
+    st.success('This is a success message!', icon:"✅")
     
 def products():
     uploaded_file = st.file_uploader("Upload your Products", type=['csv','xlsx'],accept_multiple_files=False,key="fileUploader")
@@ -106,6 +107,7 @@ def products():
     else:
         products = pd.read_csv("./data/products.csv")
     st.dataframe(products)
+    st.success('This is a success message!', icon:"✅")
     
 def opportunities():
     uploaded_file = st.file_uploader("Upload your Opportunities", type=['csv','xlsx'],accept_multiple_files=False,key="fileUploader")
@@ -115,6 +117,7 @@ def opportunities():
     else:
         opportunities = pd.read_csv("./data/opportunities.csv")
     st.dataframe(opportunities)
+    st.success('This is a success message!', icon:"✅")
     
 def backend():
     products = pd.read_csv("./data/products.csv")
