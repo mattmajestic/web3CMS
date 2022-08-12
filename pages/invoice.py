@@ -27,6 +27,10 @@ def home_page():
     st.write("litCRM Readme https://github.com/mattmajestic/litCRM/blob/main/README.md")
     st.markdown("Checkout the Shiny Demo")
     components.iframe("https://drive.google.com/file/d/1bpHOLX8RkjMzXAj5LtHyMrsmpZ06Gipg/preview",500,350)
+    st.title("Customize your Profile")
+    picture = st.camera_input("Take a picture")
+    if picture:
+         st.image(picture)
     st.sidebar.markdown("# Check out the Project Materials")
         
 def invoice():
@@ -111,13 +115,6 @@ def opportunities():
     else:
         opportunities = pd.read_csv("./data/opportunities.csv")
     st.dataframe(opportunities)
-
-def profile():
-    st.title("Customize your Profile")
-    picture = st.camera_input("Take a picture")
-    if picture:
-         st.image(picture)
-    
     
 def backend():
     products = pd.read_csv("./data/products.csv")
