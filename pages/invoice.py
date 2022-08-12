@@ -159,23 +159,23 @@ def dash():
     cg = CoinGeckoAPI() 
     btc = cg.get_price(ids='bitcoin', vs_currencies='usd', include_market_cap='true', include_24hr_vol='true', include_24hr_change='true', include_last_updated_at='true')
     with left.container():
-        left.write("Coin Gecko API")
-        left.image("https://static.coingecko.com/s/coingecko-mascot-suit-b1a9df2b041094a017948f1d184f1aa263e779d4e1f22c437e835b74f0b00073.png",width=200)
+        left.title("Coin Gecko API")
         left.json(btc)
-    coin_addy = right.selectbox("Invoice Currency Price",["0x2170Ed0880ac9A755fd29B2688956BD959F933F8", "0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c","0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d"],index=0)
+        left.image("https://static.coingecko.com/s/coingecko-mascot-suit-b1a9df2b041094a017948f1d184f1aa263e779d4e1f22c437e835b74f0b00073.png",width=200)
+    coin_addy = center.selectbox("Invoice Currency Price",["0x2170Ed0880ac9A755fd29B2688956BD959F933F8", "0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c","0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d"],index=0)
     apiURL = "https://api.pancakeswap.info/api/v2/tokens/"
     response = requests.get(url = apiURL + coin_addy)
     pancake = response.json()
     with center.container():
         center.title("PancakeSwap API")
-        center.image("https://www.pngall.com/wp-content/uploads/10/PancakeSwap-Crypto-Logo-PNG-Images.png",width=200)
         center.json(pancake)
+        center.image("https://www.pngall.com/wp-content/uploads/10/PancakeSwap-Crypto-Logo-PNG-Images.png",width=200)
     lc = LunarCrush()
     eth_1_year_data = lc.get_assets(symbol=['ETH'],data_points=365, interval='day')
     with right.container():
-        right.write("LunarCrush API")
-        right.image("https://www.lcx.com/wp-content/uploads/20200630-Partnerships-LunarCRUSH.png",width=200)
+        right.title("LunarCrush API")
         right.write(eth_1_year_data)
+        right.image("https://www.lcx.com/wp-content/uploads/20200630-Partnerships-LunarCRUSH.png",width=200)
 
 page_names_to_funcs = {
     "Home Page": home_page,
