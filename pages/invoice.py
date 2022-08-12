@@ -12,6 +12,7 @@ import web3
 from web3 import Web3, HTTPProvider 
 import json
 import time
+from lunarcrush import LunarCrush
 
 st.set_page_config(
      page_title="litCRM",
@@ -160,6 +161,11 @@ def dash():
     with left.container():
         left.write("Coin Gecko API")
         left.json(btc)
+    lc = LunarCrush()
+    eth_1_year_data = lc.get_assets(symbol=['ETH'],data_points=365, interval='day')
+    with right.container():
+        right.write("LunarCrush API")
+        right.write(eth_1_year_data)
 
 page_names_to_funcs = {
     "Home Page": home_page,
