@@ -95,39 +95,42 @@ def invoice():
         )
 def clients():
     st.snow()
-    uploaded_file = st.file_uploader("Upload your Clients", type=['csv','xlsx'],accept_multiple_files=False,key="fileUploader")
+    left,center, right = st.columns([5,2,5])
+    uploaded_file = left.file_uploader("Upload your Clients", type=['csv','xlsx'],accept_multiple_files=False,key="fileUploader")
     st.sidebar.markdown("# Client Management")
     if uploaded_file is not None:
         contacts = pd.read_csv(uploaded_file)
     else:
         contacts = pd.read_csv("./data/contacts.csv")
-    st.dataframe(contacts)
+    right.dataframe(contacts)
     my_bar = st.progress(0)
     for percent_complete in range(100):
          time.sleep(0.05)
          my_bar.progress(percent_complete + 1)
     my_bar.empty()
 def products():
-    uploaded_file = st.file_uploader("Upload your Products", type=['csv','xlsx'],accept_multiple_files=False,key="fileUploader")
+    left,center, right = st.columns([5,2,5])
+    uploaded_file = left.file_uploader("Upload your Products", type=['csv','xlsx'],accept_multiple_files=False,key="fileUploader")
     st.sidebar.markdown("# Product Management")
     if uploaded_file is not None:
         products = pd.read_csv(uploaded_file)
     else:
         products = pd.read_csv("./data/products.csv")
-    st.dataframe(products)
+    right.dataframe(products)
     my_bar = st.progress(0)
     for percent_complete in range(100):
          time.sleep(0.05)
          my_bar.progress(percent_complete + 1)
     my_bar.empty()
 def opportunities():
-    uploaded_file = st.file_uploader("Upload your Opportunities", type=['csv','xlsx'],accept_multiple_files=False,key="fileUploader")
+    left,center, right = st.columns([5,2,5])
+    uploaded_file = left.file_uploader("Upload your Opportunities", type=['csv','xlsx'],accept_multiple_files=False,key="fileUploader")
     st.sidebar.markdown("# Opportunities Tracker")
     if uploaded_file is not None:
         opportunities = pd.read_csv(uploaded_file)
     else:
         opportunities = pd.read_csv("./data/opportunities.csv")
-    st.dataframe(opportunities)
+    right.dataframe(opportunities)
     my_bar = st.progress(0)
     for percent_complete in range(100):
          time.sleep(0.05)
