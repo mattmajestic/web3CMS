@@ -154,7 +154,7 @@ def backend():
     tab4.json(jsonRaw)
      
 def dash():
-    left, right = st.columns([5,2,5])
+    left, center, right = st.columns([5,2,5])
     cg = CoinGeckoAPI() 
     btc = cg.get_price(ids='bitcoin', vs_currencies='usd', include_market_cap='true', include_24hr_vol='true', include_24hr_change='true', include_last_updated_at='true')
     with left.container():
