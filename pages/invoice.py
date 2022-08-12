@@ -14,7 +14,7 @@ import time
 
 st.set_page_config(
      page_title="litCRM",
-     page_icon="🧊",
+     page_icon="🚀",
      layout="wide",
      initial_sidebar_state="expanded"
  )
@@ -28,11 +28,14 @@ def home_page():
     st.write("litCRM Readme https://github.com/mattmajestic/litCRM/blob/main/README.md")
     st.markdown("Checkout the Shiny Demo")
     components.iframe("https://drive.google.com/file/d/1bpHOLX8RkjMzXAj5LtHyMrsmpZ06Gipg/preview",500,350)
-    st.title("Customize your Profile")
-    picture = st.camera_input("Take a picture")
-    if picture:
-         st.image(picture)
-    st.sidebar.markdown("# Check out the Project Materials")
+    #st.title("Customize your Profile")
+    #picture = st.camera_input("Take a picture")
+    #if picture:
+         #st.image(picture)
+    audio_file = open('myaudio.ogg', 'rb')
+    audio_bytes = audio_file.read()
+    st.sidebar.markdown("# Welcome to the Beta!")
+    st.sidebar.audio(audio_bytes, format='audio/ogg')
         
 def invoice():
     products = pd.read_csv("./data/products.csv")
