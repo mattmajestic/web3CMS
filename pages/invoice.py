@@ -102,8 +102,8 @@ def clients():
         contacts = pd.read_csv("./data/contacts.csv")
     st.dataframe(contacts)
     my_bar = st.progress(0)
-    for percent_complete in range(25):
-         time.sleep(0.1)
+    for percent_complete in range(100):
+         time.sleep(0.05)
          my_bar.progress(percent_complete + 1)
     my_bar.empty()
 def products():
@@ -115,8 +115,8 @@ def products():
         products = pd.read_csv("./data/products.csv")
     st.dataframe(products)
     my_bar = st.progress(0)
-    for percent_complete in range(25):
-         time.sleep(0.1)
+    for percent_complete in range(100):
+         time.sleep(0.05)
          my_bar.progress(percent_complete + 1)
     my_bar.empty()
 def opportunities():
@@ -128,8 +128,8 @@ def opportunities():
         opportunities = pd.read_csv("./data/opportunities.csv")
     st.dataframe(opportunities)
     my_bar = st.progress(0)
-    for percent_complete in range(25):
-         time.sleep(0.1)
+    for percent_complete in range(100):
+         time.sleep(0.05)
          my_bar.progress(percent_complete + 1)
     my_bar.empty()
 def backend():
