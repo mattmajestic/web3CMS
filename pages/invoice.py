@@ -23,11 +23,11 @@ def home_page():
     cg_html = '''
     <script src="https://widgets.coingecko.com/coingecko-coin-price-marquee-widget.js"></script><coingecko-coin-price-marquee-widget  coin-ids="bitcoin,ethereum,eos,ripple,litecoin" currency="usd" background-color="#ffffff" locale="en"></coingecko-coin-price-marquee-widget>
     '''
-    components.html(cg_html)
-    st.header("❄ litCRM (Streamlit Based Crypto CRM)")
+    st.title("#❄ litCRM (Streamlit Based Crypto CRM)")
     st.markdown("# Check out the Project ReadMe 🚀")
     st.write("litCRM Readme https://github.com/mattmajestic/litCRM/blob/main/README.md")
-    components.iframe("https://drive.google.com/file/d/1bpHOLX8RkjMzXAj5LtHyMrsmpZ06Gipg/preview",500,350)
+    components.iframe("https://drive.google.com/file/d/1bpHOLX8RkjMzXAj5LtHyMrsmpZ06Gipg/preview",300,250)
+    components.html(cg_html)
     #st.title("Customize your Profile")
     #picture = st.camera_input("Take a picture")
     #if picture:
