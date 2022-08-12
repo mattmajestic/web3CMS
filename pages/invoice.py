@@ -32,10 +32,7 @@ def home_page():
     #picture = st.camera_input("Take a picture")
     #if picture:
          #st.image(picture)
-    audio_file = open('myaudio.ogg', 'rb')
-    audio_bytes = audio_file.read()
-    st.sidebar.markdown("# Welcome to the Beta!")
-    st.sidebar.audio(audio_bytes, format='audio/ogg')
+    st.sidebar.markdown("# Welcome to the Beta")
         
 def invoice():
     products = pd.read_csv("./data/products.csv")
