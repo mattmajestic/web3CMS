@@ -10,6 +10,7 @@ import yfinance as yf
 import web3
 from web3 import Web3, HTTPProvider 
 import json
+import time
 
 st.set_page_config(
      page_title="litCRM",
@@ -97,7 +98,11 @@ def clients():
     else:
         contacts = pd.read_csv("./data/contacts.csv")
     st.dataframe(contacts)
-    st.success('This is a success message!')
+    
+    my_bar = st.progress(0)
+    for percent_complete in range(100):
+    time.sleep(0.1)
+    my_bar.progress(percent_complete + 1)
     
 def products():
     uploaded_file = st.file_uploader("Upload your Products", type=['csv','xlsx'],accept_multiple_files=False,key="fileUploader")
@@ -107,7 +112,10 @@ def products():
     else:
         products = pd.read_csv("./data/products.csv")
     st.dataframe(products)
-    st.success('This is a success message!')
+    my_bar = st.progress(0)
+    for percent_complete in range(100):
+    time.sleep(0.1)
+    my_bar.progress(percent_complete + 1)
     
 def opportunities():
     uploaded_file = st.file_uploader("Upload your Opportunities", type=['csv','xlsx'],accept_multiple_files=False,key="fileUploader")
@@ -117,7 +125,10 @@ def opportunities():
     else:
         opportunities = pd.read_csv("./data/opportunities.csv")
     st.dataframe(opportunities)
-    st.success('This is a success message!')
+    my_bar = st.progress(0)
+    for percent_complete in range(100):
+    time.sleep(0.1)
+    my_bar.progress(percent_complete + 1)
     
 def backend():
     products = pd.read_csv("./data/products.csv")
