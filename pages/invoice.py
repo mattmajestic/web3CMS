@@ -44,7 +44,6 @@ def invoice():
     cg_html = '''
     <script src="https://widgets.coingecko.com/coingecko-coin-list-widget.js"></script><coingecko-coin-list-widget  coin-ids="bitcoin,ethereum" currency="usd" locale="en"></coingecko-coin-list-widget>
     '''
-    components.html(cg_html)
     st.title("❄ litCRM (Streamlit Based Crypto CRM)")
     st.sidebar.markdown("Crypto Invoicing")
 
@@ -75,6 +74,8 @@ def invoice():
     invoice_msg = "Invoice Total " + coin
     right.text(invoice_msg)
     right.write(invoice_total)
+    with right:
+         components.html(cg_html)
 
     if submit:
         html = template.render(
