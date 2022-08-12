@@ -38,6 +38,11 @@ def invoice():
     products = pd.read_csv("./data/products.csv")
     contacts = pd.read_csv("./data/contacts.csv")
     opportunities = pd.read_csv("./data/opportunities.csv")
+    
+    cg_html = '''
+    <script src="https://widgets.coingecko.com/coingecko-coin-list-widget.js"></script><coingecko-coin-list-widget  coin-ids="bitcoin,ethereum" currency="usd" locale="en"></coingecko-coin-list-widget>
+    '''
+    components.html(cg_html)
     st.title("❄ litCRM (Streamlit Based CRM)")
     st.sidebar.markdown("Crypto Invoicing")
 
@@ -68,10 +73,6 @@ def invoice():
     invoice_msg = "Invoice Total " + coin
     right.text(invoice_msg)
     right.write(invoice_total)
-    cg_html = '''
-    <script src="https://widgets.coingecko.com/coingecko-coin-list-widget.js"></script><coingecko-coin-list-widget  coin-ids="bitcoin,ethereum,eos,ripple,litecoin" currency="usd" locale="en"></coingecko-coin-list-widget>
-    '''
-    components.html(cg_html)
 
     if submit:
         html = template.render(
