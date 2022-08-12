@@ -98,7 +98,6 @@ def clients():
     else:
         contacts = pd.read_csv("./data/contacts.csv")
     st.dataframe(contacts)
-    
     my_bar = st.progress(0)
     for percent_complete in range(100):
     time.sleep(0.1)
