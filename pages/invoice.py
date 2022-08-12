@@ -20,13 +20,15 @@ st.set_page_config(
  )
 
 def home_page():
+    left,center, right = st.columns([5,2,5])
     cg_html = '''
     <script src="https://widgets.coingecko.com/coingecko-coin-price-marquee-widget.js"></script><coingecko-coin-price-marquee-widget  coin-ids="bitcoin,ethereum,eos,ripple,litecoin" currency="usd" background-color="#ffffff" locale="en"></coingecko-coin-price-marquee-widget>
     '''
-    st.title("#❄ litCRM (Streamlit Based Crypto CRM)")
-    st.markdown("# Check out the Project ReadMe 🚀")
-    st.write("litCRM Readme https://github.com/mattmajestic/litCRM/blob/main/README.md")
-    components.iframe("https://drive.google.com/file/d/1bpHOLX8RkjMzXAj5LtHyMrsmpZ06Gipg/preview",300,250)
+    left.title("❄ litCRM (Streamlit Based Crypto CRM)")
+    left.markdown("# Check out the Project ReadMe 🚀")
+    left.write("litCRM Readme https://github.com/mattmajestic/litCRM/blob/main/README.md")
+    with right:
+         components.iframe("https://drive.google.com/file/d/1bpHOLX8RkjMzXAj5LtHyMrsmpZ06Gipg/preview",400,300) 
     components.html(cg_html)
     #st.title("Customize your Profile")
     #picture = st.camera_input("Take a picture")
