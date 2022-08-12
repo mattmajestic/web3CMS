@@ -102,7 +102,7 @@ def clients():
     for percent_complete in range(100):
          time.sleep(0.1)
          my_bar.progress(percent_complete + 1)
-    
+    my_bar.empty()
 def products():
     uploaded_file = st.file_uploader("Upload your Products", type=['csv','xlsx'],accept_multiple_files=False,key="fileUploader")
     st.sidebar.markdown("# Product Management")
@@ -115,20 +115,20 @@ def products():
     for percent_complete in range(100):
          time.sleep(0.1)
          my_bar.progress(percent_complete + 1)
-    
+    my_bar.empty()
 def opportunities():
     uploaded_file = st.file_uploader("Upload your Opportunities", type=['csv','xlsx'],accept_multiple_files=False,key="fileUploader")
     st.sidebar.markdown("# Opportunities Tracker")
     if uploaded_file is not None:
         opportunities = pd.read_csv(uploaded_file)
     else:
-        opportunities = pd.read_csv("./data/opportunities.csv")
+        opportunities = my_bar.empty()pd.read_csv("./data/opportunities.csv")
     st.dataframe(opportunities)
     my_bar = st.progress(0)
     for percent_complete in range(100):
          time.sleep(0.1)
          my_bar.progress(percent_complete + 1)
-    
+    my_bar.empty()
 def backend():
     products = pd.read_csv("./data/products.csv")
     contacts = pd.read_csv("./data/contacts.csv")
