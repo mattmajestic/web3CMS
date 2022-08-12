@@ -20,7 +20,7 @@ st.set_page_config(
  )
 
 def home_page():
-    left,center, right = st.columns([7,1,4])
+    left, right = st.columns([7,5])
     cg_html = '''
     <script src="https://widgets.coingecko.com/coingecko-coin-price-marquee-widget.js"></script><coingecko-coin-price-marquee-widget  coin-ids="bitcoin,ethereum,eos,ripple,litecoin" currency="usd" background-color="#ffffff" locale="en"></coingecko-coin-price-marquee-widget>
     '''
@@ -95,7 +95,7 @@ def invoice():
         )
 def clients():
     st.snow()
-    left,center, right = st.columns([5,2,5])
+    left,right = st.columns([5,5])
     uploaded_file = left.file_uploader("Upload your Clients", type=['csv','xlsx'],accept_multiple_files=False,key="fileUploader")
     st.sidebar.markdown("# Client Management")
     if uploaded_file is not None:
@@ -109,7 +109,7 @@ def clients():
          my_bar.progress(percent_complete + 1)
     my_bar.empty()
 def products():
-    left,center, right = st.columns([5,2,5])
+    left, right = st.columns([5,5])
     uploaded_file = left.file_uploader("Upload your Products", type=['csv','xlsx'],accept_multiple_files=False,key="fileUploader")
     st.sidebar.markdown("# Product Management")
     if uploaded_file is not None:
@@ -123,7 +123,7 @@ def products():
          my_bar.progress(percent_complete + 1)
     my_bar.empty()
 def opportunities():
-    left,center, right = st.columns([5,2,5])
+    left,right = st.columns([5,5])
     uploaded_file = left.file_uploader("Upload your Opportunities", type=['csv','xlsx'],accept_multiple_files=False,key="fileUploader")
     st.sidebar.markdown("# Opportunities Tracker")
     if uploaded_file is not None:
