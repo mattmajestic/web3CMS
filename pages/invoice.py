@@ -111,6 +111,13 @@ def opportunities():
     else:
         opportunities = pd.read_csv("./data/opportunities.csv")
     st.dataframe(opportunities)
+
+def profile():
+    st.title("Customize your Profile")
+    picture = st.camera_input("Take a picture")
+    if picture:
+         st.image(picture)
+    
     
 def backend():
     products = pd.read_csv("./data/products.csv")
