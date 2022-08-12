@@ -100,8 +100,8 @@ def clients():
     st.dataframe(contacts)
     my_bar = st.progress(0)
     for percent_complete in range(100):
-    time.sleep(0.1)
-    my_bar.progress(percent_complete + 1)
+         time.sleep(0.1)
+         my_bar.progress(percent_complete + 1)
     
 def products():
     uploaded_file = st.file_uploader("Upload your Products", type=['csv','xlsx'],accept_multiple_files=False,key="fileUploader")
@@ -113,8 +113,8 @@ def products():
     st.dataframe(products)
     my_bar = st.progress(0)
     for percent_complete in range(100):
-    time.sleep(0.1)
-    my_bar.progress(percent_complete + 1)
+         time.sleep(0.1)
+         my_bar.progress(percent_complete + 1)
     
 def opportunities():
     uploaded_file = st.file_uploader("Upload your Opportunities", type=['csv','xlsx'],accept_multiple_files=False,key="fileUploader")
@@ -126,8 +126,8 @@ def opportunities():
     st.dataframe(opportunities)
     my_bar = st.progress(0)
     for percent_complete in range(100):
-    time.sleep(0.1)
-    my_bar.progress(percent_complete + 1)
+         time.sleep(0.1)
+         my_bar.progress(percent_complete + 1)
     
 def backend():
     products = pd.read_csv("./data/products.csv")
