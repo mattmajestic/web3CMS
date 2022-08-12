@@ -174,8 +174,8 @@ def dash():
     eth_1_year_data = lc.get_assets(symbol=['ETH'],data_points=365, interval='day')
     with right.container():
         right.title("LunarCrush API")
+        right.image("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwRhSbOtWFqO4IjI0vcb_gNsTK644-bdO3t_YkW_qq&s",width=200)
         right.write(eth_1_year_data)
-        right.image("https://www.lcx.com/wp-content/uploads/20200630-Partnerships-LunarCRUSH.png",width=200)
 
 page_names_to_funcs = {
     "Home Page": home_page,
