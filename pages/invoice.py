@@ -20,12 +20,12 @@ st.set_page_config(
  )
 
 def home_page():
-    left,center, right = st.columns([5,2,5])
+    left,center, right = st.columns([7,1,4])
     cg_html = '''
     <script src="https://widgets.coingecko.com/coingecko-coin-price-marquee-widget.js"></script><coingecko-coin-price-marquee-widget  coin-ids="bitcoin,ethereum,eos,ripple,litecoin" currency="usd" background-color="#ffffff" locale="en"></coingecko-coin-price-marquee-widget>
     '''
     left.title("❄ litCRM (Streamlit Based Crypto CRM)")
-    left.markdown("# Check out the Project ReadMe 🚀")
+    left.text("Check out the Project ReadMe 🚀")
     left.write("litCRM Readme https://github.com/mattmajestic/litCRM/blob/main/README.md")
     with right:
          components.iframe("https://drive.google.com/file/d/1bpHOLX8RkjMzXAj5LtHyMrsmpZ06Gipg/preview",400,300) 
