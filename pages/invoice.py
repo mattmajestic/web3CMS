@@ -24,9 +24,9 @@ def home_page():
     <script src="https://widgets.coingecko.com/coingecko-coin-price-marquee-widget.js"></script><coingecko-coin-price-marquee-widget  coin-ids="bitcoin,ethereum,eos,ripple,litecoin" currency="usd" background-color="#ffffff" locale="en"></coingecko-coin-price-marquee-widget>
     '''
     components.html(cg_html)
+    st.header("❄ litCRM (Streamlit Based Crypto CRM)")
     st.markdown("# Check out the Project ReadMe 🚀")
     st.write("litCRM Readme https://github.com/mattmajestic/litCRM/blob/main/README.md")
-    st.markdown("Checkout the Shiny Demo")
     components.iframe("https://drive.google.com/file/d/1bpHOLX8RkjMzXAj5LtHyMrsmpZ06Gipg/preview",500,350)
     #st.title("Customize your Profile")
     #picture = st.camera_input("Take a picture")
@@ -43,7 +43,7 @@ def invoice():
     <script src="https://widgets.coingecko.com/coingecko-coin-list-widget.js"></script><coingecko-coin-list-widget  coin-ids="bitcoin,ethereum" currency="usd" locale="en"></coingecko-coin-list-widget>
     '''
     components.html(cg_html)
-    st.title("❄ litCRM (Streamlit Based CRM)")
+    st.title("❄ litCRM (Streamlit Based Crypto CRM)")
     st.sidebar.markdown("Crypto Invoicing")
 
     left,center, right = st.columns([5,2,5])
