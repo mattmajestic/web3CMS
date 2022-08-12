@@ -172,7 +172,7 @@ def dash():
         center.image("https://www.pngall.com/wp-content/uploads/10/PancakeSwap-Crypto-Logo-PNG-Images.png",width=200)
     lc = LunarCrush()
     eth_1_year_data = lc.get_assets(symbol=['ETH'],data_points=365, interval='day')
-    with right.container():
+    with right.container('#00f900'):
         right.title("LunarCrush API")
         right.image("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwRhSbOtWFqO4IjI0vcb_gNsTK644-bdO3t_YkW_qq&s",width=200)
         right.write(eth_1_year_data)
