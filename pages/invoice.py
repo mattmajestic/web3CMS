@@ -99,7 +99,7 @@ def clients():
         contacts = pd.read_csv("./data/contacts.csv")
     st.dataframe(contacts)
     my_bar = st.progress(0)
-    for percent_complete in range(100):
+    for percent_complete in range(25):
          time.sleep(0.1)
          my_bar.progress(percent_complete + 1)
     my_bar.empty()
@@ -112,7 +112,7 @@ def products():
         products = pd.read_csv("./data/products.csv")
     st.dataframe(products)
     my_bar = st.progress(0)
-    for percent_complete in range(100):
+    for percent_complete in range(25):
          time.sleep(0.1)
          my_bar.progress(percent_complete + 1)
     my_bar.empty()
@@ -122,10 +122,10 @@ def opportunities():
     if uploaded_file is not None:
         opportunities = pd.read_csv(uploaded_file)
     else:
-        opportunities = my_bar.empty()pd.read_csv("./data/opportunities.csv")
+        opportunities = pd.read_csv("./data/opportunities.csv")
     st.dataframe(opportunities)
     my_bar = st.progress(0)
-    for percent_complete in range(100):
+    for percent_complete in range(25):
          time.sleep(0.1)
          my_bar.progress(percent_complete + 1)
     my_bar.empty()
