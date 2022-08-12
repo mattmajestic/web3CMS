@@ -155,12 +155,20 @@ def backend():
     tab4.json(jsonRaw)
      
 def dash():
-    left, center, right = st.columns([5,2,5])
+    left, center, right = st.columns([4,4,4])
     cg = CoinGeckoAPI() 
     btc = cg.get_price(ids='bitcoin', vs_currencies='usd', include_market_cap='true', include_24hr_vol='true', include_24hr_change='true', include_last_updated_at='true')
     with left.container():
         left.write("Coin Gecko API")
         left.json(btc)
+    coin_addy = right.selectbox("Invoice Currency Price",["0x2170Ed0880ac9A755fd29B2688956BD959F933F8", "0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c","0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d"],index=0)
+    apiURL = "https://api.pancakeswap.info/api/v2/tokens/"
+    response = requests.get(url = apiURL + coin_addy)
+    pancake = response.json()
+    with center.container():
+        center.title("PancakeSwap API")
+        center.image("https://assets.coingecko.com/coins/images/12632/large/pancakeswap-cake-logo_%281%29.png?1629359065",width=400)
+        center.json(pancake)
     lc = LunarCrush()
     eth_1_year_data = lc.get_assets(symbol=['ETH'],data_points=365, interval='day')
     with right.container():
@@ -173,7 +181,7 @@ page_names_to_funcs = {
     "Clients": clients,
     "Products": products,
     "Opportunties": opportunities,
-    "Coin Gecko API": dash,
+    "API Feeds": dash,
     "Backend": backend,
     
 }
