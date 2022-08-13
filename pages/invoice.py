@@ -37,27 +37,10 @@ def home_page():
     #if picture:
          #st.image(picture)
     st.sidebar.markdown("# Welcome to the Beta")
-    components.html('''
-    <html>
-    <head>
-     <input type="button" value="Connect Wallet" onclick="connect();">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.7.4-rc.1/web3.min.js"></script>
-    </head>
-    <script>
-    async function connect() {
-     if (window.ethereum) {
-      await window.ethereum.request({ method: "eth_requestAccounts" });
-      window.web3 = new Web3(window.ethereum);
-      const account = web3.eth.accounts;
-      const walletAddress = account.givenProvider.selectedAddress;
-      console.log(`Wallet: ${walletAddress}`);
-     } else {
-      console.log("No wallet");
-     }
-    }
-    </script>
-    </html>  
-    ''')
+    component_toggle_buttons = components.declare_component(
+    name='metamask',
+    path='./index.html'
+    )    
         
 def invoice():
     products = pd.read_csv("./data/products.csv")
