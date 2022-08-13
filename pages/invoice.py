@@ -47,8 +47,7 @@ def home_page():
     </button>
     '''
     )
-    return_value = st_javascript("""
-    connectButton.addEventListener("click", () => {ethereum.request({ method: "eth_requestAccounts" })});
+    return_value = st_javascript("""connectButton.addEventListener("click", () => {ethereum.request({ method: "eth_requestAccounts" })});
     """)
     st.markdown(f"Return value was: {return_value}")
 def invoice():
