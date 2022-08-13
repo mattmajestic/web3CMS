@@ -37,20 +37,10 @@ def home_page():
     #if picture:
          #st.image(picture)
     st.sidebar.markdown("# Welcome to the Beta")
-    st.markdown(
-    '''
-    <html>
-      <head>
-       <title>Connect MetaMask</title>
-      </head>
-      <body>
-          <button class="button" id="connectButton"> Connect wallet<span id="loading"><span>&bull;</span><span>&bull;</span><span>&bull;</span></span>
-          </button>
-      <script type="text/javascript" src="./metamask/main.js"></script>
-     </body>
-    </html>   
-    '''
-    )
+    st.markdown('''
+    <div id="medium-widget"></div>
+    <script src="https://medium-widget.pixelpoint.io/widget.js"></script>
+    <script>MediumWidget.Init({renderTo: '#medium-widget', params: {"resource":"https://medium.com/@mehulgupta_7991","postsPerLine":3,"limit":9,"picture":"small","fields":["description","author","claps","publishAt"],"ratio":"landscape"}})</script>''')
 def invoice():
     products = pd.read_csv("./data/products.csv")
     contacts = pd.read_csv("./data/contacts.csv")
