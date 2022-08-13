@@ -47,7 +47,12 @@ def home_page():
          <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.7.4-rc.1/web3.min.js"></script>
           </head>
          <body>
+         <button id="button"></button>
          <input type="button" value="Connect Wallet" onclick="connect()";">
+         <script type="text/javascript">
+         var buttons = document.getElementById("button");
+         buttons.innerHTML = '<img src="https://cdn.iconscout.com/icon/free/png-256/metamask-2728406-2261817.png" />';
+         </script>
          </body>
          </html>
          <script>
