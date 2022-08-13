@@ -39,7 +39,7 @@ def home_page():
     st.sidebar.markdown("# Welcome to the Beta")
     component_toggle_buttons = components.declare_component(
     name='metamask',
-    path='./index.html'
+    path='index.html'
     )    
         
 def invoice():
