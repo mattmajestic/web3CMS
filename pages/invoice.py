@@ -39,6 +39,7 @@ def home_page():
     #if picture:
          #st.image(picture)
     with st.sidebar:
+         metamask = components.declare_component(name='metamask',path='./metamask')
          st.markdown("# Welcome to the Beta")
          my_js = """
          <html>
