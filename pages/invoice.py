@@ -40,26 +40,30 @@ def home_page():
     st.sidebar.markdown("# Welcome to the Beta")
     components.html(
     '''
+    <html>
+    <head>
+      <title>Connect to crypto wallet</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.7.4-rc.1/web3.min.js"></script>
-    <button class="button" id="connectButton">
-      Connect wallet
-      <span id="loading"><span>&bull;</span><span>&bull;</span><span>&bull;</span></span>
-    </button>
+     </head>
+    <body>
+    <script>
+    async function connect() {
+      if (window.ethereum) {
+         await window.ethereum.request({ method: "eth_requestAccounts" });
+         window.web3 = new Web3(window.ethereum);
+         const account = web3.eth.accounts;
+         const walletAddress = account.givenProvider.selectedAddress;
+         console.log(`Wallet: ${walletAddress}`);
+     } else {
+      console.log("No wallet");
+     }
+    }
+   </script>
+   <input type="button" value="Connect Wallet" onclick="connect();">
+   </body>
+   </html>
     '''
     )
-    return_value = st_javascript("""async function connectButton() {
-       if (window.ethereum) {
-          await window.ethereum.request({ method: "eth_requestAccounts" });
-          window.web3 = new Web3(window.ethereum);
-          const account = web3.eth.accounts;
-          const walletAddress = account.givenProvider.selectedAddress;
-          console.log(`Wallet: ${walletAddress}`);
-       } else {
-      console.log("No wallet");
-      }
-     }
-    """)
-    st.markdown(f"Return value was: {return_value}")
 def invoice():
     products = pd.read_csv("./data/products.csv")
     contacts = pd.read_csv("./data/contacts.csv")
