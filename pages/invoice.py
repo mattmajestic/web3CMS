@@ -38,34 +38,35 @@ def home_page():
     #picture = st.camera_input("Take a picture")
     #if picture:
          #st.image(picture)
-    st.sidebar.markdown("# Welcome to the Beta")
-    my_js = """
-    <html>
-    <head>
-      <title>Connect to crypto wallet</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.7.4-rc.1/web3.min.js"></script>
-     </head>
-    <body>
-    <input type="button" value="Connect Wallet" onclick="connect()";">
-    </body>
-    </html>
-    <script>
-    const Web3 = require("web3");
-    async function connect() {
-      if (window.ethereum) {
-         await window.ethereum.request({ method: "eth_requestAccounts" });
-         window.web3 = new Web3(window.ethereum);
-         const account = web3.eth.accounts;
-         const walletAddress = account.givenProvider.selectedAddress;
-         console.log(`Wallet: ${walletAddress}`);
-     } else {
-      console.log("No wallet");
-     }
-    }
-    </script>
-    """
-    my_html = f"<script>{my_js}</script>"
-    html(my_html)
+    with st.sidebar:
+         st.markdown("# Welcome to the Beta")
+         my_js = """
+         <html>
+         <head>
+           <title>Connect to crypto wallet</title>
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.7.4-rc.1/web3.min.js"></script>
+          </head>
+         <body>
+         <input type="button" value="Connect Wallet" onclick="connect()";">
+         </body>
+         </html>
+         <script>
+         const Web3 = require("web3");
+         async function connect() {
+           if (window.ethereum) {
+              await window.ethereum.request({ method: "eth_requestAccounts" });
+              window.web3 = new Web3(window.ethereum);
+              const account = web3.eth.accounts;
+              const walletAddress = account.givenProvider.selectedAddress;
+              console.log(`Wallet: ${walletAddress}`);
+          } else {
+           console.log("No wallet");
+          }
+         }
+         </script>
+         """
+         my_html = f"<script>{my_js}</script>"
+         st.html(my_html)
 def invoice():
     products = pd.read_csv("./data/products.csv")
     contacts = pd.read_csv("./data/contacts.csv")
