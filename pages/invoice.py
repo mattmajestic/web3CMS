@@ -39,27 +39,24 @@ def home_page():
     st.sidebar.markdown("# Welcome to the Beta")
     components.html('''
     <html>
-     <head>
-      <title>Connect to crypto wallet</title>
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.7.4-rc.1/web3.min.js"></script>
-      </head>
-     <body>
-     <script>
-     async function connect() {
-      if (window.ethereum) {
-        await window.ethereum.request({ method: "eth_requestAccounts" });
-        window.web3 = new Web3(window.ethereum);
-        const account = web3.eth.accounts;
-        const walletAddress = account.givenProvider.selectedAddress;
-        console.log(`Wallet: ${walletAddress}`);
+    <head>
+     <input type="button" value="Connect Wallet" onclick="connect();">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.7.4-rc.1/web3.min.js"></script>
+    </head>
+    <script>
+    async function connect() {
+     if (window.ethereum) {
+      await window.ethereum.request({ method: "eth_requestAccounts" });
+      window.web3 = new Web3(window.ethereum);
+      const account = web3.eth.accounts;
+      const walletAddress = account.givenProvider.selectedAddress;
+      console.log(`Wallet: ${walletAddress}`);
      } else {
       console.log("No wallet");
      }
     }
     </script>
-    <input type="button" value="Connect Wallet" onclick="connect();">
-    </body>
-    </html>   
+    </html>  
     ''')
         
 def invoice():
