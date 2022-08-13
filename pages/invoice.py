@@ -51,7 +51,7 @@ def home_page():
          <input type="button" value="Connect Wallet" onclick="connect()";">
          <script type="text/javascript">
          var buttons = document.getElementById("button");
-         buttons.innerHTML = '<img src="https://cdn.iconscout.com/icon/free/png-256/metamask-2728406-2261817.png" />';
+         buttons.innerHTML = '<img src="https://i.gadgets360cdn.com/large/MetaMask_new_cover_press_kit_resources_small_1648636533526.jpg" />';
          </script>
          </body>
          </html>
