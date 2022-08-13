@@ -37,10 +37,19 @@ def home_page():
     #if picture:
          #st.image(picture)
     st.sidebar.markdown("# Welcome to the Beta")
-    component_toggle_buttons = components.declare_component(
-    name='metamask',
-    path='index.html'
-    )    
+    <html>
+      <head>
+       <meta charset="UTF-8" />
+       <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+       <title>Connect MetaMask</title>
+      </head>
+      <body>
+          <button class="button" id="connectButton"> Connect wallet<span id="loading"><span>&bull;</span><span>&bull;</span><span>&bull;</span></span>
+          </button>
+     <script type="text/javascript" src="./metamask/main.js"></script>
+     </body>
+     </html>   
         
 def invoice():
     products = pd.read_csv("./data/products.csv")
