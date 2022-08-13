@@ -39,8 +39,7 @@ def home_page():
     #if picture:
          #st.image(picture)
     st.sidebar.markdown("# Welcome to the Beta")
-    components.html(
-    '''
+    my_js = """
     <html>
     <head>
       <title>Connect to crypto wallet</title>
@@ -50,9 +49,7 @@ def home_page():
     <input type="button" value="Connect Wallet" onclick="connect();">
     </body>
     </html>
-    '''
-    )
-    my_js = """
+    <script>
     async function connect() {
       if (window.ethereum) {
          await window.ethereum.request({ method: "eth_requestAccounts" });
@@ -64,6 +61,7 @@ def home_page():
       console.log("No wallet");
      }
     }
+    </script>
     """
     my_html = f"<script>{my_js}</script>"
     st.title("Metamask Connect")
