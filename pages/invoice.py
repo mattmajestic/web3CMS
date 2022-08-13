@@ -38,6 +38,14 @@ def home_page():
     #if picture:
          #st.image(picture)
     st.sidebar.markdown("# Welcome to the Beta")
+    components.html(
+    '''
+    <button class="button" id="connectButton">
+      Connect wallet
+      <span id="loading"><span>&bull;</span><span>&bull;</span><span>&bull;</span></span>
+    </button>
+    '''
+    )
     return_value = st_javascript("""await fetch("https://reqres.in/api/products/3").then(function(response) {
     return response.json();
     })  
