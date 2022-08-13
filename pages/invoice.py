@@ -37,7 +37,7 @@ def home_page():
     #if picture:
          #st.image(picture)
     st.sidebar.markdown("# Welcome to the Beta")
-    st.html(
+    st.markdown(
     '''
     <html>
       <head>
