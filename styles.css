@@ -1,0 +1,28 @@
+body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  background: black;
+  overflow: hidden;
+  display: flex;
+  color:white;
+  font-family:Arial, Helvetica, sans-serif;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+button {
+  border: solid 2px #444;
+  font-size:20px;
+  padding: 20px 40px 20px 70px;
+  background: #dd6e2e;
+  background-image: url("mm.png");
+  background-size: 40px;
+  background-repeat: no-repeat;
+  background-position: 20px;
+  font-weight: bold;
+  color: #fff;
+  box-shadow: inset 2px 2px 0 #fff, 0 8px 10px -4px rgba(0,0,0,0.4);
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
