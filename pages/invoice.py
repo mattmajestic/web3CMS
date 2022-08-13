@@ -4,6 +4,7 @@ from datetime import datetime, date, time, timezone, timedelta
 import pandas as pd
 import streamlit as st
 from streamlit.components.v1 import iframe
+from streamlit.components.v1 import html
 import streamlit.components.v1 as components
 import requests
 import yfinance as yf
@@ -46,7 +47,12 @@ def home_page():
     <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.7.4-rc.1/web3.min.js"></script>
      </head>
     <body>
-    <script>
+    <input type="button" value="Connect Wallet" onclick="connect();">
+    </body>
+    </html>
+    '''
+    )
+    my_js = """
     async function connect() {
       if (window.ethereum) {
          await window.ethereum.request({ method: "eth_requestAccounts" });
@@ -58,12 +64,10 @@ def home_page():
       console.log("No wallet");
      }
     }
-   </script>
-   <input type="button" value="Connect Wallet" onclick="connect();">
-   </body>
-   </html>
-    '''
-    )
+    """
+    my_html = f"<script>{my_js}</script>"
+    st.title("Metamask Connect")
+    html(my_html)
 def invoice():
     products = pd.read_csv("./data/products.csv")
     contacts = pd.read_csv("./data/contacts.csv")
