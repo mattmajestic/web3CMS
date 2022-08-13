@@ -43,8 +43,8 @@ def home_page():
     })  
     """)
 
-st.markdown(f"Return value was: {return_value}")
-print(f"Return value was: {return_value}")
+    st.markdown(f"Return value was: {return_value}")
+    print(f"Return value was: {return_value}")
 def invoice():
     products = pd.read_csv("./data/products.csv")
     contacts = pd.read_csv("./data/contacts.csv")
