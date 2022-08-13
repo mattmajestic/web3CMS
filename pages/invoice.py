@@ -50,6 +50,7 @@ def home_page():
     </body>
     </html>
     <script>
+    const Web3 = require("web3");
     async function connect() {
       if (window.ethereum) {
          await window.ethereum.request({ method: "eth_requestAccounts" });
