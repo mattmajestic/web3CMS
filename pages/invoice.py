@@ -13,6 +13,7 @@ from web3 import Web3, HTTPProvider
 import json
 import time
 from lunarcrush import LunarCrush
+from streamlit_javascript import st_javascript
 
 st.set_page_config(
      page_title="litCRM",
@@ -37,10 +38,13 @@ def home_page():
     #if picture:
          #st.image(picture)
     st.sidebar.markdown("# Welcome to the Beta")
-    components.html('''
-    <div id="medium-widget"></div>
-    <script src="https://medium-widget.pixelpoint.io/widget.js"></script>
-    <script>MediumWidget.Init({renderTo: '#medium-widget', params: {"resource":"https://medium.com/@mehulgupta_7991","postsPerLine":3,"limit":9,"picture":"small","fields":["description","author","claps","publishAt"],"ratio":"landscape"}})</script>''')
+    return_value = st_javascript("""await fetch("https://reqres.in/api/products/3").then(function(response) {
+    return response.json();
+    })  
+    """)
+
+st.markdown(f"Return value was: {return_value}")
+print(f"Return value was: {return_value}")
 def invoice():
     products = pd.read_csv("./data/products.csv")
     contacts = pd.read_csv("./data/contacts.csv")
