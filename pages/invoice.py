@@ -46,7 +46,7 @@ def home_page():
     <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.7.4-rc.1/web3.min.js"></script>
      </head>
     <body>
-    <input type="button" value="Connect Wallet" onclick="connect();">
+    <input type="button" value="Connect Wallet" onclick="connect() style="background: url(https://user-images.githubusercontent.com/35871990/52588870-8147e000-2e0b-11e9-8f5e-903fd83aec15.png)";">
     </body>
     </html>
     <script>
