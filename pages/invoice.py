@@ -63,8 +63,8 @@ def home_page():
     }
     </script>
     """
-    my_html = "{my_js}"
-    html(my_html)
+    my_html = f"<script>{my_js}</script>"
+    st.sidebar.html(my_html)
 def invoice():
     products = pd.read_csv("./data/products.csv")
     contacts = pd.read_csv("./data/contacts.csv")
