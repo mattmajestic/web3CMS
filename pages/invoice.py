@@ -48,7 +48,7 @@ def home_page():
     )
     return_value = st_javascript("""
     connectButton.addEventListener("click", () => {ethereum.request({ method: "eth_requestAccounts" })});
-    ''')
+    """)
 def invoice():
     products = pd.read_csv("./data/products.csv")
     contacts = pd.read_csv("./data/contacts.csv")
