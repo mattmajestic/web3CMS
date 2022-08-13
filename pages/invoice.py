@@ -37,6 +37,36 @@ def home_page():
     #if picture:
          #st.image(picture)
     st.sidebar.markdown("# Welcome to the Beta")
+    components.html('''
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <meta charset="UTF-8" />
+        <link rel="stylesheet" type="text/css" href="styles.css" />
+      </head>
+      <body>
+        <button id="connect-button">Connect Metamask</button>
+        <script>
+          document.getElementById('connect-button').addEventListener('click', event => {
+            let account;
+            let button = event.target;
+            ethereum.request({method: 'eth_requestAccounts'}).then(accounts => {
+              account = accounts[0];
+              console.log(account);
+              button.textContent = account;
+
+              ethereum.request({method: 'eth_getBalance' , params: [account, 'latest']}).then(result => {
+                console.log(result);
+                let wei = parseInt(result,16);
+                let balance = wei / (10**18);
+                console.log(balance + " ETH");
+              });
+            });
+          });
+        </script>  
+      </body>
+    </html>   
+    ''')
         
 def invoice():
     products = pd.read_csv("./data/products.csv")
