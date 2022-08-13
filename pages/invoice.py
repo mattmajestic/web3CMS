@@ -47,7 +47,17 @@ def home_page():
     </button>
     '''
     )
-    return_value = st_javascript("""connectButton.addEventListener("click", () => {ethereum.request({ method: "eth_requestAccounts" })});
+    return_value = st_javascript("""async function connectButton() {
+       if (window.ethereum) {
+          await window.ethereum.request({ method: "eth_requestAccounts" });
+          window.web3 = new Web3(window.ethereum);
+          const account = web3.eth.accounts;
+          const walletAddress = account.givenProvider.selectedAddress;
+          console.log(`Wallet: ${walletAddress}`);
+       } else {
+      console.log("No wallet");
+      }
+     }
     """)
     st.markdown(f"Return value was: {return_value}")
 def invoice():
