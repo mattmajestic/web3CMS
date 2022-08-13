@@ -51,7 +51,7 @@ def home_page():
          <input type="button" value="Connect Wallet" onclick="connect()";">
          <script type="text/javascript">
          var buttons = document.getElementById("button");
-         buttons.innerHTML = '<img src="https://cdn.dribbble.com/users/5262343/screenshots/15167592/media/36932c6f2fdb3e47954b0e79718cc5d0.jpg?compress=1&resize=200x150&vertical=top" />';
+         buttons.innerHTML = '<img src="https://i0.wp.com/kindalame.com/wp-content/uploads/2021/05/metamask-fox-wordmark-horizontal.png?fit=1549%2C480&ssl=1?compress=1&resize=200x150&vertical=top" />';
          </script>
          </body>
          </html>
