@@ -17,7 +17,7 @@ from lunarcrush import LunarCrush
 from streamlit_javascript import st_javascript
 
 st.set_page_config(
-     page_title="litCRM",
+     page_title="litBMS",
      page_icon="🚀",
      layout="wide",
      initial_sidebar_state="expanded"
@@ -28,9 +28,9 @@ def home_page():
     cg_html = '''
     <script src="https://widgets.coingecko.com/coingecko-coin-price-marquee-widget.js"></script><coingecko-coin-price-marquee-widget  coin-ids="bitcoin,ethereum,eos,ripple,litecoin" currency="usd" background-color="#ffffff" locale="en"></coingecko-coin-price-marquee-widget>
     '''
-    left.title("❄ litCRM (Streamlit Based Crypto CRM)")
+    left.title("❄ litBMS (Streamlit Based Crypto Business Management Solution)")
     left.text("Check out the Project ReadMe 🚀")
-    left.write("litCRM Readme https://github.com/mattmajestic/litCRM/blob/main/README.md")
+    left.write("litBMS Readme https://github.com/mattmajestic/litBMS/blob/main/README.md")
     with right:
          components.iframe("https://drive.google.com/file/d/1bpHOLX8RkjMzXAj5LtHyMrsmpZ06Gipg/preview",400,300) 
     components.html(cg_html)
@@ -76,7 +76,7 @@ def invoice():
     cg_html = '''
     <script src="https://widgets.coingecko.com/coingecko-coin-list-widget.js"></script><coingecko-coin-list-widget  coin-ids="bitcoin,ethereum" currency="usd" locale="en"></coingecko-coin-list-widget>
     '''
-    st.title("❄ litCRM (Streamlit Based Crypto CRM)")
+    st.title("❄ litBMS (Streamlit Based Crypto Business Management Solutions)")
     st.sidebar.markdown("Crypto Invoicing")
 
     left,center, right = st.columns([5,2,5])
