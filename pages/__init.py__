@@ -1,5 +1,0 @@
-from .invoice import invoice
-
-pages = {
-    "Invoice": invoice,
-}
