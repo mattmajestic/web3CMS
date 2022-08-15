@@ -1,11 +1,11 @@
-pdfkit
 streamlit
 streamlit-multipage
+streamlit-javascript
+streamlit-authenticator
+pdfkit
 DateTime
 pycoingecko
-streamlit-authenticator
 requests
 yfinance
 web3
 lunarcrush
-streamlit-javascript
