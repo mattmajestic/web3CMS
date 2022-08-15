@@ -48,11 +48,10 @@ def home_page():
          <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.7.4-rc.1/web3.min.js"></script>
           </head>
          <body>
-         <input id="button" type="button" value="Connect MetaMask Wallet" onclick="connect();" />
+         <input id="button" type="button" value="Connect MetaMask Wallet" onclick="connect();"/>
          </body>
          </html>
          <script>
-         const Web3 = require("web3");
          async function connect() {
            await window.ethereum.request({ method: "eth_requestAccounts" });
            window.web3 = new Web3(window.ethereum);
