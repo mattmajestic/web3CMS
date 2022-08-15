@@ -44,18 +44,16 @@ def home_page():
          my_js = """
          <html>
          <head>
-         <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.7.4-rc.1/web3.min.js"></script>
-          </head>
-         <body>
            <input type="button" value="Connect MM Wallet" onclick = "connect();">
-         </body>
-         </html>
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.7.4-rc.1/web3.min.js"></script>
+         </head>
          <script>
            async function connect() {
              accounts = await ethereum.request({ method: 'eth_requestAccounts' });
              console.log(accounts)
              };
          </script>
+         </html>
          """
          my_html = f"<script>{my_js}</script>"
          html(my_html)
