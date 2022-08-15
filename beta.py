@@ -44,11 +44,10 @@ def home_page():
          my_js = """
          <html>
          <head>
-           <title>Connect to crypto wallet</title>
          <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.7.4-rc.1/web3.min.js"></script>
           </head>
          <body>
-         <input id="button" type="button" value="Connect MetaMask Wallet" onclick="connect();"/>
+           <input type="button" value="Connect MM Wallet" onclick = "connect();">
          </body>
          </html>
          <script>
