@@ -1,26 +1,37 @@
-# litCRM 🚀
-a lightweight crm built in Streamlit
+# litBMS 🚀
+a lightweight web3 enabled business management solution based in Streamlit
+
 
 ## Business Opportunity 💸
-  -  Large CRM Providers require expensive & long term contracts leaving market share for flexible + nimble solutions 💰
-  - Streamlit recently bought for $800m by Snowflake ❄️
-  - Enable crypto/defi functions within CRM 🎬
+- Large CRM Providers require expensive & long term contracts leaving market share for flexible + nimble solutions 💰
+- Enable crypto/defi functions to aid running your business 🎬
+- Example: Invoice in 80% cash = 20% crypto
+- Create a flexible Python based Business Management Services framework for Small to Medium sized businesses
 
 ## SDLC LifeCycle: Dev 🚝 
 
-## Tech Stack 📡
-- R Based in Shiny @ https://mmajestic.shinyapps.io/shinyCRM
-- Python Based in Streamlit @ https://mattmajestic-litcrm-pagesinvoice-mh000s.streamlitapp.com/
-- Streamlit Hosting
-- Docker/Container Enabled on ☁️ Cloud Providers including:
-  - Dockerhub
-  - AWS ECR
-  - Azure ACR
-  - Google Cloud Container Registry
+## Market Sizing 📈
+- **Market Size:**
+  - $49.6 Billion Revenue
+  - CAGR: 1.7%
+- **Market Share:**
+  - 50% from 5 companies
+- Few players in **crypto/data science space**
+- **Streamlit** recently bought for $800m by **Snowflake** ❄️
 
-## Install litCRM Boilerplate 💥
+## Tech Stack 📡
+- Python
+- Streamlit Hosting
+- ☁️ Cloud Provider Integrations:
+  - AWS 
+  - Azure 
+  - Google Cloud
+
+## Get Started...
+
+## Install litBMS Boilerplate 💥
 ```bash
-git clone https://github.com/mattmajestic/litCRM.git
+git clone https://github.com/mattmajestic/litBMS.git
 ```
 
 ## Update the csvs in the data/ directory 📂
@@ -28,9 +39,3 @@ git clone https://github.com/mattmajestic/litCRM.git
 - Products
 - Opportunities
 
-## Product User Story 📕
-```mermaid
-flowchart LR
-    a[(Update Tables)] --> b([Upload to Github])
-    b --> c((Deploy to Streamlit Cloud))
- ```
