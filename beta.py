@@ -44,7 +44,7 @@ def home_page():
          my_js = """
          <html>
          <head>
-           <input type="button" value="Connect MM Wallet" onclick = "connect();">
+           <input type="button" value="Connect MM Wallet" onclick = "connect();"/>
          </head>
          <script>
            async function connect() {
