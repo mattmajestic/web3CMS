@@ -45,8 +45,7 @@ def home_page():
          <html>
          <head>
            <input type="button" value="Connect MM Wallet" onclick = "connect();">
-         <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.7.4-rc.1/web3.min.js"></script>
-          </head>
+         </head>
          <script>
            async function connect() {
              accounts = await ethereum.request({ method: 'eth_requestAccounts' });
