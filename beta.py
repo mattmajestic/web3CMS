@@ -48,7 +48,7 @@ def home_page():
          <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.7.4-rc.1/web3.min.js"></script>
           </head>
          <body>
-         <input type="button" value="Connect Wallet" onclick="connect()">
+         <input id="button" type="button" value="Connect MetaMask Wallet" onclick="connect();" />
          </body>
          </html>
          <script>
