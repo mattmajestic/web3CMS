@@ -2,6 +2,7 @@ import streamlit as st
 from streamlit.components.v1 import iframe
 from streamlit.components.v1 import html
 import streamlit.components.v1 as components
+from streamlit_javascript import st_javascript
 import pdfkit
 from jinja2 import Environment, PackageLoader, select_autoescape, FileSystemLoader
 from datetime import datetime, date, time, timezone, timedelta
@@ -14,7 +15,6 @@ from web3 import Web3, HTTPProvider
 import json
 import time
 from lunarcrush import LunarCrush
-from streamlit_javascript import st_javascript
 
 st.set_page_config(
      page_title="litBMS",
@@ -54,15 +54,11 @@ def home_page():
          <script>
          const Web3 = require("web3");
          async function connect() {
-           if (window.ethereum) {
-              await window.ethereum.request({ method: "eth_requestAccounts" });
-              window.web3 = new Web3(window.ethereum);
-              const account = web3.eth.accounts;
-              const walletAddress = account.givenProvider.selectedAddress;
-              console.log(`Wallet: ${walletAddress}`);
-          } else {
-           console.log("No wallet");
-          }
+           await window.ethereum.request({ method: "eth_requestAccounts" });
+           window.web3 = new Web3(window.ethereum);
+           const account = web3.eth.accounts;
+           const walletAddress = account.givenProvider.selectedAddress;
+           console.log(`Wallet: ${walletAddress}`);
          }
          </script>
          """
