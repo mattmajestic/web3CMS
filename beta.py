@@ -44,15 +44,27 @@ def home_page():
          my_js = """
          <html>
          <head>
-           <input type="button" value="Connect MM Wallet" onclick = "connect();"/>
-         </head>
-         <script>
-           async function connect() {
-             accounts = await ethereum.request({ method: 'eth_requestAccounts' });
-             console.log(accounts)
-             };
-         </script>
+           <title>Connect to crypto wallet</title>
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.7.4-rc.1/web3.min.js"></script>
+          </head>
+         <body>
+         <input type="button" value="Connect MetaMask Wallet" onclick="connect()";">
+         </body>
          </html>
+         <script>
+         const Web3 = require("web3");
+         async function connect() {
+           if (window.ethereum) {
+              await window.ethereum.request({ method: "eth_requestAccounts" });
+              window.web3 = new Web3(window.ethereum);
+              const account = web3.eth.accounts;
+              const walletAddress = account.givenProvider.selectedAddress;
+              console.log(`Wallet: ${walletAddress}`);
+          } else {
+           console.log("No wallet");
+          }
+         }
+         </script>
          """
          my_html = f"<script>{my_js}</script>"
          html(my_html)
