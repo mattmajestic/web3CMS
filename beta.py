@@ -52,10 +52,10 @@ def home_page():
          </body>
          </html>
          <script>
-         async function connect() {
-          accounts = await ethereum.request({ method: 'eth_requestAccounts' });
-          console.log(accounts)
-          };
+           async function connect() {
+             accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+             console.log(accounts)
+             };
          </script>
          """
          my_html = f"<script>{my_js}</script>"
