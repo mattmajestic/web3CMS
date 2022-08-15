@@ -48,7 +48,7 @@ def home_page():
          <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.7.4-rc.1/web3.min.js"></script>
           </head>
          <body>
-         <input type="button" value="Connect Wallet" onclick="connect()";">
+         <input type="button" value="Connect Wallet" onclick="connect()">
          </body>
          </html>
          <script>
@@ -184,7 +184,7 @@ def backend():
     jsonRaw = response.json()
     tab4.json(jsonRaw)
      
-def dash():
+def api():
     left, center, right = st.columns([4,4,4])
     cg = CoinGeckoAPI() 
     btc = cg.get_price(ids='bitcoin', vs_currencies='usd', include_market_cap='true', include_24hr_vol='true', include_24hr_change='true', include_last_updated_at='true')
@@ -213,7 +213,7 @@ page_names_to_funcs = {
     "Clients": clients,
     "Products": products,
     "Opportunties": opportunities,
-    "API Feeds": dash,
+    "API Feeds": api,
     "Backend": backend,
     
 }
