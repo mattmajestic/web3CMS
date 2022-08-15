@@ -29,12 +29,12 @@ a lightweight web3 enabled business management solution based in Streamlit
 
 ## Get Started...
 
-## Install litBMS Boilerplate 💥
+### Install litBMS Boilerplate 💥
 ```bash
 git clone https://github.com/mattmajestic/litBMS.git
 ```
 
-## Update the csvs in the data/ directory 📂
+### Update the csvs in the data/ directory 📂
 - Contacts
 - Products
 - Opportunities
