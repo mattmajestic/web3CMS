@@ -1,5 +1,5 @@
-# litBMS 🚀
-a lightweight web3 enabled business management solution based in Streamlit
+# web3bms 🚀
+a lightweight web3 enabled business management solution
 
 
 ## Business Opportunity 💸
