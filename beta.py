@@ -24,11 +24,11 @@ st.set_page_config(
  )
 
 def home_page():
+    st.title("❄ web3BMS (Web3 Enabled Business Management Solution)")
     left, right = st.columns([7,5])
     cg_html = '''
     <script src="https://widgets.coingecko.com/coingecko-coin-price-marquee-widget.js"></script><coingecko-coin-price-marquee-widget  coin-ids="bitcoin,ethereum,eos,ripple,litecoin" currency="usd" background-color="#ffffff" locale="en"></coingecko-coin-price-marquee-widget>
     '''
-    st.title("❄ web3BMS (Web3 Enabled Business Management Solution)")
     left.text("Web3 enabled Business Management Software 🚀")
     left.write("Invoicing in cash & crypto per invoice")
     right.text("Web3 Code Management ⌚")
