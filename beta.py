@@ -31,14 +31,8 @@ def home_page():
     left.title("❄ web3BMS (Web3 Enabled Business Management Solution)")
     left.text("Web3 enabled Business Management Software 🚀")
     left.write("Invoicing in cash & crypto per invoice")
-    left.write("Web3 Enabled Git Repository per Your Wallet Address")
-    with right:
-         components.iframe("https://drive.google.com/file/d/1bpHOLX8RkjMzXAj5LtHyMrsmpZ06Gipg/preview",400,300) 
-    components.html(cg_html)
-    #st.title("Customize your Profile")
-    #picture = st.camera_input("Take a picture")
-    #if picture:
-         #st.image(picture)
+    right.text("Web3 Git 🚀")
+    right.write("Web3 Enabled Git Repository per Your Wallet Address")
     with st.sidebar:
          metamask = components.declare_component(name='metamask',path='./metamask')
          st.markdown("# Welcome to the Beta")
