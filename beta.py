@@ -17,7 +17,7 @@ import time
 from lunarcrush import LunarCrush
 
 st.set_page_config(
-     page_title="litBMS",
+     page_title="web3BMS",
      page_icon="🚀",
      layout="wide",
      initial_sidebar_state="expanded"
@@ -28,9 +28,10 @@ def home_page():
     cg_html = '''
     <script src="https://widgets.coingecko.com/coingecko-coin-price-marquee-widget.js"></script><coingecko-coin-price-marquee-widget  coin-ids="bitcoin,ethereum,eos,ripple,litecoin" currency="usd" background-color="#ffffff" locale="en"></coingecko-coin-price-marquee-widget>
     '''
-    left.title("❄ litBMS (Streamlit Based Crypto Business Management Solution)")
-    left.text("Check out the Project ReadMe 🚀")
-    left.write("litBMS Readme https://github.com/mattmajestic/litBMS/blob/main/README.md")
+    left.title("❄ web3BMS (Web3 Enabled Business Management Solution)")
+    left.text("Web3 enabled Business Management Software 🚀")
+    left.write("Invoicing in cash & crypto per invoice")
+    left.write("Web3 Enabled Git Repository per Your Wallet Address")
     with right:
          components.iframe("https://drive.google.com/file/d/1bpHOLX8RkjMzXAj5LtHyMrsmpZ06Gipg/preview",400,300) 
     components.html(cg_html)
