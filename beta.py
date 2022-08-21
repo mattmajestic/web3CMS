@@ -31,30 +31,9 @@ def home_page():
     left.title("❄ web3BMS (Web3 Enabled Business Management Solution)")
     left.text("Web3 enabled Business Management Software 🚀")
     left.write("Invoicing in cash & crypto per invoice")
-    right.text("Web3 Git 🚀")
+    right.text("Web3 Code Management ⌚")
     right.write("Web3 Enabled Git Repository per Your Wallet Address")
-    with st.sidebar:
-         metamask = components.declare_component(name='metamask',path='./metamask')
-         st.markdown("# Welcome to the Beta")
-         my_js = """
-         <html>
-         <head>
-           <title>Connect to crypto wallet</title>
-         <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.7.4-rc.1/web3.min.js"></script>
-          </head>
-         <body>
-         <input type="button" value="Connect MetaMask Wallet" onclick="connect()";">
-         </body>
-         </html>
-         <script>
-         async function connect() {
-           account =  window.ethereum.request({ method: "eth_requestAccounts" });
-           console.log(account);
-           };
-         </script>
-         """
-         my_html = f"<script>{my_js}</script>"
-         html(my_html)
+
 def invoice():
     products = pd.read_csv("./data/products.csv")
     contacts = pd.read_csv("./data/contacts.csv")
