@@ -31,7 +31,7 @@ a lightweight web3 enabled business management solution
 
 ### Install litBMS Boilerplate 💥
 ```bash
-git clone https://github.com/mattmajestic/litBMS.git
+git clone https://github.com/mattmajestic/web3bms.git
 ```
 
 ### Update the csvs in the data/ directory 📂
