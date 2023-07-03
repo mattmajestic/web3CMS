@@ -188,12 +188,12 @@ def api():
 page_names_to_funcs = {
     "Home Page": home_page,
     "Invoice": invoice,
-    "AI Chat": ai_chat,
     # "Clients": clients,
     # "Products": products,
     # "Opportunties": opportunities,
     # "API Feeds": api,
     "Backend": backend,
+    "AI Chat": ai_chat,
     
 }
 selected_page = st.sidebar.selectbox("Select a page", page_names_to_funcs.keys())
