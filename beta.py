@@ -68,7 +68,7 @@ def invoice():
     coin = right.selectbox("Invoice Currency",["ETH","BTC","USDC","USD (Cash)"],index=0)
     invoice_msg = "Invoice Total " + coin
     right.text(invoice_msg)
-    right.write(invoice_total)
+    right.metric(invoice_total)
     with right:
          components.html(cg_html)
 
@@ -159,7 +159,7 @@ def backend():
     cg = CoinGeckoAPI()
     cg_category = cg.get_coins_categories()
     jsonRaw = json.dumps(cg_category)
-    tab4.json(jsonRaw)
+    tab4.json(jsonRaw, expanded=True)
     
      
 def api():
