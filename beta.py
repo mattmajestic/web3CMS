@@ -17,8 +17,8 @@ import time
 from lunarcrush import LunarCrush
 
 # Read the contents of the README.md file
-    with open('README.md', 'r') as file:
-        readme_text = file.read()
+with open('README.md', 'r') as file:
+    readme_text = file.read()
 
 st.set_page_config(
      page_title="web3BMS",
