@@ -62,9 +62,9 @@ def invoice():
     apiURL = "https://api.pancakeswap.info/api/v2/tokens/"
     response = requests.get(url = apiURL + coin_addy)
     jsonRaw = response.json()
-    coin_price = float(jsonRaw['data']['price'])
+    #coin_price = float(jsonRaw['data']['price'])
     usd_total = hours * rate
-    invoice_total = usd_total/coin_price
+    invoice_total = usd_total/20
     coin = right.selectbox("Invoice Currency",["ETH","BTC","USDC","USD (Cash)"],index=0)
     invoice_msg = "Invoice Total " + coin
     right.text(invoice_msg)
@@ -147,9 +147,9 @@ def backend():
     tab4.text("Coin Currency History")
     coin_addy = tab4.selectbox("Coin Adrress",["0x2170Ed0880ac9A755fd29B2688956BD959F933F8", "0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c"],index=0)
     apiURL = "https://api.pancakeswap.info/api/v2/tokens/"
-    response = requests.get(url = apiURL + coin_addy)
-    jsonRaw = response.json()
-    tab4.json(jsonRaw)
+    # response = requests.get(url = apiURL + coin_addy)
+    # jsonRaw = response.json()
+    # tab4.json(jsonRaw)
      
 def api():
     left, center, right = st.columns([4,4,4])
