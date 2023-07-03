@@ -11,7 +11,7 @@ a lightweight web3 enabled business management solution
 
 ## Payment/Donation Accepted via Stripe
 
-![QR Code](litbms_qr_payment.png)
+https://buy.stripe.com/test_28o7vCedu9ZgggM9AD
 
 ## Market Sizing of Enterprise Business Solutions 📈
 - **Market Size:**
