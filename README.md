@@ -18,9 +18,8 @@ a lightweight web3 enabled business management solution
   - $49.6 Billion Revenue
   - CAGR: 1.7%
 - **Market Share:**
-  - 50% from 5 companies
-- Few players in **crypto/data science space**
-- **Streamlit** recently bought for $800m by **Snowflake** ❄️
+  - 50% from 5 companies like **Salesforce**
+- Enable with **crypto** & **AI** to smartly upset & analyze your business
 
 ## Tech Stack 📡
 - Python
