@@ -16,6 +16,10 @@ import json
 import time
 from lunarcrush import LunarCrush
 
+# Read the contents of the README.md file
+    with open('README.md', 'r') as file:
+        readme_text = file.read()
+
 st.set_page_config(
      page_title="web3BMS",
      page_icon="🚀",
@@ -25,14 +29,7 @@ st.set_page_config(
 
 def home_page():
     st.title("❄ web3BMS (Web3 Enabled Business Management Solution)")
-    left, right = st.columns([7,5])
-    cg_html = '''
-    <script src="https://widgets.coingecko.com/coingecko-coin-price-marquee-widget.js"></script><coingecko-coin-price-marquee-widget  coin-ids="bitcoin,ethereum,eos,ripple,litecoin" currency="usd" background-color="#ffffff" locale="en"></coingecko-coin-price-marquee-widget>
-    '''
-    left.text("Web3 enabled Business Management Software 🚀")
-    left.write("Invoicing in cash & crypto per invoice")
-    right.text("Web3 Code Management ⌚")
-    right.write("Web3 Enabled Git Repository per Your Wallet Address")
+    st.markdown(readme_text)
 
 def invoice():
     products = pd.read_csv("./data/products.csv")
