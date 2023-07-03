@@ -9,9 +9,9 @@ a lightweight web3 enabled business management solution
 
 ## SDLC LifeCycle: Dev 🚝 
 
-## Payment/Donation Accepted via Stripe
+## Payment/Donation Accepted via Stripe	💳
 
-https://buy.stripe.com/test_28o7vCedu9ZgggM9AD
+[Stripe Payment Integration](https://buy.stripe.com/test_28o7vCedu9ZgggM9AD)
 
 ## Market Sizing of Enterprise Business Solutions 📈
 - **Market Size:**
