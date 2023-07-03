@@ -12,7 +12,7 @@ import yfinance as yf
 from pycoingecko import CoinGeckoAPI
 import web3
 from web3 import Web3, HTTPProvider 
-import json
+import jsonjson
 import time
 from lunarcrush import LunarCrush
 
@@ -158,7 +158,7 @@ def backend():
     # tab4.json(jsonRaw)
     cg = CoinGeckoAPI()
     cg_category = cg.get_coins_categories()
-    jsonRaw = cg_category.json()
+    jsonRaw = json.dumps(cg_category)
     tab4.json(jsonRaw)
     
      
