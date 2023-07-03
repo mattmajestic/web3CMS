@@ -21,14 +21,13 @@ with open('README.md', 'r') as file:
     readme_text = file.read()
 
 st.set_page_config(
-     page_title="web3BMS",
+     page_title="litBMS",
      page_icon="🚀",
      layout="wide",
      initial_sidebar_state="expanded"
  )
 
 def home_page():
-    st.title("❄ web3BMS (Web3 Enabled Business Management Solution)")
     st.markdown(readme_text)
 
 def invoice():
