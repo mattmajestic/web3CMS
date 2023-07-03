@@ -1,6 +1,5 @@
-# web3bms 🚀
+# litbms 🚀
 a lightweight web3 enabled business management solution
-
 
 ## Business Opportunity 💸
 - Large CRM Providers require expensive & long term contracts leaving market share for flexible + nimble solutions 💰
@@ -10,7 +9,11 @@ a lightweight web3 enabled business management solution
 
 ## SDLC LifeCycle: Dev 🚝 
 
-## Market Sizing 📈
+## Payment/Donation Accepted via Stripe
+
+![QR Code](litbms_qr_payment.png)
+
+## Market Sizing of Enterprise Business Solutions 📈
 - **Market Size:**
   - $49.6 Billion Revenue
   - CAGR: 1.7%
@@ -26,16 +29,4 @@ a lightweight web3 enabled business management solution
   - AWS 
   - Azure 
   - Google Cloud
-
-## Get Started...
-
-### Install litBMS Boilerplate 💥
-```bash
-git clone https://github.com/mattmajestic/web3bms.git
-```
-
-### Update the csvs in the data/ directory 📂
-- Contacts
-- Products
-- Opportunities
 
