@@ -146,20 +146,21 @@ def backend():
     contacts = pd.read_csv("./data/contacts.csv")
     opportunities = pd.read_csv("./data/opportunities.csv")
     st.text("Backend Data a User Updates")
-    tab1, tab2, tab3, tab4 = st.tabs(["📈 Contacts", "🗃 Products","🎲 Opportunities","🐪 Crypto History"])
+    tab1, tab2, tab3, tab4 = st.tabs(["📈 Contacts", "🗃 Products","🎲 Opportunities","🐪 Crypto Integration"])
     tab1.dataframe(contacts)
     tab2.dataframe(products)
     tab3.dataframe(opportunities)
     tab4.text("Coin Currency History")
-    coin_addy = tab4.selectbox("Coin Adrress",["0x2170Ed0880ac9A755fd29B2688956BD959F933F8", "0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c"],index=0)
+    #coin_addy = tab4.selectbox("Coin Adrress",["0x2170Ed0880ac9A755fd29B2688956BD959F933F8", "0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c"],index=0)
     # apiURL = "https://api.pancakeswap.info/api/v2/tokens/"
     # response = requests.get(url = apiURL + coin_addy)
     # jsonRaw = response.json()
     # tab4.json(jsonRaw)
     cg = CoinGeckoAPI()
-    balance = cg.get_address_by_id(id=coin_addy)
-    value = balance['balance']
-    st.write(f"Value of the coin address: {value}")
+    cg_category = cg.get_coins_categories()
+    jsonRaw = cg_category.json()
+    tab4.json(jsonRaw)
+    
      
 def api():
     left, center, right = st.columns([4,4,4])
