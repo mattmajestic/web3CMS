@@ -61,9 +61,10 @@ def invoice():
     apiURL = "https://api.pancakeswap.info/api/v2/tokens/"
     response = requests.get(url = apiURL + coin_addy)
     jsonRaw = response.json()
-    #coin_price = float(jsonRaw['data']['price'])
+    cg = CoinGeckoAPI() 
+    coin_price = cg.get_price(ids='bitcoin', vs_currencies='usd')['bitcoin']['usd']
     usd_total = hours * rate
-    invoice_total = usd_total/20
+    invoice_total = usd_total/coin_price
     coin = right.selectbox("Invoice Currency",["ETH","BTC","USDC","USD (Cash)"],index=0)
     invoice_msg = "Invoice Total " + coin
     right.text(invoice_msg)
@@ -87,6 +88,12 @@ def invoice():
             file_name="invoice.pdf",
             mime="application/octet-stream",
         )
+
+def ai_chat():
+    st.snow()
+    # left,right = st.columns([5,5])
+    st.sidebar.markdown("# AI Chat on your Solution")
+    st.write("Coming Soon")
 
 def clients():
     st.snow()
@@ -145,10 +152,14 @@ def backend():
     tab3.dataframe(opportunities)
     tab4.text("Coin Currency History")
     coin_addy = tab4.selectbox("Coin Adrress",["0x2170Ed0880ac9A755fd29B2688956BD959F933F8", "0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c"],index=0)
-    apiURL = "https://api.pancakeswap.info/api/v2/tokens/"
+    # apiURL = "https://api.pancakeswap.info/api/v2/tokens/"
     # response = requests.get(url = apiURL + coin_addy)
     # jsonRaw = response.json()
     # tab4.json(jsonRaw)
+    cg = CoinGeckoAPI()
+    balance = cg.get_address_by_id(id=coin_addy)
+    value = balance['balance']
+    st.write(f"Value of the coin address: {value}")
      
 def api():
     left, center, right = st.columns([4,4,4])
@@ -176,10 +187,11 @@ def api():
 page_names_to_funcs = {
     "Home Page": home_page,
     "Invoice": invoice,
-    "Clients": clients,
-    "Products": products,
-    "Opportunties": opportunities,
-    "API Feeds": api,
+    "AI Chat": ai_chat,
+    # "Clients": clients,
+    # "Products": products,
+    # "Opportunties": opportunities,
+    # "API Feeds": api,
     "Backend": backend,
     
 }
