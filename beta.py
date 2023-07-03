@@ -68,7 +68,7 @@ def invoice():
     coin = right.selectbox("Invoice Currency",["ETH","BTC","USDC","USD (Cash)"],index=0)
     invoice_msg = "Invoice Total " + coin
     right.text(invoice_msg)
-    right.metric(invoice_total)
+    right.write(invoice_total)
     with right:
          components.html(cg_html)
 
