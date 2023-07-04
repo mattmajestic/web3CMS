@@ -116,7 +116,8 @@ def invoice():
     with right:
          components.html(cg_html)
          if st.button("Connect to Metamask"):
-            st.alert("Connected")
+            st.baloons()
+            st.write("Connected")
          
     if submit:
         html = template.render(
