@@ -2,6 +2,10 @@
 # litbms 🚀
 a lightweight web3 enabled business management solution
 
+## Pitch Deck
+[![Presentation Deck](https://cdn.mos.cms.futurecdn.net/tU46mwrPFaN3ZKkvJkA2hX-970-80.png.webp)](https://drive.google.com/file/d/1IlFCgXlILHUMXETvy-ShPMjnqF05dJpY/view?usp=sharing)
+
+
 ## Business Opportunity 💸
 - Large CRM Providers require expensive & long term contracts leaving market share for flexible + nimble solutions 💰
 - Enable crypto/defi functions to aid running your business 🎬
