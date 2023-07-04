@@ -223,32 +223,5 @@ page_names_to_funcs = {
     "AI Chat 💻": ai_chat,
     
 }
-# Apply custom CSS styles to make radio buttons larger
-st.markdown(
-    """
-    <style>
-    .radio-font-size label span {
-        font-size: 18px;
-    }
-    .radio-font-size input[type="radio"]::before {
-        width: 18px;
-        height: 18px;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
-
-# Get selected page from the user
-selected_page = st.sidebar.radio(
-    "Navigation Panel",
-    list(page_names_to_funcs.keys()),
-    index=0,
-    key="radio",
-    format_func=lambda x: f'<span class="radio-font-size">{x}</span>',
-    unsafe_allow_html=True
-)
-
-# Execute the selected page function
-page_func = page_names_to_funcs[selected_page]
-page_func()
+selected_page = st.sidebar.radio("Navigation Panel", page_names_to_funcs.keys(), unsafe_allow_html=True)
+page_names_to_funcs[selected_page]()
