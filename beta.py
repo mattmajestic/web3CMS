@@ -86,7 +86,7 @@ def home_page():
     st.markdown(readme_text, unsafe_allow_html=True)
 
 def signin():
-    st.markdown(clerk_js)
+    st.markdown(clerk_js, unsafe_allow_html=True)
 
 def invoice():
     products = pd.read_csv("./data/products.csv")
