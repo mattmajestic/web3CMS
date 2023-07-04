@@ -1,3 +1,4 @@
+<div align="center">
 # litbms 🚀
 a lightweight web3 enabled business management solution
 
@@ -29,3 +30,4 @@ a lightweight web3 enabled business management solution
   - Azure 
   - Google Cloud
 
+</div>
