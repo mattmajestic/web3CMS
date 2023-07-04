@@ -223,5 +223,5 @@ page_names_to_funcs = {
     "AI Chat 💻": ai_chat,
     
 }
-selected_page = st.sidebar.radio("Navigation Panel", page_names_to_funcs.keys())
+selected_page = st.sidebar.radio("Navigation Panel", page_names_to_funcs.keys(), format_func=lambda x: f'<span style="font-size: 18px;">{x}</span>', unsafe_allow_html=True)
 page_names_to_funcs[selected_page]()
