@@ -211,7 +211,7 @@ def backend():
     tab3.write("Edit Data Table")
     tab3.data_editor(opportunities)
     tab3.button("Save Ops Table")
-    tab4.text("Coin Currency History")
+    tab4.text("CoinGecko API")
     cg = CoinGeckoAPI()
     cg_category = cg.get_coins_categories()
     jsonRaw = json.dumps(cg_category)
