@@ -14,6 +14,8 @@ a lightweight web3 enabled business management solution
 
 [Stripe Payment Integration](https://buy.stripe.com/test_28o7vCedu9ZgggM9AD)
 
+![Image Description](./litbms_qr_payment.png)
+
 ## Market Sizing of Enterprise Business Solutions 📈
 - **Market Size:**
   - $49.6 Billion Revenue
