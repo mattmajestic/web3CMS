@@ -115,6 +115,8 @@ def invoice():
         )
 
 def ai_chat():
+    st.title("GPT chat with your Business Data")
+    st.write("Submit Prompt Below")
     prompt = st.chat_input("Chat your Business with AI")
     if prompt:
         st.write(f"User has sent the following prompt: {prompt}")
