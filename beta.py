@@ -10,7 +10,6 @@ import pandas as pd
 import requests
 import yfinance as yf
 from pycoingecko import CoinGeckoAPI
-import web3
 from web3 import Web3, HTTPProvider 
 import json
 import time
