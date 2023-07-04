@@ -214,7 +214,7 @@ def api():
 
 page_names_to_funcs = {
     "About ✏️": home_page,
-    "Invoice" 📋: invoice,
+    "Invoice 📋" : invoice,
     # "Clients": clients,
     # "Products": products,
     # "Opportunties": opportunities,
