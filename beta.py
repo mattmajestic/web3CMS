@@ -20,6 +20,9 @@ from lunarcrush import LunarCrush
 with open('README.md', 'r') as file:
     readme_text = file.read()
 
+# Read the content of the HTML file
+with open("index.html", "r") as file:
+    metamask_html = file.read()
 
 
 st.set_page_config(
@@ -77,6 +80,8 @@ def invoice():
     right.write(invoice_total)
     with right:
          components.html(cg_html)
+         # Render the HTML code using the `st.components.v1.html` function
+        st.components.v1.html(metamask_html, height=500)
 
     if submit:
         html = template.render(
