@@ -86,7 +86,7 @@ def home_page():
     st.markdown(readme_text, unsafe_allow_html=True)
 
 def signin():
-    st.markdown(clerk_js, unsafe_allow_html=True)
+    components.html(clerk_js)
 
 def invoice():
     products = pd.read_csv("./data/products.csv")
@@ -254,7 +254,7 @@ def backend():
 
 page_names_to_funcs = {
     "About ✏️": home_page,
-    "Sign In": signin,
+    "Sign In 🎲": signin,
     "Invoice 📋" : invoice,
     # "Clients": clients,
     # "Products": products,
