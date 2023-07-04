@@ -12,9 +12,8 @@ a lightweight web3 enabled business management solution
 
 ## Payment/Donation Accepted via Stripe	💳
 
-[Stripe Payment Integration](https://buy.stripe.com/test_28o7vCedu9ZgggM9AD)
+[![Stripe Payment Integration](https://img.shields.io/badge/Stripe-Payment%20Integration-blue?style=for-the-badge)](https://buy.stripe.com/test_28o7vCedu9ZgggM9AD)
 
-![Image Description](./litbms_qr_payment.png)
 
 ## Market Sizing of Enterprise Business Solutions 📈
 - **Market Size:**
@@ -32,12 +31,3 @@ a lightweight web3 enabled business management solution
   - Azure 
   - Google Cloud
 
-## Deployment Architecture
-
-```mermaid
-graph LR
-    A[API Feeds] --> B[Python Processing]
-    B --> C[Processed Data]
-    C --> D[Cloud Deployment]
-    D --> E[Deployed Application/Service]
-```
