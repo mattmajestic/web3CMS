@@ -24,7 +24,7 @@ st.set_page_config(
      page_title="litBMS",
      page_icon="🚀",
      layout="wide",
-     initial_sidebar_state='collapsed'
+     initial_sidebar_state='expanded'
  )
 
 def home_page():
@@ -186,7 +186,7 @@ def api():
         right.write(eth_1_year_data)
 
 page_names_to_funcs = {
-    "Home Page": home_page,
+    "About": home_page,
     "Invoice": invoice,
     # "Clients": clients,
     # "Products": products,
