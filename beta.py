@@ -28,7 +28,7 @@ with open("index.html", "r") as file:
         js_code = js_file.read()
 
 # Define the JavaScript code to connect Metamask
-metamask_js = st_javascript("""
+metamask_js = """
     <script>
         // JavaScript code to connect Metamask
         const connectMetamask = () => {
@@ -57,7 +57,7 @@ metamask_js = st_javascript("""
             }
         };
     </script>
-""")
+"""
 
 
 st.set_page_config(
