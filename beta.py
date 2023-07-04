@@ -115,24 +115,10 @@ def invoice():
         )
 
 def ai_chat():
-    st.snow()
-    st.sidebar.markdown("# AI Chat on your Solution")
-    
-    # Chatbot interface
-    st.title("AI Chat")
-    
-    # Create a text input field for the user to enter their message
-    user_input = st.text_input("Enter your message")
-
-    # Create a button to send the message
-    send_button = st.button("Send")
-
-    if send_button:
-        # Process the user's message (add your own logic here)
-        response = process_message(user_input)
-
-        # Display the response
-        st.write("Bot: ", response)
+    prompt = st.chat_input("Chat your Business with AI")
+    if prompt:
+        st.snow()
+        st.write(f"User has sent the following prompt: {prompt}")
 
 def process_message(message):
     # Add your own logic to process the user's message and generate a response
