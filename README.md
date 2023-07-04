@@ -7,6 +7,7 @@ a lightweight web3 enabled business management solution
 - Enable crypto/defi functions to aid running your business 🎬
 - Example: Invoice in 80% cash = 20% crypto
 - Create a flexible Python based Business Management Services framework for Small to Medium sized businesses
+- GPT style AI Chat to talk to your business analytics
 
 ## SDLC LifeCycle: Dev 🚝 
 
