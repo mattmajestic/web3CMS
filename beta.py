@@ -4,6 +4,7 @@ from streamlit.components.v1 import html
 import streamlit.components.v1 as components
 from streamlit_javascript import st_javascript
 import pdfkit
+import wkhtmltopdf
 from jinja2 import Environment, PackageLoader, select_autoescape, FileSystemLoader
 from datetime import datetime, date, time, timezone, timedelta
 import pandas as pd
