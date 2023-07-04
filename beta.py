@@ -27,37 +27,37 @@ with open("index.html", "r") as file:
     with open("metamask/main.js", "r") as js_file:
         js_code = js_file.read()
 
-# Define the JavaScript code to connect Metamask
-metamask_js = """
-    <script>
-        // JavaScript code to connect Metamask
-        const connectMetamask = () => {
-            if (typeof window.ethereum !== 'undefined') {
-                startLoading();
+# # Define the JavaScript code to connect Metamask
+# metamask_js = """
+#     <script>
+#         // JavaScript code to connect Metamask
+#         const connectMetamask = () => {
+#             if (typeof window.ethereum !== 'undefined') {
+#                 startLoading();
 
-                ethereum
-                    .request({ method: 'eth_requestAccounts' })
-                    .then((accounts) => {
-                        const account = accounts[0];
-                        walletID.innerHTML = `Wallet connected: <span>${account}</span>`;
-                        stopLoading();
-                    })
-                    .catch((error) => {
-                        console.log(error, error.code);
-                        alert(error.code);
-                        stopLoading();
-                    });
-            } else {
-                if (isMobile()) {
-                    mobileDeviceWarning.classList.add('show');
-                } else {
-                    window.open('https://metamask.io/download/', '_blank');
-                    installAlert.classList.add('show');
-                }
-            }
-        };
-    </script>
-"""
+#                 ethereum
+#                     .request({ method: 'eth_requestAccounts' })
+#                     .then((accounts) => {
+#                         const account = accounts[0];
+#                         walletID.innerHTML = `Wallet connected: <span>${account}</span>`;
+#                         stopLoading();
+#                     })
+#                     .catch((error) => {
+#                         console.log(error, error.code);
+#                         alert(error.code);
+#                         stopLoading();
+#                     });
+#             } else {
+#                 if (isMobile()) {
+#                     mobileDeviceWarning.classList.add('show');
+#                 } else {
+#                     window.open('https://metamask.io/download/', '_blank');
+#                     installAlert.classList.add('show');
+#                 }
+#             }
+#         };
+#     </script>
+# """
 
 
 st.set_page_config(
@@ -116,7 +116,7 @@ def invoice():
     with right:
          components.html(cg_html)
          if st.button("Connect to Metamask"):
-            st.markdown(metamask_js)
+            st.alert("Connected")
          
     if submit:
         html = template.render(
