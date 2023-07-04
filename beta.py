@@ -27,29 +27,16 @@ with open("index.html", "r") as file:
     with open("metamask/main.js", "r") as js_file:
         js_code = js_file.read()
 
-# Connect to the injected Ethereum provider (Metamask)
-if "web3" not in st.session_state:
-    if Web3.isConnected():
-        provider = Web3.currentProvider
-        web3 = Web3(provider)
-        st.session_state.web3 = web3
-    else:
-        st.warning("Please install Metamask to connect your wallet.")
-
-def connect_wallet():
-    if not Web3.isConnected():
-        st.warning("Please install Metamask to connect your wallet.")
+def connect_metamask():
+    if "ethereum" not in window:
+        st.warning("Metamask not detected. Please make sure you have Metamask installed and running.")
         return
 
-    if "accounts" not in st.session_state:
-        st.session_state.accounts = st.session_state.web3.eth.accounts
-
-    if len(st.session_state.accounts) > 0:
-        selected_account = st.selectbox("Select an account", st.session_state.accounts)
-        st.success(f"Wallet connected: {selected_account}")
-    else:
-        st.warning("No accounts found in Metamask. Please make sure you have an account.")
-
+    try:
+        window.ethereum.enable()
+        st.success("Metamask connection successful!")
+    except Exception as e:
+        st.error(f"Metamask connection failed: {str(e)}")
 
 st.set_page_config(
      page_title="litBMS",
@@ -106,12 +93,10 @@ def invoice():
     right.write(invoice_total)
     with right:
          components.html(cg_html)
-         st.title("Metamask")
-         connect_button = st.button("Connect Wallet")
-         if connect_button:
-             connect_wallet()
-
-
+         st.title("Metamask Connection")
+         if st.button("Connect Metamask"):
+            connect_metamask()
+         
     if submit:
         html = template.render(
             service=service,
