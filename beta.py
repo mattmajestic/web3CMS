@@ -172,11 +172,14 @@ def backend():
     products = pd.read_csv("./data/products.csv")
     contacts = pd.read_csv("./data/contacts.csv")
     opportunities = pd.read_csv("./data/opportunities.csv")
-    st.text("Backend Data a User Updates")
+    st.text("CRM Uploads")
     tab1, tab2, tab3, tab4 = st.tabs(["📈 Contacts", "🗃 Products","🎲 Opportunities","🐪 Crypto Integration"])
-    tab1.dataframe(contacts)
-    tab2.dataframe(products)
-    tab3.dataframe(opportunities)
+    tab1.file_uploader("Upload your Clients", type=['csv','xlsx'],accept_multiple_files=False,key="fileUploader")
+    tab1.data_editor(contacts)
+    tab2.file_uploader("Upload your Products", type=['csv','xlsx'],accept_multiple_files=False,key="products_upload")
+    tab2.data_editor(products)
+    tab2.file_uploader("Upload your Opportunities", type=['csv','xlsx'],accept_multiple_files=False,key="ops_upload")
+    tab3.data_editor(opportunities)
     tab4.text("Coin Currency History")
     #coin_addy = tab4.selectbox("Coin Adrress",["0x2170Ed0880ac9A755fd29B2688956BD959F933F8", "0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c"],index=0)
     # apiURL = "https://api.pancakeswap.info/api/v2/tokens/"
@@ -186,7 +189,8 @@ def backend():
     cg = CoinGeckoAPI()
     cg_category = cg.get_coins_categories()
     jsonRaw = json.dumps(cg_category)
-    tab4.json(jsonRaw, expanded=True)
+    df = pd.read_json(jsonRaw)
+    tab4.dataframe(df)
     
      
 def api():
