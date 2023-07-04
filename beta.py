@@ -80,8 +80,7 @@ def invoice():
     right.write(invoice_total)
     with right:
          components.html(cg_html)
-         # Render the HTML code using the `st.components.v1.html` function
-        st.components.v1.html(metamask_html, height=500)
+        components.html(metamask_html, height=300)
 
     if submit:
         html = template.render(
