@@ -21,7 +21,7 @@ with open('README.md', 'r') as file:
     readme_text = file.read()
 
 st.set_page_config(
-     page_title="litBMS (Business Management Solution)",
+     page_title="litBMS",
      page_icon="🚀",
      layout="wide",
      initial_sidebar_state='expanded'

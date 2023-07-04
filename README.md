@@ -30,4 +30,12 @@ a lightweight web3 enabled business management solution
   - Azure 
   - Google Cloud
 
+## Deployment Architecture
 
+```mermaid
+graph LR
+    A[API Feeds] --> B[Python Processing]
+    B --> C[Processed Data]
+    C --> D[Cloud Deployment]
+    D --> E[Deployed Application/Service]
+```
