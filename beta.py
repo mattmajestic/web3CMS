@@ -20,12 +20,19 @@ from lunarcrush import LunarCrush
 with open('README.md', 'r') as file:
     readme_text = file.read()
 
+
+
 st.set_page_config(
      page_title="litBMS",
      page_icon="🚀",
      layout="wide",
      initial_sidebar_state='expanded'
  )
+
+ st.markdown("""
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
+""", unsafe_allow_html=True)
 
 def home_page():
     st.markdown(readme_text)
