@@ -87,6 +87,7 @@ def home_page():
 
 def signin():
     components.html(clerk_js)
+    st.write(clerk_js)
 
 def invoice():
     products = pd.read_csv("./data/products.csv")
