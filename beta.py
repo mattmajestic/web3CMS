@@ -60,18 +60,14 @@ with open("index.html", "r") as file:
 # """
 
 clerk_js = """
-<script>
-  async function loadClerk() {
-    const script = document.createElement('script');
-    script.async = true;
-    script.crossOrigin = 'anonymous';
-    script.setAttribute('data-clerk-publishable-key', 'pk_test_Zmxvd2luZy1oYWdmaXNoLTUuY2xlcmsuYWNjb3VudHMuZGV2JA');
-    script.src = 'https://flowing-hagfish-5.clerk.accounts.dev/npm/@clerk/clerk-js@4/dist/clerk.browser.js';
-    document.head.appendChild(script);
-  }
-
-  loadClerk();
-</script>
+<script
+  async
+  crossorigin="anonymous"
+  data-clerk-publishable-key="pk_test_Zmxvd2luZy1oYWdmaXNoLTUuY2xlcmsuYWNjb3VudHMuZGV2JA"
+  onload="window.Clerk.load()"
+  src="https://flowing-hagfish-5.clerk.accounts.dev/npm/@clerk/clerk-js@4/dist/clerk.browser.js"
+  type="text/javascript"
+></script>
 """
 
 
