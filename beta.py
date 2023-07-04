@@ -117,16 +117,7 @@ def invoice():
 def ai_chat():
     prompt = st.chat_input("Chat your Business with AI")
     if prompt:
-        st.snow()
         st.write(f"User has sent the following prompt: {prompt}")
-
-def process_message(message):
-    # Add your own logic to process the user's message and generate a response
-    # This can be based on predefined responses or using natural language processing techniques
-    return "I received your message: " + message
-
-    # Run the chatbot page
-    ai_chat()
 
 
 def clients():
