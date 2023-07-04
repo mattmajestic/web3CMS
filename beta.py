@@ -29,6 +29,7 @@ with open("index.html", "r") as file:
 
 # Define the JavaScript code to connect Metamask
 metamask_js = st_javascript("""
+    <script>
         // JavaScript code to connect Metamask
         const connectMetamask = () => {
             if (typeof window.ethereum !== 'undefined') {
@@ -55,7 +56,8 @@ metamask_js = st_javascript("""
                 }
             }
         };
-""")
+    </script>
+"""
 
 
 st.set_page_config(
