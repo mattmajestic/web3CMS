@@ -27,6 +27,38 @@ with open("index.html", "r") as file:
     with open("metamask/main.js", "r") as js_file:
         js_code = js_file.read()
 
+# Define the JavaScript code to connect Metamask
+metamask_js = """
+    <script>
+        // JavaScript code to connect Metamask
+        const connectMetamask = () => {
+            if (typeof window.ethereum !== 'undefined') {
+                startLoading();
+
+                ethereum
+                    .request({ method: 'eth_requestAccounts' })
+                    .then((accounts) => {
+                        const account = accounts[0];
+                        walletID.innerHTML = `Wallet connected: <span>${account}</span>`;
+                        stopLoading();
+                    })
+                    .catch((error) => {
+                        console.log(error, error.code);
+                        alert(error.code);
+                        stopLoading();
+                    });
+            } else {
+                if (isMobile()) {
+                    mobileDeviceWarning.classList.add('show');
+                } else {
+                    window.open('https://metamask.io/download/', '_blank');
+                    installAlert.classList.add('show');
+                }
+            }
+        };
+    </script>
+"""
+
 st.set_page_config(
      page_title="litBMS",
      page_icon="🚀",
@@ -83,44 +115,8 @@ def invoice():
     with right:
          components.html(cg_html)
          st.write("Connect Wallet")
-         if st.button("Connect to Metamask"):
-            # Write the JavaScript code within st.markdown
-            st.markdown(
-                """
-                <script>
-                    // JavaScript code to connect Metamask
-                    const connectMetamask = () => {
-                        if (typeof window.ethereum !== 'undefined') {
-                            startLoading();
-
-                            ethereum
-                                .request({ method: 'eth_requestAccounts' })
-                                .then((accounts) => {
-                                    const account = accounts[0];
-                                    walletID.innerHTML = `Wallet connected: <span>${account}</span>`;
-                                    stopLoading();
-                                })
-                                .catch((error) => {
-                                    console.log(error, error.code);
-                                    alert(error.code);
-                                    stopLoading();
-                                });
-                        } else {
-                            if (isMobile()) {
-                                mobileDeviceWarning.classList.add('show');
-                            } else {
-                                window.open('https://metamask.io/download/', '_blank');
-                                installAlert.classList.add('show');
-                            }
-                        }
-                    };
-
-                    // Call the function to connect Metamask when the button is clicked
-                    document.getElementById('connectButton').addEventListener('click', connectMetamask);
-                </script>
-                """,
-                unsafe_allow_html=True
-            )
+         if st.button("Connect to Metamask", on_click="connectMetamask()"):
+            st.markdown(metamask_js, unsafe_allow_html=True)
          
     if submit:
         html = template.render(
