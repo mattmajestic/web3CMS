@@ -30,7 +30,9 @@ with open("index.html", "r") as file:
 # Connect to the injected Ethereum provider (Metamask)
 if "web3" not in st.session_state:
     if Web3.isConnected():
-        st.session_state.web3 = Web3(Web3.WebsocketProvider(Web3.currentProvider.websocket_url))
+        provider = Web3.currentProvider
+        web3 = Web3(provider)
+        st.session_state.web3 = web3
     else:
         st.warning("Please install Metamask to connect your wallet.")
 
