@@ -59,14 +59,14 @@ with open("index.html", "r") as file:
 #     </script>
 # """
 
-clerk_js = st_javascript("""
-  async
-  crossorigin="anonymous"
-  data-clerk-publishable-key="pk_test_Zmxvd2luZy1oYWdmaXNoLTUuY2xlcmsuYWNjb3VudHMuZGV2JA"
-  onload="window.Clerk.load()"
-  src="https://flowing-hagfish-5.clerk.accounts.dev/npm/@clerk/clerk-js@4/dist/clerk.browser.js"
-  type="text/javascript"
-""")
+# clerk_js = st_javascript("""
+#   async
+#   crossorigin="anonymous"
+#   data-clerk-publishable-key="pk_test_Zmxvd2luZy1oYWdmaXNoLTUuY2xlcmsuYWNjb3VudHMuZGV2JA"
+#   onload="window.Clerk.load()"
+#   src="https://flowing-hagfish-5.clerk.accounts.dev/npm/@clerk/clerk-js@4/dist/clerk.browser.js"
+#   type="text/javascript"
+# """)
 
 
 st.set_page_config(
@@ -83,8 +83,8 @@ def home_page():
     """, unsafe_allow_html=True)
     st.markdown(readme_text, unsafe_allow_html=True)
 
-def signin():
-    st.markdown(clerk_js, unsafe_allow_html=True)
+# def signin():
+#     st.markdown(clerk_js, unsafe_allow_html=True)
 
 def invoice():
     products = pd.read_csv("./data/products.csv")
@@ -252,7 +252,7 @@ def backend():
 
 page_names_to_funcs = {
     "About ✏️": home_page,
-    "Sign In 🎲": signin,
+    # "Sign In 🎲": signin,
     "Invoice 📋" : invoice,
     # "Clients": clients,
     # "Products": products,
