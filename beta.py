@@ -214,7 +214,7 @@ def api():
 
 page_names_to_funcs = {
     "About ✏️": home_page,
-    "Invoice 📋" : invoice,
+    "Invoice" 📋: invoice,
     # "Clients": clients,
     # "Products": products,
     # "Opportunties": opportunities,
@@ -223,5 +223,5 @@ page_names_to_funcs = {
     "AI Chat 💻": ai_chat,
     
 }
-selected_page = st.sidebar.radio("Navigation Panel", page_names_to_funcs.keys(), unsafe_allow_html=True)
+selected_page = st.sidebar.radio("Navigation Panel", page_names_to_funcs.keys())
 page_names_to_funcs[selected_page]()
