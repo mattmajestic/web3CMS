@@ -24,6 +24,10 @@ with open('README.md', 'r') as file:
 with open("index.html", "r") as file:
     metamask_html = file.read()
 
+# Load and render the main.js file
+    with open("main.js", "r") as js_file:
+        js_code = js_file.read()
+
 
 st.set_page_config(
      page_title="litBMS",
@@ -80,7 +84,8 @@ def invoice():
     right.write(invoice_total)
     with right:
          components.html(cg_html)
-         components.html(metamask_html, height=300)
+         components.html(metamask_html,% js_code,
+        height=300)
 
     if submit:
         html = template.render(
