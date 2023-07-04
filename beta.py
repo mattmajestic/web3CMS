@@ -57,7 +57,7 @@ metamask_js = st_javascript("""
             }
         };
     </script>
-"""
+""")
 
 
 st.set_page_config(
