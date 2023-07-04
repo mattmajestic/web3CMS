@@ -25,7 +25,7 @@ with open("index.html", "r") as file:
     metamask_html = file.read()
 
 # Load and render the main.js file
-    with open("main.js", "r") as js_file:
+    with open("metamask/main.js", "r") as js_file:
         js_code = js_file.read()
 
 
