@@ -32,7 +32,7 @@ st.set_page_config(
  st.markdown("""
     <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
     <script>mermaid.initialize({startOnLoad:true});</script>
-""", unsafe_allow_html=True)
+    """, unsafe_allow_html=True)
 
 def home_page():
     st.markdown(readme_text)
