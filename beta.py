@@ -95,7 +95,7 @@ def invoice():
          components.html(cg_html)
          st.title("Metamask Connection")
          if st.button("Connect Metamask"):
-            st.info("Metamask connection popup")
+            st.success("Metamask connection popup")
          
     if submit:
         html = template.render(
