@@ -2,10 +2,6 @@
 # litbms 🚀
 a lightweight web3 enabled business management solution
 
-## Pitch Deck
-[![Presentation Deck](ppt_click.png)](https://drive.google.com/file/d/1IlFCgXlILHUMXETvy-ShPMjnqF05dJpY/view?usp=sharing)
-
-
 ## Business Opportunity 💸
 - Large CRM Providers require expensive & long term contracts leaving market share for flexible + nimble solutions 💰
 - Enable crypto/defi functions to aid running your business 🎬
@@ -14,6 +10,9 @@ a lightweight web3 enabled business management solution
 - GPT style AI Chat to talk to your business analytics
 
 ## SDLC LifeCycle: Dev 🚝 
+
+## litBMS Pitch Deck
+![Check the Slides](https://docs.google.com/presentation/d/1gqS42Yrv5wHzMGiAsbvt3cQdgK1FHPoU/edit?usp=drive_link&ouid=115467748136356520422&rtpof=true&sd=true)
 
 ## Payment/Donation Accepted via Stripe	💳
 
