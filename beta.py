@@ -84,7 +84,7 @@ def invoice():
     right.write(invoice_total)
     with right:
          components.html(cg_html)
-         components.html(metamask_html,% js_code,height=300)
+         components.html(metamask_html,height=300)
 
     if submit:
         html = template.render(
