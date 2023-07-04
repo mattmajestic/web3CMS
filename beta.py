@@ -119,7 +119,7 @@ def invoice():
     with right:
          components.html(cg_html)
          if st.button("Connect to Metamask"):
-            st.markdown(metamask_js, unsafe_allow_html=True)
+            connect_metamask()
          
     if submit:
         html = template.render(
