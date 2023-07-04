@@ -213,14 +213,14 @@ def api():
         right.write(eth_1_year_data)
 
 page_names_to_funcs = {
-    "About": home_page,
-    "Invoice": invoice,
+    "About ✏️": home_page,
+    "Invoice" 📋: invoice,
     # "Clients": clients,
     # "Products": products,
     # "Opportunties": opportunities,
     # "API Feeds": api,
-    "CRM": backend,
-    "AI Chat": ai_chat,
+    "CRM 📪": backend,
+    "AI Chat 💻": ai_chat,
     
 }
 selected_page = st.sidebar.radio("Navigation Panel", page_names_to_funcs.keys())
