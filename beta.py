@@ -34,7 +34,7 @@ def home_page():
     <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
     <script>mermaid.initialize({startOnLoad:true});</script>
     """, unsafe_allow_html=True)
-    st.markdown(readme_text)
+    st.markdown(readme_text, unsafe_allow_html=True)
 
 def invoice():
     products = pd.read_csv("./data/products.csv")
