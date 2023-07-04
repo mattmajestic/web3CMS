@@ -59,9 +59,6 @@ metamask_js = """
     </script>
 """
 
-# Display the button and execute the JavaScript code on click
-def connect_metamask():
-    st.markdown(metamask_js, unsafe_allow_html=True)
 
 st.set_page_config(
      page_title="litBMS",
@@ -119,6 +116,9 @@ def invoice():
     with right:
          components.html(cg_html)
          if st.button("Connect to Metamask"):
+            # Display the button and execute the JavaScript code on click
+            def connect_metamask():
+                st.markdown(metamask_js, unsafe_allow_html=True)
             connect_metamask()
          
     if submit:
