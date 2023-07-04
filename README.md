@@ -3,7 +3,7 @@
 a lightweight web3 enabled business management solution
 
 ## Pitch Deck
-[![Presentation Deck](./ppt_click.png)](https://drive.google.com/file/d/1IlFCgXlILHUMXETvy-ShPMjnqF05dJpY/view?usp=sharing)
+[![Presentation Deck](ppt_click.png)](https://drive.google.com/file/d/1IlFCgXlILHUMXETvy-ShPMjnqF05dJpY/view?usp=sharing)
 
 
 ## Business Opportunity 💸
