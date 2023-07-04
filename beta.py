@@ -28,8 +28,7 @@ with open("index.html", "r") as file:
         js_code = js_file.read()
 
 # Define the JavaScript code to connect Metamask
-metamask_js = """
-    <script>
+metamask_js = st_javascript("""
         // JavaScript code to connect Metamask
         const connectMetamask = () => {
             if (typeof window.ethereum !== 'undefined') {
@@ -56,8 +55,7 @@ metamask_js = """
                 }
             }
         };
-    </script>
-"""
+""")
 
 
 st.set_page_config(
@@ -116,7 +114,7 @@ def invoice():
     with right:
          components.html(cg_html)
          if st.button("Connect to Metamask"):
-            st_javascript(metamask_js, unsafe_allow_html=True)
+            st.markdown(metamask_js)
          
     if submit:
         html = template.render(
