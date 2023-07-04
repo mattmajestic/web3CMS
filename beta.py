@@ -93,8 +93,9 @@ def invoice():
     right.write(invoice_total)
     with right:
          components.html(cg_html)
-         st.title("Metamask Wallet")
-         st.popup("Connect Crypto Address")
+         st.title("Metamask Connection")
+         if st.button("Connect Metamask"):
+            st.info("Metamask connection popup")
          
     if submit:
         html = template.render(
