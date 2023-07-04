@@ -120,7 +120,7 @@ def invoice():
          components.html(cg_html)
          st.write("Connect Wallet")
          if st.button("Connect to Metamask",onclick = connect_metamask):
-         st.markdown(metamask_js, unsafe_allow_html=True)
+            st.markdown(metamask_js, unsafe_allow_html=True)
          
     if submit:
         html = template.render(
