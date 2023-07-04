@@ -21,7 +21,7 @@ with open('README.md', 'r') as file:
     readme_text = file.read()
 
 st.set_page_config(
-     page_title="litBMS",
+     page_title="litBMS (Business Management Solution)",
      page_icon="🚀",
      layout="wide",
      initial_sidebar_state='expanded'
@@ -38,7 +38,7 @@ def invoice():
     cg_html = '''
     <script src="https://widgets.coingecko.com/coingecko-coin-list-widget.js"></script><coingecko-coin-list-widget  coin-ids="bitcoin,ethereum" currency="usd" locale="en"></coingecko-coin-list-widget>
     '''
-    st.title("❄ litBMS (Streamlit Based Crypto Business Management Solutions)")
+
     st.sidebar.markdown("Crypto Invoicing")
 
     left,center, right = st.columns([5,2,5])
@@ -192,7 +192,7 @@ page_names_to_funcs = {
     # "Products": products,
     # "Opportunties": opportunities,
     # "API Feeds": api,
-    "Backend": backend,
+    "CRM": backend,
     "AI Chat": ai_chat,
     
 }
