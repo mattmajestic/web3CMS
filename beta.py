@@ -59,14 +59,14 @@ with open("index.html", "r") as file:
 #     </script>
 # """
 
-clerk_js = """
+clerk_js = st_javascript("""
   async
   crossorigin="anonymous"
   data-clerk-publishable-key="pk_test_Zmxvd2luZy1oYWdmaXNoLTUuY2xlcmsuYWNjb3VudHMuZGV2JA"
   onload="window.Clerk.load()"
   src="https://flowing-hagfish-5.clerk.accounts.dev/npm/@clerk/clerk-js@4/dist/clerk.browser.js"
   type="text/javascript"
-"""
+""")
 
 
 st.set_page_config(
