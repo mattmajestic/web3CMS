@@ -2,6 +2,7 @@ streamlit
 streamlit-multipage
 streamlit-javascript
 streamlit-authenticator
+streamlit-wallet-connect
 pdfkit
 DateTime
 pycoingecko
