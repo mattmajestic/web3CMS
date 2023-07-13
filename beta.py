@@ -128,9 +128,9 @@ def invoice():
     right.write(invoice_total)
     with right:
          components.html(cg_html)
-         if st.button("Connect to Metamask"):
+         if connect_button = wallet_connect(label="wallet", key="wallet"):
             st.success('Connected', icon="✅")
-            connect_button = wallet_connect(label="wallet", key="wallet")
+        st.write(connect_button)
          
     if submit:
         html = template.render(
