@@ -129,7 +129,7 @@ def invoice():
     with right:
          components.html(cg_html)
          connect_button = wallet_connect(label="wallet", key="wallet")
-         if connect_button:
+         if connect_button != "not":
             st.success('Connected', icon="✅")
             st.write(connect_button)
          
