@@ -3,6 +3,7 @@ from streamlit.components.v1 import iframe
 from streamlit.components.v1 import html
 import streamlit.components.v1 as components
 from streamlit_javascript import st_javascript
+from wallet_connect import wallet_connect
 import pdfkit
 from jinja2 import Environment, PackageLoader, select_autoescape, FileSystemLoader
 from datetime import datetime, date, time, timezone, timedelta
@@ -129,6 +130,7 @@ def invoice():
          components.html(cg_html)
          if st.button("Connect to Metamask"):
             st.success('Connected', icon="✅")
+            connect_button = wallet_connect(label="wallet", key="wallet")
          
     if submit:
         html = template.render(
