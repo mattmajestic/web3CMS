@@ -128,9 +128,10 @@ def invoice():
     right.write(invoice_total)
     with right:
          components.html(cg_html)
-         if connect_button = wallet_connect(label="wallet", key="wallet"):
+         connect_button = wallet_connect(label="wallet", key="wallet")
+         if connect_button:
             st.success('Connected', icon="✅")
-        st.write(connect_button)
+            st.write(connect_button)
          
     if submit:
         html = template.render(
