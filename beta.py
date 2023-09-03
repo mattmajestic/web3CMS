@@ -15,6 +15,14 @@ from web3 import Web3, HTTPProvider
 import json
 import time
 # from lunarcrush import LunarCrush
+import supabase
+
+# Set your Supabase credentials as environment variables
+SUPABASE_URL = os.getenv("SUPABASE_URL")
+SUPABASE_KEY = os.getenv("SUPABASE_KEY")
+
+# Initialize Supabase
+supabase_client = supabase.Client(SUPABASE_URL, SUPABASE_KEY)
 
 # Read the contents of the README.md file
 with open('README.md', 'r') as file:
@@ -88,9 +96,18 @@ def home_page():
 #     st.markdown(clerk_js, unsafe_allow_html=True)
 
 def invoice():
-    products = pd.read_csv("./data/products.csv")
-    contacts = pd.read_csv("./data/contacts.csv")
-    opportunities = pd.read_csv("./data/opportunities.csv")
+    # Replace with supabase fetch
+    products_db = supabase_client.table('products').select("*").execute()
+    products_df = pd.DataFrame(products_db.data)
+    # products = pd.read_csv("./data/products.csv")
+    # Replace with supabase fetch
+    contacts_db = supabase_client.table('contacts').select("*").execute()
+    contacts_df = pd.DataFrame(contacts_db.data)
+    # contacts = pd.read_csv("./data/contacts.csv")
+    # Replace with supabase fetch
+    opportunities_db = supabase_client.table('opportunities').select("*").execute()
+    opportunities_df = pd.DataFrame(opportunities_db.data)
+    # opportunities = pd.read_csv("./data/opportunities.csv")
     
     cg_html = '''
     <script src="https://widgets.coingecko.com/coingecko-coin-list-widget.js"></script><coingecko-coin-list-widget  coin-ids="bitcoin,ethereum" currency="usd" locale="en"></coingecko-coin-list-widget>
@@ -105,7 +122,7 @@ def invoice():
     left.write("Update the Invoice Template Below:")
     start = datetime.today() - timedelta(days=2)
     end = datetime.today()
-    service_choices = products[["Name"]]
+    service_choices = products_df[["Name"]]
     form = left.form("template_form")
     service = form.selectbox("Invoice Service",service_choices)
     client = form.selectbox("Client",["CNN", "Penn State","Coca Cola Florida LLC","McAfee"],index=0)
@@ -205,22 +222,31 @@ def ai_chat():
 #     my_bar.empty()
 
 def backend():
-    products = pd.read_csv("./data/products.csv")
-    contacts = pd.read_csv("./data/contacts.csv")
-    opportunities = pd.read_csv("./data/opportunities.csv")
+    # Replace with supabase fetch
+    products_db = supabase_client.table('products').select("*").execute()
+    products_df = pd.DataFrame(products_db.data)
+    # products = pd.read_csv("./data/products.csv")
+    # Replace with supabase fetch
+    contacts_db = supabase_client.table('contacts').select("*").execute()
+    contacts_df = pd.DataFrame(contacts_db.data)
+    # contacts = pd.read_csv("./data/contacts.csv")
+    # Replace with supabase fetch
+    opportunities_db = supabase_client.table('opportunities').select("*").execute()
+    opportunities_df = pd.DataFrame(opportunities_db.data)
+    # opportunities = pd.read_csv("./data/opportunities.csv")
     st.text("CRM Uploads")
     tab1, tab2, tab3, tab4 = st.tabs(["📈 Clients", "🗃 Products","🎲 Opportunities","🐪 Crypto Integration"])
     tab1.file_uploader("Upload your Clients", type=['csv','xlsx'],accept_multiple_files=False,key="fileUploader")
     tab1.write("Edit Data Table")
-    tab1.data_editor(contacts)
+    tab1.data_editor(contacts_df)
     tab1.button("Save Clients Table")
     tab2.file_uploader("Upload your Products", type=['csv','xlsx'],accept_multiple_files=False,key="products_upload")
     tab2.write("Edit Data Table")
-    tab2.data_editor(products)
+    tab2.data_editor(products_df)
     tab2.button("Save Products Table")
     tab3.file_uploader("Upload your Opportunities", type=['csv','xlsx'],accept_multiple_files=False,key="ops_upload")
     tab3.write("Edit Data Table")
-    tab3.data_editor(opportunities)
+    tab3.data_editor(opportunities_df)
     tab3.button("Save Ops Table")
     tab4.text("CoinGecko API")
     cg = CoinGeckoAPI()

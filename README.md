@@ -2,6 +2,9 @@
 # web3bms 🚀
 a lightweight web3 enabled business management solution
 
+## Python based with Streamlit & Supabase
+`Streamlit` & `Supabase` are a common + popular app and backend.  This software's goal is to cheaply and effciently provide code/ui to help SMBs cheaply run their business. 
+
 ## Business Opportunity 💸
 - Large CRM Providers require expensive & long term contracts leaving market share for flexible + nimble solutions 💰
 - Enable crypto/defi functions to aid running your business 🎬
@@ -30,6 +33,7 @@ a lightweight web3 enabled business management solution
 ## Tech Stack 📡
 - Python
 - Streamlit Hosting
+- Supabase backend
 - ☁️ Cloud Provider Integrations:
   - AWS 
   - Azure 
