@@ -16,6 +16,7 @@ import json
 import time
 # from lunarcrush import LunarCrush
 import supabase
+import os
 
 # Set your Supabase credentials as environment variables
 SUPABASE_URL = os.getenv("SUPABASE_URL")
