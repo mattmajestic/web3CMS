@@ -18,6 +18,7 @@ import time
 import supabase
 import os
 import folium
+from geopy.geocoders import Nominatim
 
 # Set your Supabase credentials as environment variables
 SUPABASE_URL = os.getenv("SUPABASE_URL")
@@ -236,16 +237,20 @@ def backend():
     opportunities_db = supabase_client.table('opportunities').select("*").execute()
     opportunities_df = pd.DataFrame(opportunities_db.data)
     # opportunities = pd.read_csv("./data/opportunities.csv")
+    # Use geopy to get the coordinates for the center of the data points
+    geolocator = Nominatim(user_agent="myGeocoder")
+    location = geolocator.geocode(f"{contacts_df['City'].iloc[0]}, {contacts_df['State'].iloc[0]}")
     # Create a map centered at an initial location
-    m = folium.Map(location=[contacts_df["City"].iloc[0], contacts_df["State"].iloc[0]], zoom_start=5)
+    m = folium.Map(location=[location.latitude, location.longitude], zoom_start=5)
 
     # Add markers for each company's location
-    for i, row in df.iterrows():
-        location = [row["City"], row["State"]]
-        folium.Marker(
-            location=location,
-            popup=row["Company"],
-        ).add_to(m)
+    for i, row in contact_df.iterrows():
+        location = geolocator.geocode(f"{row['City']}, {row['State']}")
+        if location:
+            folium.Marker(
+                location=[location.latitude, location.longitude],
+                popup=row["Company"],
+            ).add_to(m)
 
     st.text("CRM Uploads")
     tab1, tab2, tab3, tab4 = st.tabs(["📈 Clients", "🗃 Products","🎲 Opportunities","🐪 Crypto Integration"])

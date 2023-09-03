@@ -12,3 +12,4 @@ web3
 lunarcrush
 supabase
 folium
+geopy
