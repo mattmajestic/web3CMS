@@ -253,24 +253,17 @@ def backend():
     #             popup=row["Company"],
     #         ).add_to(m)
 
+    # Set a common approximate location for all companies (e.g., the center of the USA)
+    common_location = "USA"
+
     # Use Plotly to create a scattergeo map
     fig = px.scatter_geo(
         contacts_df,
-        locations=[],
+        locations=[common_location] * len(contacts_df),  # Set the same location for all companies
         locationmode='USA-states',
         text='Company',
         scope='usa',
     )
-
-    # Update marker locations based on the city and state information
-    for i, row in contacts_df.iterrows():
-        fig.add_trace(
-            px.scatter_geo(
-                locations=[f"{row['City']}, {row['State']}"],
-                locationmode='USA-states',
-                text=row['Company']
-            ).data[0]
-        )
 
     # Update layout settings
     fig.update_layout(
