@@ -19,6 +19,7 @@ import supabase
 import os
 import folium
 from geopy.geocoders import Nominatim
+import plotly.express as px
 
 # Set your Supabase credentials as environment variables
 SUPABASE_URL = os.getenv("SUPABASE_URL")
@@ -238,26 +239,54 @@ def backend():
     opportunities_df = pd.DataFrame(opportunities_db.data)
     # opportunities = pd.read_csv("./data/opportunities.csv")
     # Use geopy to get the coordinates for the center of the data points
-    geolocator = Nominatim(user_agent="myGeocoder")
-    location = geolocator.geocode(f"{contacts_df['City'].iloc[0]}, {contacts_df['State'].iloc[0]}")
-    # Create a map centered at an initial location
-    m = folium.Map(location=[location.latitude, location.longitude], zoom_start=5)
+    # geolocator = Nominatim(user_agent="myGeocoder")
+    # location = geolocator.geocode(f"{contacts_df['City'].iloc[0]}, {contacts_df['State'].iloc[0]}")
+    # # Create a map centered at an initial location
+    # m = folium.Map(location=[location.latitude, location.longitude], zoom_start=5)
 
-    # Add markers for each company's location
-    for i, row in contact_df.iterrows():
-        location = geolocator.geocode(f"{row['City']}, {row['State']}")
-        if location:
-            folium.Marker(
-                location=[location.latitude, location.longitude],
-                popup=row["Company"],
-            ).add_to(m)
+    # # Add markers for each company's location
+    # for i, row in contact_df.iterrows():
+    #     location = geolocator.geocode(f"{row['City']}, {row['State']}")
+    #     if location:
+    #         folium.Marker(
+    #             location=[location.latitude, location.longitude],
+    #             popup=row["Company"],
+    #         ).add_to(m)
+
+    # Use Plotly to create a scattergeo map
+    fig = px.scatter_geo(
+        contacts_df,
+        locations=[],
+        locationmode='USA-states',
+        text='Company',
+        scope='usa',
+    )
+
+    # Update marker locations based on the city and state information
+    for i, row in contacts_df.iterrows():
+        fig.add_trace(
+            px.scatter_geo(
+                locations=[f"{row['City']}, {row['State']}"],
+                locationmode='USA-states',
+                text=row['Company']
+            ).data[0]
+        )
+
+    # Update layout settings
+    fig.update_layout(
+        geo=dict(
+            center=dict(lat=39.8283, lon=-98.5795),  # Centered at the approximate USA coordinates
+            scope='usa',
+        ),
+    )
 
     st.text("CRM Uploads")
     tab1, tab2, tab3, tab4 = st.tabs(["📈 Clients", "🗃 Products","🎲 Opportunities","🐪 Crypto Integration"])
     tab1.file_uploader("Upload your Clients", type=['csv','xlsx'],accept_multiple_files=False,key="fileUploader")
     tab1.write("Edit Data Table")
     tab1.data_editor(contacts_df)
-    tab1.write(m)
+    # Display the map using st.plotly_chart
+    tab1.plotly_chart(fig)
     tab1.button("Save Clients Table")
     tab2.file_uploader("Upload your Products", type=['csv','xlsx'],accept_multiple_files=False,key="products_upload")
     tab2.write("Edit Data Table")

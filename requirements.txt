@@ -13,3 +13,4 @@ lunarcrush
 supabase
 folium
 geopy
+plotly
