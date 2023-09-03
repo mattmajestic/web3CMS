@@ -237,7 +237,7 @@ def backend():
     opportunities_df = pd.DataFrame(opportunities_db.data)
     # opportunities = pd.read_csv("./data/opportunities.csv")
     # Create a map centered at an initial location
-    m = folium.Map(location=[df["City"].iloc[0], df["State"].iloc[0]], zoom_start=5)
+    m = folium.Map(location=[contacts_df["City"].iloc[0], contacts_df["State"].iloc[0]], zoom_start=5)
 
     # Add markers for each company's location
     for i, row in df.iterrows():
