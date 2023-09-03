@@ -279,7 +279,7 @@ def backend():
     tab1.write("Edit Data Table")
     tab1.data_editor(contacts_df)
     # Display the map using st.plotly_chart
-    tab1.plotly_chart(fig)
+    # tab1.plotly_chart(fig)
     tab1.button("Save Clients Table")
     tab2.file_uploader("Upload your Products", type=['csv','xlsx'],accept_multiple_files=False,key="products_upload")
     tab2.write("Edit Data Table")
