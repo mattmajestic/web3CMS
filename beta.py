@@ -17,6 +17,7 @@ import time
 # from lunarcrush import LunarCrush
 import supabase
 import os
+import folium
 
 # Set your Supabase credentials as environment variables
 SUPABASE_URL = os.getenv("SUPABASE_URL")
@@ -235,11 +236,23 @@ def backend():
     opportunities_db = supabase_client.table('opportunities').select("*").execute()
     opportunities_df = pd.DataFrame(opportunities_db.data)
     # opportunities = pd.read_csv("./data/opportunities.csv")
+    # Create a map centered at an initial location
+    m = folium.Map(location=[df["City"].iloc[0], df["State"].iloc[0]], zoom_start=5)
+
+    # Add markers for each company's location
+    for i, row in df.iterrows():
+        location = [row["City"], row["State"]]
+        folium.Marker(
+            location=location,
+            popup=row["Company"],
+        ).add_to(m)
+
     st.text("CRM Uploads")
     tab1, tab2, tab3, tab4 = st.tabs(["📈 Clients", "🗃 Products","🎲 Opportunities","🐪 Crypto Integration"])
     tab1.file_uploader("Upload your Clients", type=['csv','xlsx'],accept_multiple_files=False,key="fileUploader")
     tab1.write("Edit Data Table")
     tab1.data_editor(contacts_df)
+    tab1.write(m)
     tab1.button("Save Clients Table")
     tab2.file_uploader("Upload your Products", type=['csv','xlsx'],accept_multiple_files=False,key="products_upload")
     tab2.write("Edit Data Table")

@@ -11,3 +11,4 @@ yfinance
 web3
 lunarcrush
 supabase
+folium
