@@ -117,6 +117,8 @@ def invoice():
     <script src="https://widgets.coingecko.com/coingecko-coin-list-widget.js"></script><coingecko-coin-list-widget  coin-ids="bitcoin,ethereum" currency="usd" locale="en"></coingecko-coin-list-widget>
     '''
 
+    components.html(cg_html)
+
     st.sidebar.markdown("Crypto Invoicing")
 
     left, center, right = st.columns([5, 2, 5])
@@ -133,9 +135,9 @@ def invoice():
     start_period = form.date_input("Start of Invoice Time Period", start)
     hours = form.number_input("Hours", 1, 80, 40)
     rate = form.number_input("Hourly Rate", 1, 10000, 120, 120)
-    currency_type = form.checkbox("Select Currency Type", value=False, key="currency_type")
+    currency_type = form.checkbox("Select Currency Type", value=False)
     if currency_type:
-        crypto_type = form.selectbox("Select Cryptocurrency Type", ["BTC", "ETH", "USDC"], index=0, key="crypto_type")
+        crypto_type = form.selectbox("Select Cryptocurrency Type", ["BTC", "ETH", "USDC"], index=0)
     notes = form.text_input("Add Any Additional Notes")
     submit = form.form_submit_button("Generate Invoice")
     coin_addy = right.selectbox("Invoice Send Address",
@@ -170,34 +172,22 @@ def invoice():
             mime="application/octet-stream",
         )
 
-    # Expander for "Meetings" section
     meetings_expander = right.expander("🤝 Meetings")
     with meetings_expander:
         st.write("Calculate Meeting Costs")
-
-        # Numeric input for weekly meeting hours
         weekly_meeting_hours = st.number_input("Weekly Meeting Hours", min_value=0, value=10)
-
-        # Numeric input for person's annual salary
         annual_salary = st.number_input("Annual Salary ($)", min_value=0, value=50000)
-
-        # Calculate meeting costs based on hourly rate
         hourly_rate = annual_salary / (52 * weekly_meeting_hours) if weekly_meeting_hours > 0 else 0
         st.write(f"Hourly Rate: ${hourly_rate:.2f}")
 
-        # You can add additional calculations or information as needed.
-
-    # Expander for "MetaMask" section
     metamask_expander = right.expander("🔐 MetaMask")
     with metamask_expander:
         st.write("Connect Your MetaMask Wallet")
-
         st.markdown("To connect your MetaMask wallet, follow these steps:")
         st.markdown("1. Install the MetaMask extension in your browser if you haven't already.")
         st.markdown("2. Click on the MetaMask icon in your browser's toolbar.")
         st.markdown("3. Create a new MetaMask wallet or import an existing one if you have.")
         st.markdown("4. Click the 'Connect' button below to connect your wallet.")
-
         components.html(cg_html)
         connect_button = wallet_connect(label="wallet", key="wallet")
         if connect_button != "not":
