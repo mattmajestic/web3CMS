@@ -100,26 +100,11 @@ def home_page():
 #     st.markdown(clerk_js, unsafe_allow_html=True)
 
 def invoice():
-    # Replace with supabase fetch
-    products_db = supabase_client.table('products').select("*").execute()
-    products_df = pd.DataFrame(products_db.data)
-    # products = pd.read_csv("./data/products.csv")
-    # Replace with supabase fetch
-    contacts_db = supabase_client.table('contacts').select("*").execute()
-    contacts_df = pd.DataFrame(contacts_db.data)
-    # contacts = pd.read_csv("./data/contacts.csv")
-    # Replace with supabase fetch
-    opportunities_db = supabase_client.table('opportunities').select("*").execute()
-    opportunities_df = pd.DataFrame(opportunities_db.data)
-    # opportunities = pd.read_csv("./data/opportunities.csv")
-    
-    cg_html = '''
-    <script src="https://widgets.coingecko.com/coingecko-coin-list-widget.js"></script><coingecko-coin-list-widget  coin-ids="bitcoin,ethereum" currency="usd" locale="en"></coingecko-coin-list-widget>
-    '''
+    # ... (existing code)
 
     st.sidebar.markdown("Crypto Invoicing")
 
-    left,center, right = st.columns([5,2,5])
+    left, center, right = st.columns([5, 2, 5])
 
     env = Environment(loader=FileSystemLoader("."), autoescape=select_autoescape())
     template = env.get_template("template.html")
@@ -128,32 +113,34 @@ def invoice():
     end = datetime.today()
     service_choices = products_df[["Name"]]
     form = left.form("template_form")
-    service = form.selectbox("Invoice Service",service_choices)
-    client = form.selectbox("Client",["CNN", "Penn State","Coca Cola Florida LLC","McAfee"],index=0)
+    service = form.selectbox("Invoice Service", service_choices)
+    client = form.selectbox("Client", ["CNN", "Penn State", "Coca Cola Florida LLC", "McAfee"], index=0)
     start_period = form.date_input("Start of Invoice Time Period", start)
     hours = form.number_input("Hours", 1, 80, 40)
-    rate = form.number_input("Hourly Rate", 1, 10000, 120,120)
+    rate = form.number_input("Hourly Rate", 1, 10000, 120, 120)
     notes = form.text_input("Add Any Additional Notes")
     submit = form.form_submit_button("Generate Invoice")
-    coin_addy = right.selectbox("Invoice Send Address",["0x2170Ed0880ac9A755fd29B2688956BD959F933F8", "0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c","0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d"],index=0)
+    coin_addy = right.selectbox("Invoice Send Address",
+                               ["0x2170Ed0880ac9A755fd29B2688956BD959F933F8", "0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c",
+                                "0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d"], index=0)
     apiURL = "https://api.pancakeswap.info/api/v2/tokens/"
-    response = requests.get(url = apiURL + coin_addy)
+    response = requests.get(url=apiURL + coin_addy)
     jsonRaw = response.json()
-    cg = CoinGeckoAPI() 
+    cg = CoinGeckoAPI()
     coin_price = cg.get_price(ids='bitcoin', vs_currencies='usd')['bitcoin']['usd']
     usd_total = hours * rate
-    invoice_total = usd_total/coin_price
-    coin = right.selectbox("Invoice Currency",["ETH","BTC","USDC","USD (Cash)"],index=0)
+    invoice_total = usd_total / coin_price
+    coin = right.selectbox("Invoice Currency", ["ETH", "BTC", "USDC", "USD (Cash)"], index=0)
     invoice_msg = "Invoice Total " + coin
     right.text(invoice_msg)
     right.write(invoice_total)
     with right:
-         components.html(cg_html)
-         connect_button = wallet_connect(label="wallet", key="wallet")
-         if connect_button != "not":
+        components.html(cg_html)
+        connect_button = wallet_connect(label="wallet", key="wallet")
+        if connect_button != "not":
             st.success('Connected', icon="✅")
             st.write(connect_button)
-         
+
     if submit:
         html = template.render(
             service=service,
@@ -170,13 +157,58 @@ def invoice():
             file_name="invoice.pdf",
             mime="application/octet-stream",
         )
+
+    # Expander for "Meetings" section
+    with st.expander("🤝 Meetings", expanded=True):
+        st.write("Upcoming Meetings and Appointments")
+        
+        # You can add your code here to fetch and display upcoming meetings and appointments.
+        # For example, you might query a calendar API to retrieve event details.
+        
+        # Sample code to display a list of meetings (replace with your data):
+        meetings = [
+            {"date": "2023-09-15", "time": "10:00 AM", "title": "Client Meeting"},
+            {"date": "2023-09-17", "time": "2:30 PM", "title": "Team Briefing"},
+            {"date": "2023-09-20", "time": "11:15 AM", "title": "Project Review"},
+        ]
+
+        if meetings:
+            st.markdown("Here are your upcoming meetings:")
+            for meeting in meetings:
+                st.write(f"- Date: {meeting['date']} | Time: {meeting['time']} | Title: {meeting['title']}")
+        else:
+            st.write("No upcoming meetings found.")
+
+    # Expander for "MetaMask" section
+    with st.expander("🔐 MetaMask", expanded=True):
+        st.write("Connect Your MetaMask Wallet")
+        
+        # You can add instructions and code here to guide users on how to connect their MetaMask wallet.
+        
+        st.markdown("To connect your MetaMask wallet, follow these steps:")
+        st.markdown("1. Install the MetaMask extension in your browser if you haven't already.")
+        st.markdown("2. Click on the MetaMask icon in your browser's toolbar.")
+        st.markdown("3. Create a new MetaMask wallet or import an existing one if you have.")
+        st.markdown("4. Click the 'Connect' button below to connect your wallet.")
+        
+        # You can add a button or interaction here to initiate the wallet connection process.
+        # For example, you can trigger a MetaMask login using web3.js or ethers.js.
+        
+        connect_button = st.button("Connect Wallet")
+        
+        if connect_button:
+            # Add code here to initiate MetaMask wallet connection.
+            # You can use a JavaScript library like web3.js to handle this.
+            # After successful connection, you can display a success message.
+            st.success("MetaMask Wallet Connected Successfully!")
+        
     # Show the BTC Pay Server
     btc_expander = st.expander("Donate BTC 💸")
     with btc_expander:
         url = "https://mainnet.demo.btcpayserver.org/api/v1/invoices?storeId=4r8DKKKMkxGPVKcW9TXB2eta7PTVzzs192TWM3KuY52e&price=100&currency=USD&defaultPaymentMethod=BTC"
-        link='Pay wit BTC [via this link](https://mainnet.demo.btcpayserver.org/api/v1/invoices?storeId=4r8DKKKMkxGPVKcW9TXB2eta7PTVzzs192TWM3KuY52e&price=100&currency=USD&defaultPaymentMethod=BTC)'
-        st.markdown(link,unsafe_allow_html=True)
-        components.iframe(url,width = 300,height = 500, scrolling=True)
+        link = 'Pay with BTC [via this link](https://mainnet.demo.btcpayserver.org/api/v1/invoices?storeId=4r8DKKKMkxGPVKcW9TXB2eta7PTVzzs192TWM3KuY52e&price=100&currency=USD&defaultPaymentMethod=BTC)'
+        st.markdown(link, unsafe_allow_html=True)
+        components.iframe(url, width=300, height=500, scrolling=True)
 
 def ai_chat():
     st.title("GPT chat with your Business Data")
@@ -184,44 +216,6 @@ def ai_chat():
     prompt = st.chat_input("Chat your Business with AI")
     if prompt:
         st.write(f"User has sent the following prompt: {prompt}")
-
-
-def meetings():
-    st.title("Time Index Calculator")
-    st.write("Calculate time spent in your organization")
-
-    # Input fields for Google credentials
-    email = st.text_input("Email", "")
-    password = st.text_input("Password", "", type="password")
-
-    # Submit button for Google credentials
-    if st.button("Submit Credentials"):
-        if email and password:
-            # You can perform actions related to Google here, e.g., fetching meeting data
-            # Replace this with your own code to interact with the Google API
-            st.success("Credentials submitted successfully. Fetching meeting data...")
-
-            # Perform actions with Google API using the provided credentials
-            # Example: Fetch meeting data here
-
-        else:
-            st.error("Please enter both email and password.")
-
-    # Input field for meeting count
-    meeting_count = st.number_input("Number of Meetings (approximate)", min_value=0, value=0)
-
-    # Input field for annual salary
-    annual_salary = st.number_input("Annual Salary (USD)", min_value=0, value=0)
-
-    if st.button("Calculate"):
-        if meeting_count > 0 and annual_salary > 0:
-            # Calculate time index
-            hours_per_week = meeting_count * (1 / 5) * 8  # Assuming 8 hours per workday and 5 workdays per week
-            time_index = hours_per_week / 40
-            st.write(f"Time Index: {time_index:.2f}")
-        else:
-            st.error("Please enter valid values for meeting count and annual salary.")
-
 
 # def clients():
 #     st.snow()
@@ -366,7 +360,6 @@ def backend():
 
 page_names_to_funcs = {
     "About ✏️": home_page,
-    "Meeting Effciency 📈":meetings,
     # "Sign In 🎲": signin,
     "Invoice 📋" : invoice,
     # "Clients": clients,
