@@ -174,49 +174,45 @@ def invoice():
         )
 
     # Expander for "Meetings" section
-    with right.expander("🤝 Meetings", expanded=False):
-        right.write("Upcoming Meetings and Appointments")
-        
-        # You can add your code here to fetch and display upcoming meetings and appointments.
-        # For example, you might query a calendar API to retrieve event details.
-        
-        # Sample code to display a list of meetings (replace with your data):
-        meetings = [
-            {"date": "2023-09-15", "time": "10:00 AM", "title": "Client Meeting"},
-            {"date": "2023-09-17", "time": "2:30 PM", "title": "Team Briefing"},
-            {"date": "2023-09-20", "time": "11:15 AM", "title": "Project Review"},
-        ]
+    meetings_expander = right.expander("🤝 Meetings")
+    with meetings_expander:
+        st.write("Calculate Meeting Costs")
 
-        if meetings:
-            right.markdown("Here are your meeting Hours:")
-            for meeting in meetings:
-                right.write(f"- Date: {meeting['date']} | Time: {meeting['time']} | Title: {meeting['title']}")
-        else:
-            right.write("No upcoming meetings found.")
+        # Numeric input for weekly meeting hours
+        weekly_meeting_hours = st.number_input("Weekly Meeting Hours", min_value=0, value=10)
+
+        # Numeric input for person's annual salary
+        annual_salary = st.number_input("Annual Salary ($)", min_value=0, value=50000)
+
+        # Calculate meeting costs based on hourly rate
+        hourly_rate = annual_salary / (52 * weekly_meeting_hours) if weekly_meeting_hours > 0 else 0
+        st.write(f"Hourly Rate: ${hourly_rate:.2f}")
+
+        # You can add additional calculations or information as needed.
 
     # Expander for "MetaMask" section
-    with right.expander("🔐 MetaMask", expanded=True):
-        right.write("Connect Your MetaMask Wallet")
-        
+    metamask_expander = right.expander("🔐 MetaMask")
+    with metamask_expander:
+        st.write("Connect Your MetaMask Wallet")
+
         # You can add instructions and code here to guide users on how to connect their MetaMask wallet.
-        
-        right.markdown("To connect your MetaMask wallet, follow these steps:")
-        right.markdown("1. Install the MetaMask extension in your browser if you haven't already.")
-        right.markdown("2. Click on the MetaMask icon in your browser's toolbar.")
-        right.markdown("3. Create a new MetaMask wallet or import an existing one if you have.")
-        right.markdown("4. Click the 'Connect' button below to connect your wallet.")
-        
+
+        st.markdown("To connect your MetaMask wallet, follow these steps:")
+        st.markdown("1. Install the MetaMask extension in your browser if you haven't already.")
+        st.markdown("2. Click on the MetaMask icon in your browser's toolbar.")
+        st.markdown("3. Create a new MetaMask wallet or import an existing one if you have.")
+        st.markdown("4. Click the 'Connect' button below to connect your wallet.")
+
         # You can add a button or interaction here to initiate the wallet connection process.
         # For example, you can trigger a MetaMask login using web3.js or ethers.js.
-        
-        connect_button = right.button("Connect Wallet")
-        
+
+        connect_button = st.button("Connect Wallet")
+
         if connect_button:
             # Add code here to initiate MetaMask wallet connection.
             # You can use a JavaScript library like web3.js to handle this.
             # After successful connection, you can display a success message.
-            right.success("MetaMask Wallet Connected Successfully!")
-
+            st.success("MetaMask Wallet Connected Successfully!")
 
     # Show the BTC Pay Server
     btc_expander = st.expander("Donate BTC 💸")
