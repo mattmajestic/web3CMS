@@ -133,6 +133,11 @@ def invoice():
     start_period = form.date_input("Start of Invoice Time Period", start)
     hours = form.number_input("Hours", 1, 80, 40)
     rate = form.number_input("Hourly Rate", 1, 10000, 120, 120)
+    currency_type = form.checkbox("Select Currency Type", value=False)
+    if currency_type:
+        crypto_type = form.selectbox("Select Cryptocurrency Type", ["BTC", "ETH", "USDC"], index=0)
+
+submit = form.form_submit_button("Generate Invoice")
     notes = form.text_input("Add Any Additional Notes")
     submit = form.form_submit_button("Generate Invoice")
     coin_addy = right.selectbox("Invoice Send Address",
@@ -149,12 +154,6 @@ def invoice():
     invoice_msg = "Invoice Total " + coin
     right.text(invoice_msg)
     right.write(invoice_total)
-    with right:
-        components.html(cg_html)
-        connect_button = wallet_connect(label="wallet", key="wallet")
-        if connect_button != "not":
-            st.success('Connected', icon="✅")
-            st.write(connect_button)
 
     if submit:
         html = template.render(
@@ -195,24 +194,17 @@ def invoice():
     with metamask_expander:
         st.write("Connect Your MetaMask Wallet")
 
-        # You can add instructions and code here to guide users on how to connect their MetaMask wallet.
-
         st.markdown("To connect your MetaMask wallet, follow these steps:")
         st.markdown("1. Install the MetaMask extension in your browser if you haven't already.")
         st.markdown("2. Click on the MetaMask icon in your browser's toolbar.")
         st.markdown("3. Create a new MetaMask wallet or import an existing one if you have.")
         st.markdown("4. Click the 'Connect' button below to connect your wallet.")
 
-        # You can add a button or interaction here to initiate the wallet connection process.
-        # For example, you can trigger a MetaMask login using web3.js or ethers.js.
-
-        connect_button = st.button("Connect Wallet")
-
-        if connect_button:
-            # Add code here to initiate MetaMask wallet connection.
-            # You can use a JavaScript library like web3.js to handle this.
-            # After successful connection, you can display a success message.
-            st.success("MetaMask Wallet Connected Successfully!")
+        components.html(cg_html)
+        connect_button = wallet_connect(label="wallet", key="wallet")
+        if connect_button != "not":
+            st.success('Connected', icon="✅")
+            st.write(connect_button)
 
     # Show the BTC Pay Server
     btc_expander = st.expander("Donate BTC 💸")
