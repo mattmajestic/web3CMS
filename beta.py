@@ -272,93 +272,75 @@ def backend():
     
      
 def dev_docs():
-    st.title("web3bms API Documentation 🚝")
+    st.title("Development Documentation")
 
-    col1, col2 = st.columns([2, 3])
+    dev_expander = st.expander("Dev Docs", expanded=True)
 
-    with col1:
-        st.header("API Usage")
-        st.write("""
-        To interact with the web3bms API, you can make HTTP requests to the following endpoints:
+    with dev_expander:
 
-        - **Endpoint 1:** `/api/endpoint1`
-          - Description: Description of the first API endpoint.
-          - Method: GET
-          - Parameters: 
-            - `param1`: Description of parameter 1.
+        api_expander = st.expander("API Documentation", expanded=True)
+        with api_expander:
+            st.write("""
+            To interact with the web3bms API, you can make HTTP requests to the following endpoints:
 
-        - **Endpoint 2:** `/api/endpoint2`
-          - Description: Description of the second API endpoint.
-          - Method: POST
-          - Parameters: 
-            - `param2`: Description of parameter 2.
-        """)
+            - **Endpoint 1:** `/api/endpoint1`
+              - Description: Description of the first API endpoint.
+              - Method: GET
+              - Parameters: 
+                - `param1`: Description of parameter 1.
 
-        st.header("CLI Usage")
-        st.write("""
-        The web3bms CLI provides command-line access to various features. Here are some common CLI commands:
+            - **Endpoint 2:** `/api/endpoint2`
+              - Description: Description of the second API endpoint.
+              - Method: POST
+              - Parameters: 
+                - `param2`: Description of parameter 2.
+            """)
 
-        - **Command 1:** `web3bms command1`
-          - Description: Description of command 1.
-          - Usage: 
+        cli_expander = st.expander("CLI Usage", expanded=True)
+        with cli_expander:
+            st.write("""
+            The web3bms CLI provides command-line access to various features. Here are some common CLI commands:
+
+            - **Command 1:** `web3bms command1`
+              - Description: Description of command 1.
+              - Usage: 
+                ```
+                web3bms command1 [options]
+                ```
+              - Options:
+                - `--option1`: Description of option 1.
+
+            - **Command 2:** `web3bms command2`
+              - Description: Description of command 2.
+              - Usage: 
+                ```
+                web3bms command2 [options]
+                ```
+              - Options:
+                - `--option2`: Description of option 2.
+            """)
+
+        pypi_expander = st.expander("PyPI Package", expanded=True)
+        with pypi_expander:
+            st.write("""
+            You can install the web3bms PyPI package using pip:
+
             ```
-            web3bms command1 [options]
+            pip install web3bms
             ```
-          - Options:
-            - `--option1`: Description of option 1.
 
-        - **Command 2:** `web3bms command2`
-          - Description: Description of command 2.
-          - Usage: 
+            Once installed, you can import and use the package in your Python scripts.
+
+            Example:
+
+            ```python
+            from web3bms import some_function
+
+            result = some_function(param1, param2)
             ```
-            web3bms command2 [options]
-            ```
-          - Options:
-            - `--option2`: Description of option 2.
-        """)
 
-        st.header("PyPI Package")
-        st.write("""
-        You can install the web3bms PyPI package using pip:
-
-        ```
-        pip install web3bms
-        ```
-
-        Once installed, you can import and use the package in your Python scripts.
-
-        Example:
-
-        ```python
-        from web3bms import some_function
-
-        result = some_function(param1, param2)
-        ```
-
-        For more details on how to use the PyPI package, refer to the package documentation on PyPI.
-        """)
-
-    with col2:
-        st.header("API Code Example")
-        st.code("""
-        import requests
-
-        url = "https://your-web3bms-app.com/api/endpoint1?param1=value1"
-        response = requests.get(url)
-        data = response.json()
-        """, language="python")
-
-        st.header("CLI Code Example")
-        st.code("""
-        web3bms command1 --option1 value1
-        """, language="bash")
-
-        st.header("PyPI Code Example")
-        st.code("""
-        from web3bms import some_function
-
-        result = some_function(param1, param2)
-        """, language="python")
+            For more details on how to use the PyPI package, refer to the package documentation on PyPI.
+            """)
 
 page_names_to_funcs = {
     "About ✏️": home_page,
