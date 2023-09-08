@@ -136,8 +136,7 @@ def invoice():
     currency_type = form.checkbox("Select Currency Type", value=False)
     if currency_type:
         crypto_type = form.selectbox("Select Cryptocurrency Type", ["BTC", "ETH", "USDC"], index=0)
-
-submit = form.form_submit_button("Generate Invoice")
+    submit = form.form_submit_button("Generate Invoice")
     notes = form.text_input("Add Any Additional Notes")
     submit = form.form_submit_button("Generate Invoice")
     coin_addy = right.selectbox("Invoice Send Address",
