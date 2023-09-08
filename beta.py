@@ -138,7 +138,7 @@ def invoice():
     hours = form.number_input("Hours", 1, 80, 40)
     rate = form.number_input("Hourly Rate", 1, 10000, 120, 120)
     currency_type = form.checkbox("Select Currency Type", value=False)
-    if currency_type
+    if currency_type:
         crypto_type = form.selectbox("Select Cryptocurrency Type", ["BTC", "ETH", "USDC"], index=0)
         form.write(f"Selected cryptocurrency: {crypto_type}")
     notes = form.text_input("Add Any Additional Notes")
@@ -198,7 +198,7 @@ def invoice():
             st.write(connect_button)
 
     # Show the BTC Pay Server
-    btc_expander = st.expander("Donate BTC 💸")
+    btc_expander = right.expander("Donate BTC 💸")
     with btc_expander:
         url = "https://mainnet.demo.btcpayserver.org/api/v1/invoices?storeId=4r8DKKKMkxGPVKcW9TXB2eta7PTVzzs192TWM3KuY52e&price=100&currency=USD&defaultPaymentMethod=BTC"
         link = 'Pay with BTC [via this link](https://mainnet.demo.btcpayserver.org/api/v1/invoices?storeId=4r8DKKKMkxGPVKcW9TXB2eta7PTVzzs192TWM3KuY52e&price=100&currency=USD&defaultPaymentMethod=BTC)'
