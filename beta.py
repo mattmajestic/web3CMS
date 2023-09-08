@@ -272,7 +272,7 @@ def backend():
 
 
 def dev_docs():
-    st.title("Development Documentation")
+    st.title("Development Documentation 🚝")
 
     st.write("To interact with the web3bms API, you can make HTTP requests to the following endpoints:")
     st.write("")
@@ -280,7 +280,7 @@ def dev_docs():
     left, center, right = st.columns([4,4,4])
 
     left.write("API Documentation")
-    left_expander = left.expander("API Endpoint", expanded=True)
+    left_expander = left.expander("CRM API Endpoint", expanded=True)
     with left_expander:
         st.write("📊 Description: The API allows you to manage customer relationship data.")
         st.write("🚀 Endpoint: `/api/crm`")
@@ -292,7 +292,7 @@ def dev_docs():
         st.code("Sample code for making a GET request to the API endpoint.", language="python")
 
     center.write("CLI Commands")
-    cli_expander = center.expander("CLI Command", expanded=True)
+    cli_expander = center.expander("CRM CLI Command", expanded=True)
     with cli_expander:
         st.write("🔧 Description: The CLI command allows you to interact with customer data.")
         st.write("🔍 Usage: `web3bms crm [options]`")
@@ -301,8 +301,8 @@ def dev_docs():
         st.write("- `--option2`: Description of option 2.")
         st.code("Sample code for using the CLI command.", language="bash")
 
-    right.write("PyPI Package")
-    pypi_expander = right.expander("🐍 PyPI Package", expanded=True)
+    right.write("PyPI Package 🐍")
+    pypi_expander = right.expander("CRM Python Functions", expanded=True)
     with pypi_expander:
         st.write("The web3bms package is available on PyPI and can be installed using pip:")
         st.code("pip install web3bms", language="bash")
