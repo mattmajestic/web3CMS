@@ -1,2 +1,3 @@
-[server]
-wideMode=true
+[theme]
+base="dark"
+font="monospace"
