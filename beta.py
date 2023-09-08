@@ -274,10 +274,11 @@ def backend():
 def dev_docs():
     st.title("Development Documentation 🚝")
 
-    st.write("To interact with the web3bms API, you can make HTTP requests to the following endpoints:")
     st.write("")
 
     left, center, right = st.columns([4,4,4])
+
+    st.write("")
 
     left.write("API Documentation 📪")
     left_expander = left.expander("CRM API Endpoint", expanded=False)
@@ -289,6 +290,8 @@ def dev_docs():
         st.write("- `customer_id`: The ID of the customer.")
         st.write("- `name`: The name of the customer.")
         st.write("- `email`: The email address of the customer.")
+        st.write("")
+        st.write("")
         st.code("Sample code for making a GET request to the API endpoint.", language="python")
 
     center.write("CLI Commands 🔍")
@@ -298,6 +301,8 @@ def dev_docs():
         st.write("🛠️ Options:")
         st.write("- `--option1`: Description of option 1.")
         st.write("- `--option2`: Description of option 2.")
+        st.write("")
+        st.write("")
         st.code("Sample code for using the CLI command.", language="bash")
 
     right.write("PyPI Package 🐍")
@@ -305,7 +310,7 @@ def dev_docs():
     with pypi_expander:
         st.write("The web3bms package is available on PyPI and can be installed using pip:")
         st.code("pip install web3bms", language="bash")
-
+        st.write("")
         st.write("Once installed, you can import and use the package in your Python scripts.")
         st.code("Sample Python code for using the web3bms package.", language="python")
 
