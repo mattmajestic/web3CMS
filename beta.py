@@ -292,7 +292,7 @@ def dev_docs():
         st.write("- `email`: The email address of the customer.")
         st.write("")
         st.write("")
-        st.code("GET web3bms.io/api/crm", language="python")
+        st.code("GET https://web3bms.io/api/crm", language="python")
 
     center.write("CLI Commands 🔍")
     cli_expander = center.expander("CRM CLI Command", expanded=False)
