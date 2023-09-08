@@ -271,7 +271,7 @@ def backend():
     tab4.dataframe(df)
     
      
-def api_docs():
+def dev_docs():
     st.title("web3bms API Documentation 🚝")
 
     col1, col2 = st.columns([2, 3])
@@ -364,7 +364,7 @@ page_names_to_funcs = {
     "About ✏️": home_page,
     # "Sign In 🎲": signin,
     "Invoice 📋" : invoice,
-    "Developer Docs 🚝": api,
+    "Developer Docs 🚝": dev_docs,
     "CRM 📪": backend,
     "AI Chat 💻": ai_chat,
     
