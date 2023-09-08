@@ -270,6 +270,13 @@ def backend():
     df = pd.read_json(jsonRaw)
     tab4.dataframe(df)
 
+
+def dev_docs():
+    st.title("Development Documentation")
+
+    st.write("To interact with the web3bms API, you can make HTTP requests to the following endpoints:")
+    st.write("")
+
     left, center, right = st.columns(3)
 
     left.write("API Documentation")
@@ -287,8 +294,8 @@ def backend():
     st.write("The web3bms CLI provides command-line access to various features. Here are some common CLI commands:")
     st.write("")
 
-    center.write("CLI Command")
-    cli_expander = center.expander("CLI Command", expanded=False)
+    left.write("CLI Command")
+    cli_expander = left.expander("CLI Command", expanded=False)
     with cli_expander:
         st.write("🔧 Description: The CLI command allows you to interact with customer data.")
         st.write("🔍 Usage: `web3bms crm [options]`")
@@ -297,8 +304,8 @@ def backend():
         st.write("- `--option2`: Description of option 2.")
         st.code("Sample code for using the CLI command.", language="bash")
 
-    right.write("PyPI Package")
-    pypi_expander = right.expander("🐍 PyPI Package", expanded=False)
+    left.write("PyPI Package")
+    pypi_expander = left.expander("🐍 PyPI Package", expanded=False)
     with pypi_expander:
         st.write("The web3bms package is available on PyPI and can be installed using pip:")
         st.code("pip install web3bms", language="bash")
