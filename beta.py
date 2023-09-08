@@ -262,13 +262,11 @@ def dev_docs():
         if st.button("Generate API Key"):
             if email:
                 api_key = ''.join(random.choices(string.ascii_letters + string.digits, k=32))
-                st.write("Your API key has been generated:")
-                st.write(api_key)
                 response = supabase_client.table("web3bms-api-keys").insert([{"email": email, "api_key": api_key}]).execute()
                 if response.status_code == 201:
-                    st.success("API key and email have been saved to Supabase.")
+                    st.write("Your API key has been generated and saved to the database.")
                 else:
-                    st.error("Failed to save data to Supabase.")
+                    st.error("An error occurred while saving the API key.")
             else:
                 st.warning("Please enter an email address to generate the API key.")
 
