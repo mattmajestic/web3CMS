@@ -292,7 +292,7 @@ def dev_docs():
         st.write("- `email`: The email address of the customer.")
         st.write("")
         st.write("")
-        st.code("Sample code for making a GET request to the API endpoint.", language="python")
+        st.code("GET web3bms.io/api/crm", language="python")
 
     center.write("CLI Commands 🔍")
     cli_expander = center.expander("CRM CLI Command", expanded=False)
@@ -303,7 +303,7 @@ def dev_docs():
         st.write("- `--option2`: Description of option 2.")
         st.write("")
         st.write("")
-        st.code("Sample code for using the CLI command.", language="bash")
+        st.code("web3bms crm list-clients", language="bash")
 
     right.write("PyPI Package 🐍")
     pypi_expander = right.expander("CRM Python Functions", expanded=False)
@@ -312,7 +312,7 @@ def dev_docs():
         st.code("pip install web3bms", language="bash")
         st.write("")
         st.write("Once installed, you can import and use the package in your Python scripts.")
-        st.code("Sample Python code for using the web3bms package.", language="python")
+        st.code("from web3bms import crm", language="python")
 
 page_names_to_funcs = {
     "About ✏️": home_page,
