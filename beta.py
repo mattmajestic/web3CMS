@@ -117,8 +117,6 @@ def invoice():
     <script src="https://widgets.coingecko.com/coingecko-coin-list-widget.js"></script><coingecko-coin-list-widget  coin-ids="bitcoin,ethereum" currency="usd" locale="en"></coingecko-coin-list-widget>
     '''
 
-    components.html(cg_html)
-
     st.sidebar.markdown("Crypto Invoicing")
 
     left, center, right = st.columns([5, 2, 5])
@@ -201,6 +199,8 @@ def invoice():
         link = 'Pay with BTC [via this link](https://mainnet.demo.btcpayserver.org/api/v1/invoices?storeId=4r8DKKKMkxGPVKcW9TXB2eta7PTVzzs192TWM3KuY52e&price=100&currency=USD&defaultPaymentMethod=BTC)'
         st.markdown(link, unsafe_allow_html=True)
         components.iframe(url, width=300, height=500, scrolling=True)
+
+    components.html(cg_html)
 
 def ai_chat():
     st.title("GPT chat with your Business Data")
