@@ -274,73 +274,47 @@ def backend():
 def dev_docs():
     st.title("Development Documentation")
 
-    dev_expander = st.expander("Dev Docs", expanded=True)
+    st.write("To interact with the web3bms API, you can make HTTP requests to the following endpoints:")
+    st.write("")
 
-    with dev_expander:
+    st.expander("API Documentation", expanded=True)
+    with st.expander("Endpoint 1", expanded=True):
+        st.write("Description: Description of the first API endpoint.")
+        st.write("Method: GET")
+        st.write("Parameters:")
+        st.write("- `param1`: Description of parameter 1.")
 
-        api_expander = st.expander("API Documentation", expanded=True)
-        with api_expander:
-            st.write("""
-            To interact with the web3bms API, you can make HTTP requests to the following endpoints:
+    with st.expander("Endpoint 2", expanded=True):
+        st.write("Description: Description of the second API endpoint.")
+        st.write("Method: POST")
+        st.write("Parameters:")
+        st.write("- `param2`: Description of parameter 2.")
 
-            - **Endpoint 1:** `/api/endpoint1`
-              - Description: Description of the first API endpoint.
-              - Method: GET
-              - Parameters: 
-                - `param1`: Description of parameter 1.
+    st.write("The web3bms CLI provides command-line access to various features. Here are some common CLI commands:")
+    st.write("")
 
-            - **Endpoint 2:** `/api/endpoint2`
-              - Description: Description of the second API endpoint.
-              - Method: POST
-              - Parameters: 
-                - `param2`: Description of parameter 2.
-            """)
+    st.expander("CLI Usage", expanded=True)
+    with st.expander("Command 1", expanded=True):
+        st.write("Description: Description of command 1.")
+        st.write("Usage: `web3bms command1 [options]`")
+        st.write("Options:")
+        st.write("- `--option1`: Description of option 1.")
 
-        cli_expander = st.expander("CLI Usage", expanded=True)
-        with cli_expander:
-            st.write("""
-            The web3bms CLI provides command-line access to various features. Here are some common CLI commands:
+    with st.expander("Command 2", expanded=True):
+        st.write("Description: Description of command 2.")
+        st.write("Usage: `web3bms command2 [options]`")
+        st.write("Options:")
+        st.write("- `--option2`: Description of option 2.")
 
-            - **Command 1:** `web3bms command1`
-              - Description: Description of command 1.
-              - Usage: 
-                ```
-                web3bms command1 [options]
-                ```
-              - Options:
-                - `--option1`: Description of option 1.
-
-            - **Command 2:** `web3bms command2`
-              - Description: Description of command 2.
-              - Usage: 
-                ```
-                web3bms command2 [options]
-                ```
-              - Options:
-                - `--option2`: Description of option 2.
-            """)
-
-        pypi_expander = st.expander("PyPI Package", expanded=True)
-        with pypi_expander:
-            st.write("""
-            You can install the web3bms PyPI package using pip:
-
-            ```
-            pip install web3bms
-            ```
-
-            Once installed, you can import and use the package in your Python scripts.
-
-            Example:
-
-            ```python
-            from web3bms import some_function
-
-            result = some_function(param1, param2)
-            ```
-
-            For more details on how to use the PyPI package, refer to the package documentation on PyPI.
-            """)
+    st.write("You can install the web3bms PyPI package using pip:")
+    st.write("```\npip install web3bms\n```")
+    st.write("Once installed, you can import and use the package in your Python scripts.")
+    st.write("Example:")
+    st.write("```python")
+    st.write("from web3bms import some_function")
+    st.write("result = some_function(param1, param2)")
+    st.write("```")
+    st.write("For more details on how to use the PyPI package, refer to the package documentation on PyPI.")
 
 page_names_to_funcs = {
     "About ✏️": home_page,
