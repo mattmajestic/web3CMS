@@ -174,8 +174,8 @@ def invoice():
         )
 
     # Expander for "Meetings" section
-    with st.expander("🤝 Meetings", expanded=True):
-        st.write("Upcoming Meetings and Appointments")
+    with right.expander("🤝 Meetings", expanded=False):
+        right.write("Upcoming Meetings and Appointments")
         
         # You can add your code here to fetch and display upcoming meetings and appointments.
         # For example, you might query a calendar API to retrieve event details.
@@ -188,34 +188,34 @@ def invoice():
         ]
 
         if meetings:
-            st.markdown("Here are your upcoming meetings:")
+            right.markdown("Here are your meeting Hours:")
             for meeting in meetings:
-                st.write(f"- Date: {meeting['date']} | Time: {meeting['time']} | Title: {meeting['title']}")
+                right.write(f"- Date: {meeting['date']} | Time: {meeting['time']} | Title: {meeting['title']}")
         else:
-            st.write("No upcoming meetings found.")
+            right.write("No upcoming meetings found.")
 
     # Expander for "MetaMask" section
-    with st.expander("🔐 MetaMask", expanded=True):
-        st.write("Connect Your MetaMask Wallet")
+    with right.expander("🔐 MetaMask", expanded=True):
+        right.write("Connect Your MetaMask Wallet")
         
         # You can add instructions and code here to guide users on how to connect their MetaMask wallet.
         
-        st.markdown("To connect your MetaMask wallet, follow these steps:")
-        st.markdown("1. Install the MetaMask extension in your browser if you haven't already.")
-        st.markdown("2. Click on the MetaMask icon in your browser's toolbar.")
-        st.markdown("3. Create a new MetaMask wallet or import an existing one if you have.")
-        st.markdown("4. Click the 'Connect' button below to connect your wallet.")
+        right.markdown("To connect your MetaMask wallet, follow these steps:")
+        right.markdown("1. Install the MetaMask extension in your browser if you haven't already.")
+        right.markdown("2. Click on the MetaMask icon in your browser's toolbar.")
+        right.markdown("3. Create a new MetaMask wallet or import an existing one if you have.")
+        right.markdown("4. Click the 'Connect' button below to connect your wallet.")
         
         # You can add a button or interaction here to initiate the wallet connection process.
         # For example, you can trigger a MetaMask login using web3.js or ethers.js.
         
-        connect_button = st.button("Connect Wallet")
+        connect_button = right.button("Connect Wallet")
         
         if connect_button:
             # Add code here to initiate MetaMask wallet connection.
             # You can use a JavaScript library like web3.js to handle this.
             # After successful connection, you can display a success message.
-            st.success("MetaMask Wallet Connected Successfully!")
+            right.success("MetaMask Wallet Connected Successfully!")
 
 
     # Show the BTC Pay Server
@@ -414,7 +414,7 @@ def backend():
 
 page_names_to_funcs = {
     "About ✏️": home_page,
-    "Meeting Effciency 📈":meetings,
+    # "Meeting Effciency 📈":meetings,
     # "Sign In 🎲": signin,
     "Invoice 📋" : invoice,
     # "Clients": clients,
