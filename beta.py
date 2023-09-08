@@ -19,6 +19,8 @@ import folium
 from geopy.geocoders import Nominatim
 import plotly.express as px
 from streamlit import session_state
+import random
+import string
 
 # Set your Supabase credentials as environment variables
 SUPABASE_URL = os.getenv("SUPABASE_URL")
@@ -167,43 +169,6 @@ def ai_chat():
         st.write(f"User has sent the following prompt: {prompt}")
 
 
-def meetings():
-    st.title("Time Index Calculator")
-    st.write("Calculate time spent in your organization")
-
-    # Input fields for Google credentials
-    email = st.text_input("Email", "")
-    password = st.text_input("Password", "", type="password")
-
-    # Submit button for Google credentials
-    if st.button("Submit Credentials"):
-        if email and password:
-            # You can perform actions related to Google here, e.g., fetching meeting data
-            # Replace this with your own code to interact with the Google API
-            st.success("Credentials submitted successfully. Fetching meeting data...")
-
-            # Perform actions with Google API using the provided credentials
-            # Example: Fetch meeting data here
-
-        else:
-            st.error("Please enter both email and password.")
-
-    # Input field for meeting count
-    meeting_count = st.number_input("Number of Meetings (approximate)", min_value=0, value=0)
-
-    # Input field for annual salary
-    annual_salary = st.number_input("Annual Salary (USD)", min_value=0, value=0)
-
-    if st.button("Calculate"):
-        if meeting_count > 0 and annual_salary > 0:
-            # Calculate time index
-            hours_per_week = meeting_count * (1 / 5) * 8  # Assuming 8 hours per workday and 5 workdays per week
-            time_index = hours_per_week / 40
-            st.write(f"Time Index: {time_index:.2f}")
-        else:
-            st.error("Please enter valid values for meeting count and annual salary.")
-
-
 def backend():
     # Replace with supabase fetch
     products_db = supabase_client.table('products').select("*").execute()
@@ -273,13 +238,9 @@ def backend():
 
 def dev_docs():
     st.title("Development Documentation 🚝")
-
     st.write("")
-
     left, center, right = st.columns([4,4,4])
-
     st.write("")
-
     left.write("API Documentation 📪")
     left_expander = left.expander("CRM API Endpoint", expanded=False)
     with left_expander:
@@ -293,6 +254,23 @@ def dev_docs():
         st.write("")
         st.write("")
         st.code("GET https://web3bms.io/api/crm", language="python")
+
+    key_expander = left.expander("Create API Key 🔑", expanded=False)
+    with key_expander:
+        st.write("Enter your email address below to generate an API key:")
+        email = st.text_input("Email Address")
+        if st.button("Generate API Key"):
+            if email:
+                api_key = ''.join(random.choices(string.ascii_letters + string.digits, k=32))
+                st.write("Your API key has been generated:")
+                st.write(api_key)
+                response = supabase_client.table("web3bms-api-keys").insert([{"email": email, "api_key": api_key}]).execute()
+                if response.status_code == 201:
+                    st.success("API key and email have been saved to Supabase.")
+                else:
+                    st.error("Failed to save data to Supabase.")
+            else:
+                st.warning("Please enter an email address to generate the API key.")
 
     center.write("CLI Commands 🔍")
     cli_expander = center.expander("CRM CLI Command", expanded=False)
