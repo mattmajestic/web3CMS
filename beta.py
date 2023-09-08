@@ -137,12 +137,12 @@ def invoice():
     start_period = form.date_input("Start of Invoice Time Period", start)
     hours = form.number_input("Hours", 1, 80, 40)
     rate = form.number_input("Hourly Rate", 1, 10000, 120, 120)
-    currency_type = form.checkbox("Select Currency Type", value=False)
+    currency_type = form.checkbox("Select Currency Type", value=False,key="currency_type")
     if currency_type:
-        crypto_type = form.selectbox("Select Cryptocurrency Type", ["BTC", "ETH", "USDC"], index=0)
+        crypto_type = form.selectbox("Select Cryptocurrency Type", ["BTC", "ETH", "USDC"], index=0,key="crypto_type")
     notes = form.text_input("Add Any Additional Notes")
     submit = form.form_submit_button("Generate Invoice")
-    if currency_type:
+    if crypto_type:
         form.write(f"Selected cryptocurrency: {crypto_type}")
     else:
         form.write("USD is selected")
