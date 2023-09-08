@@ -117,6 +117,10 @@ def invoice():
     <script src="https://widgets.coingecko.com/coingecko-coin-list-widget.js"></script><coingecko-coin-list-widget  coin-ids="bitcoin,ethereum" currency="usd" locale="en"></coingecko-coin-list-widget>
     '''
 
+    cg_marquee = '''
+    <script src="https://widgets.coingecko.com/coingecko-coin-price-marquee-widget.js"></script><coingecko-coin-price-marquee-widget  coin-ids="bitcoin,ethereum,eos,ripple,litecoin" currency="usd" background-color="#100f0f" locale="en" font-color="#fefbfb"></coingecko-coin-price-marquee-widget>
+    '''
+
     st.sidebar.markdown("Crypto Invoicing")
 
     left, center, right = st.columns([5, 2, 5])
@@ -200,7 +204,7 @@ def invoice():
         st.markdown(link, unsafe_allow_html=True)
         components.iframe(url, width=300, height=500, scrolling=True)
 
-    components.html(cg_html)
+    components.html(cg_marquee)
 
 def ai_chat():
     st.title("GPT chat with your Business Data")
