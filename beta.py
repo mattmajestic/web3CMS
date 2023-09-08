@@ -263,12 +263,8 @@ def dev_docs():
             if email:
                 api_key = ''.join(random.choices(string.ascii_letters + string.digits, k=32))
                 response = supabase_client.table("web3bms-api-keys").insert([{"email": email, "api_key": api_key}]).execute()
-                if response.status_code == 201:
-                    st.write("Your API key has been generated and saved to the database.")
-                else:
-                    st.error("An error occurred while saving the API key.")
-            else:
-                st.warning("Please enter an email address to generate the API key.")
+                st.write("Your API key has been generated and saved to the database.")
+                
 
     center.write("CLI Commands 🔍")
     cli_expander = center.expander("CRM CLI Command", expanded=False)
