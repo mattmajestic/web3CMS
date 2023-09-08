@@ -280,7 +280,7 @@ def dev_docs():
     left, center, right = st.columns([4,4,4])
 
     left.write("API Documentation")
-    left_expander = left.expander("API Endpoint", expanded=False)
+    left_expander = left.expander("API Endpoint", expanded=True)
     with left_expander:
         st.write("📊 Description: The API allows you to manage customer relationship data.")
         st.write("🚀 Endpoint: `/api/crm`")
@@ -291,11 +291,8 @@ def dev_docs():
         st.write("- `email`: The email address of the customer.")
         st.code("Sample code for making a GET request to the API endpoint.", language="python")
 
-    st.write("The web3bms CLI provides command-line access to various features. Here are some common CLI commands:")
-    st.write("")
-
-    center.write("CLI Command")
-    cli_expander = center.expander("CLI Command", expanded=False)
+    center.write("CLI Commands")
+    cli_expander = center.expander("CLI Command", expanded=True)
     with cli_expander:
         st.write("🔧 Description: The CLI command allows you to interact with customer data.")
         st.write("🔍 Usage: `web3bms crm [options]`")
@@ -305,7 +302,7 @@ def dev_docs():
         st.code("Sample code for using the CLI command.", language="bash")
 
     right.write("PyPI Package")
-    pypi_expander = right.expander("🐍 PyPI Package", expanded=False)
+    pypi_expander = right.expander("🐍 PyPI Package", expanded=True)
     with pypi_expander:
         st.write("The web3bms package is available on PyPI and can be installed using pip:")
         st.code("pip install web3bms", language="bash")
