@@ -277,44 +277,58 @@ def dev_docs():
     st.write("To interact with the web3bms API, you can make HTTP requests to the following endpoints:")
     st.write("")
 
-    st.expander("API Documentation", expanded=True)
-    with st.expander("Endpoint 1", expanded=True):
+    with st.columns([2, 5]):
+        st.write("API Documentation")
+        st.write("Description of the API endpoints.")
+
+    st.expander("Endpoint 1", expanded=True)
+    with st.columns([2, 5]):
         st.write("Description: Description of the first API endpoint.")
         st.write("Method: GET")
         st.write("Parameters:")
         st.write("- `param1`: Description of parameter 1.")
+        st.code("Sample code for making a GET request to this endpoint.", language="python")
 
-    with st.expander("Endpoint 2", expanded=True):
+    st.expander("Endpoint 2", expanded=True)
+    with st.columns([2, 5]):
         st.write("Description: Description of the second API endpoint.")
         st.write("Method: POST")
         st.write("Parameters:")
         st.write("- `param2`: Description of parameter 2.")
+        st.code("Sample code for making a POST request to this endpoint.", language="python")
 
     st.write("The web3bms CLI provides command-line access to various features. Here are some common CLI commands:")
     st.write("")
 
-    st.expander("CLI Usage", expanded=True)
-    with st.expander("Command 1", expanded=True):
+    with st.columns([2, 5]):
+        st.write("CLI Usage")
+        st.write("Description of CLI commands.")
+
+    st.expander("Command 1", expanded=True)
+    with st.columns([2, 5]):
         st.write("Description: Description of command 1.")
         st.write("Usage: `web3bms command1 [options]`")
         st.write("Options:")
         st.write("- `--option1`: Description of option 1.")
+        st.code("Sample code for using this CLI command.", language="bash")
 
-    with st.expander("Command 2", expanded=True):
+    st.expander("Command 2", expanded=True)
+    with st.columns([2, 5]):
         st.write("Description: Description of command 2.")
         st.write("Usage: `web3bms command2 [options]`")
         st.write("Options:")
         st.write("- `--option2`: Description of option 2.")
+        st.code("Sample code for using this CLI command.", language="bash")
+
+    with st.columns([2, 5]):
+        st.write("PyPI Package")
+        st.write("Description of the PyPI package and how to install it.")
 
     st.write("You can install the web3bms PyPI package using pip:")
-    st.write("```\npip install web3bms\n```")
+    st.code("pip install web3bms", language="bash")
+
     st.write("Once installed, you can import and use the package in your Python scripts.")
-    st.write("Example:")
-    st.write("```python")
-    st.write("from web3bms import some_function")
-    st.write("result = some_function(param1, param2)")
-    st.write("```")
-    st.write("For more details on how to use the PyPI package, refer to the package documentation on PyPI.")
+    st.code("Sample Python code for using the web3bms package.", language="python")
 
 page_names_to_funcs = {
     "About ✏️": home_page,
