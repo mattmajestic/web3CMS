@@ -100,7 +100,22 @@ def home_page():
 #     st.markdown(clerk_js, unsafe_allow_html=True)
 
 def invoice():
-    # ... (existing code)
+    # Replace with supabase fetch
+    products_db = supabase_client.table('products').select("*").execute()
+    products_df = pd.DataFrame(products_db.data)
+    # products = pd.read_csv("./data/products.csv")
+    # Replace with supabase fetch
+    contacts_db = supabase_client.table('contacts').select("*").execute()
+    contacts_df = pd.DataFrame(contacts_db.data)
+    # contacts = pd.read_csv("./data/contacts.csv")
+    # Replace with supabase fetch
+    opportunities_db = supabase_client.table('opportunities').select("*").execute()
+    opportunities_df = pd.DataFrame(opportunities_db.data)
+    # opportunities = pd.read_csv("./data/opportunities.csv")
+    
+    cg_html = '''
+    <script src="https://widgets.coingecko.com/coingecko-coin-list-widget.js"></script><coingecko-coin-list-widget  coin-ids="bitcoin,ethereum" currency="usd" locale="en"></coingecko-coin-list-widget>
+    '''
 
     st.sidebar.markdown("Crypto Invoicing")
 
@@ -201,7 +216,8 @@ def invoice():
             # You can use a JavaScript library like web3.js to handle this.
             # After successful connection, you can display a success message.
             st.success("MetaMask Wallet Connected Successfully!")
-        
+
+
     # Show the BTC Pay Server
     btc_expander = st.expander("Donate BTC 💸")
     with btc_expander:
@@ -216,6 +232,44 @@ def ai_chat():
     prompt = st.chat_input("Chat your Business with AI")
     if prompt:
         st.write(f"User has sent the following prompt: {prompt}")
+
+
+def meetings():
+    st.title("Time Index Calculator")
+    st.write("Calculate time spent in your organization")
+
+    # Input fields for Google credentials
+    email = st.text_input("Email", "")
+    password = st.text_input("Password", "", type="password")
+
+    # Submit button for Google credentials
+    if st.button("Submit Credentials"):
+        if email and password:
+            # You can perform actions related to Google here, e.g., fetching meeting data
+            # Replace this with your own code to interact with the Google API
+            st.success("Credentials submitted successfully. Fetching meeting data...")
+
+            # Perform actions with Google API using the provided credentials
+            # Example: Fetch meeting data here
+
+        else:
+            st.error("Please enter both email and password.")
+
+    # Input field for meeting count
+    meeting_count = st.number_input("Number of Meetings (approximate)", min_value=0, value=0)
+
+    # Input field for annual salary
+    annual_salary = st.number_input("Annual Salary (USD)", min_value=0, value=0)
+
+    if st.button("Calculate"):
+        if meeting_count > 0 and annual_salary > 0:
+            # Calculate time index
+            hours_per_week = meeting_count * (1 / 5) * 8  # Assuming 8 hours per workday and 5 workdays per week
+            time_index = hours_per_week / 40
+            st.write(f"Time Index: {time_index:.2f}")
+        else:
+            st.error("Please enter valid values for meeting count and annual salary.")
+
 
 # def clients():
 #     st.snow()
@@ -360,6 +414,7 @@ def backend():
 
 page_names_to_funcs = {
     "About ✏️": home_page,
+    "Meeting Effciency 📈":meetings,
     # "Sign In 🎲": signin,
     "Invoice 📋" : invoice,
     # "Clients": clients,
