@@ -270,61 +270,36 @@ def backend():
     df = pd.read_json(jsonRaw)
     tab4.dataframe(df)
 
-def dev_docs():
-    st.title("Development Documentation")
+    left, center, right = st.columns(3)
 
-    st.write("To interact with the web3bms API, you can make HTTP requests to the following endpoints:")
-    st.write("")
-
-    st.write("API Documentation")
-    st.write("Description of the API endpoints.")
-    st.write("")
-
-    with st.expander("CRM API Endpoint", expanded=False):
-        st.write("📊 Description: The CRM API allows you to manage customer relationship data.")
+    left.write("API Documentation")
+    left_expander = left.expander("API Endpoint", expanded=False)
+    with left_expander:
+        st.write("📊 Description: The API allows you to manage customer relationship data.")
         st.write("🚀 Endpoint: `/api/crm`")
         st.write("📝 Method: GET")
         st.write("🔑 Parameters:")
         st.write("- `customer_id`: The ID of the customer.")
         st.write("- `name`: The name of the customer.")
         st.write("- `email`: The email address of the customer.")
-        st.code("Sample code for making a GET request to the CRM API endpoint.", language="python")
-
-    with st.expander("Invoice API Endpoint", expanded=False):
-        st.write("🧾 Description: The Invoice API allows you to generate invoices for services.")
-        st.write("🚀 Endpoint: `/api/invoice`")
-        st.write("📝 Method: POST")
-        st.write("🔑 Parameters:")
-        st.write("- `service`: The name of the service.")
-        st.write("- `client`: The name of the client.")
-        st.write("- `start_period`: The start date of the invoice period.")
-        st.write("- `hours`: The number of hours worked.")
-        st.write("- `rate`: The hourly rate.")
-        st.code("Sample code for making a POST request to the Invoice API endpoint.", language="python")
+        st.code("Sample code for making a GET request to the API endpoint.", language="python")
 
     st.write("The web3bms CLI provides command-line access to various features. Here are some common CLI commands:")
     st.write("")
 
-    st.write("CLI Usage")
-    st.write("Description of CLI commands.")
-
-    with st.expander("🚀 CRM Command", expanded=False):
-        st.write("🔧 Description: The CRM command allows you to interact with customer data.")
+    center.write("CLI Command")
+    cli_expander = center.expander("CLI Command", expanded=False)
+    with cli_expander:
+        st.write("🔧 Description: The CLI command allows you to interact with customer data.")
         st.write("🔍 Usage: `web3bms crm [options]`")
         st.write("🛠️ Options:")
         st.write("- `--option1`: Description of option 1.")
         st.write("- `--option2`: Description of option 2.")
-        st.code("Sample code for using the CRM CLI command.", language="bash")
+        st.code("Sample code for using the CLI command.", language="bash")
 
-    with st.expander("🔥 Invoice Command", expanded=False):
-        st.write("🚚 Description: The Invoice command lets you manage invoicing.")
-        st.write("🌟 Usage: `web3bms invoice [options]`")
-        st.write("⚙️ Options:")
-        st.write("- `--option3`: Description of option 3.")
-        st.write("- `--option4`: Description of option 4.")
-        st.code("Sample code for using the Invoice CLI command.", language="bash")
-
-    with st.expander("PyPI Package", expanded=False):
+    right.write("PyPI Package")
+    pypi_expander = right.expander("🐍 PyPI Package", expanded=False)
+    with pypi_expander:
         st.write("The web3bms package is available on PyPI and can be installed using pip:")
         st.code("pip install web3bms", language="bash")
 
