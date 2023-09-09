@@ -1,5 +1,5 @@
 
-# web3bms 
+# web3bms 🐧
 A web3 enabled business management solution
 
 ## Features
