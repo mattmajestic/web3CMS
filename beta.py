@@ -99,7 +99,7 @@ def home_page():
     columns = st.columns([2,2,3,2,2])
     for name, label in zip(page_names, page_labels):
         url = f"https://web3bms.streamlit.app/?page={name}"
-        button_html = f'<a href="{url}"><button>{label}</button></a>'
+        button_html = f'<a href="{url}" target="_self"><button>{label}</button></a>'
         st.markdown(button_html, unsafe_allow_html=True)
 
     st.markdown("""
