@@ -235,14 +235,14 @@ def ai_chat():
     st.title("GPT chat with your Business Data")
     st.write("Submit Prompt Below")
     prompt = st.chat_input("Chat your Business with AI")
-    
-    if prompt:
-        chatbot = create_chatbot()
-        st.write(f"User has sent the following prompt: {prompt}")
-        bot_response = generate_response(prompt)
-        st.write("Bot:", bot_response)
-        response = supabase_client.table("ai-chat").insert([{"prompt": prompt, "created_at": datetime.now().isoformat()}]).execute()
-        st.toast('Stored Prompt', icon='✅')
+    with st.spinner("Generating Bot Response..."):
+        if prompt:
+            chatbot = create_chatbot()
+            st.write(f"User has sent the following prompt: {prompt}")
+            bot_response = generate_response(prompt)
+            st.write("Bot:", bot_response)
+            response = supabase_client.table("ai-chat").insert([{"prompt": prompt, "created_at": datetime.now().isoformat()}]).execute()
+            st.toast('Stored Prompt', icon='✅')
     # Show the BTC Pay Server
     prompt_expander = st.expander("📝 Show Previous Prompts")
     with prompt_expander:
