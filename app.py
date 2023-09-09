@@ -97,7 +97,7 @@ st.experimental_set_query_params(page=selected_page_key)
 def home_page():
     page_names = ["home", "invoice", "dev_docs", "backend", "ai_chat", "development_request", "ml_ops"]
     page_labels = ["🏠 Home", "📋 Invoice","📪 CRM", "💻 AI Chat", "🚝 Developer Docs", "☎️ Development Request", "👾 ML Ops"]
-    columns = st.columns([1, 2, 2, 1, 2, 2, 1)
+    columns = st.columns([1, 2, 2, 1, 2, 2, 1])
     for name, label, column in zip(page_names, page_labels, columns):
         url = f"https://web3bms.streamlit.app/?page={name}"
         button_html = f'<a href="{url}" target="_self"><button style="background-color: black; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">{label}</button></a>'
