@@ -101,7 +101,7 @@ def home_page():
     for name, label, column in zip(page_names, page_labels, columns):
         url = page_urls.get(label, "")
         if url:
-            button_html = f'<a href="{url}" target="_self"><button>{label}</button></a>'
+            button_html = f'<a href="{url}" target="_self"><button style="background-color: #262730; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">{label}</button></a>'
             column.markdown(button_html, unsafe_allow_html=True)
 
     st.markdown("""
@@ -110,14 +110,6 @@ def home_page():
     """, unsafe_allow_html=True)
     st.markdown(readme_text, unsafe_allow_html=True)
     st.toast(f'Welcome to web3bms', icon='✅')
-
-def api_endpoint():
-    json_data = {
-        "name": "John Doe",
-        "age": 30,
-        "email": "johndoe@example.com"
-    }
-    st.json(json_data)
 
 def invoice():
     products_db = supabase_client.table('products').select("*").execute()
