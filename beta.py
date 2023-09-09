@@ -43,6 +43,29 @@ with open("index.html", "r") as file:
         js_code = js_file.read()
 
 
+# Define custom query parameters for each page
+page_queries = {
+    "home": "Home ✏️",
+    "invoice": "Invoice 📋",
+    "dev_docs": "Developer Docs 🚝",
+    "backend": "CRM 📪",
+    "ai_chat": "AI Chat 💻",
+}
+
+# Get the current URL query parameters
+query_params = st.experimental_get_query_params()
+
+# Determine the selected page from the query parameters (default to "home")
+selected_page = query_params.get("page", ["home"])[0]
+
+# Create a sidebar navigation menu
+selected_page = st.sidebar.radio("Navigation Panel", list(page_queries.values()), index=list(page_queries.keys()).index(selected_page))
+
+# Set the query parameter to the selected page
+selected_page_key = next(key for key, value in page_queries.items() if value == selected_page)
+st.experimental_set_query_params(page=selected_page_key)
+
+
 st.set_page_config(
      page_title="web3BMS",
      page_icon="🚀",
@@ -285,16 +308,15 @@ def dev_docs():
         st.write("Once installed, you can import and use the package in your Python scripts.")
         st.code("from web3bms import crm", language="python")
 
-page_names_to_funcs = {
-    "About ✏️": home_page,
-    # "Sign In 🎲": signin,
-    "Invoice 📋" : invoice,
-    "Developer Docs 🚝": dev_docs,
-    "CRM 📪": backend,
-    "AI Chat 💻": ai_chat,
-    
+# Map selected page to corresponding function
+page_funcs = {
+    "home": home_page,
+    "invoice": invoice,
+    "dev_docs": dev_docs,
+    "backend": backend,
+    "ai_chat": ai_chat,
 }
-selected_page = st.sidebar.radio("Navigation Panel", page_names_to_funcs.keys())
+
 # Execute the selected page function
-page_func = page_names_to_funcs[selected_page]
+page_func = page_funcs[selected_page_key]
 page_func()
