@@ -338,8 +338,8 @@ def dev_docs():
         if st.session_state.cli_expander_expanded:
             st.toast('Try it out in Bash', icon='🔍')
 
-# Update the expanded flag based on the expander's state
-cli_expander_expanded = cli_expander.expanded
+    # Update the expanded flag based on the expander's state
+    cli_expander_expanded = cli_expander.expanded
 
     right.write("PyPI Package 🐍")
     pypi_expander = right.expander("CRM Python Functions", expanded=False)
