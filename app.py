@@ -64,7 +64,7 @@ with open("index.html", "r") as file:
 
 st.set_page_config(
      page_title="web3BMS",
-     page_icon="🚀",
+     page_icon=" 👾",
      layout="wide",
      initial_sidebar_state='expanded'
  )

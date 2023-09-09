@@ -1,6 +1,14 @@
 
-# web3bms 🚀
-a lightweight web3 enabled business management solution
+# web3bms 
+A web3 enabled business management solution
+
+## Features
+- `Invoice`: In USD and/or BTC or ETH
+- `Developer Docs`: Use web3bms via `API, CLI or Python Package`
+- `CRM`: Setup a basic CRM
+- `AI Chat`: GPT style chat with your business data
+- `Dev Request`: Request software development via form 
+- `Machine Learning (ML) Operations`: Setup your own models ui a gui for popular models of `Linear Regression, Random Forest, Neural Network`
 
 ## Python based with Streamlit & Supabase
 `Streamlit` & `Supabase` are a common + popular app and backend.  This software's goal is to cheaply and effciently provide code/ui to help SMBs cheaply run their business. 
