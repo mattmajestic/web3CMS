@@ -75,7 +75,7 @@ page_queries = {
     "dev_docs": "Developer Docs 🚝",
     "backend": "CRM 📪",
     "ai_chat": "AI Chat 💻",
-    "api_endpoint": "JSON Session Data"
+    #"api_endpoint": "JSON Session Data"
 }
 
 # Get the current URL query parameters
@@ -100,11 +100,12 @@ def home_page():
     st.markdown(readme_text, unsafe_allow_html=True)
 
 def api_endpoint():
-    st.pywebview(uvicorn, app_fastapi, port=8000)
-    response = st.request("GET", "http://localhost:8000/api/data")
-    if response:
-        data = response.json()
-        st.write("JSON Data from FastAPI:", data)
+    json_data = {
+        "name": "John Doe",
+        "age": 30,
+        "email": "johndoe@example.com"
+    }
+    st.json(json_data)
 
 def invoice():
     products_db = supabase_client.table('products').select("*").execute()
@@ -337,7 +338,7 @@ page_funcs = {
     "dev_docs": dev_docs,
     "backend": backend,
     "ai_chat": ai_chat,
-    "api_endpoint": api_endpoint
+    #"api_endpoint": api_endpoint
 }
 
 # Execute the selected page function
