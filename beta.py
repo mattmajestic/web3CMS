@@ -100,7 +100,9 @@ def home_page():
     for name, label, column in zip(page_names, page_labels, columns):
         url = f"https://web3bms.streamlit.app/?page={name}"
         button_html = f'<a href="{url}" target="_self"><button style="background-color: black; color: white;">{label}</button></a>'
-        column.markdown(button_html, unsafe_allow_html=True)
+        button_select = column.markdown(button_html, unsafe_allow_html=True)
+        if button_select:
+            st.toast(f'Redirecting you to {label}', icon='✅')
 
     st.markdown("""
     <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
