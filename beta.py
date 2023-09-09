@@ -97,25 +97,10 @@ def home_page():
     page_names = ["home", "invoice", "dev_docs", "backend", "ai_chat"]
     page_labels = ["🏠 Home", "📋 Invoice", "🚝 Developer Docs", "📪 CRM", "💻 AI Chat"]
     columns = st.columns([2,2,3,2,2])
-    if st.button("📋 Invoice"):
-        url = "https://web3bms.streamlit.app/?page=invoice"
-        js_code = f"window.location.href = '{url}';"
-        st.write(f'<script>{js_code}</script>', unsafe_allow_html=True)
-
-    if st.button("🚝 Developer Docs"):
-        url = "https://web3bms.streamlit.app/?page=dev_docs"
-        js_code = f"window.location.href = '{url}';"
-        st.write(f'<script>{js_code}</script>', unsafe_allow_html=True)
-
-    if st.button("📪 CRM"):
-        url = "https://web3bms.streamlit.app/?page=backend"
-        js_code = f"window.location.href = '{url}';"
-        st.write(f'<script>{js_code}</script>', unsafe_allow_html=True)
-
-    if st.button("💻 AI Chat"):
-        url = "https://web3bms.streamlit.app/?page=ai_chat"
-        js_code = f"window.location.href = '{url}';"
-        st.write(f'<script>{js_code}</script>', unsafe_allow_html=True)
+    for name, label in zip(page_names, page_labels):
+        url = f"https://web3bms.streamlit.app/?page={name}"
+        button_html = f'<a href="{url}"><button>{label}</button></a>'
+        column.markdown(button_html, unsafe_allow_html=True)
 
     st.markdown("""
     <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
