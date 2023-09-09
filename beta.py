@@ -217,8 +217,7 @@ def ai_chat():
     if st.button("Show Previous Prompts"):
         ai_chat_db = supabase_client.table('ai-chat').select("*").execute()
         st.write("Previous Prompts:")
-        for prompt_data in ai_chat_db['data']:
-            st.write(f"- {prompt_data['prompt']} (Submitted at: {prompt_data['created_at']})")
+        st.write(ai_chat_db['data'])
 
 
 def backend():
@@ -306,7 +305,8 @@ def dev_docs():
         st.write("")
         st.write("")
         st.code("curl https://web3bms.io/api/crm", language="python")
-        st.toast('Try it out with CURL', icon='📪')
+        if left_expander:
+            st.toast('Try it out with CURL', icon='📪')
 
     key_expander = left.expander("Create API Key 🔑", expanded=False)
     with key_expander:
