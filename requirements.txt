@@ -17,4 +17,4 @@ plotly
 streamlit-extras
 pydantic
 uvicorn
-uvicorn
+fastapi
