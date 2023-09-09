@@ -214,7 +214,9 @@ def ai_chat():
         st.write(f"User has sent the following prompt: {prompt}")
         response = supabase_client.table("ai-chat").insert([{"prompt": prompt, "created_at": datetime.now().isoformat()}]).execute()
         st.toast('Stored Prompt', icon='✅')
-    if st.button("Show Previous Prompts"):
+    # Show the BTC Pay Server
+    prompt_expander = right.expander("📝 Show Previous Prompts")
+    with prompt_expander:
         ai_chat_db = supabase_client.table('ai-chat').select("*").execute()
         ai_chat_df = pd.DataFrame(ai_chat_db.data)
         st.write("Previous Prompts:")
