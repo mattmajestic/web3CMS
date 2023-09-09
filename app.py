@@ -28,7 +28,7 @@ from pydantic import BaseModel
 from urllib.parse import urlencode
 import webbrowser
 import torch
-from transformers import AutoModelForCausalLM, AutoTokenizer
+from transformers import pipeline, AutoModelForCausalLM, AutoTokenizer, set_seed
 
 st.set_page_config(
      page_title="web3BMS",
@@ -38,9 +38,17 @@ st.set_page_config(
  )
 
 
-model_name = "gpt2"
-tokenizer = AutoTokenizer.from_pretrained(model_name)
+# Load the model and tokenizer
+model_name = "gpt2"  # You can replace this with any other chat model
 model = AutoModelForCausalLM.from_pretrained(model_name)
+tokenizer = AutoTokenizer.from_pretrained(model_name)
+
+# Create a function to generate responses
+def generate_response(prompt):
+    input_ids = tokenizer.encode(prompt, return_tensors="pt")
+    response_ids = model.generate(input_ids, max_length=100, num_return_sequences=1)
+    bot_response = tokenizer.decode(response_ids[0], skip_special_tokens=True)
+    return bot_response
 
 # Set your Supabase credentials as environment variables
 SUPABASE_URL = os.getenv("SUPABASE_URL")
@@ -235,9 +243,7 @@ def ai_chat():
     prompt = st.chat_input("Chat your Business with AI")
     with st.spinner("Generating Bot Response..."):
         if prompt:
-            input_ids = tokenizer.encode(prompt, return_tensors="pt")
-            response_ids = model.generate(input_ids, max_length=100, num_return_sequences=1)
-            bot_response = tokenizer.decode(response_ids[0], skip_special_tokens=True)
+            bot_response = generate_response(prompt)
             st.write(f"User has sent the following prompt: {prompt}")
             st.write("Bot:", bot_response)
             response = supabase_client.table("ai-chat").insert([{"prompt": prompt, "created_at": datetime.now().isoformat()}]).execute()
