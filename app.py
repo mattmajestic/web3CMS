@@ -88,7 +88,7 @@ query_params = st.experimental_get_query_params()
 selected_page = query_params.get("page", ["home"])[0]
 
 # Create a sidebar navigation menu
-selected_page = st.sidebar.radio("Navigation Panel", list(page_queries.values()), index=list(page_queries.keys()).index(selected_page))
+selected_page = st.sidebar.radio("Navigate web3bms", list(page_queries.values()), index=list(page_queries.keys()).index(selected_page))
 
 # Set the query parameter to the selected page
 selected_page_key = next(key for key, value in page_queries.items() if value == selected_page)
