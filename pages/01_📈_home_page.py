@@ -23,7 +23,7 @@ import random
 import string
 
 # Read the contents of the README.md file
-with open('../README.md', 'r') as file:
+with open('./../README.md', 'r') as file:
     readme_text = file.read()
 
 def home_page():
