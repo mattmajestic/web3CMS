@@ -115,8 +115,8 @@ def home_page():
 
     for name, label in zip(page_names, page_labels):
         url = f"https://web3bms.streamlit.app/?page={name}"
-        if st.button(label, key=name, help=f"Go to {name} page", class="navbar-button"):
-            st.markdown(f'<script>window.location.href="{url}";</script>', unsafe_allow_html=True)
+    if st.button(label, key=name, help=f"Go to {name} page", class="navbar-button"):
+        st.markdown(f'<script>window.location.href="{url}";</script>', unsafe_allow_html=True)
 
     st.markdown("""
     <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
