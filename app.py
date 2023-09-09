@@ -99,10 +99,6 @@ def home_page():
     page_names = ["home", "invoice", "dev_docs", "backend", "ai_chat", "development_request", "ml_ops"]
     page_labels = ["🏠 Home", "📋 Invoice", "🚝 Developer Docs", "📪 CRM", "💻 AI Chat", "☎️ Development Request", "👾 ML Ops"]
 
-    # Create a horizontal navigation bar
-    st.write('<style>div.Widget.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
-    selection = st.radio("Navigation", page_labels)
-
     # Define URLs for the pages
     page_urls = {
         "🏠 Home": "https://web3bms.streamlit.app/?page=home",
@@ -114,12 +110,14 @@ def home_page():
         "👾 ML Ops": "https://web3bms.streamlit.app/?page=ml_ops"
     }
 
+    columns = st.columns([2, 2, 2, 2, 2, 2, 2])
+
     # Loop through page names and labels to create buttons
-    for name, label in zip(page_names, page_labels):
+    for name, label, column in zip(page_names, page_labels, columns):
         url = page_urls.get(label, "")
         if url:
-            button_html = f'<a href="{url}" target="_self"><button style="background-color: black; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">{label}</button></a>'
-            st.markdown(button_html, unsafe_allow_html=True)
+            button_html = f'<a href="{url}" target="_self"><button>{label}</button></a>'
+            column.markdown(button_html, unsafe_allow_html=True)
 
     st.markdown("""
     <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
