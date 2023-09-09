@@ -365,14 +365,12 @@ def development_request():
     left_column,center_column, right_column = st.columns([6,2, 4])
 
     with left_column:
-        st.subheader("User Information")
-        user_name = st.text_input("Your Name 👤")
+        st.subheader("User Information👤")
         user_email = st.text_input("Your Email 📧")
         st.subheader("GitHub Information")
         github_inputs = st.columns([5, 5])
         github_username = github_inputs[0].text_input("GitHub Username 🐱")
         github_repo = github_inputs[1].text_input("GitHub Repository 📂")
-
         st.subheader("Request Description")
         request_description = st.text_area("Describe Your Request 📝")
 
@@ -407,7 +405,6 @@ def development_request():
         # Submit button for storing the request in Supabase
         if st.button("Submit Request"):
             response = supabase_client.table("development-request").insert([{
-                "user_name": user_name,
                 "user_email": user_email,
                 "github_username": github_username,
                 "github_repo": github_repo,
