@@ -100,7 +100,7 @@ def home_page():
     for name, label in zip(page_names, page_labels):
         url = f"https://web3bms.streamlit.app/?page={name}"
         button_html = f'<a href="{url}"><button>{label}</button></a>'
-        column.markdown(button_html, unsafe_allow_html=True)
+        st.markdown(button_html, unsafe_allow_html=True)
 
     st.markdown("""
     <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
