@@ -97,13 +97,10 @@ def home_page():
     page_names = ["home", "invoice", "dev_docs", "backend", "ai_chat"]
     page_labels = ["🏠 Home", "📋 Invoice", "🚝 Developer Docs", "📪 CRM", "💻 AI Chat"]
     columns = st.columns([2,2,3,2,2])
-    for name, label, column in zip(page_names, page_labels, columns):
-        url = f"https://web3bms.streamlit.app/?page={name}&query={page_queries[name]}"
+    url = f"https://web3bms.streamlit.app/?page={name}&query={page_queries[name]}"
         if column.button(label):
-            js_code = '''
-            "<script>window.location.href="{url}";</script>"
-            '''
-            st.markdown(js_code, unsafe_allow_html=True)
+            link = f'<a href="{url}" target="_self">{label}</a>'
+            st.markdown(link, unsafe_allow_html=True)
 
     st.markdown("""
     <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
