@@ -320,13 +320,9 @@ def dev_docs():
                 st.write("Your API key has been generated and saved to the database.")
                 st.toast('API Key Stored', icon='🔑')
                 
+
     center.write("CLI Commands 🔍")
     cli_expander = center.expander("CRM CLI Command", expanded=False)
-
-    # Initialize the expanded flag in session state
-    if 'cli_expander_expanded' not in st.session_state:
-        st.session_state.cli_expander_expanded = False
-
     with cli_expander:
         st.write("🔧 Description: The CLI command allows you to interact with customer data.")
         st.write("🛠️ Options:")
@@ -335,13 +331,7 @@ def dev_docs():
         st.write("")
         st.write("")
         st.code("web3bms crm list-clients", language="bash")
-        
-        # When the expander is expanded, set the flag to True and display the toast
-        if st.session_state.cli_expander_expanded:
-            st.toast('Try it out in Bash', icon='🔍')
-
-    # Update the expanded flag based on the expander's state
-    st.session_state.cli_expander_expanded = cli_expander.expanded
+        st.toast('Try it out in Bash', icon='🔍')
 
     right.write("PyPI Package 🐍")
     pypi_expander = right.expander("CRM Python Functions", expanded=False)
