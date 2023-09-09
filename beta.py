@@ -210,8 +210,25 @@ def ai_chat():
     st.title("GPT chat with your Business Data")
     st.write("Submit Prompt Below")
     prompt = st.chat_input("Chat your Business with AI")
+    
     if prompt:
         st.write(f"User has sent the following prompt: {prompt}")
+        
+        # Store the prompt and created_at timestamp in a Supabase table
+        insert_data = [
+            {
+                'prompt': prompt,
+                'created_at': datetime.now(),  # Get the current timestamp
+            }
+        ]
+        
+        # Insert the data into the Supabase table
+        response, error = supabase_client.table('ai-chat').upsert(insert_data).execute()
+        
+        if error:
+            st.error(f"Error storing prompt: {error}")
+        else:
+            st.success("Prompt stored successfully.")
 
 
 def backend():
