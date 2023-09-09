@@ -358,8 +358,8 @@ def dev_docs():
         st.code("from web3bms import crm", language="python")
         st.toast('Try it out in Python', icon='🐍')
 
-def development_service_request():
-    st.title("Development Service Request Form 🚀")
+def development_request():
+    st.title("Software Development Request 🚀")
 
     # Create two columns for layout
     left_column, right_column = st.columns([6, 4])
