@@ -95,7 +95,7 @@ def home_page():
         "👾 ML Ops": "https://web3bms.streamlit.app/?page=ml_ops"
     }
 
-    columns = st.columns([2, 2, 2, 2, 2, 2, 2])
+    columns = st.columns([2, 2, 3, 2, 2, 3, 2])
 
     # Loop through page names and labels to create buttons
     for name, label, column in zip(page_names, page_labels, columns):
