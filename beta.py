@@ -92,6 +92,23 @@ selected_page_key = next(key for key, value in page_queries.items() if value == 
 st.experimental_set_query_params(page=selected_page_key)
 
 def home_page():
+    # Define the names and labels for your pages with emojis
+    page_names = ["home", "invoice", "dev_docs", "backend", "ai_chat"]
+    page_labels = ["🏠 Home", "📋 Invoice", "🚝 Developer Docs", "📪 CRM", "💻 AI Chat"]
+
+    # Create a style for the buttons
+    button_style = (
+        "background-color: #f63366; color: white; padding: 10px; border-radius: 5px;"
+    )
+
+    # Create a horizontal layout with evenly spaced columns
+    columns = st.beta_columns(len(page_names))
+
+    # Create buttons for each page with emojis and styling
+    for name, label, column in zip(page_names, page_labels, columns):
+        if column.button(label, key=name, help=f"Go to {name} page", style=button_style):
+            switch_page(name)
+
     st.markdown("""
     <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
     <script>mermaid.initialize({startOnLoad:true});</script>
