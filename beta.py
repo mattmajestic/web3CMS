@@ -216,8 +216,9 @@ def ai_chat():
         st.toast('Stored Prompt', icon='✅')
     if st.button("Show Previous Prompts"):
         ai_chat_db = supabase_client.table('ai-chat').select("*").execute()
+        ai_chat_df = pd.DataFrame(ai_chat_db.data)
         st.write("Previous Prompts:")
-        st.write(ai_chat_db['data'])
+        st.write(ai_chat_df)
 
 
 def backend():
@@ -322,6 +323,8 @@ def dev_docs():
 
     center.write("CLI Commands 🔍")
     cli_expander = center.expander("CRM CLI Command", expanded=False)
+    cli_expander_expanded = False  # Initialize the expanded flag
+
     with cli_expander:
         st.write("🔧 Description: The CLI command allows you to interact with customer data.")
         st.write("🛠️ Options:")
@@ -330,7 +333,13 @@ def dev_docs():
         st.write("")
         st.write("")
         st.code("web3bms crm list-clients", language="bash")
-        st.toast('Try it out in Bash', icon='🔍')
+        
+        # When the expander is expanded, set the flag to True and display the toast
+        if st.session_state.cli_expander_expanded:
+            st.toast('Try it out in Bash', icon='🔍')
+
+# Update the expanded flag based on the expander's state
+cli_expander_expanded = cli_expander.expanded
 
     right.write("PyPI Package 🐍")
     pypi_expander = right.expander("CRM Python Functions", expanded=False)
