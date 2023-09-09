@@ -29,13 +29,6 @@ from urllib.parse import urlencode
 import webbrowser
 from transformers import pipeline
 
-def create_chatbot():
-    return pipeline("text-generation", model="EleutherAI/gpt-neo-1.3B")
-
-def generate_response(prompt):
-    response = chatbot(prompt, max_length=150, num_return_sequences=1)
-    return response[0]['generated_text']
-
 
 st.set_page_config(
      page_title="web3BMS",
@@ -43,6 +36,15 @@ st.set_page_config(
      layout="wide",
      initial_sidebar_state='expanded'
  )
+
+
+def create_chatbot():
+    return pipeline("text-generation", model="EleutherAI/gpt-neo-1.3B")
+
+def generate_response(prompt):
+    response = chatbot(prompt, max_length=150, num_return_sequences=1)
+    return response[0]['generated_text']
+
 
 # Set your Supabase credentials as environment variables
 SUPABASE_URL = os.getenv("SUPABASE_URL")
