@@ -92,7 +92,6 @@ selected_page_key = next(key for key, value in page_queries.items() if value == 
 st.experimental_set_query_params(page=selected_page_key)
 
 def home_page():
-    
     st.markdown("""
     <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
     <script>mermaid.initialize({startOnLoad:true});</script>
@@ -214,7 +213,7 @@ def ai_chat():
     if prompt:
         st.write(f"User has sent the following prompt: {prompt}")
         response = supabase_client.table("ai-chat").insert([{"prompt": prompt, "created_at": datetime.now().isoformat()}]).execute()
-        st.toast('Stored Prompt', icon='😍')
+        st.toast('Stored Prompt', icon='✅')
         # Create a button to fetch and display previous prompts
     if st.button("Show Previous Prompts"):
         # Fetch previous prompts from the ai-chat table
@@ -312,7 +311,8 @@ def dev_docs():
         st.write("- `email`: The email address of the customer.")
         st.write("")
         st.write("")
-        st.code("GET https://web3bms.io/api/crm", language="python")
+        st.code("curl https://web3bms.io/api/crm", language="python")
+        st.toast('Try it out with CURL', icon='📪')
 
     key_expander = left.expander("Create API Key 🔑", expanded=False)
     with key_expander:
@@ -323,6 +323,7 @@ def dev_docs():
                 api_key = ''.join(random.choices(string.ascii_letters + string.digits, k=32))
                 response = supabase_client.table("web3bms-api-keys").insert([{"email": email, "api_key": api_key}]).execute()
                 st.write("Your API key has been generated and saved to the database.")
+                st.toast('API Key Stored', icon='🔑')
                 
 
     center.write("CLI Commands 🔍")
@@ -335,6 +336,7 @@ def dev_docs():
         st.write("")
         st.write("")
         st.code("web3bms crm list-clients", language="bash")
+        st.toast('Try it out in Bash', icon='🔍')
 
     right.write("PyPI Package 🐍")
     pypi_expander = right.expander("CRM Python Functions", expanded=False)
@@ -344,6 +346,7 @@ def dev_docs():
         st.write("")
         st.write("Once installed, you can import and use the package in your Python scripts.")
         st.code("from web3bms import crm", language="python")
+        st.toast('Try it out in Python', icon='🐍')
 
 # Map selected page to corresponding function
 page_funcs = {
