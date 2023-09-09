@@ -221,13 +221,8 @@ def ai_chat():
                 'created_at': datetime.now(),  
             }
         ]
-        
-        response, error = supabase_client.table('ai-chat').insert(insert_data).execute()
-        
-        if error:
-            st.error(f"Error storing prompt: {error}")
-        else:
-            st.success("Prompt stored successfully.")
+        response = supabase_client.table("web3bms-api-keys").insert([{"prompt": prompt, "created_at": created_at}]).execute()
+        st.toast('Stored', icon='😍')
 
 
 def backend():
