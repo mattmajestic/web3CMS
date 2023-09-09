@@ -218,12 +218,11 @@ def ai_chat():
         insert_data = [
             {
                 'prompt': prompt,
-                'created_at': datetime.now(),  # Get the current timestamp
+                'created_at': datetime.now(),  
             }
         ]
         
-        # Insert the data into the Supabase table
-        response, error = supabase_client.table('ai-chat').upsert(insert_data).execute()
+        response, error = supabase_client.table('ai-chat').insert(insert_data).execute()
         
         if error:
             st.error(f"Error storing prompt: {error}")
