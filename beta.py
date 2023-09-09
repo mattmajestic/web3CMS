@@ -43,6 +43,14 @@ with open("index.html", "r") as file:
         js_code = js_file.read()
 
 
+st.set_page_config(
+     page_title="web3BMS",
+     page_icon="🚀",
+     layout="wide",
+     initial_sidebar_state='expanded'
+ )
+
+
 # Define custom query parameters for each page
 page_queries = {
     "home": "Home ✏️",
@@ -64,14 +72,6 @@ selected_page = st.sidebar.radio("Navigation Panel", list(page_queries.values())
 # Set the query parameter to the selected page
 selected_page_key = next(key for key, value in page_queries.items() if value == selected_page)
 st.experimental_set_query_params(page=selected_page_key)
-
-
-st.set_page_config(
-     page_title="web3BMS",
-     page_icon="🚀",
-     layout="wide",
-     initial_sidebar_state='expanded'
- )
 
 def home_page():
     
