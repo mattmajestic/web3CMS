@@ -21,6 +21,7 @@ import plotly.express as px
 from streamlit import session_state
 import random
 import string
+from streamlit_extras.switch_page_button import switch_page
 
 # Set your Supabase credentials as environment variables
 SUPABASE_URL = os.getenv("SUPABASE_URL")
@@ -50,6 +51,7 @@ st.set_page_config(
  )
 
 def home_page():
+    
     st.markdown("""
     <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
     <script>mermaid.initialize({startOnLoad:true});</script>

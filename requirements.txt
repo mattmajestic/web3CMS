@@ -14,3 +14,4 @@ supabase
 folium
 geopy
 plotly
+streamlit-extras
