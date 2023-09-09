@@ -239,7 +239,7 @@ def ai_chat():
     if prompt:
         chatbot = create_chatbot()
         st.write(f"User has sent the following prompt: {prompt}")
-        bot_response = generate_response(user_input)
+        bot_response = generate_response(prompt)
         st.write("Bot:", bot_response)
         response = supabase_client.table("ai-chat").insert([{"prompt": prompt, "created_at": datetime.now().isoformat()}]).execute()
         st.toast('Stored Prompt', icon='✅')
