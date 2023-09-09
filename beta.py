@@ -104,10 +104,10 @@ def home_page():
     # Create a horizontal layout with evenly spaced columns
     columns = st.columns(len(page_names))
 
-    # Create buttons for each page with emojis and styling
+    # Create buttons for each page with emojis
     for name, label, column in zip(page_names, page_labels, columns):
-        if column.button(label, key=name, help=f"Go to {name} page", style=button_style):
-            switch_page(name)
+        button_markdown = f'<a href="#" onclick="switch_page(\'{name}\')" style="text-decoration: none; padding: 10px; background-color: #f63366; color: white; border-radius: 5px;">{label}</a>'
+        column.markdown(button_markdown, unsafe_allow_html=True)
 
     st.markdown("""
     <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
