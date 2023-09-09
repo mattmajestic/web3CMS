@@ -95,13 +95,28 @@ selected_page_key = next(key for key, value in page_queries.items() if value == 
 st.experimental_set_query_params(page=selected_page_key)
 
 def home_page():
-    page_names = ["home", "invoice", "dev_docs", "backend", "ai_chat","development_request","ml_ops"]
-    page_labels = ["🏠 Home", "📋 Invoice", "🚝 Developer Docs", "📪 CRM", "💻 AI Chat","☎️ Development Request","👾 ML Ops"]
-    columns = st.columns([2,1,2,2,2,2,1])
-    for name, label, column in zip(page_names, page_labels, columns):
+    page_names = ["home", "invoice", "dev_docs", "backend", "ai_chat", "development_request", "ml_ops"]
+    page_labels = ["🏠 Home", "📋 Invoice", "🚝 Developer Docs", "📪 CRM", "💻 AI Chat", "☎️ Development Request", "👾 ML Ops"]
+
+    st.markdown("""
+    <style>
+        .navbar-button {
+            background-color: black;
+            color: white;
+            width: 100%;
+            text-align: left;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 0;
+            cursor: pointer;
+        }
+    </style>
+    """, unsafe_allow_html=True)
+
+    for name, label in zip(page_names, page_labels):
         url = f"https://web3bms.streamlit.app/?page={name}"
-        button_html = f'<a href="{url}" target="_self"><button style="background-color: black; color: white;">{label}</button></a>'
-        column.markdown(button_html, unsafe_allow_html=True)
+        if st.button(label, key=name, help=f"Go to {name} page", class="navbar-button"):
+            st.markdown(f'<script>window.location.href="{url}";</script>', unsafe_allow_html=True)
 
     st.markdown("""
     <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
@@ -422,12 +437,8 @@ def ml_ops():
     st.title("ML Ops - Model Deployment 👾")
     st.toast('GUI for Machine Learning', icon='👾')
 
-    # Create two columns for layout
-    left_column, right_column = st.columns([1, 2])
-
-    # Left column for Step 1 and Step 2
-    with left_column:
-        st.header("Step 1: Select Data 📊")
+    # Create expanders for each step
+    with st.expander("Step 1: Select Data 📊", expanded=True):
         data_option = st.selectbox("Select Data Source", ["Local CSV", "Database", "API"])
         if data_option == "Local CSV":
             uploaded_file = st.file_uploader("Upload CSV File")
@@ -443,13 +454,13 @@ def ml_ops():
             # Input fields to specify an API endpoint.
             api_url = st.text_input("API URL")
 
-        st.header("Step 2: Data Options 🛠️")
+    with st.expander("Step 2: Data Options 🛠️"):
         # Add options related to input data processing.
+        pass
 
-    # Right column for Step 3 and Step 4
-    with right_column:
-        st.header("Step 3: Select Model 🤖")
+    with st.expander("Step 3: Select Model 🤖"):
         model_option = st.selectbox("Select Model Type", ["Linear Regression", "Random Forest", "Neural Network"])
+        st.toast('Select Model', icon='👾')
         if model_option == "Linear Regression":
             # Add options specific to Linear Regression.
             learning_rate = st.slider("Learning Rate", 0.01, 1.0, 0.1)
@@ -460,7 +471,8 @@ def ml_ops():
             # Add options specific to Neural Network.
             num_hidden_layers = st.slider("Number of Hidden Layers", 1, 5, 2)
 
-        st.header("Step 4: Save Model Parameters 💾")
+    with st.expander("Step 4: Save Model Parameters 💾"):
+        st.toast('Save Your Model', icon='👾')
         if st.button("Save Model Parameters"):
             response = supabase_client.table("ml-ops").insert([{
                 "data_option": data_option,
