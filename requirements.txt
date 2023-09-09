@@ -20,3 +20,6 @@ uvicorn
 fastapi
 transformers
 torch
+scikit-learn
+matplotlib
+seaborn

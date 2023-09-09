@@ -29,6 +29,12 @@ from urllib.parse import urlencode
 import webbrowser
 import torch
 from transformers import pipeline, AutoModelForCausalLM, AutoTokenizer, set_seed
+from sklearn.datasets import load_iris
+from sklearn.linear_model import LinearRegression
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.neural_network import MLPRegressor
+import matplotlib.pyplot as plt
+import seaborn as sns
 
 st.set_page_config(
      page_title="web3BMS",
@@ -116,14 +122,6 @@ def home_page():
     st.toast(f'Welcome to web3bms', icon='✅')
 
 def invoice():
-    # columns = st.columns([2, 2, 3, 2, 2, 4, 2])
-
-    # # Loop through page names and labels to create buttons
-    # for name, label, column in zip(page_names, page_labels, columns):
-    #     url = page_urls.get(label, "")
-    #     if url:
-    #         button_html = f'<a href="{url}" target="_self"><button style="background-color: #262730; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; margin-right: 0px; margin-left: 0px;">{label}</button></a>'
-    #         column.markdown(button_html, unsafe_allow_html=True)
 
     products_db = supabase_client.table('products').select("*").execute()
     products_df = pd.DataFrame(products_db.data)
@@ -254,14 +252,6 @@ def ai_chat():
 
 
 def backend():
-    # columns = st.columns([2, 2, 3, 2, 2, 4, 2])
-
-    # # Loop through page names and labels to create buttons
-    # for name, label, column in zip(page_names, page_labels, columns):
-    #     url = page_urls.get(label, "")
-    #     if url:
-    #         button_html = f'<a href="{url}" target="_self"><button style="background-color: #262730; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; margin-right: 0px; margin-left: 0px;">{label}</button></a>'
-    #         column.markdown(button_html, unsafe_allow_html=True)
 
     products_db = supabase_client.table('products').select("*").execute()
     products_df = pd.DataFrame(products_db.data)
@@ -329,14 +319,6 @@ def backend():
 
 
 def dev_docs():
-    # columns = st.columns([2, 2, 3, 2, 2, 4, 2])
-
-    # # Loop through page names and labels to create buttons
-    # for name, label, column in zip(page_names, page_labels, columns):
-    #     url = page_urls.get(label, "")
-    #     if url:
-    #         button_html = f'<a href="{url}" target="_self"><button style="background-color: #262730; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; margin-right: 0px; margin-left: 0px;">{label}</button></a>'
-    #         column.markdown(button_html, unsafe_allow_html=True)
 
     st.title("Development Documentation 🚝")
     st.write("")
@@ -393,14 +375,6 @@ def dev_docs():
         st.toast('Try it out in Python', icon='🐍')
 
 def development_request():
-    # columns = st.columns([2, 2, 3, 2, 2, 4, 2])
-
-    # # Loop through page names and labels to create buttons
-    # for name, label, column in zip(page_names, page_labels, columns):
-    #     url = page_urls.get(label, "")
-    #     if url:
-    #         button_html = f'<a href="{url}" target="_self"><button style="background-color: #262730; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; margin-right: 0px; margin-left: 0px;">{label}</button></a>'
-    #         column.markdown(button_html, unsafe_allow_html=True)
 
     st.title("Software Development Request 🚀")
 
@@ -461,15 +435,6 @@ def development_request():
             st.toast('Request Stored Successfully', icon='✅')
 
 def ml_ops():
-    # columns = st.columns([2, 2, 3, 2, 2, 4, 2])
-
-    # # Loop through page names and labels to create buttons
-    # for name, label, column in zip(page_names, page_labels, columns):
-    #     url = page_urls.get(label, "")
-    #     if url:
-    #         button_html = f'<a href="{url}" target="_self"><button style="background-color: #262730; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; margin-right: 0px; margin-left: 0px;">{label}</button></a>'
-    #         column.markdown(button_html, unsafe_allow_html=True)
-
     st.title("ML Ops - Model Deployment 👾")
     st.toast('GUI for Machine Learning', icon='👾')
 
@@ -477,72 +442,94 @@ def ml_ops():
         st.write("ML Ops (Machine Learning Operations) is a set of practices and tools designed to automate and streamline the deployment and management of machine learning models.")
         st.write("The purpose of ML Ops is to enable small and medium-sized businesses (SMBs) to leverage machine learning for various tasks, such as predicting customer behavior, optimizing operations, and making data-driven decisions.")
 
-    # Create expanders for each step
     with st.expander("Step 1: Select Data 📊"):
-        data_option = st.selectbox("Select Data Source", ["Local CSV", "Database", "API"])
-        if data_option == "Local CSV":
+        st.subheader("Select Data Source")
+        data_option = st.selectbox("Data Source", ["Iris Dataset", "Local CSV", "Database", "API"])
+
+        if data_option == "Iris Dataset":
+            st.subheader("Iris Dataset (Sample)")
+            iris = load_iris()
+            data = pd.DataFrame(iris.data, columns=iris.feature_names)
+            st.write(data.head())
+
+        elif data_option == "Local CSV":
             uploaded_file = st.file_uploader("Upload CSV File")
             if uploaded_file:
                 # Handle the uploaded CSV file.
                 st.success("CSV File Uploaded and Processed!")
+
         elif data_option == "Database":
             # Input fields to connect to a database.
             db_host = st.text_input("Database Host")
             db_username = st.text_input("Database Username")
             db_password = st.text_input("Database Password", type="password")
+
         elif data_option == "API":
             # Input fields to specify an API endpoint.
             api_url = st.text_input("API URL")
 
-    with st.expander("Step 2: Data Options 🛠️"):
-        st.subheader("Select Third-Party Datasets")
-
-        # Checkbox for Web3 data
-        include_web3_data = st.checkbox("Include Web3 Data (BTC, ETH, USDC)")
-
-        # Checkbox for Development Rates data
-        include_dev_rates_data = st.checkbox("Include Development Rates Data")
-
-        # Checkbox for ML Ops benchmarking data
-        include_ml_ops_benchmark_data = st.checkbox("Include ML Ops Benchmarking Data")
-
-        # Example: Display a message based on selected options
-        selected_datasets = []
-        if include_web3_data:
-            selected_datasets.append("Web3 Data")
-        if include_dev_rates_data:
-            selected_datasets.append("Development Rates Data")
-        if include_ml_ops_benchmark_data:
-            selected_datasets.append("ML Ops Benchmarking Data")
-
-        if selected_datasets:
-            st.info(f"Selected Datasets: {', '.join(selected_datasets)}")
-        else:
-            st.info("No third-party datasets selected.")
-
-
     with st.expander("Step 3: Select Model 🤖"):
-        model_option = st.selectbox("Select Model Type", ["Linear Regression", "Random Forest", "Neural Network"])
+        st.subheader("Select Model Type")
+        model_option = st.selectbox("Model Type", ["Linear Regression", "Random Forest", "Neural Network"])
         st.toast('Select Model', icon='👾')
+
         if model_option == "Linear Regression":
-            # Add options specific to Linear Regression.
+            st.subheader("Linear Regression Options")
             learning_rate = st.slider("Learning Rate", 0.01, 1.0, 0.1)
+
+            # Train the model on Iris data
+            iris = load_iris()
+            model = LinearRegression()
+            model.fit(iris.data, iris.target)
+
+            # Display model information
+            st.subheader("Linear Regression Model")
+            st.write("Coefficient:", model.coef_)
+            st.write("Intercept:", model.intercept_)
+
+            # Visualization: Regression Coefficients
+            st.subheader("Regression Coefficients")
+            fig, ax = plt.subplots(figsize=(8, 4))
+            sns.barplot(x=iris.feature_names, y=model.coef_, ax=ax)
+            ax.set_title("Regression Coefficients")
+            ax.set_ylabel("Coefficient Value")
+            ax.set_xlabel("Feature Name")
+            st.pyplot(fig)
+
         elif model_option == "Random Forest":
-            # Add options specific to Random Forest.
+            st.subheader("Random Forest Options")
             num_estimators = st.slider("Number of Estimators", 1, 100, 10)
+
+            # Train the model on Iris data
+            iris = load_iris()
+            model = RandomForestRegressor(n_estimators=num_estimators)
+            model.fit(iris.data, iris.target)
+
+            # Display model information
+            st.subheader("Random Forest Model")
+            st.write("Feature Importance:", model.feature_importances_)
+
+            # Visualization: Feature Importance
+            st.subheader("Feature Importance")
+            fig, ax = plt.subplots(figsize=(8, 4))
+            sns.barplot(x=iris.feature_names, y=model.feature_importances_, ax=ax)
+            ax.set_title("Feature Importance")
+            ax.set_ylabel("Importance Value")
+            ax.set_xlabel("Feature Name")
+            st.pyplot(fig)
+
         elif model_option == "Neural Network":
-            # Add options specific to Neural Network.
+            st.subheader("Neural Network Options")
             num_hidden_layers = st.slider("Number of Hidden Layers", 1, 5, 2)
 
-    with st.expander("Step 4: Save Model Parameters 💾"):
-        st.toast('Save Your Model', icon='👾')
-        if st.button("Save Model Parameters"):
-            response = supabase_client.table("ml-ops").insert([{
-                "data_option": data_option,
-                "model_option": model_option,
-                "created_at": datetime.now().isoformat()
-            }]).execute()
-            st.success("Model Parameters Saved!")
+            # Train the model on Iris data
+            iris = load_iris()
+            model = MLPRegressor(hidden_layer_sizes=(num_hidden_layers,))
+            model.fit(iris.data, iris.target)
+
+            # Display model information
+            st.subheader("Neural Network Model")
+            st.write("Number of Hidden Layers:", num_hidden_layers)
 
 # Map selected page to corresponding function
 page_funcs = {
