@@ -18,3 +18,4 @@ streamlit-extras
 pydantic
 uvicorn
 fastapi
+transformers

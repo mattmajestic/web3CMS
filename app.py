@@ -27,6 +27,16 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 from urllib.parse import urlencode
 import webbrowser
+from transformers import pipeline
+
+def create_chatbot():
+    return pipeline("text-generation", model="EleutherAI/gpt-neo-1.3B")
+
+chatbot = create_chatbot()
+
+def generate_response(prompt):
+    response = chatbot(prompt, max_length=150, num_return_sequences=1)
+    return response[0]['generated_text']
 
 
 st.set_page_config(
@@ -230,6 +240,8 @@ def ai_chat():
     
     if prompt:
         st.write(f"User has sent the following prompt: {prompt}")
+        bot_response = generate_response(user_input)
+        st.write("Bot:", bot_response)
         response = supabase_client.table("ai-chat").insert([{"prompt": prompt, "created_at": datetime.now().isoformat()}]).execute()
         st.toast('Stored Prompt', icon='✅')
     # Show the BTC Pay Server
