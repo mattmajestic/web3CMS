@@ -459,7 +459,7 @@ def ml_ops():
     # Step 4: Save Model Parameters
     st.header("Step 4: Save Model Parameters 💾")
     if st.button("Save Model Parameters"):
-        response = supabase_client.table("ml-ops").insert([{"data_option": data_option,"model_option": "model_option": model_option,  "created_at": datetime.now().isoformat()}]).execute()
+        response = supabase_client.table("ml-ops").insert([{"data_option": data_option, "model_option": model_option,  "created_at": datetime.now().isoformat()}]).execute()
         st.success("Model Parameters Saved!")
 
 # Map selected page to corresponding function
