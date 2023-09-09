@@ -362,7 +362,7 @@ def development_request():
     st.title("Software Development Request 🚀")
 
     # Create two columns for layout
-    left_column, right_column = st.columns([6, 4])
+    left_column,center_column, right_column = st.columns([6,2, 4])
 
     # Left column for user information and request details
     with left_column:
