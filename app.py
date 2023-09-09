@@ -97,26 +97,11 @@ st.experimental_set_query_params(page=selected_page_key)
 def home_page():
     page_names = ["home", "invoice", "dev_docs", "backend", "ai_chat", "development_request", "ml_ops"]
     page_labels = ["🏠 Home", "📋 Invoice", "🚝 Developer Docs", "📪 CRM", "💻 AI Chat", "☎️ Development Request", "👾 ML Ops"]
-
-    st.markdown("""
-    <style>
-        .navbar-button {
-            background-color: black;
-            color: white;
-            width: 100%;
-            text-align: left;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 0;
-            cursor: pointer;
-        }
-    </style>
-    """, unsafe_allow_html=True)
-
-    for name, label in zip(page_names, page_labels):
+    columns = st.columns([2, 1, 2, 2, 2, 2, 1])
+    for name, label, column in zip(page_names, page_labels, columns):
         url = f"https://web3bms.streamlit.app/?page={name}"
-    if st.button(label, key=name, help=f"Go to {name} page", class="navbar-button"):
-        st.markdown(f'<script>window.location.href="{url}";</script>', unsafe_allow_html=True)
+        button_html = f'<a href="{url}" target="_self"><button style="background-color: black; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">{label}</button></a>'
+        column.markdown(button_html, unsafe_allow_html=True)
 
     st.markdown("""
     <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
