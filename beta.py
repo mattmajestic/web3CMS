@@ -101,13 +101,13 @@ def home_page():
         url = f"https://web3bms.streamlit.app/?page={name}"
         button_html = f'<a href="{url}" target="_self"><button style="background-color: black; color: white;">{label}</button></a>'
         column.markdown(button_html, unsafe_allow_html=True)
-        st.toast(f'Welcome to {label}', icon='✅')
 
     st.markdown("""
     <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
     <script>mermaid.initialize({startOnLoad:true});</script>
     """, unsafe_allow_html=True)
     st.markdown(readme_text, unsafe_allow_html=True)
+    st.toast(f'Welcome to web3bms', icon='✅')
 
 def api_endpoint():
     json_data = {
@@ -215,6 +215,7 @@ def invoice():
         components.iframe(url, width=300, height=500, scrolling=True)
 
     components.html(cg_marquee)
+    st.toast(f'Invoice crypto!', icon='✅')
 
 def ai_chat():
     st.title("GPT chat with your Business Data")
@@ -232,6 +233,7 @@ def ai_chat():
         ai_chat_df = pd.DataFrame(ai_chat_db.data)
         st.write("Previous Prompts:")
         st.write(ai_chat_df)
+    st.toast(f'Ask Away', icon='✅')
 
 
 def backend():
