@@ -15,3 +15,6 @@ folium
 geopy
 plotly
 streamlit-extras
+pydantic
+uvicorn
+uvicorn

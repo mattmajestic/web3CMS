@@ -22,6 +22,23 @@ from streamlit import session_state
 import random
 import string
 from streamlit_extras.switch_page_button import switch_page
+import uvicorn
+from fastapi import FastAPI
+from pydantic import BaseModel
+
+# Create a FastAPI app
+app_fastapi = FastAPI()
+
+# Define a data model
+class Item(BaseModel):
+    name: str
+    description: str
+
+# Define a route that returns JSON data
+@app_fastapi.get("/api/data")
+def get_data():
+    data = {"name": "John Doe", "age": 30}
+    return data
 
 # Set your Supabase credentials as environment variables
 SUPABASE_URL = os.getenv("SUPABASE_URL")
@@ -83,12 +100,11 @@ def home_page():
     st.markdown(readme_text, unsafe_allow_html=True)
 
 def api_endpoint():
-    json_data = {
-        "name": "John Doe",
-        "age": 30,
-        "email": "johndoe@example.com"
-    }
-    st.json(json_data)
+    st.pywebview(uvicorn, app_fastapi, port=8000)
+    response = st.request("GET", "http://localhost:8000/api/data")
+    if response:
+        data = response.json()
+        st.write("JSON Data from FastAPI:", data)
 
 def invoice():
     products_db = supabase_client.table('products').select("*").execute()
