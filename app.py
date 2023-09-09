@@ -77,7 +77,8 @@ page_queries = {
     "dev_docs": "Developer Docs 🚝",
     "backend": "CRM 📪",
     "ai_chat": "AI Chat 💻",
-    "development_request": "Development Request ☎️"
+    "development_request": "Development Request ☎️",
+    "ml_ops": "ML Ops 👾"
 }
 
 # Get the current URL query parameters
@@ -417,6 +418,67 @@ def development_request():
             }]).execute()
             st.toast('Request Stored Successfully', icon='✅')
 
+def ml_ops():
+    st.title("ML Ops - Model Deployment 👾")
+
+    # Step 1: Select Data
+    st.header("Step 1: Select Data 📊")
+    data_option = st.selectbox("Select Data Source", ["Local CSV", "Database", "API"])
+    if data_option == "Local CSV":
+        uploaded_file = st.file_uploader("Upload CSV File")
+        if uploaded_file:
+            # Handle the uploaded CSV file.
+            st.success("CSV File Uploaded and Processed!")
+    elif data_option == "Database":
+        # Input fields to connect to a database.
+        db_host = st.text_input("Database Host")
+        db_username = st.text_input("Database Username")
+        db_password = st.text_input("Database Password", type="password")
+    elif data_option == "API":
+        # Input fields to specify an API endpoint.
+        api_url = st.text_input("API URL")
+
+    # Step 2: Select Data Options
+    st.header("Step 2: Data Options 🛠️")
+    # Add options related to input data processing.
+
+    # Step 3: Select Model
+    st.header("Step 3: Select Model 🤖")
+    model_option = st.selectbox("Select Model Type", ["Linear Regression", "Random Forest", "Neural Network"])
+    if model_option == "Linear Regression":
+        # Add options specific to Linear Regression.
+        learning_rate = st.slider("Learning Rate", 0.01, 1.0, 0.1)
+    elif model_option == "Random Forest":
+        # Add options specific to Random Forest.
+        num_estimators = st.slider("Number of Estimators", 1, 100, 10)
+    elif model_option == "Neural Network":
+        # Add options specific to Neural Network.
+        num_hidden_layers = st.slider("Number of Hidden Layers", 1, 5, 2)
+
+    # Step 4: Save Model Parameters
+    st.header("Step 4: Save Model Parameters 💾")
+    if st.button("Save Model Parameters"):
+        # Add code to save the selected model parameters to your database.
+        params = {
+            "data_option": data_option,
+            "model_option": model_option,
+            "created_at": datetime.now().isoformat()
+        }
+        if data_option == "Local CSV":
+            params["uploaded_file"] = "CSV File Uploaded"
+        elif data_option == "Database":
+            params["db_host"] = db_host
+            params["db_username"] = db_username
+            params["db_password"] = "******"  # Hide the password
+        elif data_option == "API":
+            params["api_url"] = api_url
+
+        # Insert data into Supabase table
+        response = supabase_client.table("ml-ops").insert([params]).execute()
+        if response.status == 201:
+            st.success("Model Parameters Saved!")
+
+
 
 # Map selected page to corresponding function
 page_funcs = {
@@ -425,7 +487,8 @@ page_funcs = {
     "dev_docs": dev_docs,
     "backend": backend,
     "ai_chat": ai_chat,
-    "development_request": development_request
+    "development_request": development_request,
+    "ml_ops": ml_ops
 }
 
 # Execute the selected page function
