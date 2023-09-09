@@ -102,7 +102,7 @@ def home_page():
     )
 
     # Create a horizontal layout with evenly spaced columns
-    columns = st.beta_columns(len(page_names))
+    columns = st.columns(len(page_names))
 
     # Create buttons for each page with emojis and styling
     for name, label, column in zip(page_names, page_labels, columns):
