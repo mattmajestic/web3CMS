@@ -28,20 +28,14 @@ from pydantic import BaseModel
 from urllib.parse import urlencode
 import webbrowser
 
-# Create a FastAPI app
-app_fastapi = FastAPI()
 
-# Define a data model
-class Item(BaseModel):
-    name: str
-    description: str
-
-# Define a route that returns JSON data
-@app_fastapi.get("/api/data")
-def get_data():
-    data = {"name": "John Doe", "age": 30}
-    return data
-
+st.set_page_config(
+     page_title="web3BMS",
+     page_icon="🐧",
+     layout="wide",
+     initial_sidebar_state='expanded'
+ )
+ 
 # Set your Supabase credentials as environment variables
 SUPABASE_URL = os.getenv("SUPABASE_URL")
 SUPABASE_KEY = os.getenv("SUPABASE_KEY")
@@ -60,28 +54,6 @@ with open("index.html", "r") as file:
 # Load and render the main.js file
     with open("metamask/main.js", "r") as js_file:
         js_code = js_file.read()
-
-# Function to toggle between light and dark mode
-def toggle_theme(theme):
-    if theme == "Light":
-        st.markdown(
-            '<link rel="stylesheet" type="text/css" href="styles/light.css">',
-            unsafe_allow_html=True
-        )
-    elif theme == "Dark":
-        st.markdown(
-            '<link rel="stylesheet" type="text/css" href="styles/dark.css">',
-            unsafe_allow_html=True
-        )
-
-
-st.set_page_config(
-     page_title="web3BMS",
-     page_icon="🐧",
-     layout="wide",
-     initial_sidebar_state='expanded'
- )
-
 
 # Define custom query parameters for each page
 page_queries = {
