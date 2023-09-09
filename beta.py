@@ -81,9 +81,6 @@ def home_page():
     """, unsafe_allow_html=True)
     st.markdown(readme_text, unsafe_allow_html=True)
 
-# def signin():
-#     st.markdown(clerk_js, unsafe_allow_html=True)
-
 def invoice():
     products_db = supabase_client.table('products').select("*").execute()
     products_df = pd.DataFrame(products_db.data)
