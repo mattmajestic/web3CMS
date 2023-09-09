@@ -123,10 +123,10 @@ def home_page():
         "👾 ML Ops": "https://web3bms.streamlit.app/?page=ml_ops"
     }
 
-    columns = st.columns([2, 2, 2, 2, 2, 2, 2])
+    columns = st.columns([2, 2, 2, 2, 2, 2, 2,2])
 
 
-    theme = column.radio("Select Theme", ("Light", "Dark"))
+    theme = columns[7].radio("Select Theme", ("Light", "Dark"))
     toggle_theme(theme)
 
     # Loop through page names and labels to create buttons
