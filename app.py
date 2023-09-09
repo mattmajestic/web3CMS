@@ -32,8 +32,6 @@ from transformers import pipeline
 def create_chatbot():
     return pipeline("text-generation", model="EleutherAI/gpt-neo-1.3B")
 
-chatbot = create_chatbot()
-
 def generate_response(prompt):
     response = chatbot(prompt, max_length=150, num_return_sequences=1)
     return response[0]['generated_text']
@@ -239,6 +237,7 @@ def ai_chat():
     prompt = st.chat_input("Chat your Business with AI")
     
     if prompt:
+        chatbot = create_chatbot()
         st.write(f"User has sent the following prompt: {prompt}")
         bot_response = generate_response(user_input)
         st.write("Bot:", bot_response)
