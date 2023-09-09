@@ -432,15 +432,6 @@ def ml_ops():
         st.write("- Continuous monitoring and model updates")
         st.write("ML Ops involves several key steps to deploy and manage machine learning models effectively. These steps include:")
 
-        # List of ML Ops steps
-        st.write("1. Select Data Source: Choose the data source for your model, whether it's a local CSV file, a database, or an API.")
-        st.write("2. Data Options: Configure data preprocessing and feature engineering to prepare your data for modeling.")
-        st.write("3. Select Model: Choose the type of machine learning model that best fits your problem, such as Linear Regression, Random Forest, or Neural Network.")
-        st.write("4. Save Model Parameters: Save the selected model parameters and data options for future use and model deployment.")
-        st.write("5. Deploy Model: Deploy the trained machine learning model to make predictions on new data.")
-        st.write("6. Monitor Model: Continuously monitor the model's performance and retrain it as needed to maintain accuracy.")
-        st.write("7. Scale and Optimize: As your business grows, scale and optimize your ML Ops pipeline for efficiency and accuracy.")
-
     # Create expanders for each step
     with st.expander("Step 1: Select Data 📊"):
         data_option = st.selectbox("Select Data Source", ["Local CSV", "Database", "API"])
