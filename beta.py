@@ -95,19 +95,19 @@ def home_page():
     # Define the names and labels for your pages with emojis
     page_names = ["home", "invoice", "dev_docs", "backend", "ai_chat"]
     page_labels = ["🏠 Home", "📋 Invoice", "🚝 Developer Docs", "📪 CRM", "💻 AI Chat"]
-
-    # Create a style for the buttons
-    button_style = (
-        "background-color: #f63366; color: white; padding: 10px; border-radius: 5px;"
-    )
-
-    # Create a horizontal layout with evenly spaced columns
     columns = st.columns([2,2,3,2,2])
+    selected_page = st.session_state.get("selected_page", "home_page")
 
-    # Create buttons for each page with emojis
     for name, label, column in zip(page_names, page_labels, columns):
         button_markdown = f'<a href="#" onclick="switch_page(\'{name}\')" style="text-decoration: none; padding: 10px; background-color: #f63366; color: white; border-radius: 5px;">{label}</a>'
         column.markdown(button_markdown, unsafe_allow_html=True)
+
+        # Check if the button is clicked and update the selected page
+        if column.button(label="", key=name):
+            selected_page = name
+
+    st.session_state.selected_page = selected_page
+    switch_page(selected_page)
 
     st.markdown("""
     <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
