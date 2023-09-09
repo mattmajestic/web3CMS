@@ -37,19 +37,6 @@ st.set_page_config(
      initial_sidebar_state='expanded'
  )
 
-
-# Load the model and tokenizer
-model_name = "gpt2"  # You can replace this with any other chat model
-model = AutoModelForCausalLM.from_pretrained(model_name)
-tokenizer = AutoTokenizer.from_pretrained(model_name)
-
-# Create a function to generate responses
-def generate_response(prompt):
-    input_ids = tokenizer.encode(prompt, return_tensors="pt")
-    response_ids = model.generate(input_ids, max_length=100, num_return_sequences=1)
-    bot_response = tokenizer.decode(response_ids[0], skip_special_tokens=True)
-    return bot_response
-
 # Set your Supabase credentials as environment variables
 SUPABASE_URL = os.getenv("SUPABASE_URL")
 SUPABASE_KEY = os.getenv("SUPABASE_KEY")
@@ -243,6 +230,14 @@ def ai_chat():
     prompt = st.chat_input("Chat your Business with AI")
     with st.spinner("Generating Bot Response..."):
         if prompt:
+            model_name = "gpt2"  
+            model = AutoModelForCausalLM.from_pretrained(model_name)
+            tokenizer = AutoTokenizer.from_pretrained(model_name)
+            def generate_response(prompt):
+                input_ids = tokenizer.encode(prompt, return_tensors="pt")
+                response_ids = model.generate(input_ids, max_length=100, num_return_sequences=1)
+                bot_response = tokenizer.decode(response_ids[0], skip_special_tokens=True)
+                return bot_response
             bot_response = generate_response(prompt)
             st.write(f"User has sent the following prompt: {prompt}")
             st.write("Bot:", bot_response)
