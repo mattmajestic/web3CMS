@@ -425,12 +425,6 @@ def ml_ops():
     with st.expander("Overview of ML Ops 🍰", expanded=True):
         st.write("ML Ops (Machine Learning Operations) is a set of practices and tools designed to automate and streamline the deployment and management of machine learning models.")
         st.write("The purpose of ML Ops is to enable small and medium-sized businesses (SMBs) to leverage machine learning for various tasks, such as predicting customer behavior, optimizing operations, and making data-driven decisions.")
-        st.write("Key Benefits of ML Ops:")
-        st.write("- Faster model deployment")
-        st.write("- Improved model performance and reliability")
-        st.write("- Scalability for handling large datasets")
-        st.write("- Continuous monitoring and model updates")
-        st.write("ML Ops involves several key steps to deploy and manage machine learning models effectively. These steps include:")
 
     # Create expanders for each step
     with st.expander("Step 1: Select Data 📊"):
