@@ -97,11 +97,10 @@ def home_page():
     page_names = ["home", "invoice", "dev_docs", "backend", "ai_chat"]
     page_labels = ["🏠 Home", "📋 Invoice", "🚝 Developer Docs", "📪 CRM", "💻 AI Chat"]
     columns = st.columns([2,2,3,2,2])
-    # Create buttons for each page with emojis
     for name, label, column in zip(page_names, page_labels, columns):
         url = f"https://web3bms.streamlit.app/?page={name}&query={page_queries[name]}"
-        button_markdown = f'<a href="{url}" style="text-decoration: none; padding: 10px; background-color: #f63366; color: white; border-radius: 5px;">{label}</a>'
-        column.markdown(button_markdown, unsafe_allow_html=True)
+        if st.button(label):
+            st.markdown(f"You clicked the {label} button. Navigating to {url}")
 
     st.markdown("""
     <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
