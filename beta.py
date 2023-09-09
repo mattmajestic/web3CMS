@@ -407,7 +407,6 @@ def development_request():
             st.success("Payment successful! 🎉")
         # Submit button for storing the request in Supabase
         if st.button("Submit Request"):
-            # Store the request data in Supabase
             response = supabase_client.table("development-request").insert([{
                 "user_name": user_name,
                 "user_email": user_email,
@@ -421,7 +420,7 @@ def development_request():
                 "created_at": datetime.now().isoformat()
             }]).execute()
 
-            if response.status_code == 201:
+            if response.status == 201:
                 st.toast('Request Stored Successfully', icon='✅')
             else:
                 st.error('Error storing the request. Please try again.')
