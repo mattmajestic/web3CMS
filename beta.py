@@ -77,7 +77,7 @@ page_queries = {
     "dev_docs": "Developer Docs 🚝",
     "backend": "CRM 📪",
     "ai_chat": "AI Chat 💻",
-    "development_request": "Development Request :octocat:"
+    "development_request": "Development Request ☎️"
 }
 
 # Get the current URL query parameters
