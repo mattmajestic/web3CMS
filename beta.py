@@ -25,6 +25,7 @@ from streamlit_extras.switch_page_button import switch_page
 import uvicorn
 from fastapi import FastAPI
 from pydantic import BaseModel
+from urllib.parse import urlencode
 
 # Create a FastAPI app
 app_fastapi = FastAPI()
@@ -96,10 +97,10 @@ def home_page():
     page_names = ["home", "invoice", "dev_docs", "backend", "ai_chat"]
     page_labels = ["🏠 Home", "📋 Invoice", "🚝 Developer Docs", "📪 CRM", "💻 AI Chat"]
     columns = st.columns([2,2,3,2,2])
-    selected_page = st.session_state.get("selected_page", "home_page")
-
+    # Create buttons for each page with emojis
     for name, label, column in zip(page_names, page_labels, columns):
-        button_markdown = f'<a href="#" onclick="switch_page(\'{name}\')" style="text-decoration: none; padding: 10px; border-radius: 5px;">{label}</a>'
+        url = f"https://web3bms.streamlit.app/?page={name}&query={page_queries[name]}"
+        button_markdown = f'<a href="{url}" style="text-decoration: none; padding: 10px; background-color: #f63366; color: white; border-radius: 5px;">{label}</a>'
         column.markdown(button_markdown, unsafe_allow_html=True)
 
     st.markdown("""
