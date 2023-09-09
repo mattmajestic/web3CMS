@@ -98,14 +98,14 @@ button_style = 'background-color: #262730; color: white; padding: 10px 20px; bor
 
 def home_page():
 
-    columns = st.columns([2, 2, 3, 2, 2, 4, 2])
+    # columns = st.columns([2, 2, 3, 2, 2, 4, 2])
 
-    # Loop through page names and labels to create buttons
-    for name, label, column in zip(page_names, page_labels, columns):
-        url = page_urls.get(label, "")
-        if url:
-            button_html = f'<button style="{button_style}" onclick="window.location.href=\'{url}\';">{selection}</button>'
-            column.markdown(button_html, unsafe_allow_html=True)
+    # # Loop through page names and labels to create buttons
+    # for name, label, column in zip(page_names, page_labels, columns):
+    #     url = page_urls.get(label, "")
+    #     if url:
+    #         button_html = f'<button style="{button_style}" onclick="window.location.href=\'{url}\';">{selection}</button>'
+    #         column.markdown(button_html, unsafe_allow_html=True)
 
     st.markdown("""
     <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
@@ -115,14 +115,14 @@ def home_page():
     st.toast(f'Welcome to web3bms', icon='✅')
 
 def invoice():
-    columns = st.columns([2, 2, 3, 2, 2, 4, 2])
+    # columns = st.columns([2, 2, 3, 2, 2, 4, 2])
 
-    # Loop through page names and labels to create buttons
-    for name, label, column in zip(page_names, page_labels, columns):
-        url = page_urls.get(label, "")
-        if url:
-            button_html = f'<a href="{url}" target="_self"><button style="background-color: #262730; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; margin-right: 0px; margin-left: 0px;">{label}</button></a>'
-            column.markdown(button_html, unsafe_allow_html=True)
+    # # Loop through page names and labels to create buttons
+    # for name, label, column in zip(page_names, page_labels, columns):
+    #     url = page_urls.get(label, "")
+    #     if url:
+    #         button_html = f'<a href="{url}" target="_self"><button style="background-color: #262730; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; margin-right: 0px; margin-left: 0px;">{label}</button></a>'
+    #         column.markdown(button_html, unsafe_allow_html=True)
 
     products_db = supabase_client.table('products').select("*").execute()
     products_df = pd.DataFrame(products_db.data)
@@ -243,14 +243,14 @@ def ai_chat():
 
 
 def backend():
-    columns = st.columns([2, 2, 3, 2, 2, 4, 2])
+    # columns = st.columns([2, 2, 3, 2, 2, 4, 2])
 
-    # Loop through page names and labels to create buttons
-    for name, label, column in zip(page_names, page_labels, columns):
-        url = page_urls.get(label, "")
-        if url:
-            button_html = f'<a href="{url}" target="_self"><button style="background-color: #262730; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; margin-right: 0px; margin-left: 0px;">{label}</button></a>'
-            column.markdown(button_html, unsafe_allow_html=True)
+    # # Loop through page names and labels to create buttons
+    # for name, label, column in zip(page_names, page_labels, columns):
+    #     url = page_urls.get(label, "")
+    #     if url:
+    #         button_html = f'<a href="{url}" target="_self"><button style="background-color: #262730; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; margin-right: 0px; margin-left: 0px;">{label}</button></a>'
+    #         column.markdown(button_html, unsafe_allow_html=True)
 
     products_db = supabase_client.table('products').select("*").execute()
     products_df = pd.DataFrame(products_db.data)
@@ -318,14 +318,14 @@ def backend():
 
 
 def dev_docs():
-    columns = st.columns([2, 2, 3, 2, 2, 4, 2])
+    # columns = st.columns([2, 2, 3, 2, 2, 4, 2])
 
-    # Loop through page names and labels to create buttons
-    for name, label, column in zip(page_names, page_labels, columns):
-        url = page_urls.get(label, "")
-        if url:
-            button_html = f'<a href="{url}" target="_self"><button style="background-color: #262730; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; margin-right: 0px; margin-left: 0px;">{label}</button></a>'
-            column.markdown(button_html, unsafe_allow_html=True)
+    # # Loop through page names and labels to create buttons
+    # for name, label, column in zip(page_names, page_labels, columns):
+    #     url = page_urls.get(label, "")
+    #     if url:
+    #         button_html = f'<a href="{url}" target="_self"><button style="background-color: #262730; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; margin-right: 0px; margin-left: 0px;">{label}</button></a>'
+    #         column.markdown(button_html, unsafe_allow_html=True)
 
     st.title("Development Documentation 🚝")
     st.write("")
@@ -382,14 +382,14 @@ def dev_docs():
         st.toast('Try it out in Python', icon='🐍')
 
 def development_request():
-    columns = st.columns([2, 2, 3, 2, 2, 4, 2])
+    # columns = st.columns([2, 2, 3, 2, 2, 4, 2])
 
-    # Loop through page names and labels to create buttons
-    for name, label, column in zip(page_names, page_labels, columns):
-        url = page_urls.get(label, "")
-        if url:
-            button_html = f'<a href="{url}" target="_self"><button style="background-color: #262730; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; margin-right: 0px; margin-left: 0px;">{label}</button></a>'
-            column.markdown(button_html, unsafe_allow_html=True)
+    # # Loop through page names and labels to create buttons
+    # for name, label, column in zip(page_names, page_labels, columns):
+    #     url = page_urls.get(label, "")
+    #     if url:
+    #         button_html = f'<a href="{url}" target="_self"><button style="background-color: #262730; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; margin-right: 0px; margin-left: 0px;">{label}</button></a>'
+    #         column.markdown(button_html, unsafe_allow_html=True)
 
     st.title("Software Development Request 🚀")
 
@@ -450,14 +450,14 @@ def development_request():
             st.toast('Request Stored Successfully', icon='✅')
 
 def ml_ops():
-    columns = st.columns([2, 2, 3, 2, 2, 4, 2])
+    # columns = st.columns([2, 2, 3, 2, 2, 4, 2])
 
-    # Loop through page names and labels to create buttons
-    for name, label, column in zip(page_names, page_labels, columns):
-        url = page_urls.get(label, "")
-        if url:
-            button_html = f'<a href="{url}" target="_self"><button style="background-color: #262730; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; margin-right: 0px; margin-left: 0px;">{label}</button></a>'
-            column.markdown(button_html, unsafe_allow_html=True)
+    # # Loop through page names and labels to create buttons
+    # for name, label, column in zip(page_names, page_labels, columns):
+    #     url = page_urls.get(label, "")
+    #     if url:
+    #         button_html = f'<a href="{url}" target="_self"><button style="background-color: #262730; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; margin-right: 0px; margin-left: 0px;">{label}</button></a>'
+    #         column.markdown(button_html, unsafe_allow_html=True)
 
     st.title("ML Ops - Model Deployment 👾")
     st.toast('GUI for Machine Learning', icon='👾')
