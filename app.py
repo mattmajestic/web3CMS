@@ -79,21 +79,22 @@ selected_page = st.sidebar.radio("Navigate web3bms", list(page_queries.values())
 selected_page_key = next(key for key, value in page_queries.items() if value == selected_page)
 st.experimental_set_query_params(page=selected_page_key)
 
-
-def home_page():
-    page_names = ["home", "invoice", "dev_docs", "backend", "ai_chat", "development_request", "ml_ops"]
+page_names = ["home", "invoice", "dev_docs", "backend", "ai_chat", "development_request", "ml_ops"]
     page_labels = ["🏠 Home", "📋 Invoice", "🚝 Developer Docs", "📪 CRM", "💻 AI Chat", "☎️ Development Request", "👾 ML Ops"]
 
-    # Define URLs for the pages
-    page_urls = {
-        "🏠 Home": "https://web3bms.streamlit.app/?page=home",
-        "📋 Invoice": "https://web3bms.streamlit.app/?page=invoice",
-        "📪 CRM": "https://web3bms.streamlit.app/?page=backend",
-        "💻 AI Chat": "https://web3bms.streamlit.app/?page=ai_chat",
-        "🚝 Developer Docs": "https://web3bms.streamlit.app/?page=dev_docs",
-        "☎️ Development Request": "https://web3bms.streamlit.app/?page=development_request",
-        "👾 ML Ops": "https://web3bms.streamlit.app/?page=ml_ops"
-    }
+# Define URLs for the pages
+page_urls = {
+    "🏠 Home": "https://web3bms.streamlit.app/?page=home",
+    "📋 Invoice": "https://web3bms.streamlit.app/?page=invoice",
+    "📪 CRM": "https://web3bms.streamlit.app/?page=backend",
+    "💻 AI Chat": "https://web3bms.streamlit.app/?page=ai_chat",
+    "🚝 Developer Docs": "https://web3bms.streamlit.app/?page=dev_docs",
+    "☎️ Development Request": "https://web3bms.streamlit.app/?page=development_request",
+    "👾 ML Ops": "https://web3bms.streamlit.app/?page=ml_ops"
+}
+
+
+def home_page():
 
     columns = st.columns([2, 2, 3, 2, 2, 4, 2])
 
@@ -112,6 +113,15 @@ def home_page():
     st.toast(f'Welcome to web3bms', icon='✅')
 
 def invoice():
+    columns = st.columns([2, 2, 3, 2, 2, 4, 2])
+
+    # Loop through page names and labels to create buttons
+    for name, label, column in zip(page_names, page_labels, columns):
+        url = page_urls.get(label, "")
+        if url:
+            button_html = f'<a href="{url}" target="_self"><button style="background-color: #262730; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; margin-right: 0px; margin-left: 0px;">{label}</button></a>'
+            column.markdown(button_html, unsafe_allow_html=True)
+
     products_db = supabase_client.table('products').select("*").execute()
     products_df = pd.DataFrame(products_db.data)
     contacts_db = supabase_client.table('contacts').select("*").execute()
@@ -231,7 +241,15 @@ def ai_chat():
 
 
 def backend():
-    # Replace with supabase fetch
+    columns = st.columns([2, 2, 3, 2, 2, 4, 2])
+
+    # Loop through page names and labels to create buttons
+    for name, label, column in zip(page_names, page_labels, columns):
+        url = page_urls.get(label, "")
+        if url:
+            button_html = f'<a href="{url}" target="_self"><button style="background-color: #262730; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; margin-right: 0px; margin-left: 0px;">{label}</button></a>'
+            column.markdown(button_html, unsafe_allow_html=True)
+
     products_db = supabase_client.table('products').select("*").execute()
     products_df = pd.DataFrame(products_db.data)
     contacts_db = supabase_client.table('contacts').select("*").execute()
@@ -298,6 +316,15 @@ def backend():
 
 
 def dev_docs():
+    columns = st.columns([2, 2, 3, 2, 2, 4, 2])
+
+    # Loop through page names and labels to create buttons
+    for name, label, column in zip(page_names, page_labels, columns):
+        url = page_urls.get(label, "")
+        if url:
+            button_html = f'<a href="{url}" target="_self"><button style="background-color: #262730; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; margin-right: 0px; margin-left: 0px;">{label}</button></a>'
+            column.markdown(button_html, unsafe_allow_html=True)
+
     st.title("Development Documentation 🚝")
     st.write("")
     left, center, right = st.columns([4,4,4])
@@ -353,6 +380,15 @@ def dev_docs():
         st.toast('Try it out in Python', icon='🐍')
 
 def development_request():
+    columns = st.columns([2, 2, 3, 2, 2, 4, 2])
+
+    # Loop through page names and labels to create buttons
+    for name, label, column in zip(page_names, page_labels, columns):
+        url = page_urls.get(label, "")
+        if url:
+            button_html = f'<a href="{url}" target="_self"><button style="background-color: #262730; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; margin-right: 0px; margin-left: 0px;">{label}</button></a>'
+            column.markdown(button_html, unsafe_allow_html=True)
+
     st.title("Software Development Request 🚀")
 
     # Create two columns for layout
@@ -412,6 +448,15 @@ def development_request():
             st.toast('Request Stored Successfully', icon='✅')
 
 def ml_ops():
+    columns = st.columns([2, 2, 3, 2, 2, 4, 2])
+
+    # Loop through page names and labels to create buttons
+    for name, label, column in zip(page_names, page_labels, columns):
+        url = page_urls.get(label, "")
+        if url:
+            button_html = f'<a href="{url}" target="_self"><button style="background-color: #262730; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; margin-right: 0px; margin-left: 0px;">{label}</button></a>'
+            column.markdown(button_html, unsafe_allow_html=True)
+            
     st.title("ML Ops - Model Deployment 👾")
     st.toast('GUI for Machine Learning', icon='👾')
 
