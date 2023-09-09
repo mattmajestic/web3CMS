@@ -74,9 +74,9 @@ st.set_page_config(
 page_queries = {
     "home": "Home 🐧",
     "invoice": "Invoice 📋",
-    "dev_docs": "Developer Docs 🚝",
     "backend": "CRM 📪",
     "ai_chat": "AI Chat 💻",
+    "dev_docs": "Developer Docs 🚝",
     "development_request": "Development Request ☎️",
     "ml_ops": "ML Ops 👾"
 }
