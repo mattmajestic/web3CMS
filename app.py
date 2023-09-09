@@ -35,7 +35,7 @@ st.set_page_config(
      layout="wide",
      initial_sidebar_state='expanded'
  )
- 
+
 # Set your Supabase credentials as environment variables
 SUPABASE_URL = os.getenv("SUPABASE_URL")
 SUPABASE_KEY = os.getenv("SUPABASE_KEY")
@@ -95,11 +95,7 @@ def home_page():
         "👾 ML Ops": "https://web3bms.streamlit.app/?page=ml_ops"
     }
 
-    columns = st.columns([2, 2, 2, 2, 2, 2, 2,2])
-
-
-    theme = columns[7].radio("Select Theme", ("Light", "Dark"))
-    toggle_theme(theme)
+    columns = st.columns([2, 2, 2, 2, 2, 2, 2])
 
     # Loop through page names and labels to create buttons
     for name, label, column in zip(page_names, page_labels, columns):
