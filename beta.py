@@ -419,11 +419,7 @@ def development_request():
                 "total_price": total_price,
                 "created_at": datetime.now().isoformat()
             }]).execute()
-
-            if response.status == 201:
-                st.toast('Request Stored Successfully', icon='✅')
-            else:
-                st.error('Error storing the request. Please try again.')
+            st.toast('Request Stored Successfully', icon='✅')
 
 
 # Map selected page to corresponding function
