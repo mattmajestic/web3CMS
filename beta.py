@@ -364,17 +364,17 @@ def development_request():
     # Create two columns for layout
     left_column,center_column, right_column = st.columns([6,2, 4])
 
-    # Left column for user and GitHub information
     with left_column:
-        # Sub-column for user information
-        with st.expander("User Information"):
-            user_name = st.text_input("Your Name 👤")
-            user_email = st.text_input("Your Email 📧")
+        st.subheader("User Information")
+        user_name = st.text_input("Your Name 👤")
+        user_email = st.text_input("Your Email 📧")
+        st.subheader("GitHub Information")
+        github_inputs = st.columns([5, 5])
+        github_username = github_inputs[0].text_input("GitHub Username 🐱")
+        github_repo = github_inputs[1].text_input("GitHub Repository 📂")
 
-        # Sub-column for GitHub information
-        with st.expander("GitHub Information"):
-            github_username = st.text_input("GitHub Username 🐱")
-            github_repo = st.text_input("GitHub Repository 📂")
+        st.subheader("Request Description")
+        request_description = st.text_area("Describe Your Request 📝")
 
     # Right column for cost calculation and payment
     with right_column:
