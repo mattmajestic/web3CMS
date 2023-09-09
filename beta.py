@@ -217,8 +217,8 @@ def ai_chat():
     if st.button("Show Previous Prompts"):
         ai_chat_db = supabase_client.table('ai-chat').select("*").execute()
         st.write("Previous Prompts:")
-            for prompt_data in ai_chat_db['data']:
-                st.write(f"- {prompt_data['prompt']} (Submitted at: {prompt_data['created_at']})")
+        for prompt_data in ai_chat_db['data']:
+            st.write(f"- {prompt_data['prompt']} (Submitted at: {prompt_data['created_at']})")
 
 
 def backend():
