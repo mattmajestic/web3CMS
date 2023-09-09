@@ -126,7 +126,7 @@ def home_page():
     columns = st.columns([2, 2, 2, 2, 2, 2, 2])
 
 
-    theme = st.column("Select Theme", ("Light", "Dark"))
+    theme = column.radio("Select Theme", ("Light", "Dark"))
     toggle_theme(theme)
 
     # Loop through page names and labels to create buttons
