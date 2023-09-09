@@ -97,7 +97,7 @@ st.experimental_set_query_params(page=selected_page_key)
 def home_page():
     page_names = ["home", "invoice", "dev_docs", "backend", "ai_chat", "development_request", "ml_ops"]
     page_labels = ["🏠 Home", "📋 Invoice", "🚝 Developer Docs", "📪 CRM", "💻 AI Chat", "☎️ Development Request", "👾 ML Ops"]
-    columns = st.columns([2, 1, 2, 2, 2, 2, 1])
+    columns = st.columns([2, 2, 2, 2, 2, 2, 2])
     for name, label, column in zip(page_names, page_labels, columns):
         url = f"https://web3bms.streamlit.app/?page={name}"
         button_html = f'<a href="{url}" target="_self"><button style="background-color: black; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">{label}</button></a>'
@@ -440,8 +440,31 @@ def ml_ops():
             api_url = st.text_input("API URL")
 
     with st.expander("Step 2: Data Options 🛠️"):
-        # Add options related to input data processing.
-        pass
+        st.subheader("Select Third-Party Datasets")
+
+        # Checkbox for Web3 data
+        include_web3_data = st.checkbox("Include Web3 Data (BTC, ETH, USDC)")
+
+        # Checkbox for Development Rates data
+        include_dev_rates_data = st.checkbox("Include Development Rates Data")
+
+        # Checkbox for ML Ops benchmarking data
+        include_ml_ops_benchmark_data = st.checkbox("Include ML Ops Benchmarking Data")
+
+        # Example: Display a message based on selected options
+        selected_datasets = []
+        if include_web3_data:
+            selected_datasets.append("Web3 Data")
+        if include_dev_rates_data:
+            selected_datasets.append("Development Rates Data")
+        if include_ml_ops_benchmark_data:
+            selected_datasets.append("ML Ops Benchmarking Data")
+
+        if selected_datasets:
+            st.info(f"Selected Datasets: {', '.join(selected_datasets)}")
+        else:
+            st.info("No third-party datasets selected.")
+
 
     with st.expander("Step 3: Select Model 🤖"):
         model_option = st.selectbox("Select Model Type", ["Linear Regression", "Random Forest", "Neural Network"])
