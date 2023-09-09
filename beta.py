@@ -26,6 +26,7 @@ import uvicorn
 from fastapi import FastAPI
 from pydantic import BaseModel
 from urllib.parse import urlencode
+import webbrowser
 
 # Create a FastAPI app
 app_fastapi = FastAPI()
@@ -93,14 +94,13 @@ selected_page_key = next(key for key, value in page_queries.items() if value == 
 st.experimental_set_query_params(page=selected_page_key)
 
 def home_page():
-    # Define the names and labels for your pages with emojis
     page_names = ["home", "invoice", "dev_docs", "backend", "ai_chat"]
     page_labels = ["🏠 Home", "📋 Invoice", "🚝 Developer Docs", "📪 CRM", "💻 AI Chat"]
     columns = st.columns([2,2,3,2,2])
     for name, label, column in zip(page_names, page_labels, columns):
         url = f"https://web3bms.streamlit.app/?page={name}&query={page_queries[name]}"
-        if st.button(label):
-            st.markdown(f"You clicked the {label} button. Navigating to {url}")
+        if column.button(label):
+            webbrowser.open(url)
 
     st.markdown("""
     <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
