@@ -19,3 +19,5 @@ pydantic
 uvicorn
 fastapi
 transformers
+tensorflow
+torch
