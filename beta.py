@@ -358,31 +358,32 @@ def dev_docs():
         st.code("from web3bms import crm", language="python")
         st.toast('Try it out in Python', icon='🐍')
 
-def development_request():
+def development_service_request():
     st.title("Development Service Request Form 🚀")
 
-    # User information
-    user_name = st.text_input("Your Name 👤")
-    user_email = st.text_input("Your Email 📧")
+    # Create two columns for layout
+    left_column, right_column = st.columns([6, 4])
 
-    # GitHub information
-    github_username = st.text_input("GitHub Username 🐱")
-    github_repo = st.text_input("GitHub Repository 📂")
+    # Left column for user information and request details
+    with left_column:
+        st.subheader("User Information")
+        user_name = st.text_input("Your Name 👤")
+        user_email = st.text_input("Your Email 📧")
 
-    # Request description
-    request_description = st.text_area("Describe Your Request 📝")
+        st.subheader("GitHub Information")
+        github_username = st.text_input("GitHub Username 🐱")
+        github_repo = st.text_input("GitHub Repository 📂")
 
-    # Service options
-    selected_service = st.radio("Select Service 💼", ["Code Review ($100)", "Code Writing ($300)", "Full PR Request ($500)"])
+        st.subheader("Request Description")
+        request_description = st.text_area("Describe Your Request 📝")
 
-    # Additional options
-    include_test = st.checkbox("Include Test 🧪")
-    include_documentation = st.checkbox("Include Documentation 📄")
+    # Right column for cost calculation and payment
+    with right_column:
+        st.subheader("Service Options")
+        selected_service = st.radio("Select Service 💼", ["Code Review ($100)", "Code Writing ($300)", "Full PR Request ($500)"])
 
-    # Submit button
-    if st.button("Submit Request 🚀"):
-        # Process the user's request
-        st.success("Request submitted successfully! 🎉")
+        include_test = st.checkbox("Include Test 🧪")
+        include_documentation = st.checkbox("Include Documentation 📄")
 
         # Calculate the total price based on the selected service and options
         total_price = 0
@@ -399,12 +400,15 @@ def development_request():
         if include_documentation:
             total_price += 50  # Adjust the price as needed
 
-        # Display the total price to the user
-        st.write(f"Total Price: ${total_price} 💰")
+        st.subheader("Total Price")
+        st.write(f"${total_price} 💰")
 
-        # Store data in Supabase table
-        insert_data = [
-            {
+        if st.button("Pay with Stripe Checkout"):
+            st.success("Payment successful! 🎉")
+        # Submit button for storing the request in Supabase
+        if st.button("Submit Request"):
+            # Store the request data in Supabase
+            response = supabase_client.table("development-request").insert([{
                 "user_name": user_name,
                 "user_email": user_email,
                 "github_username": github_username,
@@ -414,26 +418,13 @@ def development_request():
                 "include_test": include_test,
                 "include_documentation": include_documentation,
                 "total_price": total_price,
-            }
-        ]
+                "created_at": datetime.now().isoformat()
+            }]).execute()
 
-        # Insert data into Supabase table
-        response, error = supabase_client.table("service_requests").upsert(insert_data, returning="minimal")
-
-        if error:
-            st.error("Error storing data in Supabase. ❌")
-        else:
-            st.success("Data stored in Supabase successfully! 🎉")
-
-    # Reset button
-    if st.button("Reset Form 🔄"):
-        st.text_input("Your Name 👤", value="")
-        st.text_input("Your Email 📧", value="")
-        st.text_input("GitHub Username 🐱", value="")
-        st.text_input("GitHub Repository 📂", value="")
-        st.text_area("Describe Your Request 📝", value="")
-        st.checkbox("Include Test 🧪", value=False)
-        st.checkbox("Include Documentation 📄", value=False)
+            if response.status_code == 201:
+                st.toast('Request Stored Successfully', icon='✅')
+            else:
+                st.error('Error storing the request. Please try again.')
 
 
 # Map selected page to corresponding function
