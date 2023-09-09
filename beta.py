@@ -320,10 +320,12 @@ def dev_docs():
                 st.write("Your API key has been generated and saved to the database.")
                 st.toast('API Key Stored', icon='🔑')
                 
-
     center.write("CLI Commands 🔍")
     cli_expander = center.expander("CRM CLI Command", expanded=False)
-    cli_expander_expanded = False  # Initialize the expanded flag
+
+    # Initialize the expanded flag in session state
+    if 'cli_expander_expanded' not in st.session_state:
+        st.session_state.cli_expander_expanded = False
 
     with cli_expander:
         st.write("🔧 Description: The CLI command allows you to interact with customer data.")
@@ -339,7 +341,7 @@ def dev_docs():
             st.toast('Try it out in Bash', icon='🔍')
 
     # Update the expanded flag based on the expander's state
-    cli_expander_expanded = cli_expander.expanded
+    st.session_state.cli_expander_expanded = cli_expander.expanded
 
     right.write("PyPI Package 🐍")
     pypi_expander = right.expander("CRM Python Functions", expanded=False)
