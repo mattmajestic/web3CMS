@@ -213,16 +213,8 @@ def ai_chat():
     
     if prompt:
         st.write(f"User has sent the following prompt: {prompt}")
-        
-        # Store the prompt and created_at timestamp in a Supabase table
-        insert_data = [
-            {
-                'prompt': prompt,
-                'created_at': datetime.now(),  
-            }
-        ]
-        response = supabase_client.table("ai-chat").insert([{"prompt": prompt, "created_at": created_at}]).execute()
-        st.toast('Stored', icon='😍')
+        response = supabase_client.table("ai-chat").insert([{"prompt": prompt, "created_at": datetime.now()}]).execute()
+        st.toast('Stored Prompt', icon='😍')
 
 
 def backend():
