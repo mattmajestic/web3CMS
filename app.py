@@ -62,7 +62,7 @@ page_queries = {
     "backend": "CRM 📪",
     "ai_chat": "AI Chat 💻",
     "dev_docs": "Developer Docs 🚝",
-    "development_request": "Development Request ☎️",
+    "development_request": "Developer Request ☎️",
     "ml_ops": "ML Ops 👾"
 }
 
