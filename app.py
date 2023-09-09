@@ -420,6 +420,7 @@ def development_request():
 
 def ml_ops():
     st.title("ML Ops - Model Deployment 👾")
+    st.toast('GUI for Machine Learning', icon='👾')
 
     # Step 1: Select Data
     st.header("Step 1: Select Data 📊")
@@ -458,27 +459,8 @@ def ml_ops():
     # Step 4: Save Model Parameters
     st.header("Step 4: Save Model Parameters 💾")
     if st.button("Save Model Parameters"):
-        # Add code to save the selected model parameters to your database.
-        params = {
-            "data_option": data_option,
-            "model_option": model_option,
-            "created_at": datetime.now().isoformat()
-        }
-        if data_option == "Local CSV":
-            params["uploaded_file"] = "CSV File Uploaded"
-        elif data_option == "Database":
-            params["db_host"] = db_host
-            params["db_username"] = db_username
-            params["db_password"] = "******"  # Hide the password
-        elif data_option == "API":
-            params["api_url"] = api_url
-
-        # Insert data into Supabase table
-        response = supabase_client.table("ml-ops").insert([params]).execute()
-        if response.status == 201:
-            st.success("Model Parameters Saved!")
-
-
+        response = supabase_client.table("ml-ops").insert([{"data_option": data_option,"model_option": "model_option": model_option,  "created_at": datetime.now().isoformat()}]).execute()
+        st.success("Model Parameters Saved!")
 
 # Map selected page to corresponding function
 page_funcs = {
