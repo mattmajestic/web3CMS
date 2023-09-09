@@ -16,8 +16,6 @@ geopy
 plotly
 streamlit-extras
 pydantic
-uvicorn
-fastapi
 transformers
 torch
 scikit-learn

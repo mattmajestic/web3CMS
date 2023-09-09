@@ -18,13 +18,9 @@ import os
 import folium
 from geopy.geocoders import Nominatim
 import plotly.express as px
-from streamlit import session_state
 import random
 import string
 from streamlit_extras.switch_page_button import switch_page
-import uvicorn
-from fastapi import FastAPI
-from pydantic import BaseModel
 from urllib.parse import urlencode
 import webbrowser
 import torch
