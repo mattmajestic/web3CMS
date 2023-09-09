@@ -95,9 +95,9 @@ selected_page_key = next(key for key, value in page_queries.items() if value == 
 st.experimental_set_query_params(page=selected_page_key)
 
 def home_page():
-    page_names = ["home", "invoice", "dev_docs", "backend", "ai_chat"]
-    page_labels = ["🏠 Home", "📋 Invoice", "🚝 Developer Docs", "📪 CRM", "💻 AI Chat"]
-    columns = st.columns([2,2,3,2,2])
+    page_names = ["home", "invoice", "dev_docs", "backend", "ai_chat","development_request","ml_ops"]
+    page_labels = ["🏠 Home", "📋 Invoice", "🚝 Developer Docs", "📪 CRM", "💻 AI Chat","☎️ Development Request","👾 ML Ops"]
+    columns = st.columns([2,1,2,2,2,2,1])
     for name, label, column in zip(page_names, page_labels, columns):
         url = f"https://web3bms.streamlit.app/?page={name}"
         button_html = f'<a href="{url}" target="_self"><button style="background-color: black; color: white;">{label}</button></a>'
@@ -422,45 +422,52 @@ def ml_ops():
     st.title("ML Ops - Model Deployment 👾")
     st.toast('GUI for Machine Learning', icon='👾')
 
-    # Step 1: Select Data
-    st.header("Step 1: Select Data 📊")
-    data_option = st.selectbox("Select Data Source", ["Local CSV", "Database", "API"])
-    if data_option == "Local CSV":
-        uploaded_file = st.file_uploader("Upload CSV File")
-        if uploaded_file:
-            # Handle the uploaded CSV file.
-            st.success("CSV File Uploaded and Processed!")
-    elif data_option == "Database":
-        # Input fields to connect to a database.
-        db_host = st.text_input("Database Host")
-        db_username = st.text_input("Database Username")
-        db_password = st.text_input("Database Password", type="password")
-    elif data_option == "API":
-        # Input fields to specify an API endpoint.
-        api_url = st.text_input("API URL")
+    # Create two columns for layout
+    left_column, right_column = st.columns([1, 2])
 
-    # Step 2: Select Data Options
-    st.header("Step 2: Data Options 🛠️")
-    # Add options related to input data processing.
+    # Left column for Step 1 and Step 2
+    with left_column:
+        st.header("Step 1: Select Data 📊")
+        data_option = st.selectbox("Select Data Source", ["Local CSV", "Database", "API"])
+        if data_option == "Local CSV":
+            uploaded_file = st.file_uploader("Upload CSV File")
+            if uploaded_file:
+                # Handle the uploaded CSV file.
+                st.success("CSV File Uploaded and Processed!")
+        elif data_option == "Database":
+            # Input fields to connect to a database.
+            db_host = st.text_input("Database Host")
+            db_username = st.text_input("Database Username")
+            db_password = st.text_input("Database Password", type="password")
+        elif data_option == "API":
+            # Input fields to specify an API endpoint.
+            api_url = st.text_input("API URL")
 
-    # Step 3: Select Model
-    st.header("Step 3: Select Model 🤖")
-    model_option = st.selectbox("Select Model Type", ["Linear Regression", "Random Forest", "Neural Network"])
-    if model_option == "Linear Regression":
-        # Add options specific to Linear Regression.
-        learning_rate = st.slider("Learning Rate", 0.01, 1.0, 0.1)
-    elif model_option == "Random Forest":
-        # Add options specific to Random Forest.
-        num_estimators = st.slider("Number of Estimators", 1, 100, 10)
-    elif model_option == "Neural Network":
-        # Add options specific to Neural Network.
-        num_hidden_layers = st.slider("Number of Hidden Layers", 1, 5, 2)
+        st.header("Step 2: Data Options 🛠️")
+        # Add options related to input data processing.
 
-    # Step 4: Save Model Parameters
-    st.header("Step 4: Save Model Parameters 💾")
-    if st.button("Save Model Parameters"):
-        response = supabase_client.table("ml-ops").insert([{"data_option": data_option, "model_option": model_option,  "created_at": datetime.now().isoformat()}]).execute()
-        st.success("Model Parameters Saved!")
+    # Right column for Step 3 and Step 4
+    with right_column:
+        st.header("Step 3: Select Model 🤖")
+        model_option = st.selectbox("Select Model Type", ["Linear Regression", "Random Forest", "Neural Network"])
+        if model_option == "Linear Regression":
+            # Add options specific to Linear Regression.
+            learning_rate = st.slider("Learning Rate", 0.01, 1.0, 0.1)
+        elif model_option == "Random Forest":
+            # Add options specific to Random Forest.
+            num_estimators = st.slider("Number of Estimators", 1, 100, 10)
+        elif model_option == "Neural Network":
+            # Add options specific to Neural Network.
+            num_hidden_layers = st.slider("Number of Hidden Layers", 1, 5, 2)
+
+        st.header("Step 4: Save Model Parameters 💾")
+        if st.button("Save Model Parameters"):
+            response = supabase_client.table("ml-ops").insert([{
+                "data_option": data_option,
+                "model_option": model_option,
+                "created_at": datetime.now().isoformat()
+            }]).execute()
+            st.success("Model Parameters Saved!")
 
 # Map selected page to corresponding function
 page_funcs = {
