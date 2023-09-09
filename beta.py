@@ -77,7 +77,7 @@ page_queries = {
     "dev_docs": "Developer Docs 🚝",
     "backend": "CRM 📪",
     "ai_chat": "AI Chat 💻",
-    #"api_endpoint": "JSON Session Data"
+    "development_request": "Development Request :octocat:"
 }
 
 # Get the current URL query parameters
@@ -358,6 +358,84 @@ def dev_docs():
         st.code("from web3bms import crm", language="python")
         st.toast('Try it out in Python', icon='🐍')
 
+def development_request():
+    st.title("Development Service Request Form 🚀")
+
+    # User information
+    user_name = st.text_input("Your Name 👤")
+    user_email = st.text_input("Your Email 📧")
+
+    # GitHub information
+    github_username = st.text_input("GitHub Username 🐱")
+    github_repo = st.text_input("GitHub Repository 📂")
+
+    # Request description
+    request_description = st.text_area("Describe Your Request 📝")
+
+    # Service options
+    selected_service = st.radio("Select Service 💼", ["Code Review ($100)", "Code Writing ($300)", "Full PR Request ($500)"])
+
+    # Additional options
+    include_test = st.checkbox("Include Test 🧪")
+    include_documentation = st.checkbox("Include Documentation 📄")
+
+    # Submit button
+    if st.button("Submit Request 🚀"):
+        # Process the user's request
+        st.success("Request submitted successfully! 🎉")
+
+        # Calculate the total price based on the selected service and options
+        total_price = 0
+        if "Code Review" in selected_service:
+            total_price += 100
+        if "Code Writing" in selected_service:
+            total_price += 300
+        if "Full PR Request" in selected_service:
+            total_price += 500
+
+        # Add additional costs for test and documentation
+        if include_test:
+            total_price += 50  # Adjust the price as needed
+        if include_documentation:
+            total_price += 50  # Adjust the price as needed
+
+        # Display the total price to the user
+        st.write(f"Total Price: ${total_price} 💰")
+
+        # Store data in Supabase table
+        insert_data = [
+            {
+                "user_name": user_name,
+                "user_email": user_email,
+                "github_username": github_username,
+                "github_repo": github_repo,
+                "request_description": request_description,
+                "selected_service": selected_service,
+                "include_test": include_test,
+                "include_documentation": include_documentation,
+                "total_price": total_price,
+            }
+        ]
+
+        # Insert data into Supabase table
+        response, error = supabase_client.table("service_requests").upsert(insert_data, returning="minimal")
+
+        if error:
+            st.error("Error storing data in Supabase. ❌")
+        else:
+            st.success("Data stored in Supabase successfully! 🎉")
+
+    # Reset button
+    if st.button("Reset Form 🔄"):
+        st.text_input("Your Name 👤", value="")
+        st.text_input("Your Email 📧", value="")
+        st.text_input("GitHub Username 🐱", value="")
+        st.text_input("GitHub Repository 📂", value="")
+        st.text_area("Describe Your Request 📝", value="")
+        st.checkbox("Include Test 🧪", value=False)
+        st.checkbox("Include Documentation 📄", value=False)
+
+
 # Map selected page to corresponding function
 page_funcs = {
     "home": home_page,
@@ -365,7 +443,7 @@ page_funcs = {
     "dev_docs": dev_docs,
     "backend": backend,
     "ai_chat": ai_chat,
-    #"api_endpoint": api_endpoint
+    "development_request": development_request
 }
 
 # Execute the selected page function
