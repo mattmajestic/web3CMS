@@ -216,15 +216,11 @@ def ai_chat():
         st.toast('Stored Prompt', icon='✅')
         # Create a button to fetch and display previous prompts
     if st.button("Show Previous Prompts"):
-        # Fetch previous prompts from the ai-chat table
-        previous_prompts = supabase_client.table('ai-chat').select('*').order('created_at', ascending=False).limit(10).execute()
-        
-        if previous_prompts['data']:
-            st.write("Previous Prompts:")
-            for prompt_data in previous_prompts['data']:
+        ai_chat_db = supabase_client.table('ai-chat').select("*").execute()
+        ai_chat_df = pd.DataFrame(ai_chat_db.data)
+        st.write("Previous Prompts:")
+            for prompt_data in ai_chat_df:
                 st.write(f"- {prompt_data['prompt']} (Submitted at: {prompt_data['created_at']})")
-        else:
-            st.write("No previous prompts found.")
 
 
 def backend():
