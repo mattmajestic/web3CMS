@@ -80,7 +80,7 @@ selected_page_key = next(key for key, value in page_queries.items() if value == 
 st.experimental_set_query_params(page=selected_page_key)
 
 page_names = ["home", "invoice", "dev_docs", "backend", "ai_chat", "development_request", "ml_ops"]
-    page_labels = ["🏠 Home", "📋 Invoice", "🚝 Developer Docs", "📪 CRM", "💻 AI Chat", "☎️ Development Request", "👾 ML Ops"]
+page_labels = ["🏠 Home", "📋 Invoice", "🚝 Developer Docs", "📪 CRM", "💻 AI Chat", "☎️ Development Request", "👾 ML Ops"]
 
 # Define URLs for the pages
 page_urls = {
@@ -456,7 +456,7 @@ def ml_ops():
         if url:
             button_html = f'<a href="{url}" target="_self"><button style="background-color: #262730; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; margin-right: 0px; margin-left: 0px;">{label}</button></a>'
             column.markdown(button_html, unsafe_allow_html=True)
-            
+
     st.title("ML Ops - Model Deployment 👾")
     st.toast('GUI for Machine Learning', icon='👾')
 
