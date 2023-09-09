@@ -215,6 +215,17 @@ def ai_chat():
         st.write(f"User has sent the following prompt: {prompt}")
         response = supabase_client.table("ai-chat").insert([{"prompt": prompt, "created_at": datetime.now().isoformat()}]).execute()
         st.toast('Stored Prompt', icon='😍')
+        # Create a button to fetch and display previous prompts
+    if st.button("Show Previous Prompts"):
+        # Fetch previous prompts from the ai-chat table
+        previous_prompts = supabase_client.table('ai-chat').select('*').order('created_at', ascending=False).limit(10).execute()
+        
+        if previous_prompts['data']:
+            st.write("Previous Prompts:")
+            for prompt_data in previous_prompts['data']:
+                st.write(f"- {prompt_data['prompt']} (Submitted at: {prompt_data['created_at']})")
+        else:
+            st.write("No previous prompts found.")
 
 
 def backend():
