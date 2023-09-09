@@ -95,14 +95,16 @@ def home_page():
         "👾 ML Ops": "https://web3bms.streamlit.app/?page=ml_ops"
     }
 
-    columns = st.columns([2, 2, 2, 2, 2, 2, 2])
 
-    # Loop through page names and labels to create buttons
+    total_button_width = sum(len(label) for label in page_labels)
+    column_widths = [len(label) / total_button_width for label in page_labels]
+    columns = st.columns(column_widths)
+    button_style = 'background-color: #262730; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; margin-right: 0px; margin-left: 0px;'
+
     for name, label, column in zip(page_names, page_labels, columns):
-        url = page_urls.get(label, "")
-        if url:
-            button_html = f'<a href="{url}" target="_self"><button style="background-color: #262730; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; margin-right: 0px; margin-left: 0px;">{label}</button></a>'
-            column.markdown(button_html, unsafe_allow_html=True)
+        url = f"https://web3bms.streamlit.app/?page={name}"
+        button_html = f'<a href="{url}" target="_self"><button style="{button_style}">{label}</button></a>'
+        column.markdown(button_html, unsafe_allow_html=True)
 
     st.markdown("""
     <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
