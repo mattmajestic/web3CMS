@@ -221,7 +221,7 @@ def ai_chat():
                 'created_at': datetime.now(),  
             }
         ]
-        response = supabase_client.table("web3bms-api-keys").insert([{"prompt": prompt, "created_at": created_at}]).execute()
+        response = supabase_client.table("ai-chat").insert([{"prompt": prompt, "created_at": created_at}]).execute()
         st.toast('Stored', icon='😍')
 
 
