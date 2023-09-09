@@ -61,6 +61,19 @@ with open("index.html", "r") as file:
     with open("metamask/main.js", "r") as js_file:
         js_code = js_file.read()
 
+# Function to toggle between light and dark mode
+def toggle_theme(theme):
+    if theme == "Light":
+        st.markdown(
+            '<link rel="stylesheet" type="text/css" href="styles/light.css">',
+            unsafe_allow_html=True
+        )
+    elif theme == "Dark":
+        st.markdown(
+            '<link rel="stylesheet" type="text/css" href="styles/dark.css">',
+            unsafe_allow_html=True
+        )
+
 
 st.set_page_config(
      page_title="web3BMS",
@@ -111,6 +124,10 @@ def home_page():
     }
 
     columns = st.columns([2, 2, 2, 2, 2, 2, 2])
+
+
+    theme = st.column("Select Theme", ("Light", "Dark"))
+    toggle_theme(theme)
 
     # Loop through page names and labels to create buttons
     for name, label, column in zip(page_names, page_labels, columns):
