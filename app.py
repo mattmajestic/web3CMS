@@ -42,7 +42,7 @@ st.set_page_config(
      menu_items={
         'Get Help': 'https://web3bms.streamlit.app/',
         'Report a bug': "https://web3bms.streamlit.app/",
-        'About': "https://web3bms.streamlit.app/""
+        'About': "https://web3bms.streamlit.app/"
     }
  )
 
