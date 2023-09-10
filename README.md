@@ -15,17 +15,5 @@ A web3 enabled business management solution
 
 
 
-## Tech Stack Integrations 📡
-- Python 🐍
-- Streamlit 🎈
-- Supabase 🔓
-- Docker 🐳
-- ☁️ Cloud Provider Integrations:
-  - AWS 
-  - Azure 
-  - Google Cloud
-
-
-
 ## web3BMS Pitch Deck
 [Check the Slides](https://docs.google.com/presentation/d/1gqS42Yrv5wHzMGiAsbvt3cQdgK1FHPoU/edit?usp=drive_link&ouid=115467748136356520422&rtpof=true&sd=true)
