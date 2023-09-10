@@ -547,7 +547,7 @@ def account_settings():
     st.markdown("---")
 
     # Divide the page into four columns
-    col1, col2, col3, col4 = st.columns(4)
+    col1, col2, col3= st.columns(3)
 
     # Account Credentials Expander
     with col1.expander("Account Credentials 🍰", expanded=True):
@@ -617,11 +617,6 @@ def account_settings():
             }]).execute()
             st.write("Added" + crypto_name)
             st.toast('Crypto Account Stored', icon='✅')
-
-    # App Integrations Expander
-    with col4.expander("App Integrations 🤖"):
-        st.subheader("Currently including Supabase, Stripe, & Metamask")
-        st.write("You can configure your app integrations here.")
 
 # Map selected page to corresponding function
 page_funcs = {
