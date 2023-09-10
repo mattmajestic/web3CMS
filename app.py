@@ -106,8 +106,9 @@ def home_page():
     st.markdown(readme_text, unsafe_allow_html=True)
     st.markdown("---")
     # Button to display the Pitch Deck
+
     if st.button("Press to View Pitch Deck Below 📈"):
-        components.iframe("https://mattmajestic.github.io/web3bms/", width=1000, height=800)
+        components.iframe("https://mattmajestic.github.io/web3bms/", width=300, height=300)
 
     st.toast('Welcome to web3bms', icon='✅')
 
