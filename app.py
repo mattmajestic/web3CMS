@@ -573,8 +573,8 @@ def account_settings():
 
     # Database Export Expander
     with col2.expander("Database Export 📊"):
-        st.subheader("XLSX export of the table structure")
-        download_data = st.button("Export Data")
+        st.subheader("XLSX export of your App Data")
+        download_data = st.button("Query Your Data")
         if download_data:
             # Create a buffer to store the Excel data
             buffer = io.BytesIO()
@@ -592,7 +592,8 @@ def account_settings():
                     # Write each table to a separate sheet
                     table_df.to_excel(writer, sheet_name=table_name, index=False)
 
-            # Save the Excel file
+            st.success()"Queried your Data Successfully")
+            st.balloons()
             buffer.seek(0)
 
             # Add a download button for the XLSX file
