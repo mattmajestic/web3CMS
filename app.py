@@ -52,14 +52,6 @@ supabase_client = supabase.Client(SUPABASE_URL, SUPABASE_KEY)
 with open('README.md', 'r') as file:
     readme_text = file.read()
 
-# # Read the content of the HTML file
-# with open("index.html", "r") as file:
-#     metamask_html = file.read()
-
-# # Load and render the main.js file
-#     with open("metamask/main.js", "r") as js_file:
-#         js_code = js_file.read()
-
 # Define custom query parameters for each page
 page_queries = {
     "home": "Home 🐧",
@@ -136,8 +128,6 @@ def invoice():
     <script src="https://widgets.coingecko.com/coingecko-coin-price-marquee-widget.js"></script><coingecko-coin-price-marquee-widget  coin-ids="bitcoin,ethereum,eos,ripple,litecoin" currency="usd" background-color="#100f0f" locale="en" font-color="#fefbfb"></coingecko-coin-price-marquee-widget>
     '''
 
-    st.sidebar.markdown("Crypto Invoicing")
-
     left, center, right = st.columns([5, 2, 5])
 
     env = Environment(loader=FileSystemLoader("."), autoescape=select_autoescape())
@@ -152,23 +142,23 @@ def invoice():
     start_period = form.date_input("Start of Invoice Time Period", start)
     hours = form.number_input("Hours", 1, 80, 40)
     rate = form.number_input("Hourly Rate", 1, 10000, 120, 120)
-    coin_type = form.radio("Select Cryptocurrency Payment", ["No Crypto", "BTC", "ETH"], index=0,horizontal=True)
+    coin_type = form.radio("Select Cryptocurrency Payment", ["No Crypto", "BTC", "ETH"], index=1, horizontal=True)  # Set BTC as the default
     notes = form.text_input("Add Any Additional Notes")
     submit = form.form_submit_button("Generate Invoice")
-    coin_addy = right.selectbox("Invoice Send Address",
-                               ["0x2170Ed0880ac9A755fd29B2688956BD959F933F8", "0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c",
-                                "0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d"], index=0)
-    apiURL = "https://api.pancakeswap.info/api/v2/tokens/"
-    response = requests.get(url=apiURL + coin_addy)
-    jsonRaw = response.json()
-    cg = CoinGeckoAPI()
-    coin_price = cg.get_price(ids='bitcoin', vs_currencies='usd')['bitcoin']['usd']
-    usd_total = hours * rate
-    invoice_total = usd_total / coin_price
-    coin = right.selectbox("Invoice Currency", ["ETH", "BTC", "USDC", "USD (Cash)"], index=0)
-    invoice_msg = "Invoice Total " + coin
-    right.text(invoice_msg)
-    right.write(invoice_total)
+
+    if coin_type in ["BTC", "ETH"]:
+        crypto_expander = right.expander("🤝 Crypto Accounts", expanded=True)
+        with crypto_expander:
+            coin_ids = {"BTC": "bitcoin", "ETH": "ethereum"}
+            selected_coin_id = coin_ids[coin_type]
+            
+            cg = CoinGeckoAPI()
+            coin_price = cg.get_price(ids=selected_coin_id, vs_currencies='usd')[selected_coin_id]['usd']
+            
+            usd_total = hours * rate
+            invoice_msg = f"Invoice Total ({coin_type}): {usd_total} {coin_type}"
+            right.text(invoice_msg)
+            right.write(invoice_total)
 
     if submit:
         html = template.render(
@@ -187,13 +177,13 @@ def invoice():
             mime="application/octet-stream",
         )
 
-    meetings_expander = right.expander("🤝 Meetings")
-    with meetings_expander:
-        st.write("Calculate Meeting Costs")
-        weekly_meeting_hours = st.number_input("Weekly Meeting Hours", min_value=0, value=10)
-        annual_salary = st.number_input("Annual Salary ($)", min_value=0, value=50000)
-        hourly_rate = annual_salary / (52 * weekly_meeting_hours) if weekly_meeting_hours > 0 else 0
-        st.write(f"Hourly Rate: ${hourly_rate:.2f}")
+    # meetings_expander = right.expander("🤝 Meetings")
+    # with meetings_expander:
+    #     st.write("Calculate Meeting Costs")
+    #     weekly_meeting_hours = st.number_input("Weekly Meeting Hours", min_value=0, value=10)
+    #     annual_salary = st.number_input("Annual Salary ($)", min_value=0, value=50000)
+    #     hourly_rate = annual_salary / (52 * weekly_meeting_hours) if weekly_meeting_hours > 0 else 0
+    #     st.write(f"Hourly Rate: ${hourly_rate:.2f}")
 
     # metamask_expander = right.expander("🔐 MetaMask")
     # with metamask_expander:
@@ -210,12 +200,12 @@ def invoice():
     #         st.write(connect_button)
 
     # Show the BTC Pay Server
-    btc_expander = right.expander("💸 Donate BTC ")
-    with btc_expander:
-        url = "https://mainnet.demo.btcpayserver.org/api/v1/invoices?storeId=4r8DKKKMkxGPVKcW9TXB2eta7PTVzzs192TWM3KuY52e&price=100&currency=USD&defaultPaymentMethod=BTC"
-        link = 'Pay with BTC [via this link](https://mainnet.demo.btcpayserver.org/api/v1/invoices?storeId=4r8DKKKMkxGPVKcW9TXB2eta7PTVzzs192TWM3KuY52e&price=100&currency=USD&defaultPaymentMethod=BTC)'
-        st.markdown(link, unsafe_allow_html=True)
-        components.iframe(url, width=300, height=500, scrolling=True)
+    # btc_expander = right.expander("💸 Donate BTC ")
+    # with btc_expander:
+    #     url = "https://mainnet.demo.btcpayserver.org/api/v1/invoices?storeId=4r8DKKKMkxGPVKcW9TXB2eta7PTVzzs192TWM3KuY52e&price=100&currency=USD&defaultPaymentMethod=BTC"
+    #     link = 'Pay with BTC [via this link](https://mainnet.demo.btcpayserver.org/api/v1/invoices?storeId=4r8DKKKMkxGPVKcW9TXB2eta7PTVzzs192TWM3KuY52e&price=100&currency=USD&defaultPaymentMethod=BTC)'
+    #     st.markdown(link, unsafe_allow_html=True)
+    #     components.iframe(url, width=300, height=500, scrolling=True)
 
     components.html(cg_marquee)
     st.toast(f'Invoice crypto!', icon='✅')
