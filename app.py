@@ -544,8 +544,11 @@ def account_settings():
     st.title("Account Settings 🛠️")
     st.markdown("---")
 
+    # Divide the page into four columns
+    col1, col2, col3, col4 = st.columns(4)
+
     # Account Credentials Expander
-    with st.expander("Account Credentials 🍰", expanded=True):
+    with col1.expander("Account Credentials 🍰", expanded=True):
         st.write("This is a community account for SDLC: Dev")
         username = st.text_input("Username", value="YourUsername")
         show_password = st.checkbox("Show Password")
@@ -562,17 +565,13 @@ def account_settings():
             }]).execute()
         st.toast('Updated Your Credentials', icon='✅')
 
-    st.markdown("---")
-
     # Database Export Expander
-    with st.expander("Database Export 📊"):
+    with col2.expander("Database Export 📊"):
         st.subheader("XLSX export of the table structure")
         st.button("Export Data")
 
-    st.markdown("---")
-
     # Crypto Accounts Expander
-    with st.expander("Crypto Accounts 🔒"):
+    with col3.expander("Crypto Accounts 🔒", expanded=True):
         st.subheader("Add basic blockchain account address in a user-friendly way")
         crypto_name = st.text_input("Your Wallet Name", "main_wallet")
         crypto_address = st.text_input("Crypto Address", "0x")
@@ -584,10 +583,9 @@ def account_settings():
                 "created_at": datetime.now().isoformat()
             }]).execute()
         st.toast('Crypto Account Stored', icon='✅')
-    st.markdown("---")
 
     # App Integrations Expander
-    with st.expander("App Integrations 🤖"):
+    with col4.expander("App Integrations 🤖"):
         st.subheader("Currently including Supabase, Stripe, & Metamask")
         st.write("You can configure your app integrations here.")
 
