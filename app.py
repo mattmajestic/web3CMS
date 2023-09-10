@@ -593,7 +593,7 @@ def account_settings():
                     table_df.to_excel(writer, sheet_name=table_name, index=False)
 
             # Save the Excel file
-            writer.save()
+            buffer.seek(0)
 
             # Add a download button for the XLSX file
             st.download_button(
