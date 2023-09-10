@@ -3,7 +3,6 @@ streamlit-multipage
 streamlit-javascript
 streamlit-authenticator
 streamlit-wallet-connect
-streamlit-components
 streamlit-extras
 pdfkit
 DateTime
