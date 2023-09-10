@@ -38,7 +38,12 @@ st.set_page_config(
      page_title="web3BMS",
      page_icon="💾",
      layout="wide",
-     initial_sidebar_state='expanded'
+     initial_sidebar_state='expanded',
+     menu_items={
+        'Get Help': 'https://web3bms.streamlit.app/',
+        'Report a bug': "https://web3bms.streamlit.app/",
+        'About': "https://web3bms.streamlit.app/""
+    }
  )
 
 # Set your Supabase credentials as environment variables
