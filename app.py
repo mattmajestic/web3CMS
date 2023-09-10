@@ -593,7 +593,7 @@ def account_settings():
                     table_df.to_excel(writer, sheet_name=table_name, index=False)
 
             st.success("Queried your Data Successfully ✅")
-            st.balloons
+            st.balloons()
             buffer.seek(0)
 
             # Add a download button for the XLSX file
