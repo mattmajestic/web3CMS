@@ -8,13 +8,17 @@ A web3 enabled business management solution
 ## SDLC LifeCycle: Dev 🚝 
 
 ## Features
-- `Invoice`: In USD and/or BTC or ETH
-- `Developer Docs`: Use web3bms via `API, CLI or Python Package`
-- `CRM`: Setup a basic CRM
-- `AI Chat`: GPT style chat with your business data
-- `Dev Request`: Request software development via form 
-- `Machine Learning (ML) Operations`: Setup your own models ui a gui for popular models of `Linear Regression, Random Forest, Neural Network`
+| Page              | Description                                     | Link                                                   |
+|-------------------|-------------------------------------------------|--------------------------------------------------------|
+| Invoice           | Create invoices in USD, BTC, or ETH            | [Invoice](#invoice)                                   |
+| Developer Docs    | Access web3bms via API, CLI, or Python Package  | [Developer Docs](#developer-docs)                    |
+| CRM               | Setup a basic CRM                               | [CRM](#crm)                                           |
+| AI Chat           | GPT-style chat with your business data         | [AI Chat](#ai-chat)                                   |
+| Dev Request       | Request software development via a form        | [Dev Request](#development-request)                  |
+| ML Operations     | Model deployment for Linear Regression, Random Forest, Neural Network | [ML Ops](#ml-ops) |
+| Tech Stack Integrations | Overview of the technology stack and cloud provider integrations | [Tech Stack](#tech-stack-integrations) |
 
+<details>
 ## Tech Stack Integrations 📡
 - Python 🐍
 - Streamlit 🎈
@@ -24,3 +28,4 @@ A web3 enabled business management solution
   - AWS 
   - Azure 
   - Google Cloud
+</details>

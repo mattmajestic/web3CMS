@@ -62,10 +62,10 @@ with open("index.html", "r") as file:
 page_queries = {
     "home": "Home 🐧",
     "invoice": "Invoice 📋",
-    "backend": "CRM 📪",
+    "crm": "CRM 📪",
     "ai_chat": "AI Chat 💻",
-    "dev_docs": "Developer Docs 🚝",
-    "development_request": "Developer Request ☎️",
+    "developer_docs": "Developer Docs 🚝",
+    "developer_request": "Developer Request ☎️",
     "ml_ops": "ML Ops 👾"
 }
 
@@ -82,17 +82,17 @@ selected_page = st.sidebar.radio("Navigate web3bms", list(page_queries.values())
 selected_page_key = next(key for key, value in page_queries.items() if value == selected_page)
 st.experimental_set_query_params(page=selected_page_key)
 
-page_names = ["home", "invoice", "dev_docs", "backend", "ai_chat", "development_request", "ml_ops"]
-page_labels = ["🏠 Home", "📋 Invoice", "🚝 Developer Docs", "📪 CRM", "💻 AI Chat", "☎️ Development Request", "👾 ML Ops"]
+page_names = ["home", "invoice", "developer_docs", "backend", "ai_chat", "developer_request", "ml_ops"]
+page_labels = ["🏠 Home", "📋 Invoice", "🚝 Developer Docs", "📪 CRM", "💻 AI Chat", "☎️ Developer Request", "👾 ML Ops"]
 
 # Define URLs for the pages
 page_urls = {
     "🏠 Home": "https://web3bms.streamlit.app/?page=home",
     "📋 Invoice": "https://web3bms.streamlit.app/?page=invoice",
-    "📪 CRM": "https://web3bms.streamlit.app/?page=backend",
+    "📪 CRM": "https://web3bms.streamlit.app/?page=crm",
     "💻 AI Chat": "https://web3bms.streamlit.app/?page=ai_chat",
-    "🚝 Developer Docs": "https://web3bms.streamlit.app/?page=dev_docs",
-    "☎️ Development Request": "https://web3bms.streamlit.app/?page=development_request",
+    "🚝 Developer Docs": "https://web3bms.streamlit.app/?page=developer_docs",
+    "☎️ Developer Request": "https://web3bms.streamlit.app/?page=developer_request",
     "👾 ML Ops": "https://web3bms.streamlit.app/?page=ml_ops"
 }
 
@@ -247,7 +247,7 @@ def ai_chat():
     st.toast(f'Ask Away', icon='✅')
 
 
-def backend():
+def crm():
 
     products_db = supabase_client.table('products').select("*").execute()
     products_df = pd.DataFrame(products_db.data)
@@ -314,9 +314,9 @@ def backend():
     tab4.dataframe(df)
 
 
-def dev_docs():
+def developer_docs():
 
-    st.title("Development Documentation 🚝")
+    st.title("Software Development Documentation 🚝")
     st.write("")
     left, center, right = st.columns([4,4,4])
     st.write("")
@@ -370,7 +370,7 @@ def dev_docs():
         st.code("from web3bms import crm", language="python")
         st.toast('Try it out in Python', icon='🐍')
 
-def development_request():
+def developer_request():
 
     st.title("Software Development Request 🚀")
 
@@ -545,10 +545,10 @@ def ml_ops():
 page_funcs = {
     "home": home_page,
     "invoice": invoice,
-    "dev_docs": dev_docs,
-    "backend": backend,
+    "crm": crm,
     "ai_chat": ai_chat,
-    "development_request": development_request,
+    "developer_docs": developer_docs,
+    "developer_request": developer_request,
     "ml_ops": ml_ops
 }
 
