@@ -155,6 +155,7 @@ def invoice():
         crypto_percentage = st.number_input("Percentage of Invoice to be Paid with Crypto", min_value=5, max_value=50, step=5, value=5)
         coin_addy = st.selectbox("Stored Crypto Address",
                             ["0x2170Ed0880ac9A755fd29B2688956BD959F933F8", "0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c"], index=0)
+        invoice_usd = hours * rate                   
         invoice_crypto_value = (invoice_usd * crypto_percentage) / 100
         invoice_msg = f"Invoice Total ({coin_type}): {invoice_crypto_value:.4f} {coin_type}"
         st.text(invoice_msg)
