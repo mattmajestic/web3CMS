@@ -100,41 +100,15 @@ page_urls = {
 
 button_style = 'background-color: #262730; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; margin-right: 10px;'
 
-
-# Centered layout
-st.markdown(
-    """
-    <style>
-    .centered {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        height: 80vh; /* Adjust the height as needed */
-    }
-    </style>
-    """,
-    unsafe_allow_html=True,
-)
-
 # Home Page
 def home_page():
-    st.title("web3BMS 💾")
-    st.markdown("A web3-enabled business management solution")
-    
-    # Centered content
-    st.markdown('<div class="centered">', unsafe_allow_html=True)
-
     # Display the README
     st.markdown(readme_text, unsafe_allow_html=True)
-
+    st.markdown("---")
     # Button to display the Pitch Deck
     if st.button("View Pitch Deck 📈"):
-        components.iframe("https://mattmajestic.github.io/web3bms/", width=700, height=700)
+        components.iframe("https://mattmajestic.github.io/web3bms/", width=1000, height=800)
 
-    # Close centered content
-    st.markdown('</div>', unsafe_allow_html=True)
-    st.write("Click the button below to view the web3bms pitch deck.")
     st.toast('Welcome to web3bms', icon='✅')
 
 def invoice():
