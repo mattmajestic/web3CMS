@@ -9,7 +9,6 @@ import pandas as pd
 import requests
 import yfinance as yf
 from pycoingecko import CoinGeckoAPI
-from web3 import Web3, HTTPProvider 
 import json
 import time
 import supabase
@@ -31,7 +30,8 @@ from sklearn.neural_network import MLPRegressor
 import matplotlib.pyplot as plt
 import seaborn as sns
 from web3 import Web3
-from wallet_connect import wallet_connect
+# from wallet_connect import wallet_connect
+# from web3 import Web3, HTTPProvider 
 
 
 st.set_page_config(
@@ -52,13 +52,13 @@ supabase_client = supabase.Client(SUPABASE_URL, SUPABASE_KEY)
 with open('README.md', 'r') as file:
     readme_text = file.read()
 
-# Read the content of the HTML file
-with open("index.html", "r") as file:
-    metamask_html = file.read()
+# # Read the content of the HTML file
+# with open("index.html", "r") as file:
+#     metamask_html = file.read()
 
-# Load and render the main.js file
-    with open("metamask/main.js", "r") as js_file:
-        js_code = js_file.read()
+# # Load and render the main.js file
+#     with open("metamask/main.js", "r") as js_file:
+#         js_code = js_file.read()
 
 # Define custom query parameters for each page
 page_queries = {
@@ -195,19 +195,19 @@ def invoice():
         hourly_rate = annual_salary / (52 * weekly_meeting_hours) if weekly_meeting_hours > 0 else 0
         st.write(f"Hourly Rate: ${hourly_rate:.2f}")
 
-    metamask_expander = right.expander("🔐 MetaMask")
-    with metamask_expander:
-        st.write("Connect Your MetaMask Wallet")
-        st.markdown("To connect your MetaMask wallet, follow these steps:")
-        st.markdown("1. Install the MetaMask extension in your browser if you haven't already.")
-        st.markdown("2. Click on the MetaMask icon in your browser's toolbar.")
-        st.markdown("3. Create a new MetaMask wallet or import an existing one if you have.")
-        st.markdown("4. Click the 'Connect' button below to connect your wallet.")
-        components.html(cg_html)
-        connect_button = wallet_connect(label="wallet", key="wallet")
-        if connect_button != "not":
-            st.success('Connected', icon="✅")
-            st.write(connect_button)
+    # metamask_expander = right.expander("🔐 MetaMask")
+    # with metamask_expander:
+    #     st.write("Connect Your MetaMask Wallet")
+    #     st.markdown("To connect your MetaMask wallet, follow these steps:")
+    #     st.markdown("1. Install the MetaMask extension in your browser if you haven't already.")
+    #     st.markdown("2. Click on the MetaMask icon in your browser's toolbar.")
+    #     st.markdown("3. Create a new MetaMask wallet or import an existing one if you have.")
+    #     st.markdown("4. Click the 'Connect' button below to connect your wallet.")
+    #     components.html(cg_html)
+    #     connect_button = wallet_connect(label="wallet", key="wallet")
+    #     if connect_button != "not":
+    #         st.success('Connected', icon="✅")
+    #         st.write(connect_button)
 
     # Show the BTC Pay Server
     btc_expander = right.expander("💸 Donate BTC ")
