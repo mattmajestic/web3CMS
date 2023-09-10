@@ -71,10 +71,6 @@ page_files = [file for file in os.listdir('pages') if file.endswith('.py')]
 # Create a dictionary to store page names and their respective module names
 pages = {file.replace('.py', ''): file.replace('.py', '') for file in page_files}
 
-# Sidebar navigation
-st.sidebar.title("Navigation")
-selected_page = st.sidebar.selectbox("Select a Page", list(pages.keys()))
-
 # Import and run the selected page
 if selected_page in pages:
     page_module = __import__('pages.' + pages[selected_page], fromlist=[selected_page])
