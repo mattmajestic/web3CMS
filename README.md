@@ -14,6 +14,7 @@ A web3 enabled business management solution
 | 👾 ML Operations     | Model deployment for Linear Regression, Random Forest, Neural Network | <a href="https://web3bms.streamlit.app/?page=ml-ops" target="_self">ML Ops</a>  |
 
 
+
 ## Tech Stack Integrations 📡
 - Python 🐍
 - Streamlit 🎈
@@ -23,6 +24,8 @@ A web3 enabled business management solution
   - AWS 
   - Azure 
   - Google Cloud
+
+
 
 ## web3BMS Pitch Deck
 [Check the Slides](https://docs.google.com/presentation/d/1gqS42Yrv5wHzMGiAsbvt3cQdgK1FHPoU/edit?usp=drive_link&ouid=115467748136356520422&rtpof=true&sd=true)
