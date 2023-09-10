@@ -2,7 +2,6 @@ import streamlit as st
 from streamlit.components.v1 import iframe, html
 import streamlit.components.v1 as components
 from streamlit_javascript import st_javascript
-import streamlit_wallet_connect
 import pdfkit
 from jinja2 import Environment, PackageLoader, select_autoescape, FileSystemLoader
 from datetime import datetime, date, time, timezone, timedelta
