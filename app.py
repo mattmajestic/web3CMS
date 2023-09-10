@@ -592,7 +592,7 @@ def account_settings():
                     # Write each table to a separate sheet
                     table_df.to_excel(writer, sheet_name=table_name, index=False)
 
-            st.success()"Queried your Data Successfully")
+            st.success("Queried your Data Successfully")
             st.balloons()
             buffer.seek(0)
 
