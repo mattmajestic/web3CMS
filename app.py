@@ -151,14 +151,11 @@ def invoice():
         with crypto_expander:
             coin_ids = {"BTC": "bitcoin", "ETH": "ethereum"}
             selected_coin_id = coin_ids[coin_type]
-            
             cg = CoinGeckoAPI()
             coin_price = cg.get_price(ids=selected_coin_id, vs_currencies='usd')[selected_coin_id]['usd']
-            
             usd_total = hours * rate
             invoice_msg = f"Invoice Total ({coin_type}): {usd_total} {coin_type}"
             right.text(invoice_msg)
-            right.write(invoice_total)
 
     if submit:
         html = template.render(
