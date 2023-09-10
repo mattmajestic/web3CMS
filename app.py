@@ -596,14 +596,13 @@ def account_settings():
             st.balloons()
             buffer.seek(0)
 
-            # Add a download button for the XLSX file
+            st.write("Press to Download ✅")
             st.download_button(
                 label="Download Data as XLSX",
                 data=buffer,
                 file_name="web3bms_data.xlsx",
                 mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
             )
-            st.success("Press to Download ✅")
             
 
     # Crypto Accounts Expander
