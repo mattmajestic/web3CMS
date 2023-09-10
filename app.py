@@ -283,8 +283,8 @@ def crm():
         ),
     )
 
-    st.text("CRM Uploads")
-    tab1, tab2, tab3, tab4 = st.tabs(["📈 Clients", "🗃 Products","🎲 Opportunities"])
+    st.title("Open Sourced CRM 📪")
+    tab1, tab2, tab3 = st.tabs(["📈 Clients", "🗃 Products","🎲 Opportunities"])
     tab1.file_uploader("Upload your Clients", type=['csv','xlsx'],accept_multiple_files=False,key="fileUploader")
     tab1.write("Edit Data Table")
     tab1.data_editor(contacts_df)
