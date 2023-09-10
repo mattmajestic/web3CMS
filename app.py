@@ -575,7 +575,7 @@ def account_settings():
         download_data = st.button("Export Data")
         if download_data:
             # Define the table names
-            table_names = ['products', 'opportunities', 'contacts', 'ml-ops', 'ai-chat', 'development-requests']
+            table_names = ['products', 'opportunities', 'contacts', 'ml-ops', 'ai-chat', 'development-request']
 
             # Loop through the table names and fetch data
             for table_name in table_names:
