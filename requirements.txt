@@ -3,6 +3,8 @@ streamlit-multipage
 streamlit-javascript
 streamlit-authenticator
 streamlit-wallet-connect
+streamlit-components
+streamlit-extras
 pdfkit
 DateTime
 pycoingecko
@@ -14,7 +16,6 @@ supabase
 folium
 geopy
 plotly
-streamlit-extras
 pydantic
 transformers
 torch
