@@ -475,7 +475,6 @@ def ml_ops():
         if model_option == "Linear Regression":
             st.subheader("Linear Regression Options")
             learning_rate = st.slider("Learning Rate", 0.01, 1.0, 0.1)
-            col1, col2 = st.columns(2)
 
             # Train the model on Iris data
             iris = load_iris()
@@ -483,23 +482,22 @@ def ml_ops():
             model.fit(iris.data, iris.target)
 
             # Display model information
-            col1.subheader("Linear Regression Model")
-            col1.write("Coefficient:", model.coef_)
-            col1.write("Intercept:", model.intercept_)
+            st.subheader("Linear Regression Model")
+            st.write("Coefficient:", model.coef_)
+            st.write("Intercept:", model.intercept_)
 
             # Visualization: Regression Coefficients
-            col2.subheader("Regression Coefficients")
-            fig, ax = plt.subplots(figsize=(8, 2))
+            st.subheader("Regression Coefficients")
+            fig, ax = plt.subplots(figsize=(8, 4))
             sns.barplot(x=iris.feature_names, y=model.coef_, ax=ax)
             ax.set_title("Regression Coefficients")
             ax.set_ylabel("Coefficient Value")
             ax.set_xlabel("Feature Name")
-            col2.pyplot(fig)
+            st.pyplot(fig)
 
         elif model_option == "Random Forest":
             st.subheader("Random Forest Options")
             num_estimators = st.slider("Number of Estimators", 1, 100, 10)
-            col1, col2 = st.columns(2)
 
             # Train the model on Iris data
             iris = load_iris()
@@ -507,27 +505,31 @@ def ml_ops():
             model.fit(iris.data, iris.target)
 
             # Display model information
-            col1.subheader("Random Forest Model")
-            col1.write("Feature Importance:", model.feature_importances_)
+            st.subheader("Random Forest Model")
+            st.write("Feature Importance:", model.feature_importances_)
 
             # Visualization: Feature Importance
-            col2.subheader("Feature Importance")
-            fig, ax = plt.subplots(figsize=(8, 2))
+            st.subheader("Feature Importance")
+            fig, ax = plt.subplots(figsize=(8, 4))
             sns.barplot(x=iris.feature_names, y=model.feature_importances_, ax=ax)
             ax.set_title("Feature Importance")
             ax.set_ylabel("Importance Value")
             ax.set_xlabel("Feature Name")
-            col2.pyplot(fig)
+            st.pyplot(fig)
 
         elif model_option == "Neural Network":
             st.subheader("Neural Network Options")
             num_hidden_layers = st.slider("Number of Hidden Layers", 1, 5, 2)
-            col1, col2 = st.columns(2)
 
             # Train the model on Iris data
             iris = load_iris()
             model = MLPRegressor(hidden_layer_sizes=(num_hidden_layers,))
             model.fit(iris.data, iris.target)
+
+            # Display model information
+            st.subheader("Neural Network Model")
+            st.write("Number of Hidden Layers:", num_hidden_layers)
+
     
     with st.expander("Step 4: Save Model Parameters 💾"):
         st.toast('Save Your Model', icon='👾')
