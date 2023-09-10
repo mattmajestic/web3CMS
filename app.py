@@ -20,7 +20,6 @@ import plotly.express as px
 from streamlit import session_state
 import random
 import string
-from streamlit_extras.switch_page_button import switch_page
 from urllib.parse import urlencode
 import webbrowser
 import torch
