@@ -40,7 +40,7 @@ SUPABASE_KEY = os.getenv("SUPABASE_KEY")
 # Initialize Supabase
 supabase_client = supabase.Client(SUPABASE_URL, SUPABASE_KEY)
 
-def ml_ops():
+def main():
     st.title("ML Ops - Model Deployment 👾")
     st.toast('GUI for Machine Learning', icon='👾')
 

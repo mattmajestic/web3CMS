@@ -40,7 +40,7 @@ SUPABASE_KEY = os.getenv("SUPABASE_KEY")
 # Initialize Supabase
 supabase_client = supabase.Client(SUPABASE_URL, SUPABASE_KEY)
 
-def developer_docs():
+def main():
 
     st.title("Software Development Documentation 🚝")
     st.write("")

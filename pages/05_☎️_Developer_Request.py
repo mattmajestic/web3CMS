@@ -41,7 +41,7 @@ SUPABASE_KEY = os.getenv("SUPABASE_KEY")
 supabase_client = supabase.Client(SUPABASE_URL, SUPABASE_KEY)
 
 
-def developer_request():
+def main():
 
     st.title("Software Development Request 🚀")
 

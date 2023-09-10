@@ -40,7 +40,7 @@ SUPABASE_KEY = os.getenv("SUPABASE_KEY")
 # Initialize Supabase
 supabase_client = supabase.Client(SUPABASE_URL, SUPABASE_KEY)
 
-def crm():
+def main():
 
     products_db = supabase_client.table('products').select("*").execute()
     products_df = pd.DataFrame(products_db.data)

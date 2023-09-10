@@ -40,7 +40,7 @@ SUPABASE_KEY = os.getenv("SUPABASE_KEY")
 # Initialize Supabase
 supabase_client = supabase.Client(SUPABASE_URL, SUPABASE_KEY)
 
-def ai_chat():
+def main():
     st.title("GPT chat with your Business Data")
     st.write("Submit Prompt Below")
     prompt = st.chat_input("Chat your Business with AI")

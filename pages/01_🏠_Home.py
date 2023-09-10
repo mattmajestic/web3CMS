@@ -33,7 +33,7 @@ from web3 import Web3
 # from wallet_connect import wallet_connect
 # from web3 import Web3, HTTPProvider 
 
-def home_page():
+def main():
 
     # columns = st.columns([2, 2, 3, 2, 2, 4, 2])
 
