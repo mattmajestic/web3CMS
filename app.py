@@ -31,6 +31,8 @@ from sklearn.ensemble import RandomForestRegressor
 from sklearn.neural_network import MLPRegressor
 import matplotlib.pyplot as plt
 import seaborn as sns
+from web3 import Web3
+from wallet_connect import connect
 
 st.set_page_config(
      page_title="web3BMS",
