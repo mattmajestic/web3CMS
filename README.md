@@ -1,5 +1,5 @@
 
-# web3bms 🐧
+# web3bms 💾
 A web3 enabled business management solution
 
 ## web3BMS Pitch Deck
@@ -8,17 +8,15 @@ A web3 enabled business management solution
 ## SDLC LifeCycle: Dev 🚝 
 
 ## Features
-| Page              | Description                                     | Link                                                   |
+| Page              | 📃 Description                                     | 🔗 Link                                                   |
 |-------------------|-------------------------------------------------|--------------------------------------------------------|
-| Invoice           | Create invoices in USD, BTC, or ETH            | [Invoice](#invoice)                                   |
-| Developer Docs    | Access web3bms via API, CLI, or Python Package  | [Developer Docs](#developer-docs)                    |
-| CRM               | Setup a basic CRM                               | [CRM](#crm)                                           |
-| AI Chat           | GPT-style chat with your business data         | [AI Chat](#ai-chat)                                   |
-| Dev Request       | Request software development via a form        | [Dev Request](#development-request)                  |
-| ML Operations     | Model deployment for Linear Regression, Random Forest, Neural Network | [ML Ops](#ml-ops) |
-| Tech Stack Integrations | Overview of the technology stack and cloud provider integrations | [Tech Stack](#tech-stack-integrations) |
+| 📑 Invoice           | Create invoices in USD, BTC, or ETH            | [Invoice](https://web3bms.streamlit.app/?page=invoice)  |
+| 📚 Developer Docs    | Access web3bms via API, CLI, or Python Package  | [Developer Docs](https://web3bms.streamlit.app/?page=developer-docs)  |
+| 📊 CRM               | Setup a basic CRM                               | [CRM](https://web3bms.streamlit.app/?page=crm)  |
+| 💬 AI Chat           | GPT-style chat with your business data         | [AI Chat](https://web3bms.streamlit.app/?page=ai-chat)  |
+| 🚀 Dev Request       | Request software development via a form        | [Dev Request](https://web3bms.streamlit.app/?page=development-request)  |
+| 👾 ML Operations     | Model deployment for Linear Regression, Random Forest, Neural Network | [ML Ops](https://web3bms.streamlit.app/?page=ml-ops)  |
 
-<details>
 ## Tech Stack Integrations 📡
 - Python 🐍
 - Streamlit 🎈
@@ -28,4 +26,3 @@ A web3 enabled business management solution
   - AWS 
   - Azure 
   - Google Cloud
-</details>
