@@ -33,7 +33,7 @@ from sklearn.neural_network import MLPRegressor
 import matplotlib.pyplot as plt
 import seaborn as sns
 from web3 import Web3
-from wallet_connect import connect
+from wallet_connect import wallet_connect
 
 
 st.set_page_config(
