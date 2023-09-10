@@ -103,9 +103,6 @@ button_style = 'background-color: #262730; color: white; padding: 10px 20px; bor
 
 # Home Page
 def home_page():
-    st.title("web3BMS 💾")
-    st.markdown("A web3-enabled business management solution")
-
     # Create columns for side-by-side display
     readme_col, pitch_deck_col = st.columns(2)
 
@@ -115,7 +112,7 @@ def home_page():
     # Header for Pitch Deck in the second column
     with pitch_deck_col:
         st.subheader(" Pitch Deck 📈")
-        components.iframe("https://mattmajestic.github.io/web3bms/", width=1000, height=600)
+        components.iframe("https://mattmajestic.github.io/web3bms/", width=600, height=300)
 
     st.toast(f'Welcome to web3bms', icon='✅')
 
