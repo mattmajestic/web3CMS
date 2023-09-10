@@ -145,21 +145,19 @@ def invoice():
     coin_type = form.radio("Select Cryptocurrency Payment", ["No Crypto", "BTC", "ETH"], index=1, horizontal=True)  # Set BTC as the default
     notes = form.text_input("Add Any Additional Notes")
     submit = form.form_submit_button("Generate Invoice")
+    coin_ids = {"BTC": "bitcoin", "ETH": "ethereum"}
+    selected_coin_id = coin_ids[coin_type]
+    cg = CoinGeckoAPI()
+    coin_price = cg.get_price(ids=selected_coin_id, vs_currencies='usd')[selected_coin_id]['usd']
 
-    if coin_type in ["BTC", "ETH"]:
-        crypto_expander = right.expander("🤝 Crypto Accounts", expanded=True)
-        with crypto_expander:
-            crypto_percentage = st.number_input("Percentage of Invoice to be Paid with Crypto", min_value=5, max_value=50, step=5, value=5)
-            coin_addy = st.selectbox("Stored Crypto Address",
-                                ["0x2170Ed0880ac9A755fd29B2688956BD959F933F8", "0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c"], index=0)
-            coin_ids = {"BTC": "bitcoin", "ETH": "ethereum"}
-            selected_coin_id = coin_ids[coin_type]
-            cg = CoinGeckoAPI()
-            coin_price = cg.get_price(ids=selected_coin_id, vs_currencies='usd')[selected_coin_id]['usd']
-            invoice_usd = hours * rate
-            invoice_crypto_value = (invoice_usd * crypto_percentage) / 100
-            invoice_msg = f"Invoice Total ({coin_type}): {invoice_crypto_value:.4f} {coin_type}"
-            st.text(invoice_msg)
+    crypto_expander = right.expander("🤝 Crypto Accounts", expanded=True)
+    with crypto_expander:
+        crypto_percentage = st.number_input("Percentage of Invoice to be Paid with Crypto", min_value=5, max_value=50, step=5, value=5)
+        coin_addy = st.selectbox("Stored Crypto Address",
+                            ["0x2170Ed0880ac9A755fd29B2688956BD959F933F8", "0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c"], index=0)
+        invoice_crypto_value = (invoice_usd * crypto_percentage) / 100
+        invoice_msg = f"Invoice Total ({coin_type}): {invoice_crypto_value:.4f} {coin_type}"
+        st.text(invoice_msg)
 
     if submit:
         html = template.render(
