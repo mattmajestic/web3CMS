@@ -1,31 +1,22 @@
-name: Sync to Hugging Face Hub
+name: Sync to Hugging Face hub
 on:
   push:
     branches: [main]
-    
+
+  # to run this workflow manually from the Actions tab
   workflow_dispatch:
 
 jobs:
   sync-to-hub:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Code
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           fetch-depth: 0
           lfs: true
-
-      - name: Push to Hugging Face Hub
+      - name: Push to hub
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
-          HF_USERNAME: mattmajestic
-          SPACE_NAME: web3bms
           SUPABASE_URL: ${{ secrets.SB_URL }}
           SUPABASE_KEY: ${{ secrets.SB_TOKEN }}
-        run: |
-          # Configure Supabase environment variables
-          echo "SUPABASE_URL=$SUPABASE_URL" >> $GITHUB_ENV
-          echo "SUPABASE_KEY=$SUPABASE_KEY" >> $GITHUB_ENV
-
-          # Push to Hugging Face Hub
-          git push https://$HF_USERNAME:$HF_TOKEN@huggingface.co/spaces/$HF_USERNAME/$SPACE_NAME main
+        run: git push https://mattmajestic:$HF_TOKEN@huggingface.co/spaces/mattmajestic/web3bms main
