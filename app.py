@@ -101,22 +101,22 @@ page_urls = {
 button_style = 'background-color: #262730; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; margin-right: 10px;'
 
 
+# Home Page
 def home_page():
+    st.title("web3BMS 💾")
+    st.markdown("A web3-enabled business management solution")
 
-    # columns = st.columns([2, 2, 3, 2, 2, 4, 2])
+    # Create columns for side-by-side display
+    readme_col, pitch_deck_col = st.columns(2)
 
-    # # Loop through page names and labels to create buttons
-    # for name, label, column in zip(page_names, page_labels, columns):
-    #     url = page_urls.get(label, "")
-    #     if url:
-    #         button_html = f'<button style="{button_style}" onclick="window.location.href=\'{url}\';">{selection}</button>'
-    #         column.markdown(button_html, unsafe_allow_html=True)
+    # Display the README in one column
+    readme_col.markdown(readme_text, unsafe_allow_html=True)
 
-    st.markdown("""
-    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
-    <script>mermaid.initialize({startOnLoad:true});</script>
-    """, unsafe_allow_html=True)
-    st.markdown(readme_text, unsafe_allow_html=True)
+    # Header for Pitch Deck in the second column
+    with pitch_deck_col:
+        st.subheader(" Pitch Deck 📈")
+        st.iframe("https://mattmajestic.github.io/web3bms/", width=1000, height=600)
+
     st.toast(f'Welcome to web3bms', icon='✅')
 
 def invoice():
