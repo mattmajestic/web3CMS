@@ -564,6 +564,10 @@ def account_settings():
                 "created_at": datetime.now().isoformat()
             }]).execute()
         st.toast('Updated Your Credentials', icon='✅')
+        picture = st.camera_input("Take a picture")
+        if picture:
+            st.image(picture)
+            st.success("Your Profile Picture ✅")
 
     # Database Export Expander
     with col2.expander("Database Export 📊"):
