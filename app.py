@@ -582,26 +582,27 @@ def account_settings():
                 table_data = supabase_client.table(table_name).select("*").execute()
                 table_df = pd.DataFrame(table_data.data)
                 
-                if st.button(f"Download {table_name.capitalize()} Data"):
-                    # Export the DataFrame to an XLSX file
-                    table_df.to_excel(f"{table_name}_data.xlsx", index=False)
-                    st.markdown(f"### [Download {table_name.capitalize()} Data]({table_name}_data.xlsx)")
-
-            
+            st.download_button(
+                label="Download App as XLSX",
+                data=table_df,
+                file_name='web3bms_data.xlsx',
+                mime='text/xlsx',
+            ) 
 
     # Crypto Accounts Expander
     with col3.expander("Crypto Accounts 🔒", expanded=True):
         st.subheader("Add basic blockchain account address in a user-friendly way")
-        crypto_name = st.text_input("Your Wallet Name", "main_wallet")
-        crypto_address = st.text_input("Crypto Address", "0x")
         crypto_add = st.button("Add Crypto Account")
         if crypto_add:
+            crypto_name = st.text_input("Your Wallet Name", "main_wallet")
+            crypto_address = st.text_input("Crypto Address", "0x")
             response = supabase_client.table("crypto-account").insert([{
                 "crypto_name": crypto_name,
-                "crypto_add": crypto_add,
+                "crypto_add": crypto_address,
                 "created_at": datetime.now().isoformat()
             }]).execute()
-        st.toast('Crypto Account Stored', icon='✅')
+            st.write("Added" + crypto_name)
+            st.toast('Crypto Account Stored', icon='✅')
 
     # App Integrations Expander
     with col4.expander("App Integrations 🤖"):
