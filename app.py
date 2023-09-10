@@ -30,6 +30,7 @@ from sklearn.neural_network import MLPRegressor
 import matplotlib.pyplot as plt
 import seaborn as sns
 from web3 import Web3
+import io
 # from wallet_connect import wallet_connect
 # from web3 import Web3, HTTPProvider 
 
@@ -574,20 +575,32 @@ def account_settings():
         st.subheader("XLSX export of the table structure")
         download_data = st.button("Export Data")
         if download_data:
+            # Create a buffer to store the Excel data
+            buffer = io.BytesIO()
+
             # Define the table names
             table_names = ['products', 'opportunities', 'contacts', 'ml-ops', 'ai-chat', 'development-request']
 
-            # Loop through the table names and fetch data
-            for table_name in table_names:
-                table_data = supabase_client.table(table_name).select("*").execute()
-                table_df = pd.DataFrame(table_data.data)
-                
+            # Create an Excel writer
+            with pd.ExcelWriter(buffer, engine="xlsxwriter") as writer:
+                for table_name in table_names:
+                    # Fetch data for each table
+                    table_data = supabase_client.table(table_name).select("*").execute()
+                    table_df = pd.DataFrame(table_data.data)
+                    
+                    # Write each table to a separate sheet
+                    table_df.to_excel(writer, sheet_name=table_name, index=False)
+
+            # Save the Excel file
+            writer.save()
+
+            # Add a download button for the XLSX file
             st.download_button(
-                label="Download App as XLSX",
-                data=table_df,
-                file_name='web3bms_data.xlsx',
-                mime='text/xlsx',
-            ) 
+                label="Download Data as XLSX",
+                data=buffer,
+                file_name="web3bms_data.xlsx",
+                mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+            )
 
     # Crypto Accounts Expander
     with col3.expander("Crypto Accounts 🔒", expanded=True):
