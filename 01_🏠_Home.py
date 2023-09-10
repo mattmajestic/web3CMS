@@ -33,6 +33,14 @@ from web3 import Web3
 # from wallet_connect import wallet_connect
 # from web3 import Web3, HTTPProvider 
 
+
+st.set_page_config(
+     page_title="web3BMS",
+     page_icon="💾",
+     layout="wide",
+     initial_sidebar_state='expanded'
+ )
+ 
 def main():
 
     # columns = st.columns([2, 2, 3, 2, 2, 4, 2])
