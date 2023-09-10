@@ -560,7 +560,7 @@ def account_settings():
         if user_cred:
             response = supabase_client.table("user-creds").insert([{
                 "username": username,
-                "crypto_address": password,
+                "password": password,
                 "created_at": datetime.now().isoformat()
             }]).execute()
         st.toast('Updated Your Credentials', icon='✅')
