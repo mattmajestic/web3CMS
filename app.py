@@ -115,7 +115,7 @@ def home_page():
     # Header for Pitch Deck in the second column
     with pitch_deck_col:
         st.subheader(" Pitch Deck 📈")
-        st.iframe("https://mattmajestic.github.io/web3bms/", width=1000, height=600)
+        components.iframe("https://mattmajestic.github.io/web3bms/", width=1000, height=600)
 
     st.toast(f'Welcome to web3bms', icon='✅')
 
