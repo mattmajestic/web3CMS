@@ -574,7 +574,7 @@ def account_settings():
     # Database Export Expander
     with col2.expander("Database Export 📊"):
         st.subheader("XLSX export of your App Data")
-        download_data = st.button("Query Your Data")
+        download_data = st.button("Query Your Data 📊")
         if download_data:
             # Create a buffer to store the Excel data
             buffer = io.BytesIO()
@@ -593,18 +593,17 @@ def account_settings():
                     table_df.to_excel(writer, sheet_name=table_name, index=False)
 
             st.success("Queried your Data Successfully ✅")
+            st.balloons
             buffer.seek(0)
 
             # Add a download button for the XLSX file
-            data_download = st.download_button(
+            st.download_button(
                 label="Download Data as XLSX",
                 data=buffer,
                 file_name="web3bms_data.xlsx",
                 mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
             )
-            if data_download:
-                st.success("Check your Downloads ✅")
-                st.balloons()
+            st.success("Press to Download ✅")
             
 
     # Crypto Accounts Expander
