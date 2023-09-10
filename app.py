@@ -572,7 +572,22 @@ def account_settings():
     # Database Export Expander
     with col2.expander("Database Export 📊"):
         st.subheader("XLSX export of the table structure")
-        st.button("Export Data")
+        download_data = st.button("Export Data")
+        if download_data:
+            # Define the table names
+            table_names = ['products', 'opportunities', 'contacts', 'ml-ops', 'ai-chat', 'development-requests']
+
+            # Loop through the table names and fetch data
+            for table_name in table_names:
+                table_data = supabase_client.table(table_name).select("*").execute()
+                table_df = pd.DataFrame(table_data.data)
+                
+                if st.button(f"Download {table_name.capitalize()} Data"):
+                    # Export the DataFrame to an XLSX file
+                    table_df.to_excel(f"{table_name}_data.xlsx", index=False)
+                    st.markdown(f"### [Download {table_name.capitalize()} Data]({table_name}_data.xlsx)")
+
+            
 
     # Crypto Accounts Expander
     with col3.expander("Crypto Accounts 🔒", expanded=True):
@@ -583,7 +598,7 @@ def account_settings():
         if crypto_add:
             response = supabase_client.table("crypto-account").insert([{
                 "crypto_name": crypto_name,
-                "crypto_address": crypto_address,
+                "crypto_add": crypto_add,
                 "created_at": datetime.now().isoformat()
             }]).execute()
         st.toast('Crypto Account Stored', icon='✅')
