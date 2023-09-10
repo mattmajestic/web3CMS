@@ -65,7 +65,8 @@ page_queries = {
     "ai_chat": "AI Chat 💻",
     "developer_docs": "Developer Docs 🚝",
     "developer_request": "Developer Request ☎️",
-    "ml_ops": "ML Ops 👾"
+    "ml_ops": "ML Ops 👾",
+    "account_settings": "Account Settings 🛠️"
 }
 
 # Get the current URL query parameters
@@ -81,8 +82,8 @@ selected_page = st.sidebar.radio("Navigate web3bms", list(page_queries.values())
 selected_page_key = next(key for key, value in page_queries.items() if value == selected_page)
 st.experimental_set_query_params(page=selected_page_key)
 
-page_names = ["home", "invoice", "developer_docs", "backend", "ai_chat", "developer_request", "ml_ops"]
-page_labels = ["🏠 Home", "📋 Invoice", "🚝 Developer Docs", "📪 CRM", "💻 AI Chat", "☎️ Developer Request", "👾 ML Ops"]
+page_names = ["home", "invoice", "developer_docs", "backend", "ai_chat", "developer_request", "ml_ops","account_settings"]
+page_labels = ["🏠 Home", "📋 Invoice", "🚝 Developer Docs", "📪 CRM", "💻 AI Chat", "☎️ Developer Request", "👾 ML Ops","Account Settings 🛠️"]
 
 # Define URLs for the pages
 page_urls = {
@@ -539,6 +540,57 @@ def ml_ops():
             }]).execute()
             st.success("Model Parameters Saved!")
 
+def account_settings():
+    st.title("Account Settings 🛠️")
+    st.markdown("---")
+
+    # Account Credentials Expander
+    with st.expander("Account Credentials 🍰", expanded=True):
+        st.write("This is a community account for SDLC: Dev")
+        username = st.text_input("Username", value="YourUsername")
+        show_password = st.checkbox("Show Password")
+        if show_password:
+            password = st.text_input("Password", type="password", value="YourPassword")
+        else:
+            password = st.text_input("Password", type="password", value="********")
+        user_cred = st.button("Update Credentials")
+        if user_cred:
+            response = supabase_client.table("user-creds").insert([{
+                "username": username,
+                "crypto_address": password,
+                "created_at": datetime.now().isoformat()
+            }]).execute()
+        st.toast('Updated Your Credentials', icon='✅')
+
+    st.markdown("---")
+
+    # Database Export Expander
+    with st.expander("Database Export 📊"):
+        st.subheader("XLSX export of the table structure")
+        st.button("Export Data")
+
+    st.markdown("---")
+
+    # Crypto Accounts Expander
+    with st.expander("Crypto Accounts 🔒"):
+        st.subheader("Add basic blockchain account address in a user-friendly way")
+        crypto_name = st.text_input("Your Wallet Name", "main_wallet")
+        crypto_address = st.text_input("Crypto Address", "0x")
+        crypto_add = st.button("Add Crypto Account")
+        if crypto_add:
+            response = supabase_client.table("crypto-account").insert([{
+                "crypto_name": crypto_name,
+                "crypto_address": crypto_address,
+                "created_at": datetime.now().isoformat()
+            }]).execute()
+        st.toast('Crypto Account Stored', icon='✅')
+    st.markdown("---")
+
+    # App Integrations Expander
+    with st.expander("App Integrations 🤖"):
+        st.subheader("Currently including Supabase, Stripe, & Metamask")
+        st.write("You can configure your app integrations here.")
+
 # Map selected page to corresponding function
 page_funcs = {
     "home": home_page,
@@ -547,7 +599,8 @@ page_funcs = {
     "ai_chat": ai_chat,
     "developer_docs": developer_docs,
     "developer_request": developer_request,
-    "ml_ops": ml_ops
+    "ml_ops": ml_ops,
+    "account_settings":account_settings
 }
 
 # Execute the selected page function
