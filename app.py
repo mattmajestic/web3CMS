@@ -2,7 +2,6 @@ import streamlit as st
 from streamlit.components.v1 import iframe, html
 import streamlit.components.v1 as components
 from streamlit_javascript import st_javascript
-from wallet_connect import wallet_connect
 import pdfkit
 from jinja2 import Environment, PackageLoader, select_autoescape, FileSystemLoader
 from datetime import datetime, date, time, timezone, timedelta
@@ -18,6 +17,7 @@ import os
 import folium
 from geopy.geocoders import Nominatim
 import plotly.express as px
+from streamlit import session_state
 import random
 import string
 from streamlit_extras.switch_page_button import switch_page
@@ -464,6 +464,9 @@ def ml_ops():
             # Input fields to specify an API endpoint.
             api_url = st.text_input("API URL")
 
+    with st.expander("Step 2: Data Options 🛠️"):
+        st.subheader("Select Third-Party Datasets")
+
     with st.expander("Step 3: Select Model 🤖"):
         st.subheader("Select Model Type")
         model_option = st.selectbox("Model Type", ["Linear Regression", "Random Forest", "Neural Network"])
@@ -526,6 +529,17 @@ def ml_ops():
             # Display model information
             st.subheader("Neural Network Model")
             st.write("Number of Hidden Layers:", num_hidden_layers)
+
+    
+    with st.expander("Step 4: Save Model Parameters 💾"):
+        st.toast('Save Your Model', icon='👾')
+        if st.button("Save Model Parameters"):
+            response = supabase_client.table("ml-ops").insert([{
+                "data_option": data_option,
+                "model_option": model_option,
+                "created_at": datetime.now().isoformat()
+            }]).execute()
+            st.success("Model Parameters Saved!")
 
 # Map selected page to corresponding function
 page_funcs = {
