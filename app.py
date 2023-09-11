@@ -2,6 +2,7 @@ import streamlit as st
 from streamlit.components.v1 import iframe, html
 import streamlit.components.v1 as components
 from streamlit_javascript import st_javascript
+from wallet_connect import wallet_connect
 import pdfkit
 from jinja2 import Environment, PackageLoader, select_autoescape, FileSystemLoader
 from datetime import datetime, date, time, timezone, timedelta
@@ -604,7 +605,9 @@ def account_settings():
         crypto_name = st.text_input("Your Wallet Name", "main_wallet")
         crypto_address = st.text_input("Crypto Address", "0x")
         st.write("")
-        crypto_add = st.button("Add Crypto Account")
+        crypto_add = st.button("Add Account")
+        st.write("")
+        connect_button = wallet_connect(label="wallet", key="wallet")
         st.write("")
         if crypto_add:
             response = supabase_client.table("crypto-account").insert([{
@@ -613,7 +616,7 @@ def account_settings():
                 "created_at": datetime.now().isoformat()
             }]).execute()
             st.write("")
-            st.write("Added" + crypto_name)
+            st.write("Added " + crypto_name)
             st.toast('Crypto Account Stored', icon='✅')
 
 # Map selected page to corresponding function
