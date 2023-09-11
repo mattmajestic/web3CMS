@@ -3,10 +3,6 @@ A web3 enabled business management solution
 
 <br>
 
-`SDLC LifeCycle`: Dev 🚝 
-
-<br>
-
 | ✅ Feature              | 📃 Description                                     |
 |-------------------|-------------------------------------------------|
 | 📑 <a href="https://web3bms.streamlit.app/?page=invoice" target="_self">Invoice</a>           | Create invoices in USD, BTC, or ETH            |
@@ -21,3 +17,6 @@ A web3 enabled business management solution
 
 [![Hugging Face Space](https://huggingface.co/datasets/huggingface/badges/raw/main/deploy-on-spaces-xl.svg)](https://mattmajestic-web3bms.hf.space/)
 
+<br>
+
+`SDLC LifeCycle`: Dev 🚝 
