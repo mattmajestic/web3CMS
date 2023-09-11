@@ -565,7 +565,7 @@ def account_settings():
             st.success("Your Profile Picture ✅")
 
     # Database Export Expander
-    with col2.expander("Database Export 📊"):
+    with col2.expander("Database Export 📊", expanded=True):
         st.subheader("XLSX export of your App Data")
         download_data = st.button("Query Your Data 📊")
         if download_data:
@@ -585,7 +585,7 @@ def account_settings():
                     # Write each table to a separate sheet
                     table_df.to_excel(writer, sheet_name=table_name, index=False)
 
-            st.success("Queried your Data Successfully ✅")
+            st.success("Queried your Data Successfully")
             st.balloons()
             buffer.seek(0)
 
@@ -601,15 +601,18 @@ def account_settings():
     # Crypto Accounts Expander
     with col3.expander("Crypto Accounts 🔒", expanded=True):
         st.subheader("Add basic blockchain account address in a user-friendly way")
+        crypto_name = st.text_input("Your Wallet Name", "main_wallet")
+        crypto_address = st.text_input("Crypto Address", "0x")
+        st.write("")
         crypto_add = st.button("Add Crypto Account")
+        st.write("")
         if crypto_add:
-            crypto_name = st.text_input("Your Wallet Name", "main_wallet")
-            crypto_address = st.text_input("Crypto Address", "0x")
             response = supabase_client.table("crypto-account").insert([{
                 "crypto_name": crypto_name,
                 "crypto_add": crypto_address,
                 "created_at": datetime.now().isoformat()
             }]).execute()
+            st.write("")
             st.write("Added" + crypto_name)
             st.toast('Crypto Account Stored', icon='✅')
 
