@@ -12,11 +12,3 @@ A web3 enabled business management solution
 | 🚀 <a href="https://web3bms.streamlit.app/?page=developer_request" target="_self">Dev Request</a>       | Request software development via a form        |
 | 👾 <a href="https://web3bms.streamlit.app/?page=ml_ops" target="_self">ML Ops</a>    | Model deployment for Linear Regression, Random Forest, Neural Network |
 | 🛠️ <a href="https://web3bms.streamlit.app/?page=account_settings" target="_self">Settings</a>     | Update User, Add Crypto Account & Download App Data as XLSX |
-
-<br>
-
-[![Hugging Face Space](https://huggingface.co/datasets/huggingface/badges/raw/main/deploy-on-spaces-xl.svg)](https://mattmajestic-web3bms.hf.space/)
-
-<br>
-
-`SDLC LifeCycle`: Dev 🚝 
