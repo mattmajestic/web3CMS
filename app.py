@@ -102,12 +102,11 @@ button_style = 'background-color: #262730; color: white; padding: 10px 20px; bor
 
 # Home Page
 def home_page():
-    readmeleft, pitchdeckright = st.columns(2)
-    readmeleft.markdown("---")
+    readmeleft, pitchdeckright = st.columns([3,2])
+    readmeleft.write("")
     readmeleft.markdown(readme_text, unsafe_allow_html=True)
-    readmeleft.markdown("---")
-    pitchdeckright.markdown("---")
-    pitchdeckright.markdown("---")
+    pitchdeckright.write("")
+    pitchdeckright.write("")
     pitch_expander = pitchdeckright.expander("🤝 web3bms Pitch Deck")
     with pitch_expander:
         components.iframe("https://mattmajestic.github.io/web3bms/", width=450, height=450)
