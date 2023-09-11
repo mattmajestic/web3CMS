@@ -102,6 +102,7 @@ button_style = 'background-color: #262730; color: white; padding: 10px 20px; bor
 
 # Home Page
 def home_page():
+    st.toast('Welcome to web3bms', icon='✅')    
     readmeleft, pitchdeckright = st.columns([4,2])
     readmeleft.write("")
     readmeleft.markdown(readme_text, unsafe_allow_html=True)
@@ -110,8 +111,8 @@ def home_page():
     pitch_expander = pitchdeckright.expander("🤝 web3bms Pitch Deck")
     with pitch_expander:
         st.balloons()
-        components.iframe("https://mattmajestic.github.io/web3bms/", width=350, height=400)
-        pitchdeckright.toast('Welcome to web3bms', icon='✅')     
+        st.success("See Investment Pitch Deck Below")
+        components.iframe("https://mattmajestic.github.io/web3bms/", width=400, height=400) 
 
 def invoice():
 
