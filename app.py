@@ -234,12 +234,13 @@ def ai_chat():
             response = supabase_client.table("ai-chat").insert([{"prompt": prompt, "created_at": datetime.now().isoformat()}]).execute()
             st.toast('Stored Prompt', icon='✅')
     # Show the BTC Pay Server
-    prompt_expander = st.expander("📝 Show Previous Prompts")
-    with prompt_expander:
-        ai_chat_db = supabase_client.table('ai-chat').select("*").execute()
-        ai_chat_df = pd.DataFrame(ai_chat_db.data)
-        st.write("Previous Prompts:")
-        st.write(ai_chat_df)
+    model_expander = st.expander("📝 Select AI Model", expanded=True)
+    with model_expander:
+        hf_models = st.selectbox("Selected:",["gpt2", "gpt3","llama2","Custom in MLOPs tab"], index=0)
+        # ai_chat_db = supabase_client.table('ai-chat').select("*").execute()
+        # ai_chat_df = pd.DataFrame(ai_chat_db.data)
+        # st.write("Previous Prompts:")
+        # st.write(ai_chat_df)
     st.toast(f'Ask Away', icon='✅')
 
 
