@@ -1,6 +1,7 @@
-
 # web3bms 💾
 A web3 enabled business management solution
+
+<br>
 
 | Page              | 📃 Description                                     | 🔗 Link                                                   |
 |-------------------|-------------------------------------------------|--------------------------------------------------------|
@@ -12,6 +13,10 @@ A web3 enabled business management solution
 | 👾 ML Operations     | Model deployment for Linear Regression, Random Forest, Neural Network | <a href="https://web3bms.streamlit.app/?page=ml_ops" target="_self">ML Ops</a>  |
 | 🛠️ Account Settings     | Update User, Add Crypto Account & Download App Data as XLSX | <a href="https://web3bms.streamlit.app/?page=account_settings" target="_self">Account Settings</a>  |
 
-[![Deployed on HuggingFace](https://huggingface.co/datasets/huggingface/badges/raw/main/deploy-on-spaces-xl.svg)]([https://huggingface.co/new-space](https://huggingface.co/spaces/mattmajestic/web3bms)https://huggingface.co/spaces/mattmajestic/web3bms)
+<br>
+
+[![Hugging Face Space](https://huggingface.co/datasets/huggingface/badges/raw/main/deploy-on-spaces-xl.svg)](https://huggingface.co/spaces/mattmajestic/web3bms)
+
+<br>
 
 ## SDLC LifeCycle: Dev 🚝 
