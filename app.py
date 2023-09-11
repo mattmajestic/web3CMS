@@ -107,9 +107,10 @@ def home_page():
     readmeleft.markdown(readme_text, unsafe_allow_html=True)
     readmeleft.markdown("---")
 
-    if pitchdeckright.button("Press to View Pitch Deck Below 📈"):
+    pitch_expander = pitchdeckright.expander("🤝 web3bms Pitch Deck")
+    with pitch_expander:
         components.iframe("https://mattmajestic.github.io/web3bms/", width=450, height=450)
-        readmeleft.toast('Welcome to web3bms', icon='✅')
+        pitchdeckright.toast('Welcome to web3bms', icon='✅')     
 
 def invoice():
 
