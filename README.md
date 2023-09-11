@@ -15,7 +15,7 @@ A web3 enabled business management solution
 
 <br>
 
-[![Hugging Face Space](https://huggingface.co/datasets/huggingface/badges/raw/main/deploy-on-spaces-xl.svg)](https://huggingface.co/spaces/mattmajestic/web3bms)
+[![Hugging Face Space](https://huggingface.co/datasets/huggingface/badges/raw/main/deploy-on-spaces-xl.svg)](https://mattmajestic-web3bms.hf.space/)
 
 <br>
 
