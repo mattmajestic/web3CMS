@@ -300,12 +300,9 @@ def crm():
     tab3.write("Edit Data Table")
     tab3.data_editor(opportunities_df)
     tab3.button("Save Ops Table")
-    tab4.text("CoinGecko API")
     # cg = CoinGeckoAPI()
     # cg_category = cg.get_coins_categories()
     # jsonRaw = json.dumps(cg_category)
-    # df = pd.read_json(jsonRaw)
-    # tab4.dataframe(df)
 
 
 def developer_docs():
@@ -369,7 +366,7 @@ def developer_request():
     st.title("Software Development Request 🚀")
 
     # Create two columns for layout
-    left_column,center_column, right_column = st.columns([6,2, 4])
+    left_column,center_column, right_column = st.columns([3,2,2])
 
     with left_column:
         st.subheader("User Information👤")
@@ -381,8 +378,8 @@ def developer_request():
         st.subheader("Request Description")
         request_description = st.text_area("Describe Your Request 📝")
 
-    # Right column for cost calculation and payment
-    with right_column:
+    # Center column for cost calculation and payment
+    with center_column:
         st.subheader("Service Options")
         selected_service = st.radio("Select Service 💼", ["Code Review ($100)", "Code Writing ($300)", "Full PR Request ($500)"])
 
@@ -403,7 +400,8 @@ def developer_request():
             total_price += 50  # Adjust the price as needed
         if include_documentation:
             total_price += 50  # Adjust the price as needed
-
+    # Right column for cost calculation and payment
+    with right_column:
         st.subheader("Total Price")
         st.write(f"${total_price} 💰")
 
