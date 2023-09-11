@@ -606,7 +606,7 @@ def account_settings():
         st.write("")
         crypto_add = st.button("Add Account")
         st.write("")
-        metamask_connect = st.button("Connect to MetaMask",key="metamask"):
+        metamask_connect = st.button("Connect to MetaMask",key="metamask")
         if metamask_connect
             if "ethereum" in window:
                 web3 = Web3(Web3.WebsocketProvider(window.ethereum))
