@@ -102,15 +102,14 @@ button_style = 'background-color: #262730; color: white; padding: 10px 20px; bor
 
 # Home Page
 def home_page():
-    # Display the README
-    st.markdown(readme_text, unsafe_allow_html=True)
-    st.markdown("---")
-    # Button to display the Pitch Deck
+    readmeleft, pitchdeckright = st.columns(2)
 
-    if st.button("Press to View Pitch Deck Below 📈"):
-        components.iframe("https://mattmajestic.github.io/web3bms/", width=300, height=300)
+    readmeleft.markdown(readme_text, unsafe_allow_html=True)
+    readmeleft.markdown("---")
 
-    st.toast('Welcome to web3bms', icon='✅')
+    if pitchdeckright.button("Press to View Pitch Deck Below 📈"):
+        components.iframe("https://mattmajestic.github.io/web3bms/", width=450, height=450)
+        readmeleft.toast('Welcome to web3bms', icon='✅')
 
 def invoice():
 
