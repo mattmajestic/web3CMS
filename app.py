@@ -110,7 +110,7 @@ def home_page():
     pitch_expander = pitchdeckright.expander("🤝 web3bms Pitch Deck")
     with pitch_expander:
         st.balloons()
-        components.iframe("https://mattmajestic.github.io/web3bms/", width=350, height=350)
+        components.iframe("https://mattmajestic.github.io/web3bms/", width=300, height=400)
         pitchdeckright.toast('Welcome to web3bms', icon='✅')     
 
 def invoice():
