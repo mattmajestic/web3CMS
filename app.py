@@ -2,7 +2,6 @@ import streamlit as st
 from streamlit.components.v1 import iframe, html
 import streamlit.components.v1 as components
 from streamlit_javascript import st_javascript
-from wallet_connect import wallet_connect
 import pdfkit
 from jinja2 import Environment, PackageLoader, select_autoescape, FileSystemLoader
 from datetime import datetime, date, time, timezone, timedelta
@@ -34,7 +33,7 @@ from web3 import Web3
 import io
 import xlsxwriter
 # from wallet_connect import wallet_connect
-# from web3 import Web3, HTTPProvider 
+from web3 import Web3, HTTPProvider 
 
 
 st.set_page_config(
@@ -607,8 +606,16 @@ def account_settings():
         st.write("")
         crypto_add = st.button("Add Account")
         st.write("")
-        connect_button = wallet_connect(label="wallet", key="wallet")
-        st.write("")
+        metamask_connect = st.button("Connect to MetaMask",key="metamask"):
+        if metamask_connect
+            if "ethereum" in window:
+                web3 = Web3(Web3.WebsocketProvider(window.ethereum))
+                if web3.isConnected():
+                    st.success("Connected to MetaMask!")
+                else:
+                    st.error("MetaMask connection failed. Please make sure MetaMask is installed and unlocked.")
+            else:
+                st.error("MetaMask is not installed. Please install MetaMask and try again.")
         if crypto_add:
             response = supabase_client.table("crypto-account").insert([{
                 "crypto_name": crypto_name,
