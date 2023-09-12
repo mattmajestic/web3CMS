@@ -37,14 +37,14 @@ from web3 import Web3, HTTPProvider
 
 
 st.set_page_config(
-     page_title="web3BMS",
+     page_title="web3CMS",
      page_icon="💾",
      layout="wide",
      initial_sidebar_state='expanded',
      menu_items={
-        'Get Help': 'https://web3bms.streamlit.app/',
-        'Report a bug': "https://web3bms.streamlit.app/",
-        'About': "https://web3bms.streamlit.app/"
+        'Get Help': 'https://web3cms.streamlit.app/',
+        'Report a bug': "https://web3cms.streamlit.app/",
+        'About': "https://web3cms.streamlit.app/"
     }
  )
 
@@ -78,7 +78,7 @@ query_params = st.experimental_get_query_params()
 selected_page = query_params.get("page", ["home"])[0]
 
 # Create a sidebar navigation menu
-selected_page = st.sidebar.radio("Navigate web3bms", list(page_queries.values()), index=list(page_queries.keys()).index(selected_page))
+selected_page = st.sidebar.radio("Navigate web3CMS", list(page_queries.values()), index=list(page_queries.keys()).index(selected_page))
 
 # Set the query parameter to the selected page
 selected_page_key = next(key for key, value in page_queries.items() if value == selected_page)
@@ -89,30 +89,30 @@ page_labels = ["🏠 Home", "📋 Invoice", "🚝 Developer Docs", "📪 CRM", "
 
 # Define URLs for the pages
 page_urls = {
-    "🏠 Home": "https://web3bms.streamlit.app/?page=home",
-    "📋 Invoice": "https://web3bms.streamlit.app/?page=invoice",
-    "📪 CRM": "https://web3bms.streamlit.app/?page=crm",
-    "💻 AI Chat": "https://web3bms.streamlit.app/?page=ai_chat",
-    "🚝 Developer Docs": "https://web3bms.streamlit.app/?page=developer_docs",
-    "☎️ Developer Request": "https://web3bms.streamlit.app/?page=developer_request",
-    "👾 ML Ops": "https://web3bms.streamlit.app/?page=ml_ops"
+    "🏠 Home": "https://web3cms.streamlit.app/?page=home",
+    "📋 Invoice": "https://web3cms.streamlit.app/?page=invoice",
+    "📪 CRM": "https://web3cms.streamlit.app/?page=crm",
+    "💻 AI Chat": "https://web3cms.streamlit.app/?page=ai_chat",
+    "🚝 Developer Docs": "https://web3cms.streamlit.app/?page=developer_docs",
+    "☎️ Developer Request": "https://web3cms.streamlit.app/?page=developer_request",
+    "👾 ML Ops": "https://web3cms.streamlit.app/?page=ml_ops"
 }
 
 button_style = 'background-color: #262730; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; margin-right: 10px;'
 
 # Home Page
 def home_page():
-    st.toast('Welcome to web3bms', icon='✅')    
+    st.toast('Welcome to web3cms', icon='✅')    
     readmeleft, pitchdeckright = st.columns([4,2])
     readmeleft.write("")
     readmeleft.markdown(readme_text, unsafe_allow_html=True)
     pitchdeckright.write("")
     pitchdeckright.write("")
-    pitch_expander = pitchdeckright.expander("🤝 web3bms Pitch Deck")
+    pitch_expander = pitchdeckright.expander("🤝 web3cms Pitch Deck")
     with pitch_expander:
         st.balloons()
-        st.markdown("[web3bms Pitch Deck Slides](https://mattmajestic.github.io/web3bms/)")
-        components.iframe("https://mattmajestic.github.io/web3bms/", width=400, height=400) 
+        st.markdown("[web3cms Pitch Deck Slides](https://mattmajestic.github.io/web3cms/)")
+        components.iframe("https://mattmajestic.github.io/web3cms/", width=400, height=400) 
 
 def invoice():
 
@@ -326,7 +326,7 @@ def developer_docs():
         st.write("- `email`: The email address of the customer.")
         st.write("")
         st.write("")
-        st.code("curl https://web3bms.io/api/crm", language="python")
+        st.code("curl https://web3cms.io/api/crm", language="python")
         if left_expander:
             st.toast('Try it out with CURL', icon='📪')
 
@@ -351,17 +351,17 @@ def developer_docs():
         st.write("- `--option2`: Description of option 2.")
         st.write("")
         st.write("")
-        st.code("web3bms crm list-clients", language="bash")
+        st.code("web3cms crm list-clients", language="bash")
         st.toast('Try it out in Bash', icon='🔍')
 
     right.write("PyPI Package 🐍")
     pypi_expander = right.expander("CRM Python Functions", expanded=False)
     with pypi_expander:
-        st.write("The web3bms package is available on PyPI and can be installed using pip:")
-        st.code("pip install web3bms", language="bash")
+        st.write("The web3cms package is available on PyPI and can be installed using pip:")
+        st.code("pip install web3cms", language="bash")
         st.write("")
         st.write("Once installed, you can import and use the package in your Python scripts.")
-        st.code("from web3bms import crm", language="python")
+        st.code("from web3cms import crm", language="python")
         st.toast('Try it out in Python', icon='🐍')
 
 def developer_request():
@@ -594,7 +594,7 @@ def account_settings():
             st.download_button(
                 label="Download Data as XLSX",
                 data=buffer,
-                file_name="web3bms_data.xlsx",
+                file_name="web3cms_data.xlsx",
                 mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
             )
             
