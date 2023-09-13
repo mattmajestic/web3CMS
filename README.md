@@ -2,8 +2,8 @@
 A web3 Code Management Solution
 
 ### Software Features
-
-| ✅ Feature              | 📃 Description                                     |
+<br>
+| ✅ Feature              | 📃 Function                                    |
 |-------------------|-------------------------------------------------|
 | 📑 <a href="https://web3cms.streamlit.app/?page=invoice" target="_self">Invoice</a>           | Create invoices in USD, BTC, or ETH            |
 | 📊 <a href="https://web3cms.streamlit.app/?page=crm" target="_self">CRM</a>              | Setup a basic CRM                               |
