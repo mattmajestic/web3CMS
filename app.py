@@ -112,7 +112,7 @@ def home_page():
     with pitch_expander:
         st.balloons()
         st.markdown("[web3cms Pitch Deck Slides](https://mattmajestic.github.io/web3cms/)")
-        components.iframe("https://mattmajestic.github.io/web3cms/", width=400, height=400) 
+        components.iframe("https://mattmajestic.github.io/web3cms/", width=650, height=400) 
 
 def invoice():
 
