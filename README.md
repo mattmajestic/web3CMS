@@ -1,10 +1,7 @@
 # web3CMS 💾
 A web3 Code Management Solution
 
-## Simply Code Management
-
-Check out current features below:
-
+## Software Features
 <br>
 
 | ✅ Feature              | 📃 Description                                     |
