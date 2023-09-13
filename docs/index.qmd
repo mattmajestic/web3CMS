@@ -1,0 +1,140 @@
+---
+title: "web3CMS Pitch Deck"
+author: "[Funding = PreSeed 🌱](https://web3cms.streamlit.app/)"
+format:
+  revealjs: 
+    theme: dark
+    slide-number: true
+    chalkboard: 
+      buttons: false
+    preview-links: auto
+    transition: slide
+    background-transition: zoom
+footer: "[Visit App 🚝](https://web3cms.streamlit.app/)"
+include-in-header:
+  - text: |
+     <link rel = "shortcut icon" href = "favicon.svg" />
+---
+
+# 📑 Our Mission
+
+-   Simple `monetization` of software request
+-   `Quantify` code requests programmatically
+-   Enable % of invoice to be paid via `web3` (crypto)
+-   Enrich the SMB with a useful `Software Development Kit` (SDK)
+
+# 💰 Business Opportunity
+
+-   Large CRM Providers require expensive & long term contracts leaving market share for flexible + nimble solutions 
+-   Enable crypto/defi functions to aid running your business 
+    -   Example: Invoice in 80% cash + 20% crypto
+
+# 📈 CRM Market Size
+
+-   \$49.6 Billion Revenue
+-   CAGR: 1.7%
+-   Market Share = \> 50% from 5 companies
+-   Streamlit recently bought for \$800m by Snowflake ❄️
+
+# 🚀 Funding = Pre Seed
+
+-   Seeking `$50,000 for 5 months` of Software Dev
+
+# ✅ Features
+
+-   web3CMS beta Products available
+
+# 📑 Invoice
+
+-   Create `invoices` and bill in `USD, BTC, or ETH`
+-   Seamlessly bill your `code requests from the CRM`
+-   Enhance `financial flexibility` for your business
+
+# 📊 CRM
+
+-   Setup a basic CRM to `manage customer relationships`
+-   Streamline communication and track interactions
+-   Boost `customer satisfaction` and `retention`
+
+# 💬 AI Chat
+
+-   `GPT-style chat` with your business data
+-   Leverage `AI` to provide instant responses
+-   Enhance `customer support and engagement`
+
+# 📚 Developer Docs
+
+-   Access web3CMS via `API, CLI, or Python` Package
+-   `Integrate web3CMS` with other tools and services
+-   `Empower developers` to customize and extend functionality
+
+# 🚀 Developer Request
+
+-   Request `software development` via a form
+-   Collaborate with our `expert developers`
+-   Bring your ideas to life with `tailored solutions`
+
+# 👾 ML Operations
+
+-   `Model deployment` for Linear Regression, Random Forest, Neural Network
+-   Leverage `machine learning` for data-driven insights
+-   `Optimize decision-making` and business strategies
+
+# 🛠️ Account Settings
+
+-   Update User, Add Crypto Account & `Download App Data as XLSX`
+-   `Customize` your web3CMS experience
+-   Seamlessly manage `your account and data`
+
+# 💻 Tech Stack Overview
+
+🎈 Frontend with Streamlit
+
+🌐 Backend with Supabase
+
+🤖 ML/AI Models with Hugging Face
+
+💳 Payments with Stripe
+
+🚀 Crypto Integration with Web3py
+
+# 📊 Cutting-Edge Stack for Data Science
+
+-   Scalable and flexible for Python-based data science
+-   Data processing with Pandas and Numpy
+-   Integration with Jupyter notebooks for data exploration
+
+# ⚙️ Scalable and Flexible
+
+-   Designed to scale and customize to your needs
+-   Empower your business with the latest tech stack
+
+# 🖥️ Frontend Streamlit 
+
+-   Fast, user-friendly web app development in Python
+-   Built-in widgets and components for rapid development
+-   Real-time interactive data visualization
+
+# 🌐 Backend Supabase
+
+-   Open-source backend platform for real-time data
+-   PostgreSQL database for data storage
+-   Real-time APIs for data synchronization
+
+# 🤖 ML/AI Models Hugging Face
+
+-   State-of-the-art NLP models for AI-powered features
+-   Transformer-based models for text analysis
+-   Easy integration for conversational AI
+
+# 💳 Payments Stripe
+
+-   Leading online payment processing platform
+-   Secure payment transactions with PCI compliance
+-   Integration for subscription billing and online payments
+
+# 🌚 Crypto Integration Web3.py
+
+-   Python library for Ethereum integration
+-   Seamless interaction with Ethereum blockchain
+-   Smart contract interactions and DApp development

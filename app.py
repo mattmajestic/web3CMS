@@ -103,12 +103,12 @@ button_style = 'background-color: #262730; color: white; padding: 10px 20px; bor
 # Home Page
 def home_page():
     st.toast('Welcome to web3cms', icon='✅')    
-    readmeleft, pitchdeckright = st.columns([4,2])
-    readmeleft.write("")
-    readmeleft.markdown(readme_text, unsafe_allow_html=True)
-    pitchdeckright.write("")
-    pitchdeckright.write("")
-    pitch_expander = pitchdeckright.expander("🤝 web3cms Pitch Deck")
+    home_l, home_2, home_3 = st.columns([1,3,1])
+    home_2.write("")
+    home_2.markdown(readme_text, unsafe_allow_html=True)
+    home_2.write("")
+    home_2.write("")
+    pitch_expander = home_2.expander("🤝 web3cms Pitch Deck")
     with pitch_expander:
         st.balloons()
         st.markdown("[web3cms Pitch Deck Slides](https://mattmajestic.github.io/web3cms/)")
