@@ -103,7 +103,7 @@ button_style = 'background-color: #262730; color: white; padding: 10px 20px; bor
 # Home Page
 def home_page():
     st.toast('Welcome to web3cms', icon='✅')    
-    home_l, home_2, home_3 = st.columns([1,3,1])
+    home_l, home_2, home_3 = st.columns([1,5,1])
     home_2.write("")
     home_2.markdown(readme_text, unsafe_allow_html=True)
     home_2.write("")
