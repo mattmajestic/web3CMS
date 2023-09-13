@@ -108,10 +108,10 @@ def home_page():
     home_2.markdown(readme_text, unsafe_allow_html=True)
     home_2.write("")
     home_2.write("")
-    pitch_expander = home_2.expander("🤝 web3cms Pitch Deck")
+    pitch_expander = home_2.expander("🤝 web3CMS Pitch Deck")
     with pitch_expander:
         st.balloons()
-        st.markdown("[web3cms Pitch Deck Slides](https://mattmajestic.github.io/web3CMS/)")
+        st.markdown("[Press to View web3CMS Pitch Deck Slides](https://mattmajestic.github.io/web3CMS/)")
         components.iframe("https://mattmajestic.github.io/web3CMS/", width=650, height=400) 
 
 def invoice():
