@@ -385,7 +385,10 @@ def developer_docs():
         st.toast('Try it out in Python', icon='🐍')
 
 def developer_request():
-
+    st.sidebar.write("")
+    st.sidebar.write("")
+    st.sidebar.subheader("Overview")
+    st.sidebar.audio("docs/dev_request.mp3", format="audio/mp3")
     st.title("Software Development Request 🚀")
 
     # Create two columns for layout
@@ -446,6 +449,10 @@ def developer_request():
             st.toast('Request Stored Successfully', icon='✅')
 
 def ml_ops():
+    st.sidebar.write("")
+    st.sidebar.write("")
+    st.sidebar.subheader("Overview")
+    st.sidebar.audio("docs/ml_ops.mp3", format="audio/mp3")
     st.title("ML Ops - Model Deployment 👾")
     st.toast('GUI for Machine Learning', icon='👾')
 
@@ -649,6 +656,10 @@ def account_settings():
 
 # Function to perform MMM modeling with Prophet
 def mmm():
+    st.sidebar.write("")
+    st.sidebar.write("")
+    st.sidebar.subheader("Overview")
+    st.sidebar.audio("docs/mmm.mp3", format="audio/mp3")
     st.title('Media Mix Modeling with Prophet 🎯')
 
     # Create tabs with emojis
