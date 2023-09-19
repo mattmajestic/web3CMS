@@ -641,10 +641,6 @@ def mmm():
     mmm_db = supabase_client.table('mmm').select("*").execute()
     mmm_df = pd.DataFrame(mmm_db.data)
 
-    # Display the retrieved data
-    mix.subheader('Marketing Mix Data from Supabase')
-    mix.write(mmm_df)
-
     # Initialize Prophet model
     prophet_model = Prophet()
 
@@ -670,9 +666,13 @@ def mmm():
 
     # Plot the forecast components
     fig_components = prophet_model.plot_components(forecast)
-    st.write(fig_components)
+    mix.write(fig_components)
 
     update.subheader('Update Marketing Mix Data')
+
+    # Display the retrieved data
+    update.subheader('Marketing Mix Data from Supabase')
+    update.write(mmm_df)
 
     # Allow users to select a file for updating data
     uploaded_file = update.file_uploader("Upload a CSV file", type=["csv"])
