@@ -70,7 +70,7 @@ page_queries = {
     "developer_docs": "Developer Docs 🚝",
     "developer_request": "Developer Request ☎️",
     "ml_ops": "ML Ops 👾",
-    "mmm": "Marketing Spend 📨",
+    "mmm": "MMMarketing 🎯",
     "account_settings": "Account Settings 🛠️"
 }
 
@@ -632,27 +632,40 @@ def account_settings():
 
 # Function to perform MMM modeling with Prophet
 def mmm():
-    st.title('MMM (Marketing Mix Modeling) with Prophet 📨')
+    st.title('MMM (Marketing Mix Modeling) with Prophet 🎯')
 
+    # Retrieve MMM data from Supabase table
     mmm_db = supabase_client.table('mmm').select("*").execute()
     mmm_df = pd.DataFrame(mmm_db.data)
 
+    # Display the retrieved data
     st.subheader('MMM Data from Supabase')
     st.write(mmm_df)
 
+    # Initialize Prophet model
     prophet_model = Prophet()
 
-    mmm_df.rename(columns={'Date': 'ds', 'Sales': 'y'}, inplace=True)
+    # Make sure the column names match your Supabase table
+    if 'Date' in mmm_df.columns and 'Sales' in mmm_df.columns:
+        mmm_df.rename(columns={'Date': 'ds', 'Sales': 'y'}, inplace=True)
+    else:
+        st.error("Column names 'Date' and 'Sales' not found in the data frame.")
+        return
 
+    # Fit the Prophet model
     prophet_model.fit(mmm_df)
 
-    future = prophet_model.make_future_dataframe(periods=365) 
+    # Set up forecasting period
+    future = prophet_model.make_future_dataframe(periods=365)  # You can adjust the forecasting period
 
+    # Make forecasts
     forecast = prophet_model.predict(future)
 
+    # Display the forecasts
     st.subheader('MMM Modeling Results')
     st.write(forecast[['ds', 'yhat', 'yhat_lower', 'yhat_upper']])
 
+    # Plot the forecast components
     fig_components = prophet_model.plot_components(forecast)
     st.write(fig_components)
 
