@@ -118,7 +118,7 @@ def home_page():
         components.iframe("https://mattmajestic.github.io/web3CMS/", width=650, height=400) 
 
 def invoice():
-
+    st.sidebar.audio("docs/invoicing.mp3", format="audio/mp3")
     products_db = supabase_client.table('products').select("*").execute()
     products_df = pd.DataFrame(products_db.data)
     contacts_db = supabase_client.table('contacts').select("*").execute()
