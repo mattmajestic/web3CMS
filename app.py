@@ -646,10 +646,10 @@ def mmm():
     prophet_model = Prophet()
 
     # Make sure the column names match your Supabase table
-    if 'Date' in mmm_df.columns and 'Sales' in mmm_df.columns:
-        mmm_df.rename(columns={'Date': 'ds', 'Sales': 'y'}, inplace=True)
+    if 'ordine_data' in mmm_df.columns and 'revenue' in mmm_df.columns:
+        mmm_df.rename(columns={'ordine_data': 'ds', 'revenue': 'y'}, inplace=True)
     else:
-        st.error("Column names 'Date' and 'Sales' not found in the data frame.")
+        st.error("Column names 'ordine_data' and 'revenue' not found in the data frame.")
         return
 
     # Fit the Prophet model
