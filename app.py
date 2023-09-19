@@ -672,10 +672,13 @@ def mmm():
 
     # Display the retrieved data
     update.subheader('Marketing Mix Data from Supabase')
-    update.write(mmm_df)
-
+    option = update.selectbox('Selected MMM Data Saved in Supabase',('mmm',"create_new_table"))
     # Allow users to select a file for updating data
     uploaded_file = update.file_uploader("Upload a CSV file", type=["csv"])
+
+    update.subheader('Current Data')
+    update.write(mmm_df)
+
 
     if uploaded_file is not None:
         # Read the uploaded CSV file into a DataFrame
