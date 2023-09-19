@@ -118,6 +118,9 @@ def home_page():
         components.iframe("https://mattmajestic.github.io/web3CMS/", width=650, height=400) 
 
 def invoice():
+    st.sidebar.write("")
+    st.sidebar.write("")
+    st.sidebar.subheader("Overview")
     st.sidebar.audio("docs/invoicing.mp3", format="audio/mp3")
     products_db = supabase_client.table('products').select("*").execute()
     products_df = pd.DataFrame(products_db.data)
@@ -218,6 +221,10 @@ def invoice():
     st.toast(f'Invoice crypto!', icon='✅')
 
 def ai_chat():
+    st.sidebar.write("")
+    st.sidebar.write("")
+    st.sidebar.subheader("Overview")
+    st.sidebar.audio("docs/ai_chat.mp3", format="audio/mp3")
     st.title("GPT chat with your Business Data")
     st.write("Submit Prompt Below")
     prompt = st.chat_input("Chat your Business with AI")
@@ -248,7 +255,10 @@ def ai_chat():
 
 
 def crm():
-
+    st.sidebar.write("")
+    st.sidebar.write("")
+    st.sidebar.subheader("Overview")
+    st.sidebar.audio("docs/crm.mp3", format="audio/mp3")
     products_db = supabase_client.table('products').select("*").execute()
     products_df = pd.DataFrame(products_db.data)
     contacts_db = supabase_client.table('contacts').select("*").execute()
@@ -312,7 +322,10 @@ def crm():
 
 
 def developer_docs():
-
+    st.sidebar.write("")
+    st.sidebar.write("")
+    st.sidebar.subheader("Overview")
+    st.sidebar.audio("docs/dev_docs.mp3", format="audio/mp3")
     st.title("Software Development Documentation 🚝")
     st.write("")
     left, center, right = st.columns([4,4,4])
