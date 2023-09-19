@@ -70,7 +70,7 @@ page_queries = {
     "developer_docs": "Developer Docs 🚝",
     "developer_request": "Developer Request ☎️",
     "ml_ops": "ML Ops 👾",
-    "mmm": "MMMarketing 🎯",
+    "mmm": "Marketing Mix 🎯",
     "account_settings": "Account Settings 🛠️"
 }
 
@@ -632,42 +632,75 @@ def account_settings():
 
 # Function to perform MMM modeling with Prophet
 def mmm():
-    st.title('MMM (Marketing Mix Modeling) with Prophet 🎯')
+    st.title('Marketing Mix Modeling with Prophet 🎯')
 
-    # Retrieve MMM data from Supabase table
-    mmm_db = supabase_client.table('mmm').select("*").execute()
-    mmm_df = pd.DataFrame(mmm_db.data)
+    # Create tabs with emojis
+    tabs = st.tabs(["📊 Marketing Mix", "🔄 Update Data", "ℹ️ About Marketing Mix"])
 
-    # Display the retrieved data
-    st.subheader('MMM Data from Supabase')
-    st.write(mmm_df)
+    # If Marketing Mix tab is selected
+    if tabs[0]:
+        # Retrieve MMM data from Supabase table using the globally set 'table' (Assuming you've set it in your global scope)
+        mmm_db = supabase_client.table('mmm').select("*").execute()
+        mmm_df = pd.DataFrame(mmm_db.data)
 
-    # Initialize Prophet model
-    prophet_model = Prophet()
+        # Display the retrieved data
+        st.subheader('Marketing Mix Data from Supabase')
+        st.write(mmm_df)
 
-    # Make sure the column names match your Supabase table
-    if 'ordine_data' in mmm_df.columns and 'revenue' in mmm_df.columns:
-        mmm_df.rename(columns={'ordine_data': 'ds', 'revenue': 'y'}, inplace=True)
-    else:
-        st.error("Column names 'ordine_data' and 'revenue' not found in the data frame.")
-        return
+        # Initialize Prophet model
+        prophet_model = Prophet()
 
-    # Fit the Prophet model
-    prophet_model.fit(mmm_df)
+        # Make sure the column names match your Supabase table
+        if 'ordine_data' in mmm_df.columns and 'revenue' in mmm_df.columns:
+            mmm_df.rename(columns={'ordine_data': 'ds', 'revenue': 'y'}, inplace=True)
+        else:
+            st.error("Column names 'ordine_data' and 'revenue' not found in the data frame.")
+            return
 
-    # Set up forecasting period
-    future = prophet_model.make_future_dataframe(periods=365)  # You can adjust the forecasting period
+        # Fit the Prophet model
+        prophet_model.fit(mmm_df)
 
-    # Make forecasts
-    forecast = prophet_model.predict(future)
+        # Set up forecasting period
+        future = prophet_model.make_future_dataframe(periods=365)  # You can adjust the forecasting period
 
-    # Display the forecasts
-    st.subheader('MMM Modeling Results')
-    st.write(forecast[['ds', 'yhat', 'yhat_lower', 'yhat_upper']])
+        # Make forecasts
+        forecast = prophet_model.predict(future)
 
-    # Plot the forecast components
-    fig_components = prophet_model.plot_components(forecast)
-    st.write(fig_components)
+        # Display the forecasts
+        st.subheader('Marketing Mix Modeling Results')
+        st.write(forecast[['ds', 'yhat', 'yhat_lower', 'yhat_upper']])
+
+        # Plot the forecast components
+        fig_components = prophet_model.plot_components(forecast)
+        st.write(fig_components)
+
+    # If Update Data tab is selected
+    elif tabs[1]:
+        st.subheader('Update Marketing Mix Data')
+
+        # Allow users to select a file for updating data
+        uploaded_file = st.file_uploader("Upload a CSV file", type=["csv"])
+
+        if uploaded_file is not None:
+            # Read the uploaded CSV file into a DataFrame
+            updated_data = pd.read_csv(uploaded_file)
+
+            # Display the updated data
+            st.subheader('Updated Data')
+            st.write(updated_data)
+
+            # You can update the data in your Supabase table here
+
+            # Notify the user that data has been updated
+            st.success("Data updated successfully!")
+
+    # If About Marketing Mix tab is selected
+    elif tabs[2]:
+        st.subheader('About Marketing Mix')
+        # Add your content about Marketing Mix here
+        st.write("Marketing Mix is a strategy used by businesses to promote their products or services effectively.")
+        st.write("It involves various elements such as product, price, place, and promotion, which are carefully")
+        st.write("planned and coordinated to achieve marketing objectives.")
 
 
 # Map selected page to corresponding function
