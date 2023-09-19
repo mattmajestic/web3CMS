@@ -61,6 +61,10 @@ supabase_client = supabase.Client(SUPABASE_URL, SUPABASE_KEY)
 with open('README.md', 'r') as file:
     readme_text = file.read()
 
+# Read the contents of the MMM.md file
+with open('MMM.md', 'r') as file:
+    mmm_text = file.read()
+
 # Define custom query parameters for each page
 page_queries = {
     "home": "Home 💾",
@@ -645,7 +649,7 @@ def account_settings():
 
 # Function to perform MMM modeling with Prophet
 def mmm():
-    st.title('Marketing Mix Modeling with Prophet 🎯')
+    st.title('Media Mix Modeling with Prophet 🎯')
 
     # Create tabs with emojis
     mix, update, about = st.tabs(["📊 Marketing Mix", "🔄 Update Data", "ℹ️ About Marketing Mix"])
@@ -706,11 +710,7 @@ def mmm():
         # Notify the user that data has been updated
         update.success("Data updated successfully!")
 
-    about.subheader('About Marketing Mix')
-    # Add your content about Marketing Mix here
-    about.write("Marketing Mix is a strategy used by businesses to promote their products or services effectively.")
-    about.write("It involves various elements such as product, price, place, and promotion, which are carefully")
-    about.write("planned and coordinated to achieve marketing objectives.")
+    about.markdown(mmm_text, unsafe_allow_html=True)
 
 
 # Map selected page to corresponding function
