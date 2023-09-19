@@ -63,7 +63,7 @@ with open('README.md', 'r') as file:
 
 # Define custom query parameters for each page
 page_queries = {
-    "home": "Home 🐧",
+    "home": "Home 💾",
     "invoice": "Invoice 📋",
     "crm": "CRM 📪",
     "ai_chat": "AI Chat 💻",
