@@ -34,6 +34,8 @@ import io
 import xlsxwriter
 # from wallet_connect import wallet_connect
 from web3 import Web3, HTTPProvider 
+from prophet import Prophet
+import plotly.express as px
 
 
 st.set_page_config(
@@ -68,6 +70,7 @@ page_queries = {
     "developer_docs": "Developer Docs 🚝",
     "developer_request": "Developer Request ☎️",
     "ml_ops": "ML Ops 👾",
+    "mmm": "Marketing Spend 📨",
     "account_settings": "Account Settings 🛠️"
 }
 
@@ -627,6 +630,33 @@ def account_settings():
             st.write("Added " + crypto_name)
             st.toast('Crypto Account Stored', icon='✅')
 
+# Function to perform MMM modeling with Prophet
+def mmm():
+    st.title('MMM (Marketing Mix Modeling) with Prophet 📨')
+
+    mmm_db = supabase_client.table('mmm').select("*").execute()
+    mmm_df = pd.DataFrame(mmm_db.data)
+
+    st.subheader('MMM Data from Supabase')
+    st.write(mmm_df)
+
+    prophet_model = Prophet()
+
+    mmm_df.rename(columns={'Date': 'ds', 'Sales': 'y'}, inplace=True)
+
+    prophet_model.fit(mmm_df)
+
+    future = prophet_model.make_future_dataframe(periods=365) 
+
+    forecast = prophet_model.predict(future)
+
+    st.subheader('MMM Modeling Results')
+    st.write(forecast[['ds', 'yhat', 'yhat_lower', 'yhat_upper']])
+
+    fig_components = prophet_model.plot_components(forecast)
+    st.write(fig_components)
+
+
 # Map selected page to corresponding function
 page_funcs = {
     "home": home_page,
@@ -636,6 +666,7 @@ page_funcs = {
     "developer_docs": developer_docs,
     "developer_request": developer_request,
     "ml_ops": ml_ops,
+    "mmm": mmm,
     "account_settings":account_settings
 }
 

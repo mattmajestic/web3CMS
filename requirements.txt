@@ -22,3 +22,5 @@ scikit-learn
 matplotlib
 seaborn
 XlsxWriter
+prophet
+plotly
