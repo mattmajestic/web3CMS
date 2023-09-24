@@ -569,12 +569,12 @@ def account_settings():
         new_account = Account.create()
         private_key = new_account.key.hex()
         address = new_account.address
-        print(type(private_key))
-        print(type(address))
+        eth_download = 'Address : ' + address + "; Private Key : " + private_key + "; Account Name : " + eth_name
         eth_response = supabase_client.table("web3cms_eth_accounts").insert([{"address": address, "private_key": private_key,"eth_name":eth_name}]).execute()
         st.write("Ethereum Wallet Created:")
         st.write("Private Key:", private_key)
         st.write("Address:", address)
+        st.download_button('Download Address + Keys', eth_download)
 
     # # Bitcoin wallet generation function
     # def create_bitcoin_wallet():
