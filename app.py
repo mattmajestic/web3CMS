@@ -573,8 +573,10 @@ def account_settings():
         eth_download_name = eth_name + "-web3cms.txt"
         eth_response = supabase_client.table("web3cms_eth_accounts").insert([{"address": address, "private_key": private_key,"eth_name":eth_name}]).execute()
         st.write("Ethereum Wallet Created:")
-        st.write("Private Key:", private_key)
-        st.write("Address:", address)
+        st.write("Address:")
+        st.code(address)
+        st.write("Private Key:")
+        st.code(private_key)
         st.download_button('Download Address + Keys', eth_download,file_name=eth_download_name)
 
     # # Bitcoin wallet generation function
@@ -590,6 +592,13 @@ def account_settings():
     #     st.write("Address:", private_key.public_key().address())
     #     st.title("Account Settings 🛠️")
     #     st.markdown("---")
+
+    def get_eth_accounts():
+        st.subheader("Your ETH Wallets")
+        act_db = supabase_client.table('web3cms_eth_accounts').select("*").execute()
+        act_df = pd.DataFrame(act_db.data)["eth_name"]
+        eth_act = st.selectbox("Select ETH Account Name",act_df)
+        eth_names = st.text_input("Enter ETH Account Name")
 
     # Divide the page into four columns
     col1, col2, col3= st.columns(3)
@@ -654,7 +663,7 @@ def account_settings():
     # Crypto Accounts Expander
     with col3.expander("Crypto Accounts 🔒", expanded=True):
         st.subheader("Add Ethereum Wallet")
-        eth_name = st.text_input("Enter ETH Account Name")
+        get_eth_accounts()
         if st.button("Create Ethereum Wallet"):
             create_ethereum_wallet()
         # btc_name = st.text_input("Enter BTC Account Name")
