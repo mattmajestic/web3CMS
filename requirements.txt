@@ -1,7 +1,6 @@
 streamlit
 streamlit-multipage
 streamlit-javascript
-streamlit-authenticator
 streamlit-wallet-connect
 streamlit-extras
 pdfkit
