@@ -15,7 +15,7 @@ jobs:
 
       - name: Login to Docker Hub
         run: |
-          docker login -u mattmajestic -p ${{ secrets.DOCKERHUB_PASSWORD }}
+          echo "${{ secrets.DOCKERHUB_PASSWORD }}" | docker login -u mattmajestic --password-stdin
 
       - name: Build and Push to Docker Hub
         run: |
