@@ -24,4 +24,4 @@ seaborn
 XlsxWriter
 prophet
 plotly
-pybitcoin
+bitcoinlib
