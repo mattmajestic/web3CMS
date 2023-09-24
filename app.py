@@ -569,7 +569,7 @@ def account_settings():
         new_account = Account.create()
         private_key = new_account.key.hex()
         address = new_account.address
-        eth_download = 'Address : ' + address + "; Private Key : " + private_key + "; Account Name : " + eth_name
+        eth_download = 'Address : ' + address + "; Private Key : " + private_key + "; Account Name : " + create_eth
         eth_download_name = create_eth + "-web3cms.txt"
         eth_response = supabase_client.table("web3cms_eth_accounts").insert([{"address": address, "private_key": private_key,"eth_name":create_eth}]).execute()
         st.write("Ethereum Wallet Created:")
