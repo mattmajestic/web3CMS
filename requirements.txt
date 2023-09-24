@@ -23,4 +23,5 @@ seaborn
 XlsxWriter
 prophet
 plotly
+fastecdsa
 bitcoinlib
