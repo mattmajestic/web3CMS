@@ -596,9 +596,15 @@ def account_settings():
     def get_eth_accounts():
         st.subheader("Your ETH Wallets")
         act_db = supabase_client.table('web3cms_eth_accounts').select("*").execute()
-        act_df = pd.DataFrame(act_db.data)["eth_name"]
-        eth_act = st.selectbox("Select ETH Account Name",act_df)
-        eth_names = st.text_input("Enter ETH Account Name")
+        act_df = pd.DataFrame(act_db.data)
+        eth_act = st.selectbox("Select ETH Account Name",act_df["eth_name"])
+        user_eth_df = act_df[act_df['eth_name'].str.contains(filter_name, case=False)]
+        if not user_eth_df.empty:
+            eth_act = st.selectbox("Select ETH Account Name", filtered_eth_accounts_df['eth_name'])
+        else:
+            st.warning("No matching ETH account names found....")
+            st.warning("Create One Below")
+            
 
     # Divide the page into four columns
     col1, col2, col3= st.columns(3)
