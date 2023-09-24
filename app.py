@@ -36,7 +36,7 @@ from web3 import Web3, HTTPProvider
 from prophet import Prophet
 import plotly.express as px
 from eth_account import Account
-from bitcoinlib.wallets import Wallet
+# from bitcoinlib.wallets import Wallet
 
 st.set_page_config(
      page_title="web3CMS",
@@ -576,19 +576,19 @@ def account_settings():
         st.write("Private Key:", private_key)
         st.write("Address:", address)
 
-    # Bitcoin wallet generation function
-    def create_bitcoin_wallet():
-        wallet = Wallet.create(btc_name)
-        private_key = wallet.get_key().get_secret()
-        bitcoin_address = wallet.get_key().address
-        print(type(private_key))
-        print(type(bitcoin_address))
-        # btc_response = supabase_client.table("web3cms_btc_accounts").insert([{"btc_name": btc_name, "private_key": private_key,"btc_add": bitcoin_address}]).execute()
-        st.write("Bitcoin Wallet Created:")
-        st.write("Private Key:", private_key.to_wif())
-        st.write("Address:", private_key.public_key().address())
-        st.title("Account Settings 🛠️")
-        st.markdown("---")
+    # # Bitcoin wallet generation function
+    # def create_bitcoin_wallet():
+    #     wallet = Wallet.create(btc_name)
+    #     private_key = wallet.get_key().get_secret()
+    #     bitcoin_address = wallet.get_key().address
+    #     print(type(private_key))
+    #     print(type(bitcoin_address))
+    #     # btc_response = supabase_client.table("web3cms_btc_accounts").insert([{"btc_name": btc_name, "private_key": private_key,"btc_add": bitcoin_address}]).execute()
+    #     st.write("Bitcoin Wallet Created:")
+    #     st.write("Private Key:", private_key.to_wif())
+    #     st.write("Address:", private_key.public_key().address())
+    #     st.title("Account Settings 🛠️")
+    #     st.markdown("---")
 
     # Divide the page into four columns
     col1, col2, col3= st.columns(3)
