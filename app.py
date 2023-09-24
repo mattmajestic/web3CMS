@@ -610,7 +610,7 @@ def account_settings():
                 "created_at": datetime.now().isoformat()
             }]).execute()
         st.toast('Updated Your Credentials', icon='✅')
-        if col1.expander("Profile Picture"):
+        with col1.expander("Profile Picture"):
             picture = st.camera_input("Take a picture")
             if picture:
                 st.image(picture)
@@ -656,13 +656,13 @@ def account_settings():
         eth_name = st.text_input("Enter ETH Account Name")
         if st.button("Create Ethereum Wallet"):
             create_ethereum_wallet()
-        btc_name = st.text_input("Enter BTC Account Name")
-        if st.button("Create Bitcoin Wallet"):
-            create_bitcoin_wallet()
-        crypto_address = st.text_input("Crypto Address", "0x")
-        st.write("")
-        crypto_add = st.button("Add Account")
-        st.write("")
+        # btc_name = st.text_input("Enter BTC Account Name")
+        # if st.button("Create Bitcoin Wallet"):
+        #     create_bitcoin_wallet()
+        # crypto_address = st.text_input("Crypto Address", "0x")
+        # st.write("")
+        # crypto_add = st.button("Add Account")
+        # st.write("")
         # metamask_connect = st.button("Connect to MetaMask",key="metamask")
         # if metamask_connect:
         #     if "ethereum" in window:
