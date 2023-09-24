@@ -571,7 +571,7 @@ def account_settings():
         address = new_account.address
         print(type(private_key))
         print(type(address))
-        # eth_response = supabase_client.table("web3cms_eth_accounts").insert([{"address": address, "private_key": private_key,"eth_name":eth_name}]).execute()
+        eth_response = supabase_client.table("web3cms_eth_accounts").insert([{"address": address, "private_key": private_key,"eth_name":eth_name}]).execute()
         st.write("Ethereum Wallet Created:")
         st.write("Private Key:", private_key)
         st.write("Address:", address)
@@ -610,10 +610,11 @@ def account_settings():
                 "created_at": datetime.now().isoformat()
             }]).execute()
         st.toast('Updated Your Credentials', icon='✅')
-        picture = st.camera_input("Take a picture")
-        if picture:
-            st.image(picture)
-            st.success("Your Profile Picture ✅")
+        if col1.expander("Profile Picture"):
+            picture = st.camera_input("Take a picture")
+            if picture:
+                st.image(picture)
+                st.success("Your Profile Picture ✅")
 
     # Database Export Expander
     with col2.expander("Database Export 📊", expanded=True):
@@ -651,7 +652,7 @@ def account_settings():
 
     # Crypto Accounts Expander
     with col3.expander("Crypto Accounts 🔒", expanded=True):
-        st.subheader("Add basic blockchain account address in a user-friendly way")
+        st.subheader("Add Ethereum Wallet")
         eth_name = st.text_input("Enter ETH Account Name")
         if st.button("Create Ethereum Wallet"):
             create_ethereum_wallet()
@@ -662,25 +663,25 @@ def account_settings():
         st.write("")
         crypto_add = st.button("Add Account")
         st.write("")
-        metamask_connect = st.button("Connect to MetaMask",key="metamask")
-        if metamask_connect:
-            if "ethereum" in window:
-                web3 = Web3(Web3.WebsocketProvider(window.ethereum))
-                if web3.isConnected():
-                    st.success("Connected to MetaMask!")
-                else:
-                    st.error("MetaMask connection failed. Please make sure MetaMask is installed and unlocked.")
-            else:
-                st.error("MetaMask is not installed. Please install MetaMask and try again.")
-        if crypto_add:
-            response = supabase_client.table("crypto-account").insert([{
-                "crypto_name": crypto_name,
-                "crypto_add": crypto_address,
-                "created_at": datetime.now().isoformat()
-            }]).execute()
-            st.write("")
-            st.write("Added " + crypto_name)
-            st.toast('Crypto Account Stored', icon='✅')
+        # metamask_connect = st.button("Connect to MetaMask",key="metamask")
+        # if metamask_connect:
+        #     if "ethereum" in window:
+        #         web3 = Web3(Web3.WebsocketProvider(window.ethereum))
+        #         if web3.isConnected():
+        #             st.success("Connected to MetaMask!")
+        #         else:
+        #             st.error("MetaMask connection failed. Please make sure MetaMask is installed and unlocked.")
+        #     else:
+        #         st.error("MetaMask is not installed. Please install MetaMask and try again.")
+        # if crypto_add:
+        #     response = supabase_client.table("crypto-account").insert([{
+        #         "crypto_name": crypto_name,
+        #         "crypto_add": crypto_address,
+        #         "created_at": datetime.now().isoformat()
+        #     }]).execute()
+        #     st.write("")
+        #     st.write("Added " + crypto_name)
+        #     st.toast('Crypto Account Stored', icon='✅')
 
 # Function to perform MMM modeling with Prophet
 def mmm():
