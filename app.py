@@ -570,8 +570,8 @@ def account_settings():
         private_key = new_account.key.hex()
         address = new_account.address
         eth_download = 'Address : ' + address + "; Private Key : " + private_key + "; Account Name : " + eth_name
-        eth_download_name = eth_name + "-web3cms.txt"
-        eth_response = supabase_client.table("web3cms_eth_accounts").insert([{"address": address, "private_key": private_key,"eth_name":eth_name}]).execute()
+        eth_download_name = create_eth + "-web3cms.txt"
+        eth_response = supabase_client.table("web3cms_eth_accounts").insert([{"address": address, "private_key": private_key,"eth_name":create_eth}]).execute()
         st.write("Ethereum Wallet Created:")
         st.write("Address:")
         st.code(address)
@@ -600,8 +600,7 @@ def account_settings():
         eth_act = st.selectbox("Select ETH Account Name", act_df["eth_name"])
         user_eth_df = act_df[act_df['eth_name'] == eth_act]
         if not user_eth_df.empty:
-            st.write("Selected ETH Account Details:")
-            st.write(user_eth_df)
+            st.selectbox("Selected ETH Account Details:",user_eth_df)
         else:
             st.warning("No matching ETH account details found.")
             st.warning("Create One Below")
@@ -671,7 +670,10 @@ def account_settings():
     with col3.expander("Crypto Accounts 🔒", expanded=True):
         st.subheader("Add Ethereum Wallet")
         get_eth_accounts()
-        if st.button("Create Ethereum Wallet"):
+        st.write("")
+        st.subheader("Create ETH Wallet")
+        create_eth = st.text_input("Name your Wallet")
+        if st.button("Create"):
             create_ethereum_wallet()
         # btc_name = st.text_input("Enter BTC Account Name")
         # if st.button("Create Bitcoin Wallet"):
