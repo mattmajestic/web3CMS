@@ -29,14 +29,14 @@ from sklearn.ensemble import RandomForestRegressor
 from sklearn.neural_network import MLPRegressor
 import matplotlib.pyplot as plt
 import seaborn as sns
-from web3 import Web3
 import io
 import xlsxwriter
 # from wallet_connect import wallet_connect
 from web3 import Web3, HTTPProvider 
 from prophet import Prophet
 import plotly.express as px
-
+from eth_account import Account
+from pybitcoin import BitcoinPrivateKey
 
 st.set_page_config(
      page_title="web3CMS",
@@ -564,8 +564,28 @@ def ml_ops():
             st.success("Model Parameters Saved!")
 
 def account_settings():
-    st.title("Account Settings 🛠️")
-    st.markdown("---")
+    # Ethereum wallet generation function
+    def create_ethereum_wallet():
+        new_account = Account.create()
+        private_key = new_account.privateKey.hex()
+        address = new_account.address
+        print(type(private_key))
+        print(type(address))
+        # eth_response = supabase_client.table("web3cms_eth_accounts").insert([{"address": address, "private_key": private_key,"eth_name":eth_name}]).execute()
+        st.write("Ethereum Wallet Created:")
+        st.write("Private Key:", private_key)
+        st.write("Address:", address)
+
+    # Bitcoin wallet generation function
+    def create_bitcoin_wallet():
+        private_key = BitcoinPrivateKey()
+        print(type(private_key))
+        # btc_response = supabase_client.table("web3cms_btc_accounts").insert([{"btc_name": btc_name, "private_key": private_key}]).execute()
+        st.write("Bitcoin Wallet Created:")
+        st.write("Private Key:", private_key.to_wif())
+        st.write("Address:", private_key.public_key().address())
+        st.title("Account Settings 🛠️")
+        st.markdown("---")
 
     # Divide the page into four columns
     col1, col2, col3= st.columns(3)
@@ -586,6 +606,11 @@ def account_settings():
                 "password": password,
                 "created_at": datetime.now().isoformat()
             }]).execute()
+        if st.button("Create Ethereum Wallet"):
+            create_ethereum_wallet()
+        btc_name = st.text_input("Enter BTC Account Name")
+        if st.button("Create Bitcoin Wallet"):
+            create_bitcoin_wallet()
         st.toast('Updated Your Credentials', icon='✅')
         picture = st.camera_input("Take a picture")
         if picture:
