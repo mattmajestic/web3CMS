@@ -567,7 +567,7 @@ def account_settings():
     # Ethereum wallet generation function
     def create_ethereum_wallet():
         new_account = Account.create()
-        private_key = new_account.privateKey.hex()
+        private_key = new_account.key.hex()
         address = new_account.address
         print(type(private_key))
         print(type(address))
