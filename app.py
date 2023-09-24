@@ -606,11 +606,6 @@ def account_settings():
                 "password": password,
                 "created_at": datetime.now().isoformat()
             }]).execute()
-        if st.button("Create Ethereum Wallet"):
-            create_ethereum_wallet()
-        btc_name = st.text_input("Enter BTC Account Name")
-        if st.button("Create Bitcoin Wallet"):
-            create_bitcoin_wallet()
         st.toast('Updated Your Credentials', icon='✅')
         picture = st.camera_input("Take a picture")
         if picture:
@@ -654,7 +649,12 @@ def account_settings():
     # Crypto Accounts Expander
     with col3.expander("Crypto Accounts 🔒", expanded=True):
         st.subheader("Add basic blockchain account address in a user-friendly way")
-        crypto_name = st.text_input("Your Wallet Name", "main_wallet")
+        eth_name = st.text_input("Enter ETH Account Name")
+        if st.button("Create Ethereum Wallet"):
+            create_ethereum_wallet()
+        btc_name = st.text_input("Enter BTC Account Name")
+        if st.button("Create Bitcoin Wallet"):
+            create_bitcoin_wallet()
         crypto_address = st.text_input("Crypto Address", "0x")
         st.write("")
         crypto_add = st.button("Add Account")
