@@ -73,7 +73,7 @@ page_queries = {
     "developer_request": "Developer Request ☎️",
     "ml_ops": "ML Ops 👾",
     "mmm": "Marketing Mix 🎯",
-    "block_survey" : "BlockSurvey.io 🔗"
+    "block_survey" : "BlockSurvey.io 🔗",
     "account_settings": "Account Settings 🛠️"
 }
 
