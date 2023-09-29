@@ -24,7 +24,7 @@ A web3 Code Management Solution
 | 🚀 [Dev Request](https://web3cms.streamlit.app/?page=developer_request) | Request software development via a form        |
 | 👾 [ML Ops](https://web3cms.majesticcoding.com/?page=ml_ops)    | Model deployment for Linear Regression, Random Forest, Neural Network |
 | 🎯 [Marketing Mix](https://web3cms.majesticcoding.com/?page=mmm)    | Marketing Mix Modeling with Prophet from Meta |
-| 🔗 [BlockSurvey.io](https://web3cms.majesticcoding.com/?page=block_survey)     | Integrate USer Feedback with BlockSurvey.io |
+| 🔗 [BlockSurvey.io](https://web3cms.majesticcoding.com/?page=block_survey)     | Integrate User Feedback with BlockSurvey.io |
 | 🛠️ [Settings](https://web3cms.majesticcoding.com/?page=account_settings)     | Update User, Add Crypto Account & Download App Data as XLSX |
 
 </center>
