@@ -804,7 +804,7 @@ page_funcs = {
     "developer_request": developer_request,
     "ml_ops": ml_ops,
     "mmm": mmm,
-    "block_survey" : block_survey
+    "block_survey" : block_survey,
     "account_settings":account_settings
 }
 
