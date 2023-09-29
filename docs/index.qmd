@@ -1,0 +1,185 @@
+---
+title: "web3CMS Pitch Deck"
+author: "[🌱 PreSeed Funding](https://web3cms.majesticcoding.com/)"
+format:
+  revealjs: 
+    theme: dark
+    slide-number: true
+    slide-tone: false
+    chalkboard: 
+      theme: whiteboard
+      buttons: true
+    preview-links: auto
+    transition: slide
+    background-transition: zoom
+footer: "[Visit App 🚝](https://web3cms.majesticcoding.com/)"
+include-in-header:
+  - text: |
+     <link rel = "shortcut icon" href = "favicon.svg" />
+---
+
+# 📑 Our Mission
+
+-   Simple `monetization` of software request
+-   `Quantify` code requests programmatically
+-   Enable % of invoice to be paid via `web3` (crypto)
+-   Enrich the SMB with a useful `Software Development Kit` (SDK)
+
+<div style="text-align: center;">
+  <audio controls style="width: 500px; height: 100px;">
+    <source src="our_mission.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+</div>
+
+# 💰 Market Opportunity
+
+-   Large CRM Providers require expensive & long term contracts leaving market share for flexible + nimble solutions 
+-   Enable crypto/defi functions to aid running your business 
+    -   Example: Invoice in 80% cash + 20% crypto
+    
+<div style="text-align: center;">
+  <audio controls style="width: 500px; height: 80px;">
+    <source src="bus_op.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+</div>
+
+# 📈 CRM Market Size
+
+-   \$49.6 Billion Revenue
+-   CAGR: 1.7%
+-   Market Share = \> 50% from 5 companies
+-   Streamlit recently bought for \$800m by Snowflake ❄️
+
+<div style="text-align: center;">
+  <audio controls style="width: 500px; height: 140px;">
+    <source src="crm_size.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+</div>
+
+# 🌱 Pre Seed Funding
+
+-   Seeking `$50,000 for 5 months` of Software Development
+-   Partnerships from integrations of `Supabase, Streamlit, HuggingFace`
+
+<div style="text-align: center;">
+  <audio controls style="width: 500px; height: 140px;">
+    <source src="funding.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+</div>
+
+# ✅ Features
+
+-   web3CMS beta Products available
+
+# 📑 Invoice
+
+-   Create `invoices` and bill in `USD, BTC, or ETH`
+-   Seamlessly bill your `code requests from the CRM`
+-   Enhance `financial flexibility` for your business
+
+<div style="text-align: center;">
+  <audio controls style="width: 500px; height: 140px;">
+    <source src="invoicing.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+</div>
+
+# 📊 CRM
+
+-   Setup a basic CRM to `manage customer relationships`
+-   Streamline communication and track interactions
+-   Boost `customer satisfaction` and `retention`
+
+<div style="text-align: center;">
+  <audio controls style="width: 500px; height: 140px;">
+    <source src="crm.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+</div>
+
+# 💬 AI Chat
+
+-   `GPT-style chat` with your business data
+-   Leverage `AI` to provide instant responses
+-   Enhance `customer support and engagement`
+
+<div style="text-align: center;">
+  <audio controls style="width: 500px; height: 140px;">
+    <source src="ai_chat.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+</div>
+
+# 📚 Developer Docs
+
+-   Access web3CMS via `API, CLI, or Python` Package
+-   `Integrate web3CMS` with other tools and services
+-   `Empower developers` to customize and extend functionality
+
+<div style="text-align: center;">
+  <audio controls style="width: 500px; height: 140px;">
+    <source src="dev_docs.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+</div>
+
+# 🚀 Developer Request
+
+-   Request `software development` via a form
+-   Collaborate with our `expert developers`
+-   Bring your ideas to life with `tailored solutions`
+
+<div style="text-align: center;">
+  <audio controls style="width: 500px; height: 140px;">
+    <source src="dev_request.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+</div>
+
+# 👾 ML Operations
+
+-   `Model deployment` for Linear Regression, Random Forest, Neural Network
+-   Leverage `machine learning` for data-driven insights
+-   `Optimize decision-making` and business strategies
+
+<div style="text-align: center;">
+  <audio controls style="width: 500px; height: 140px;">
+    <source src="ml_ops.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+</div>
+
+# Marketing Optimization 🎯
+
+- Leverage Media Mix Modeling (MMM) to analyze channel effectiveness
+- Utilize historical data from Supabase for insights
+- Optimize advertising spend with Prophet forecasting from Meta for maximum ROI
+
+<div style="text-align: center;">
+  <audio controls style="width: 500px; height: 140px;">
+    <source src="mmm.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+</div>
+
+# 🛠️ Account Settings
+
+-   Update User, Add Crypto Account & `Download App Data as XLSX`
+-   `Customize` your web3CMS experience
+-   Seamlessly manage `your account and data`
+
+# 💻 Tech Stack Overview
+
+🎈 Frontend with Streamlit
+
+🌐 Backend with Supabase
+
+🤖 ML/AI Models with Hugging Face
+
+💳 Payments with Stripe
+
+🚀 Crypto Integration with Web3py
