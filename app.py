@@ -722,7 +722,7 @@ def block_survey():
     st.subheader("BlockSurvey.io Feedback Integration")
     st.write("")
     st.write("Seemlessly integrate survey forms via iframes")
-    components.iframe("https://blocksurvey.io/cECQKkUZRQ.FLiaLTRkhDw-o", width=300, height=150)
+    components.iframe("https://blocksurvey.io/cECQKkUZRQ.FLiaLTRkhDw-o", width=500, height=250)
 
 # Function to perform MMM modeling with Prophet
 def mmm():
