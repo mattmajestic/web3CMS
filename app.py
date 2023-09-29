@@ -719,14 +719,18 @@ def account_settings():
 
 # BlockSurvey SaaS Integration
 def block_survey():
-    st.subheader("BlockSurvey.io Feedback Integration")
-    st.write("")
-    st.write("Seemlessly integrate survey forms via iframes")
-    components.iframe("https://blocksurvey.io/cECQKkUZRQ.FLiaLTRkhDw-o", width=500, height=250)
-    st.write("")
-    st.subheader("Easily Implement BlockSurvey.io")
-    st.write("iframe the HTML element")
-    st.code(" components.iframe(https://blocksurvey.io/cECQKkUZRQ.FLiaLTRkhDw-o, width=500, height=250)")
+    # Create two columns for layout
+    left_column, right_column = st.columns([2,2])
+    with left_column:
+         st.subheader("BlockSurvey.io Feedback Integration")
+         st.write("")
+         st.write("Seemlessly integrate survey forms via iframes")
+         components.iframe("https://blocksurvey.io/cECQKkUZRQ.FLiaLTRkhDw-o", width=500, height=250)
+    with right_column:     
+         st.subheader("Code Snippet Integration")
+         st.write("")
+         st.write("iframe the HTML element")
+         st.code(" components.iframe(https://blocksurvey.io/cECQKkUZRQ.FLiaLTRkhDw-o, width=500, height=250)")
 
 # Function to perform MMM modeling with Prophet
 def mmm():
