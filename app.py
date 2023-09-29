@@ -715,6 +715,14 @@ def account_settings():
         #     st.write("Added " + crypto_name)
         #     st.toast('Crypto Account Stored', icon='✅')
 
+
+# BlockSurvey SaaS Integration
+def block_survey():
+    st.subheader("BlockSurvey.io Feedback Integration")
+    st.write("")
+    st.write("Seemlessly integrate survey forms via iframes")
+    components.iframe("https://blocksurvey.io/cECQKkUZRQ.FLiaLTRkhDw-c", width=100, height=50)
+
 # Function to perform MMM modeling with Prophet
 def mmm():
     st.sidebar.write("")
@@ -795,6 +803,7 @@ page_funcs = {
     "developer_request": developer_request,
     "ml_ops": ml_ops,
     "mmm": mmm,
+    "block_survey" : block_survey
     "account_settings":account_settings
 }
 
