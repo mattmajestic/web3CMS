@@ -7,7 +7,6 @@ from jinja2 import Environment, PackageLoader, select_autoescape, FileSystemLoad
 from datetime import datetime, date, time, timezone, timedelta
 import pandas as pd
 import requests
-import yfinance as yf
 from pycoingecko import CoinGeckoAPI
 import json
 import time
@@ -31,7 +30,6 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import io
 import xlsxwriter
-# from wallet_connect import wallet_connect
 from web3 import Web3, HTTPProvider 
 from prophet import Prophet
 import plotly.express as px
