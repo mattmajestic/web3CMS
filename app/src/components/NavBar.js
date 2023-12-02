@@ -10,7 +10,7 @@ function NavBar() {
 
     return (
         <Navbar bg={theme} variant={theme} expand="lg">
-            <Navbar.Brand as={NavLink} to="/">web3CMS</Navbar.Brand>
+            <Navbar.Brand as={NavLink} to="/">Code Pay</Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="mr-auto">

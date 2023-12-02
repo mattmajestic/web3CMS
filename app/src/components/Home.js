@@ -17,8 +17,8 @@ const About = () => {
 
     return (
         <div>
-            <h1>web3CMS 💾</h1>
-            <p>A web3 Code Management Solution</p>
+            <h1>Code Pay 💾</h1>
+            <p>A Code Management Solution to get Coders Paid</p>
             <h3>Software Features</h3>
             <Table striped bordered hover>
                 <thead>
