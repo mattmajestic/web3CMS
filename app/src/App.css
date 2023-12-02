@@ -14,7 +14,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #2A273E;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -38,11 +38,15 @@
 }
 /* App.css */
 body.dark {
-  background-color: #333;
+  background-color: #2A273E;
   color: #fff;
 }
 
 body.light {
   background-color: #fff;
-  color: #333;
+  color: #2A273E;
+}
+
+.navbar {
+  background: linear-gradient(to bottom, #2A273E, #3B3A54) !important;
 }
