@@ -50,3 +50,23 @@ body.light {
 .navbar {
   background: linear-gradient(to bottom, #2A273E, #3B3A54) !important;
 }
+
+.table-dark {
+  background-color: #3B3A54;
+  color: #fff;
+}
+
+.table-dark th,
+.table-dark td {
+  border-color: #fff;
+}
+
+.table-light {
+  background-color: #fff;
+  color: #3B3A54;
+}
+
+.table-light th,
+.table-light td {
+  border-color: #3B3A54;
+}

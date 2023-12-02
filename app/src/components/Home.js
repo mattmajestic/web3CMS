@@ -1,8 +1,10 @@
 // About.js
-import React from 'react';
+import React, { useContext } from 'react';
 import { Table } from 'react-bootstrap';
+import ThemeContext from '../ThemeContext'; // Replace with the path to your ThemeContext
 
 const About = () => {
+    const { theme } = useContext(ThemeContext);
     const features = [
         { module: 'Developer Request', function: 'Request software development via a form', link: 'https://web3cms.streamlit.app/?page=developer_request' },
         { module: 'CRM', function: 'Setup a basic CRM', link: 'https://web3cms.majesticcoding.com/?page=crm' },
@@ -15,7 +17,7 @@ const About = () => {
     return (
         <div>
             <h1>Software Features</h1>
-            <Table striped bordered hover>
+            <Table striped bordered hover className={theme === 'dark' ? 'table-dark' : 'table-light'}>
                 <thead>
                     <tr>
                         <th>Module</th>
