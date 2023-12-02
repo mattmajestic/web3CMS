@@ -15,7 +15,7 @@ function NavBar() {
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="mr-auto">
                     <Nav.Link as={NavLink} to="/" end>Home</Nav.Link>
-                    <Nav.Link as={NavLink} to="/about">Login</Nav.Link>
+                    <Nav.Link as={NavLink} to="/auth">Login</Nav.Link>
                 </Nav>
                 <Button variant="secondary" onClick={toggleTheme} className="ml-auto">
                     {theme === 'dark' ? <FaSun /> : <FaMoon />}
