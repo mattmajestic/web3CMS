@@ -70,3 +70,9 @@ body.light {
 .table-light td {
   border-color: #3B3A54;
 }
+
+.nav-link-custom {
+  font-size: 20px; /* Adjust the size as needed */
+  color: #fff !important; /* Use !important to override the default color */
+  font-weight: bold;
+}

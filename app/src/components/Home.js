@@ -1,40 +1,23 @@
-// About.js
-import React, { useContext } from 'react';
-import { Table } from 'react-bootstrap';
-import ThemeContext from '../ThemeContext'; // Replace with the path to your ThemeContext
+import React from 'react';
+import { Container } from 'react-bootstrap';
 
-const About = () => {
-    const { theme } = useContext(ThemeContext);
-    const features = [
-        { module: 'Developer Request', function: 'Request software development via a form', link: 'https://web3cms.streamlit.app/?page=developer_request' },
-        { module: 'CRM', function: 'Setup a basic CRM', link: 'https://web3cms.majesticcoding.com/?page=crm' },
-        { module: 'AI Chat', function: 'GPT-style chat with your business data', link: 'https://web3cms.majesticcoding.com/?page=ai_chat' },
-        { module: 'Dev Docs', function: 'Access web3bms via API, CLI, or Python Package', link: 'https://web3cms.majesticcoding.com/?page=developer_docs' },
-        { module: 'ML Ops', function: 'Model deployment for Linear Regression, Random Forest, Neural Network', link: 'https://web3cms.majesticcoding.com/?page=ml_ops' },
-        { module: 'Settings', function: 'Update User, Add Crypto Account & Download App Data as XLSX', link: 'https://web3cms.majesticcoding.com/?page=account_settings' },
-    ];
+function About() {
+    const mermaidUrl = "https://mermaid.ink/img/pako:eNpNkM-KwkAMxl8l5LQL9gV6ENQiHlYQ3ZvjIXQyWpg_Os2wSNt332mrYE7h-35fQtJhHTRjicaGv_pGUeC3Uh5yrc4_4dr4CxTFEtZfR34kbgVMiLDJme8XBZPfb4K7WxZu4ZCshRfdw64b4TjM9HqCq-5AT_jUq1HvT-w1ZMuxz8nt2VBpqNDBWopv_TIHttOgHS7QcXTU6HxCN1oK5caOFZa51WwoWVGo_JBRShJOT19jKTHxAtNdk3DV0DWSw7zLtlll3UiI-_kt03eGf4v8XqU?type=png";
 
     return (
-        <div>
-            <h1>Software Features</h1>
-            <Table striped bordered hover className={theme === 'dark' ? 'table-dark' : 'table-light'}>
-                <thead>
-                    <tr>
-                        <th>Module</th>
-                        <th>Function</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {features.map((feature, index) => (
-                        <tr key={index}>
-                            <td><a href={feature.link}>{feature.module}</a></td>
-                            <td>{feature.function}</td>
-                        </tr>
-                    ))}
-                </tbody>
-            </Table>
-        </div>
+        <Container className="mt-5 p-5 rounded" style={{backgroundColor: '#3B3A54'}}>
+            <h1>Welcome to CodePay</h1>
+            <p>
+                CodePay is a platform that connects coders with those who need coding tasks done. 
+                Whether you're a coder looking for projects, or you need a coder to complete a task, 
+                CodePay is the place for you.
+            </p>
+            <h2 className="text-center">User Flow</h2>
+            <div className="d-flex justify-content-center">
+                <img src={mermaidUrl} alt="Mermaid diagram" />
+            </div>
+        </Container>
     );
-};
+}
 
 export default About;
