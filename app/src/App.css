@@ -14,7 +14,7 @@
 }
 
 .App-header {
-  background-color: #2A273E;
+  background-color: #17072B;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -38,21 +38,21 @@
 }
 /* App.css */
 body.dark {
-  background-color: #2A273E;
+  background-color: #17072B;
   color: #fff;
 }
 
 body.light {
   background-color: #fff;
-  color: #2A273E;
+  color: #17072B;
 }
 
 .navbar {
-  background: linear-gradient(to bottom, #2A273E, #3B3A54) !important;
+  background: linear-gradient(to bottom, #17072B, #3B3A54) !important;
 }
 
 .table-dark {
-  background-color: #3B3A54;
+  background-color: #17072B;
   color: #fff;
 }
 
@@ -68,7 +68,7 @@ body.light {
 
 .table-light th,
 .table-light td {
-  border-color: #3B3A54;
+  border-color: #17072B;
 }
 
 .nav-link-custom {
