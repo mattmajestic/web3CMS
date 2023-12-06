@@ -1,11 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 function Settings({ session }) {
     const [account, setAccount] = useState('');
-
-    useEffect(() => {
-        loadWeb3();
-    }, []);
 
     async function loadWeb3() {
         if (window.ethereum) {
@@ -23,11 +19,14 @@ function Settings({ session }) {
     }
 
     return (
-        <div>
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100vh', fontSize: '20px' }}>
             <h2>Settings</h2>
             <p>Supabase Session Data: {JSON.stringify(session)}</p>
             <p>Connected MetaMask Account: {account}</p>
-            <button onClick={loadWeb3}>Connect MetaMask</button>
+            <button onClick={loadWeb3}>
+                <img src="/mm_logo.png" alt="MetaMask Logo" style={{ width: '20px', height: '20px' }} />
+                Connect MetaMask
+            </button>
         </div>
     );
 }
