@@ -8,11 +8,22 @@ import Auth from './components/Auth';
 import Api from './components/Api';
 import Docs from './components/Docs';
 import Chat from './components/Chat';
+import Settings from './components/Settings';
 import ThemeContext from './ThemeContext';
 import './App.css'; // Import the CSS file
+import { supabase } from './supabaseClient'
 
 function App() {
   const [theme, setTheme] = useState('dark');
+  const [session, setSession] = useState(null);
+
+  useEffect(() => {
+    setSession(supabase.auth.session);
+
+    supabase.auth.onAuthStateChange((_event, session) => {
+      setSession(session);
+    });
+  }, []);
 
   const toggleTheme = () => {
     setTheme(prevTheme => prevTheme === 'dark' ? 'light' : 'dark');
@@ -33,6 +44,7 @@ function App() {
           <Route path="/api" element={<Api />} />
           <Route path="/docs" element={<Docs />} />
           <Route path="/chat" element={<Chat />} />
+          <Route path="/settings" element={<Settings session={session} />} />
         </Routes>
       </Router>
     </ThemeContext.Provider>

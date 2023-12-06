@@ -25,6 +25,9 @@ function NavBar() {
                     <div className="d-flex flex-column mb-2">
                         <Nav.Link href="/auth" className="nav-link-custom"><FaSignInAlt /> Login</Nav.Link>
                     </div>
+                    <div className="d-flex flex-column mb-2">
+                        <Nav.Link href="/settings" className="nav-link-custom"><FaSignInAlt /> Settings</Nav.Link>
+                    </div>
                 </Nav>
                 <div className="d-flex ms-auto">
                     <div className="d-flex flex-column">
