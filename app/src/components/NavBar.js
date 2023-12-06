@@ -11,7 +11,7 @@ function NavBar() {
     return (
         <Navbar bg={theme} variant={theme} expand="lg">
             <Navbar.Brand as={NavLink} to="/">
-                <img src="/codepay.png" alt="Your Logo" height="80" style={{borderRadius: '50%'}} />
+                <img src="/codepay_new.png" alt="Your Logo" height="80" style={{borderRadius: '50%'}} />
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
@@ -21,11 +21,17 @@ function NavBar() {
                     <Nav.Link href="/api" className="nav-link-custom"><FaCloud /> API</Nav.Link>
                 </Nav>
                 <div className="d-flex ms-auto">
-                    <Nav.Link href="/chat" className="nav-link-custom"><FaComment /> Chat</Nav.Link>
-                    <Nav.Link href="/auth" className="nav-link-custom"><FaSignInAlt /> Login</Nav.Link>
-                    <Button variant="secondary" onClick={toggleTheme} className="ml-2">
-                        {theme === 'dark' ? <FaSun /> : <FaMoon />}
-                    </Button>
+                    <div className="d-flex flex-column mb-2">
+                        <Nav.Link href="/chat" className="nav-link-custom"><FaComment /> Chat</Nav.Link>
+                    </div>
+                    <div className="d-flex flex-column mb-2">
+                        <Nav.Link href="/auth" className="nav-link-custom"><FaSignInAlt /> Login</Nav.Link>
+                    </div>
+                    <div className="d-flex flex-column">
+                        <Button variant="secondary" onClick={toggleTheme} className="ml-2">
+                            {theme === 'dark' ? <FaSun /> : <FaMoon />}
+                        </Button>
+                    </div>
                 </div>
             </Navbar.Collapse>
         </Navbar>
