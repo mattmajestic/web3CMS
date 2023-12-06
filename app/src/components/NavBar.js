@@ -3,7 +3,7 @@ import { Navbar, Nav, Button } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 import ThemeContext from '../ThemeContext';
 import { useContext } from 'react';
-import { FaSun, FaMoon, FaHome, FaBook, FaCloud, FaSignInAlt } from 'react-icons/fa';
+import { FaSun, FaMoon, FaHome, FaBook, FaCloud, FaSignInAlt, FaComment } from 'react-icons/fa';
 
 function NavBar() {
     const { theme, toggleTheme } = useContext(ThemeContext);
@@ -21,6 +21,7 @@ function NavBar() {
                     <Nav.Link href="/api" className="nav-link-custom"><FaCloud /> API</Nav.Link>
                 </Nav>
                 <div className="d-flex ms-auto">
+                    <Nav.Link href="/chat" className="nav-link-custom"><FaComment /> Chat</Nav.Link>
                     <Nav.Link href="/auth" className="nav-link-custom"><FaSignInAlt /> Login</Nav.Link>
                     <Button variant="secondary" onClick={toggleTheme} className="ml-2">
                         {theme === 'dark' ? <FaSun /> : <FaMoon />}

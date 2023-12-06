@@ -7,6 +7,7 @@ import Home from './components/Home';
 import Auth from './components/Auth';
 import Api from './components/Api';
 import Docs from './components/Docs';
+import Chat from './components/Chat';
 import ThemeContext from './ThemeContext';
 import './App.css'; // Import the CSS file
 
@@ -31,6 +32,7 @@ function App() {
           <Route path="/auth" element={<Auth />} />
           <Route path="/api" element={<Api />} />
           <Route path="/docs" element={<Docs />} />
+          <Route path="/chat" element={<Chat />} />
         </Routes>
       </Router>
     </ThemeContext.Provider>
