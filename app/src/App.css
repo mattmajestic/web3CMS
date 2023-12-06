@@ -76,3 +76,7 @@ body.light {
   color: #fff !important; /* Use !important to override the default color */
   font-weight: bold;
 }
+.nav-link-large {
+  font-size: 1.5em; /* Increase the font size */
+  padding: 10px; /* Increase the overall size */
+}

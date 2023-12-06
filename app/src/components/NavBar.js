@@ -16,17 +16,17 @@ function NavBar() {
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="ml-auto">
-                    <Nav.Link as={NavLink} to="/" className="nav-link-custom" end><FaHome /> Home</Nav.Link>
+                    <Nav.Link as={NavLink} to="/" className="nav-link-custom nav-link-large" end> Code Pay</Nav.Link>
                     <Nav.Link href="/docs" className="nav-link-custom"><FaBook /> Docs</Nav.Link>
                     <Nav.Link href="/api" className="nav-link-custom"><FaCloud /> API</Nav.Link>
-                </Nav>
-                <div className="d-flex ms-auto">
                     <div className="d-flex flex-column mb-2">
                         <Nav.Link href="/chat" className="nav-link-custom"><FaComment /> Chat</Nav.Link>
                     </div>
                     <div className="d-flex flex-column mb-2">
                         <Nav.Link href="/auth" className="nav-link-custom"><FaSignInAlt /> Login</Nav.Link>
                     </div>
+                </Nav>
+                <div className="d-flex ms-auto">
                     <div className="d-flex flex-column">
                         <Button variant="secondary" onClick={toggleTheme} className="ml-2">
                             {theme === 'dark' ? <FaSun /> : <FaMoon />}
