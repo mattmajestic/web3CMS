@@ -11,7 +11,7 @@ function NavBar() {
     return (
         <Navbar bg={theme} variant={theme} expand="lg">
             <Navbar.Brand as={NavLink} to="/">
-                <img src="/codepay_new.png" alt="Your Logo" height="80" style={{borderRadius: '50%'}} />
+            <img src={process.env.PUBLIC_URL + '/codepay_new.png'} alt="Your Logo" height="80" style={{borderRadius: '50%'}} />
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
