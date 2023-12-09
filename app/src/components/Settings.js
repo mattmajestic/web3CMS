@@ -1,7 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 function Settings({ session }) {
     const [account, setAccount] = useState('');
+
+    useEffect(() => {
+        window.snowStorm.snowColor = '#99ccff'; // blue snow
+        window.snowStorm.flakesMaxActive = 20;  // show more snowflakes
+        window.snowStorm.useTwinkleEffect = true; // let the snow twinkle
+        window.snowStorm.animationInterval = 10; // 30 FPS
+        window.snowStorm.stop();
+    }, []);
 
     async function loadWeb3() {
         if (window.ethereum) {

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const API_URL = "https://api-inference.huggingface.co/models/gpt2";
 const headers = { "Authorization": "Bearer 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" };
@@ -29,6 +29,10 @@ function Chat() {
       handleClick();
     }
   }
+
+  useEffect(() => {
+    window.snowStorm.stop();
+}, []);
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start', height: '100vh', padding: '20px' }}>
