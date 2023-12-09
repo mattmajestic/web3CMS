@@ -23,7 +23,7 @@ function About() {
                     </Button>
                 </Col>
                 <Col xs lg="2">
-                    <Button variant="dark" onClick={() => navigate('/login')} style={{backgroundColor: '#6C3483', fontWeight: 'bold', width: '150px', margin: '10px'}}>
+                    <Button variant="dark" onClick={() => navigate('/auth')} style={{backgroundColor: '#6C3483', fontWeight: 'bold', width: '150px', margin: '10px'}}>
                         <FaSignInAlt /> Login
                     </Button>
                 </Col>
