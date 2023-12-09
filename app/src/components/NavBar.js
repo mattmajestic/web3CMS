@@ -3,7 +3,7 @@ import { Navbar, Nav, Button } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 import ThemeContext from '../ThemeContext';
 import { useContext } from 'react';
-import { FaSun, FaMoon, FaHome, FaBook, FaCloud, FaSignInAlt, FaComment } from 'react-icons/fa';
+import { FaSun, FaMoon, FaHome, FaBook, FaCloud, FaSignInAlt, FaComment,FaPencilAlt } from 'react-icons/fa';
 
 function NavBar() {
     const { theme, toggleTheme } = useContext(ThemeContext);
@@ -16,9 +16,10 @@ function NavBar() {
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="ml-auto">
-                    <Nav.Link as={NavLink} to="/" className="nav-link-custom nav-link-large" end> Code Pay</Nav.Link>
+                    <Nav.Link as={NavLink} to="/" className="nav-link-custom nav-link-large" end> <FaHome /> Code Pay</Nav.Link>
                     <Nav.Link href="/docs" className="nav-link-custom"><FaBook /> Docs</Nav.Link>
                     <Nav.Link href="/api" className="nav-link-custom"><FaCloud /> API</Nav.Link>
+                    <Nav.Link href="/request" className="nav-link-custom"><FaPencilAlt /> Request</Nav.Link>
                     <div className="d-flex flex-column mb-2">
                         <Nav.Link href="/chat" className="nav-link-custom"><FaComment /> Chat</Nav.Link>
                     </div>

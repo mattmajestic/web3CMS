@@ -9,6 +9,8 @@ import Api from './components/Api';
 import Docs from './components/Docs';
 import Chat from './components/Chat';
 import Settings from './components/Settings';
+import Request from './components/Request';
+import Cloud from './components/Cloud';
 import ThemeContext from './ThemeContext';
 import './App.css'; // Import the CSS file
 import { supabase } from './supabaseClient'
@@ -45,6 +47,8 @@ function App() {
           <Route path="/docs" element={<Docs />} />
           <Route path="/chat" element={<Chat />} />
           <Route path="/settings" element={<Settings session={session} />} />
+          <Route path="/cloud" element={<Cloud session={session} />} />
+          <Route path="/request" element={<Request session={session} />} />
         </Routes>
       </Router>
     </ThemeContext.Provider>
