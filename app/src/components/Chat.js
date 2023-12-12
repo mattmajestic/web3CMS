@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { FaPaperclip } from 'react-icons/fa';
 
 const API_URL = "https://api-inference.huggingface.co/models/gpt2";
 const headers = { "Authorization": "Bearer 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" };
@@ -34,6 +35,12 @@ function Chat() {
     window.snowStorm.stop();
   }, []);
 
+  const handleFileUpload = (event) => {
+    const file = event.target.files[0];
+    console.log(file);
+    // Here you can handle the uploaded file (e.g., send it to a server)
+  };
+
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start', height: '100vh', padding: '20px' }}>
       <div style={{ display: 'flex', alignItems: 'center', marginBottom: '20px' }}>
@@ -49,6 +56,10 @@ function Chat() {
       </div>
       <div style={{ width: '50%', display: 'flex', justifyContent: 'space-between' }}>
         <input type="text" value={input} onChange={e => setInput(e.target.value)} onKeyPress={handleKeyPress} style={{ flex: 1, height: '50px', fontSize: '18px', marginRight: '10px' }} />
+        <label htmlFor="file-upload" style={{ cursor: 'pointer', marginRight: '10px' }}>
+    <FaPaperclip size={20} />
+</label>
+<input id="file-upload" type="file" accept=".csv,audio/*" onChange={handleFileUpload} style={{ display: 'none' }} />
         <button onClick={handleClick} style={{ height: '70px', fontSize: '24px' }}>Send</button>
       </div>
     </div>
