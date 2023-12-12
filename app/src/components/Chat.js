@@ -32,11 +32,14 @@ function Chat() {
 
   useEffect(() => {
     window.snowStorm.stop();
-}, []);
+  }, []);
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start', height: '100vh', padding: '20px' }}>
-      <h2 style={{ marginBottom: '20px' }}>BizOpti AI Chatbot</h2>
+      <div style={{ display: 'flex', alignItems: 'center', marginBottom: '20px' }}>
+        <img src='./codepay.png' alt="Logo" style={{ width: '50px', marginRight: '10px' }} />
+        <h2>BizOpti AI Chatbot</h2>
+      </div>
       <div style={{ width: '50%', maxHeight: '80vh', overflowY: 'auto', marginBottom: '20px', backgroundColor: 'grey', padding: '20px', borderRadius: '10px' }}>
         {messages.map((message, index) => (
           <div key={index} style={{ textAlign: message.position, fontSize: '24px', margin: '10px 0', color: 'white' }}>
@@ -46,7 +49,7 @@ function Chat() {
       </div>
       <div style={{ width: '50%', display: 'flex', justifyContent: 'space-between' }}>
         <input type="text" value={input} onChange={e => setInput(e.target.value)} onKeyPress={handleKeyPress} style={{ flex: 1, height: '50px', fontSize: '18px', marginRight: '10px' }} />
-        <button onClick={handleClick} style={{ height: '50px', fontSize: '18px' }}>Send</button>
+        <button onClick={handleClick} style={{ height: '70px', fontSize: '24px' }}>Send</button>
       </div>
     </div>
   );
