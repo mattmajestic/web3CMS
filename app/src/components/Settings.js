@@ -29,7 +29,8 @@ function Settings({ session }) {
     return (
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100vh', fontSize: '20px' }}>
             <h2>Settings</h2>
-            <p>Supabase Session Data: {JSON.stringify(session)}</p>
+            <h3>Supabase Session Data:</h3>
+            <p>Email: {session.user.email}</p>
             <p>Connected MetaMask Account: {account}</p>
             <button onClick={loadWeb3}>
                 <img src="/mm_logo.png" alt="MetaMask Logo" style={{ width: '20px', height: '20px' }} />

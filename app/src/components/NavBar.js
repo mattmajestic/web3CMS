@@ -3,9 +3,9 @@ import { Navbar, Nav, Button } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 import ThemeContext from '../ThemeContext';
 import { useContext } from 'react';
-import { FaSun, FaMoon, FaHome, FaBook, FaCloud, FaSignInAlt, FaComment,FaPencilAlt } from 'react-icons/fa';
+import { FaSun, FaMoon, FaHome, FaBook, FaCloud, FaSignInAlt, FaComment,FaPencilAlt, FaCog } from 'react-icons/fa';
 
-function NavBar() {
+function NavBar({ session }) {
     const { theme, toggleTheme } = useContext(ThemeContext);
 
     return (
@@ -23,7 +23,11 @@ function NavBar() {
                         <Nav.Link href="/chat" className="nav-link-custom"><FaComment /> Chat</Nav.Link>
                     </div>
                     <div className="d-flex flex-column mb-2">
-                        <Nav.Link href="/auth" className="nav-link-custom"><FaSignInAlt /> Login</Nav.Link>
+                        {session ? (
+                            <Nav.Link href="/settings" className="nav-link-custom"><FaCog /> Settings</Nav.Link>
+                        ) : (
+                            <Nav.Link href="/auth" className="nav-link-custom"><FaSignInAlt /> Login</Nav.Link>
+                        )}
                     </div>
                 </Nav>
                 <div className="d-flex ms-auto">
