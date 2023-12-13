@@ -1,48 +1,47 @@
 import React, { useState } from 'react';
 import { Container, Button, Row, Col, Alert } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom';
-import { FaSun, FaSignInAlt, FaPencilAlt, FaBook, FaComments } from 'react-icons/fa';
+import { useNavigate, Link } from 'react-router-dom';
+import { FaSignInAlt, FaPencilAlt, FaBook, FaComments } from 'react-icons/fa';
 import Chat from './Chat';
 import Request from './Request'; 
-import Settings from './Settings'; 
+import Auth from './Auth'; 
 
 function Home() {
-    const mermaidUrl = "https://mermaid.ink/img/pako:eNpNkM-KwkAMxl8l5LQL9gV6ENQiHlYQ3ZvjIXQyWpg_Os2wSNt332mrYE7h-35fQtJhHTRjicaGv_pGUeC3Uh5yrc4_4dr4CxTFEtZfR34kbgVMiLDJme8XBZPfb4K7WxZu4ZCshRfdw64b4TjM9HqCq-5AT_jUq1HvT-w1ZMuxz8nt2VBpqNDBWopv_TIHttOgHS7QcXTU6HxCN1oK5caOFZa51WwoWVGo_JBRShJOT19jKTHxAtNdk3DV0DWSw7zLtlll3UiI-_kt03eGf4v8XqU?type=png";
+    const mermaidUrl = "https://mermaid.ink/img/pako:eNpVkM1ugzAQhF9ltYeeSMRPgoFDpRIatYdIVZJeWnqwsJOggo2MaZIS3r02iVrVJ2tn_I13eiwk45jgrpLH4kCVhm2WCzDn4T2lLYeV0asPmEzu4fLacgXPoul0e4H0ZoOb1lSSMs5gRTVXJa2spd8qWgo7tJTh_4tFJTsGGy0V3XNYlhX_o6ZXSyaLruZCt3AHW97a2KxfGJa6sdLR9nhqKpMDVrnAsl_zr5Iff03ZFTb-pYWMagpajmZ4WRvkk0WWYg-p1AM6WHNV05KZVnoLyFEfeM1zTMyVUfWZYy6sj3Zabs6iwESrjjvYNczsnpV0r2iNyc50YKaclWbF1bXmsW0HGyow6fGEiecGUy8MfDKPg9AP48B38IyJ70bTmRv4czcOiefFXjg4-C2lwXpTl8SEhH5EXBJFczIbeW-jOGYOP72vkcc?type=png";
     const [showDiagram, setShowDiagram] = useState(false);
     const [showChat, setShowChat] = useState(false);
-    const [showRequestForm, setShowRequestForm] = useState(false); // New state variable
-    const navigate = useNavigate();
+    const [showRequestForm, setShowRequestForm] = useState(false);
+    const [showAuth, setShowAuth] = useState(false);
 
     return (
         <Container className="mt-5 p-5 rounded" style={{backgroundColor: '#3B3A54'}}>
             <h1>Welcome to CodePay</h1>
-            <p>
+            <br></br>
+            <h5>
                 CodePay is a platform that connects coders with those who need coding tasks done. 
                 Whether you're a coder looking for projects, or you need a coder to complete a task, 
                 CodePay is the place for you.
-            </p>
+            </h5>
+            <br></br>
             <Alert variant="info">
-                Hey, you need to <Alert.Link onClick={() => navigate('/auth')}>login</Alert.Link> then use the settings button to customize.
+                Get started getting paid for your Code!  Start by <Link to="/auth">Logging in</Link> via Github, Gitlab or Bitbucket
             </Alert>
+            <br></br>
+            {showAuth && <Auth />}
             <Row className="justify-content-md-center mt-4">
                 <Col xs lg="2">
-                    <Button variant="dark" onClick={() => navigate('/settings')} style={{backgroundColor: '#6C3483', fontWeight: 'bold', width: '150px', margin: '10px'}}>
-                        <FaSun /> Settings
-                    </Button>
-                </Col>
-                <Col xs lg="2">
-                    <Button variant="dark" onClick={() => setShowChat(!showChat)} style={{backgroundColor: '#6C3483', fontWeight: 'bold', width: '150px', margin: '10px'}}>
+                    <Button variant="dark" onClick={() => setShowChat(!showChat)} style={{backgroundColor: '#4B0082', fontWeight: 'bold', width: '200px', height: '60px', fontSize: '20px', margin: '10px', border: '3px solid #2c003e'}}>
                         <FaComments /> Chat
                     </Button>
                 </Col>
                 <Col xs lg="2">
-                    <Button variant="dark" onClick={() => setShowRequestForm(!showRequestForm)} style={{backgroundColor: '#6C3483', fontWeight: 'bold', width: '150px', margin: '10px'}}>
+                    <Button variant="dark" onClick={() => setShowRequestForm(!showRequestForm)} style={{backgroundColor: '#4B0082', fontWeight: 'bold', width: '200px', height: '60px', fontSize: '20px', margin: '10px', border: '3px solid #2c003e'}}>
                         <FaPencilAlt /> Request Form
                     </Button>
                 </Col>
                 <Col xs lg="2">
-                    <Button onClick={() => setShowDiagram(!showDiagram)} style={{backgroundColor: '#FFFFFF', color: '#6C3483', fontWeight: 'bold', width: '150px', margin: '10px'}}>
-                        { showDiagram ? 'Hide' : 'Show'}  User Journey <FaBook />
+                    <Button onClick={() => setShowDiagram(!showDiagram)} style={{backgroundColor: '#4B0082', fontWeight: 'bold', width: '200px', height: '60px', fontSize: '20px', margin: '10px', border: '3px solid #2c003e'}}>
+                        { showDiagram ? 'Hide' : 'Show'}  MLOps <FaBook />
                     </Button>
                 </Col>
             </Row>
@@ -73,6 +72,7 @@ function Home() {
                     </Col>
                 </Row>
             )}
+            
         </Container>
     );
 }

@@ -18,16 +18,12 @@ function NavBar() {
                 <Nav className="ml-auto">
                     <Nav.Link as={NavLink} to="/" className="nav-link-custom nav-link-large" end> <FaHome /> Code Pay</Nav.Link>
                     <Nav.Link href="/docs" className="nav-link-custom"><FaBook /> Docs</Nav.Link>
-                    <Nav.Link href="/api" className="nav-link-custom"><FaCloud /> API</Nav.Link>
                     <Nav.Link href="/request" className="nav-link-custom"><FaPencilAlt /> Request</Nav.Link>
                     <div className="d-flex flex-column mb-2">
                         <Nav.Link href="/chat" className="nav-link-custom"><FaComment /> Chat</Nav.Link>
                     </div>
                     <div className="d-flex flex-column mb-2">
                         <Nav.Link href="/auth" className="nav-link-custom"><FaSignInAlt /> Login</Nav.Link>
-                    </div>
-                    <div className="d-flex flex-column mb-2">
-                        <Nav.Link href="/settings" className="nav-link-custom"><FaSignInAlt /> Settings</Nav.Link>
                     </div>
                 </Nav>
                 <div className="d-flex ms-auto">
