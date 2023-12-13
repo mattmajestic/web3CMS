@@ -45,7 +45,7 @@ function Chat() {
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start', height: '100vh', padding: '20px' }}>
       <div style={{ display: 'flex', alignItems: 'center', marginBottom: '20px' }}>
         <img src='./codepay.png' alt="Logo" style={{ width: '50px', marginRight: '10px' }} />
-        <h2>BizOpti AI Chatbot</h2>
+        <h2>CodePay Chat</h2>
       </div>
       <div style={{ width: '50%', maxHeight: '80vh', overflowY: 'auto', marginBottom: '20px', backgroundColor: 'grey', padding: '20px', borderRadius: '10px' }}>
         {messages.map((message, index) => (
