@@ -30,7 +30,7 @@ function Settings({ session }) {
     return (
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100vh', fontSize: '20px' }}>
             <h2>Settings</h2>
-            <ReactJson src={session} theme="codeschool" />
+            <ReactJson src={JSON.parse(JSON.stringify(session))} theme="codeschool" />
             <p>Connected MetaMask Account: {account}</p>
             <button onClick={loadWeb3}>
                 <img src="/mm_logo.png" alt="MetaMask Logo" style={{ width: '20px', height: '20px' }} />
