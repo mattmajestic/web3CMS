@@ -4,6 +4,8 @@ import ReactJson from 'react-json-view';
 function Settings({ session }) {
     const [account, setAccount] = useState('');
 
+    const ReactJson = dynamic(() => import('react-json-view'), { ssr: false });
+
     useEffect(() => {
         window.snowStorm.snowColor = '#99ccff'; // blue snow
         window.snowStorm.flakesMaxActive = 20;  // show more snowflakes
