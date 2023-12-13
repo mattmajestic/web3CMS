@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import ReactJson from 'react-json-view';
 
 function Settings({ session }) {
     const [account, setAccount] = useState('');
@@ -29,8 +30,7 @@ function Settings({ session }) {
     return (
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100vh', fontSize: '20px' }}>
             <h2>Settings</h2>
-            <h3>Supabase Session Data:</h3>
-            <p>Email: {session.user.email}</p>
+            <ReactJson src={session} theme="codeschool" />
             <p>Connected MetaMask Account: {account}</p>
             <button onClick={loadWeb3}>
                 <img src="/mm_logo.png" alt="MetaMask Logo" style={{ width: '20px', height: '20px' }} />
