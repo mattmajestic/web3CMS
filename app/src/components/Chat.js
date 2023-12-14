@@ -54,12 +54,12 @@ function Chat() {
           </div>
         ))}
       </div>
-      <div style={{ width: '50%', display: 'flex', justifyContent: 'space-between' }}>
-        <input type="text" value={input} onChange={e => setInput(e.target.value)} onKeyPress={handleKeyPress} style={{ flex: 1, height: '50px', fontSize: '18px', marginRight: '10px' }} />
+      <div style={{ width: '50%', display: 'flex', alignItems: 'center' }}>
         <label htmlFor="file-upload" style={{ cursor: 'pointer', marginRight: '10px' }}>
-    <FaPaperclip size={20} />
-</label>
-<input id="file-upload" type="file" accept=".csv,audio/*" onChange={handleFileUpload} style={{ display: 'none' }} />
+          <FaPaperclip size={30} />
+        </label>
+        <input id="file-upload" type="file" accept=".csv,audio/*" onChange={handleFileUpload} style={{ display: 'none' }} />
+        <input type="text" value={input} onChange={e => setInput(e.target.value)} onKeyPress={handleKeyPress} style={{ flex: 1, height: '50px', fontSize: '18px', marginRight: '10px' }} />
         <button onClick={handleClick} style={{ height: '70px', fontSize: '24px' }}>Send</button>
       </div>
     </div>

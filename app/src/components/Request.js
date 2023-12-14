@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 function Request() {
     const [form, setForm] = useState({
@@ -31,32 +32,49 @@ function Request() {
     };
 
     return (
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100vh', fontSize: '20px', padding: '50px' }}>
-            <h2 style={{ marginBottom: '20px' }}>Request Form</h2>
-            <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '20px', width: '50%' }}>
-                <input type="text" name="username" placeholder="GitHub Username" value={form.username} onChange={handleChange} required />
-                <select name="repository" value={form.repository} onChange={handleChange} required>
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100vh', fontSize: '24px', padding: '50px' }}>
+            <h2 style={{ marginBottom: '40px', fontSize: '36px' }}>Bid on Branch</h2>
+            <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '30px', width: '60%', fontSize: '20px' }}>
+                <input type="text" name="username" placeholder="GitHub Username" value={form.username} onChange={handleChange} required style={{ padding: '10px', fontSize: '20px' }} />
+                <select name="repository" value={form.repository} onChange={handleChange} required style={{ padding: '10px', fontSize: '20px' }}>
                     {repos.map(repo => (
                         <option key={repo.name} value={repo.name}>{repo.name}</option>
                     ))}
                 </select>
-                <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '24px', marginBottom: '10px' }}>
-                    <label>
-                        <input type="radio" name="proposalType" value="feature" checked={form.proposalType === 'feature'} onChange={handleChange} />
-                        Feature
-                    </label>
-                    <label>
-                        <input type="radio" name="proposalType" value="bug" checked={form.proposalType === 'bug'} onChange={handleChange} />
-                        Bug
+                <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '24px', marginBottom: '20px' }}>
+                    <div>
+                        <label>
+                            <input type="radio" name="proposalType" value="feature" checked={form.proposalType === 'feature'} onChange={handleChange} />
+                            Feature
+                        </label>
+                        <label style={{ marginLeft: '10px' }}>
+                            <input type="radio" name="proposalType" value="bug" checked={form.proposalType === 'bug'} onChange={handleChange} />
+                            Bug
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            Bid Amount: $
+                            <input type="number" name="bid" min="50" max="1500" step="50" value={form.bid} onChange={handleChange} />
+                        </label>
+                    </div>
+                </div>
+                <p>We do not authorize any one branch of over $1500.</p>
+                <div style={{ display: 'flex', alignItems: 'center', marginBottom: '20px' }}>
+                    <input type="checkbox" id="terms" name="terms" value={form.terms} onChange={handleChange} required />
+                    <label htmlFor="terms" style={{ marginLeft: '10px' }}>
+                        I agree to the <Link to="/terms" style={{ color: '#D8BFD8' }}>Terms and Conditions</Link>
                     </label>
                 </div>
-                <div>
-                    <label>
-                        Bid Amount: ${form.bid} for Project
-                        <input type="range" name="bid" min="25" max="2000" value={form.bid} onChange={handleChange} />
-                    </label>
-                </div>
-                <button type="submit">Submit Bid</button>
+                <button type="submit" style={{ 
+                    padding: '20px', 
+                    fontSize: '24px', 
+                    width: '30%', 
+                    backgroundColor: '#D8BFD8', 
+                    color: 'black', 
+                    margin: '0 auto', 
+                    display: 'block' 
+                }}>Submit Bid</button>
             </form>
         </div>
     );
