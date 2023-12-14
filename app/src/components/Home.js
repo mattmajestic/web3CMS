@@ -35,9 +35,11 @@ function Home() {
                     </Button>
                 </Col>
                 <Col xs lg="2">
-                    <Button variant="dark" onClick={() => setShowRequestForm(!showRequestForm)} style={{backgroundColor: '#4B0082', fontWeight: 'bold', width: '200px', height: '60px', fontSize: '20px', margin: '10px', border: '3px solid #2c003e'}}>
-                        <FaPencilAlt /> Bid on Branch
-                    </Button>
+                    <Link to="/request">
+                        <Button variant="dark" style={{backgroundColor: '#4B0082', fontWeight: 'bold', width: '200px', height: '60px', fontSize: '20px', margin: '10px', border: '3px solid #2c003e'}}>
+                            <FaPencilAlt /> Bid on Branch
+                        </Button>
+                    </Link>
                 </Col>
                 <Col xs lg="2">
                     <Button variant="dark" onClick={() => window.open('https://github.com/CodePayCloud', '_blank')} style={{backgroundColor: '#4B0082', fontWeight: 'bold', width: '200px', height: '60px', fontSize: '20px', margin: '10px', border: '3px solid #2c003e'}}>
