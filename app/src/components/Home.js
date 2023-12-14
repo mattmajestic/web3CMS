@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Container, Button, Row, Col, Alert } from 'react-bootstrap';
 import { useNavigate, Link } from 'react-router-dom';
-import { FaSignInAlt, FaPencilAlt, FaBook, FaComments, FaCodeBranch } from 'react-icons/fa';
+import { FaSignInAlt, FaPencilAlt, FaBook, FaComments, FaCodeBranch,FaGithub } from 'react-icons/fa';
 import Chat from './Chat';
 import Request from './Request'; 
 import Auth from './Auth'; 
@@ -35,18 +35,14 @@ function Home() {
                     </Button>
                 </Col>
                 <Col xs lg="2">
-                <Link to="/workspace">
-                    <Button variant="dark" style={{backgroundColor: '#4B0082', fontWeight: 'bold', width: '200px', height: '60px', fontSize: '20px', margin: '10px', border: '3px solid #2c003e'}}>
-                    <FaCodeBranch /> Workspace
+                    <Button variant="dark" onClick={() => setShowRequestForm(!showRequestForm)} style={{backgroundColor: '#4B0082', fontWeight: 'bold', width: '200px', height: '60px', fontSize: '20px', margin: '10px', border: '3px solid #2c003e'}}>
+                        <FaPencilAlt /> Bid on Branch
                     </Button>
-                </Link>
                 </Col>
                 <Col xs lg="2">
-                <Link to="/request">
-                    <Button variant="dark" style={{backgroundColor: '#4B0082', fontWeight: 'bold', width: '200px', height: '60px', fontSize: '20px', margin: '10px', border: '3px solid #2c003e'}}>
-                    <FaPencilAlt /> Bid on Branch
+                    <Button variant="dark" onClick={() => window.open('https://github.com/CodePayCloud', '_blank')} style={{backgroundColor: '#4B0082', fontWeight: 'bold', width: '200px', height: '60px', fontSize: '20px', margin: '10px', border: '3px solid #2c003e'}}>
+                        <FaGithub /> Docs
                     </Button>
-                </Link>
                 </Col>
                 <Col xs lg="2">
                     <Button onClick={() => setShowDiagram(!showDiagram)} style={{backgroundColor: '#4B0082', fontWeight: 'bold', width: '200px', height: '60px', fontSize: '20px', margin: '10px', border: '3px solid #2c003e'}}>
