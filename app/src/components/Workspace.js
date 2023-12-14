@@ -3,10 +3,11 @@ import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Image from 'react-bootstrap/Image';
+import { FaCodeBranch, FaFolderOpen, FaTrash } from 'react-icons/fa';
 
 const Workspace = () => {
-    const [form, setForm] = useState({ username: '', repository: '' });
-    const [workspaces, setWorkspaces] = useState([{ id: 1, name: 'Example Workspace', repository: 'example-repo', branch: 'main' }]);
+    const [form, setForm] = useState({ username: '', repository: '', branch: '' });
+    const [workspaces, setWorkspaces] = useState([]);
     const [showModal, setShowModal] = useState(false);
 
     const handleChange = (e) => {
@@ -15,12 +16,14 @@ const Workspace = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (workspaces.length >= 1) {
-            alert('You get 1 workspace for free. Go to /pricing to see premium features.');
-        } else {
-            // Handle workspace creation here
-            setShowModal(false);
-        }
+        const newWorkspace = {
+            id: Date.now(),
+            name: form.username,
+            repository: form.repository,
+            branch: form.branch
+        };
+        setWorkspaces(prevWorkspaces => [...prevWorkspaces, newWorkspace]);
+        setShowModal(false);
     };
 
     const handleOpen = (workspaceId) => {
@@ -36,30 +39,28 @@ const Workspace = () => {
     }, []);
 
     return (
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100vh' }}>
-            <Image src="codepay.png" rounded style={{ width: '100px', height: '100px', marginBottom: '20px' }} />
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center',  height: '100vh' }}>
+            <br />
+            <Image src="codepay.png" rounded style={{ width: '100px', height: '100px', marginBottom: '10px' }} />
             <h1>CodePay Workspaces</h1>
-            <br />
-            <br />
-            <Button onClick={() => setShowModal(true)} style={{ marginBottom: '20px', backgroundColor: '#17072B', color: 'white', fontSize: '20px', padding: '10px 20px' }}>Create Workspace</Button>
             <br />
             <Modal show={showModal} onHide={() => setShowModal(false)}>
                 <Modal.Header closeButton>
                     <Modal.Title>Create Workspace</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <form onSubmit={handleSubmit}>
-                        <input type="text" name="username" placeholder="GitHub Username" value={form.username} onChange={handleChange} required />
-                        <input type="text" name="repository" placeholder="GitHub Repository" value={form.repository} onChange={handleChange} required />
-                        <Button type="submit">Create Workspace</Button>
+                    <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                        <input type="text" name="username" placeholder="GitHub Username" value={form.username} onChange={handleChange} required style={{ padding: '10px', fontSize: '16px' }} />
+                        <input type="text" name="repository" placeholder="GitHub Repository" value={form.repository} onChange={handleChange} required style={{ padding: '10px', fontSize: '16px' }} />
+                        <input type="text" name="branch" placeholder="Branch" value={form.branch} onChange={handleChange} required style={{ padding: '10px', fontSize: '16px' }} />
+                        <Button type="submit" style={{ backgroundColor: '#17072B', color: 'white', fontSize: '20px', padding: '10px 20px' }}>Create Workspace</Button>
                     </form>
                 </Modal.Body>
             </Modal>
             <br />
-            <Table striped bordered hover style={{ width: '80%' }}>
+            <Table striped bordered hover style={{ width: '50%' }}>
                 <thead>
                     <tr>
-                        <th>#</th>
                         <th>Workspace Name</th>
                         <th>Repository</th>
                         <th>Branch</th>
@@ -69,18 +70,31 @@ const Workspace = () => {
                 <tbody>
                     {workspaces.map((workspace, index) => (
                         <tr key={workspace.id}>
-                            <td>{index + 1}</td>
                             <td>{workspace.name}</td>
                             <td>{workspace.repository}</td>
                             <td>{workspace.branch}</td>
                             <td>
-                                <Button variant="success" onClick={() => handleOpen(workspace.id)} style={{ marginRight: '10px' }}>Open</Button>
-                                <Button variant="danger" onClick={() => handleDelete(workspace.id)}>Delete</Button>
+                                <Button variant="success" onClick={() => handleOpen(workspace.id)} style={{ marginRight: '10px' }} disabled>
+                                    <FaFolderOpen /> Open
+                                </Button>
+                                <Button variant="danger" onClick={() => handleDelete(workspace.id)} >
+                                    <FaTrash /> Delete
+                                </Button>
                             </td>
                         </tr>
                     ))}
+                    <tr>
+                        <td colSpan="4" style={{ textAlign: 'center' }}>
+                            <Button onClick={() => setShowModal(true)} disabled={workspaces.length >= 1} style={{ width: '50%', backgroundColor: '#17072B', color: 'white', fontSize: '20px', padding: '10px 20px', border: '2px solid white' }}>
+                                <FaCodeBranch /> Create Workspace
+                            </Button>
+                        </td>
+                    </tr>
                 </tbody>
             </Table>
+            <div style={{ marginTop: '20px', fontSize: '18px', color: 'white' }}>
+                Note: Free accounts are limited to 1 workspace. Please visit <a href="/pricing">our pricing page</a> to view premium options with up to 5 workspaces.
+            </div>
         </div>
     );
 };
