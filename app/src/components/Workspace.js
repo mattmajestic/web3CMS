@@ -31,7 +31,7 @@ const Workspace = () => {
     };
 
     const handleDelete = (workspaceId) => {
-        // Handle workspace deletion here
+        setWorkspaces(workspaces.filter(workspace => workspace.id !== workspaceId));
     };
 
     useEffect(() => {
