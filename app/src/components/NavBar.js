@@ -1,9 +1,9 @@
 // NavBar.js
-import { Navbar, Nav, Button } from 'react-bootstrap';
+import { Navbar, Nav, Button, Dropdown } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 import ThemeContext from '../ThemeContext';
 import { useContext } from 'react';
-import { FaSun, FaMoon, FaHome, FaBook, FaCloud, FaSignInAlt, FaComment,FaPencilAlt, FaCog,FaCodeBranch,FaGithub, FaLinkedin } from 'react-icons/fa';
+import { FaSun, FaMoon, FaHome, FaBook, FaCloud, FaSignInAlt, FaComment,FaPencilAlt, FaCog,FaCodeBranch,FaGithub, FaLinkedin,FaBitbucket,FaGitlab } from 'react-icons/fa';
 
 function NavBar({ session }) {
     const { theme, toggleTheme } = useContext(ThemeContext);
@@ -31,17 +31,30 @@ function NavBar({ session }) {
                     </div>
                 </Nav>
                 <div className="d-flex ms-auto">
-                <div className="d-flex flex-row align-items-center">
-                    <Navbar.Brand href="https://www.linkedin.com/company/codepay-cloud" target="_blank" className="ml-2">
-                        <FaLinkedin color="white" size="2em" />
-                    </Navbar.Brand>
-                    <Navbar.Brand href="https://github.com/CodePayCloud" target="_blank" className="ml-2">
-                        <FaGithub color="white" size="2em" />
-                    </Navbar.Brand>
-                    <Button variant="secondary" onClick={toggleTheme} className="ml-2">
-                        {theme === 'dark' ? <FaSun size="2em" /> : <FaMoon size="2em" />}
-                    </Button>
-                </div>
+                    <div className="d-flex flex-row align-items-center">
+                        <Navbar.Brand href="https://www.linkedin.com/company/codepay-cloud" target="_blank" className="ml-2">
+                            <FaLinkedin color="white" size="2em" />
+                        </Navbar.Brand>
+                        <Dropdown className="mr-2">
+                            <Dropdown.Toggle variant="secondary" id="dropdown-basic">
+                                <FaGithub color="white" size="2em" /> Code Platforms
+                            </Dropdown.Toggle>
+                            <Dropdown.Menu>
+                                <Dropdown.Item href="https://github.com/CodePayCloud" target="_blank">
+                                    <FaGithub color="black" size="1em" /> GitHub
+                                </Dropdown.Item>
+                                <Dropdown.Item href="https://bitbucket.org/CodePayCloud" target="_blank">
+                                    <FaBitbucket color="black" size="1em" /> Bitbucket
+                                </Dropdown.Item>
+                                <Dropdown.Item href="https://gitlab.com/CodePayCloud" target="_blank">
+                                    <FaGitlab color="black" size="1em" /> GitLab
+                                </Dropdown.Item>
+                            </Dropdown.Menu>
+                        </Dropdown>
+                        <Button variant="secondary" onClick={toggleTheme} className="ml-3" style={{ marginLeft: '10px' }}>
+                            {theme === 'dark' ? <FaSun size="2em" /> : <FaMoon size="2em" />}
+                        </Button>
+                    </div>
                 </div>
             </Navbar.Collapse>
         </Navbar>
