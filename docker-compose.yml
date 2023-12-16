@@ -1,9 +1,16 @@
 version: "3.9"
 services:
-  litbms:
-    container_name: "web3cms"
+  codepay:
+    container_name: "codepay"
     build:
       dockerfile: Dockerfile
-      context: ./
+      context: ./app
     ports:
       - "8501:8501"
+  codepay_api:
+    container_name: "codepay_api"
+    build:
+      dockerfile: Dockerfile
+      context: ./api
+    ports:
+      - "8000:8000"
