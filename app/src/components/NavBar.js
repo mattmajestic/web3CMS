@@ -3,7 +3,7 @@ import { Navbar, Nav, Button } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 import ThemeContext from '../ThemeContext';
 import { useContext } from 'react';
-import { FaSun, FaMoon, FaHome, FaBook, FaCloud, FaSignInAlt, FaComment,FaPencilAlt, FaCog,FaCodeBranch,FaGithub } from 'react-icons/fa';
+import { FaSun, FaMoon, FaHome, FaBook, FaCloud, FaSignInAlt, FaComment,FaPencilAlt, FaCog,FaCodeBranch,FaGithub, FaLinkedin } from 'react-icons/fa';
 
 function NavBar({ session }) {
     const { theme, toggleTheme } = useContext(ThemeContext);
@@ -32,6 +32,9 @@ function NavBar({ session }) {
                 </Nav>
                 <div className="d-flex ms-auto">
                 <div className="d-flex flex-row align-items-center">
+                    <Navbar.Brand href="https://www.linkedin.com/company/codepay-cloud" target="_blank" className="ml-2">
+                        <FaLinkedin color="white" size="2em" />
+                    </Navbar.Brand>
                     <Navbar.Brand href="https://github.com/CodePayCloud" target="_blank" className="ml-2">
                         <FaGithub color="white" size="2em" />
                     </Navbar.Brand>
