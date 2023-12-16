@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Container, Button, Row, Col, Alert } from 'react-bootstrap';
+import { Container, Button, Row, Col, Alert,Dropdown } from 'react-bootstrap';
 import { useNavigate, Link } from 'react-router-dom';
-import { FaSignInAlt, FaPencilAlt, FaBook, FaComments, FaCodeBranch,FaGithub } from 'react-icons/fa';
+import { FaSignInAlt, FaPencilAlt, FaBook, FaComments, FaCodeBranch,FaGithub,FaBitbucket,FaGitlab } from 'react-icons/fa';
 import Chat from './Chat';
 import Request from './Request'; 
 import Auth from './Auth'; 
@@ -42,9 +42,22 @@ function Home() {
                     </Link>
                 </Col>
                 <Col xs lg="2">
-                    <Button variant="dark" onClick={() => window.open('https://github.com/CodePayCloud', '_blank')} style={{backgroundColor: '#4B0082', fontWeight: 'bold', width: '200px', height: '60px', fontSize: '20px', margin: '10px', border: '3px solid #2c003e'}}>
-                        <FaGithub /> Docs
-                    </Button>
+                    <Dropdown>
+                        <Dropdown.Toggle variant="dark" style={{backgroundColor: '#4B0082', fontWeight: 'bold', width: '200px', height: '60px', fontSize: '20px', margin: '10px', border: '3px solid #2c003e'}}>
+                            <FaGithub /> Docs
+                        </Dropdown.Toggle>
+                        <Dropdown.Menu>
+                            <Dropdown.Item href="https://github.com/CodePayCloud/docs" target="_blank">
+                                <FaGithub color="black" size="1em" /> GitHub
+                            </Dropdown.Item>
+                            <Dropdown.Item href="https://bitbucket.org/CodePayCloud/docs" target="_blank">
+                                <FaBitbucket color="black" size="1em" /> Bitbucket
+                            </Dropdown.Item>
+                            <Dropdown.Item href="https://gitlab.com/CodePayCloud/docs" target="_blank">
+                                <FaGitlab color="black" size="1em" /> GitLab
+                            </Dropdown.Item>
+                        </Dropdown.Menu>
+                    </Dropdown>
                 </Col>
                 <Col xs lg="2">
                     <Button onClick={() => setShowDiagram(!showDiagram)} style={{backgroundColor: '#4B0082', fontWeight: 'bold', width: '200px', height: '60px', fontSize: '20px', margin: '10px', border: '3px solid #2c003e'}}>
