@@ -37,7 +37,7 @@ function NavBar({ session }) {
                         </Navbar.Brand>
                         <Dropdown className="mr-2">
                             <Dropdown.Toggle variant="secondary" id="dropdown-basic">
-                                <FaGithub color="white" size="2em" /> Code Platforms
+                                <FaGithub color="white" size="2em" /> Code
                             </Dropdown.Toggle>
                             <Dropdown.Menu>
                                 <Dropdown.Item href="https://github.com/CodePayCloud" target="_blank">
