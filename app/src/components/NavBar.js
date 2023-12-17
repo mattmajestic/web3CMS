@@ -3,7 +3,7 @@ import { Navbar, Nav, Button, Dropdown } from 'react-bootstrap';
 import { NavLink, Link } from 'react-router-dom';
 import ThemeContext from '../ThemeContext';
 import { useContext } from 'react';
-import { FaSun, FaMoon, FaHome, FaBook, FaCloud, FaSignInAlt,FaRocket, FaComment,FaPencilAlt, FaCog,FaCodeBranch,FaGithub, FaLinkedin,FaBitbucket,FaGitlab } from 'react-icons/fa';
+import { FaSun, FaMoon, FaHome, FaBook, FaCloud,FaList, FaSignInAlt,FaRocket, FaComment,FaPencilAlt, FaCog,FaCodeBranch,FaGithub, FaLinkedin,FaBitbucket,FaGitlab } from 'react-icons/fa';
 
 function NavBar({ session }) {
     const { theme, toggleTheme } = useContext(ThemeContext);
@@ -16,7 +16,23 @@ function NavBar({ session }) {
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="ml-auto">
-                    <Nav.Link as={NavLink} to="/" className="nav-link-custom nav-link-large" end> <FaHome /> Code Pay</Nav.Link>
+                    <Nav.Link as={NavLink} to="/" className="nav-link-custom nav-link-large" end> </Nav.Link>
+                    <Dropdown className="mr-2">
+                        <Dropdown.Toggle variant="secondary" id="dropdown-basic">
+                            <FaRocket color="white" size="2em" /> <span style={{ fontSize: '1.5em' }}>CodePay Products</span>
+                        </Dropdown.Toggle>
+                        <Dropdown.Menu>
+                            <Dropdown.Item href="/request">
+                                <span style={{ fontSize: '1.5em', color: '#4B0082' }}><FaPencilAlt color="#4B0082" size="1.5em" /> Projects</span>
+                            </Dropdown.Item>
+                            <Dropdown.Item href="/workspace">
+                                <span style={{ fontSize: '1.5em', color: '#4B0082' }}><FaCodeBranch color="#4B0082" size="1.5em" /> Workspace</span>
+                            </Dropdown.Item>
+                            <Dropdown.Item href="/deploy">
+                                <span style={{ fontSize: '1.5em', color: '#4B0082' }}><FaRocket color="#4B0082" size="1.5em" /> Deployments</span>
+                            </Dropdown.Item>
+                        </Dropdown.Menu>
+                    </Dropdown>
                     {/* <Nav.Link href="/request" className="nav-link-custom"><FaPencilAlt /> Projects</Nav.Link>
                     <Nav.Link href="/workspace" className="nav-link-custom"><FaCodeBranch /> Workspace</Nav.Link> 
                     <Nav.Link href="/deploy" className="nav-link-custom"><FaRocket /> Deployments</Nav.Link>  */}

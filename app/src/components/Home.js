@@ -28,36 +28,36 @@ function Home() {
             </Alert>
             <Row className="justify-content-md-center mt-4">
                 <Col xs lg="2">
-                    <Button variant="dark" href='/request' style={{backgroundColor: 'white',color: '#4B0082', fontWeight: 'bold', width: '200px', height: '60px', fontSize: '20px', margin: '10px', border: '3px solid #2c003e'}}>
-                        <FaPencilAlt /> Projects
+                    <Button variant="dark" href='/request' style={{backgroundColor: 'white',color: '#4B0082', fontWeight: 'bold', width: '200px', height: '60px', fontSize: '25px', margin: '10px', border: '3px solid #2c003e', padding: '10px', textAlign: 'center'}}>
+                        <FaPencilAlt /> Project
                     </Button>
                 </Col>
                 <Col xs lg="2">
-                    <Button variant="dark" href='/workspace' style={{backgroundColor: 'white',color: '#4B0082', fontWeight: 'bold', width: '200px', height: '60px', fontSize: '20px', margin: '10px', border: '3px solid #2c003e'}}>
+                    <Button variant="dark" href='/workspace' style={{backgroundColor: 'white',color: '#4B0082', fontWeight: 'bold', width: '200px', height: '60px', fontSize: '25px', margin: '10px', border: '3px solid #2c003e', padding: '10px', textAlign: 'center'}}>
                         <FaCodeBranch /> Workspace
                     </Button>
                 </Col>
                 <Col xs lg="2">
-                <Button variant="dark" href='/deploy' style={{backgroundColor: 'white',color: '#4B0082', fontWeight: 'bold', width: '200px', height: '60px', fontSize: '20px', margin: '10px', border: '3px solid #2c003e'}}>
-                    <FaRocket /> Deployments
-                    </Button>
+                <Button variant="dark" href='/deploy' style={{backgroundColor: 'white',color: '#4B0082', fontWeight: 'bold', width: '200px', height: '60px', fontSize: '25px', margin: '10px', border: '3px solid #2c003e', padding: '10px', textAlign: 'center'}}>
+                    <FaRocket /> Deploy
+                </Button>
                 </Col>
             </Row>
             {showAuth && <Auth />}
             <Row className="justify-content-md-center mt-4">
                 <Col xs lg="2">
-                    <Button variant="dark" onClick={() => setShowChat(!showChat)} style={{backgroundColor: '#4B0082', fontWeight: 'bold', width: '200px', height: '60px', fontSize: '20px', margin: '10px', border: '3px solid #2c003e'}}>
+                    <Button variant="dark" onClick={() => setShowChat(!showChat)} style={{backgroundColor: '#4B0082', fontWeight: 'bold', width: '200px', height: '60px', fontSize: '25px', margin: '10px', border: '3px solid #2c003e', padding: '10px', textAlign: 'center'}}>
                         <FaComments /> Chat
                     </Button>
                 </Col>
                 <Col xs lg="2">
-                    <Button variant="dark" onClick={() => window.open('https://codepaycloud.github.io/docs', '_blank')} style={{backgroundColor: '#4B0082', fontWeight: 'bold', width: '200px', height: '60px', fontSize: '20px', margin: '10px', border: '3px solid #2c003e'}}>
+                    <Button variant="dark" onClick={() => window.open('https://codepaycloud.github.io/docs', '_blank')} style={{backgroundColor: '#4B0082', fontWeight: 'bold', width: '200px', height: '60px', fontSize: '25px', margin: '10px', border: '3px solid #2c003e', padding: '10px', textAlign: 'center'}}>
                         <FaGithub /> Docs
                     </Button>
                 </Col>
                 <Col xs lg="2">
-                    <Button onClick={() => setShowDiagram(!showDiagram)} style={{backgroundColor: '#4B0082', fontWeight: 'bold', width: '200px', height: '60px', fontSize: '20px', margin: '10px', border: '3px solid #2c003e'}}>
-                        { showDiagram ? 'Hide' : 'Show'}  MLOps <FaBook />
+                    <Button onClick={() => setShowDiagram(!showDiagram)} style={{backgroundColor: '#4B0082', fontWeight: 'bold', width: '200px', height: '60px', fontSize: '25px', margin: '10px', border: '3px solid #2c003e', padding: '10px', textAlign: 'center'}}>
+                        <FaBook /> MLOps
                     </Button>
                 </Col>
             </Row>
