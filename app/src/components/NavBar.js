@@ -1,9 +1,9 @@
 // NavBar.js
 import { Navbar, Nav, Button, Dropdown } from 'react-bootstrap';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import ThemeContext from '../ThemeContext';
 import { useContext } from 'react';
-import { FaSun, FaMoon, FaHome, FaBook, FaCloud, FaSignInAlt, FaComment,FaPencilAlt, FaCog,FaCodeBranch,FaGithub, FaLinkedin,FaBitbucket,FaGitlab } from 'react-icons/fa';
+import { FaSun, FaMoon, FaHome, FaBook, FaCloud, FaSignInAlt,FaRocket, FaComment,FaPencilAlt, FaCog,FaCodeBranch,FaGithub, FaLinkedin,FaBitbucket,FaGitlab } from 'react-icons/fa';
 
 function NavBar({ session }) {
     const { theme, toggleTheme } = useContext(ThemeContext);
@@ -17,21 +17,20 @@ function NavBar({ session }) {
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="ml-auto">
                     <Nav.Link as={NavLink} to="/" className="nav-link-custom nav-link-large" end> <FaHome /> Code Pay</Nav.Link>
-                    <Nav.Link href="/request" className="nav-link-custom"><FaPencilAlt /> Bid on Branch</Nav.Link>
-                    <Nav.Link href="/workspace" className="nav-link-custom"><FaCodeBranch /> Workspace</Nav.Link>
-                    <div className="d-flex flex-column mb-2">
-                        <Nav.Link href="/chat" className="nav-link-custom"><FaComment /> Chat</Nav.Link>
-                    </div>
-                    <div className="d-flex flex-column mb-2">
-                        {session ? (
-                            <Nav.Link href="/settings" className="nav-link-custom"><FaCog /> Settings</Nav.Link>
-                        ) : (
-                            <Nav.Link href="/auth" className="nav-link-custom"><FaSignInAlt /> Login</Nav.Link>
-                        )}
-                    </div>
+                    <Nav.Link href="/request" className="nav-link-custom"><FaPencilAlt /> Projects</Nav.Link>
+                    <Nav.Link href="/workspace" className="nav-link-custom"><FaCodeBranch /> Workspace</Nav.Link> 
+                    <Nav.Link href="/deploy" className="nav-link-custom"><FaRocket /> Deployments</Nav.Link> 
                 </Nav>
                 <div className="d-flex ms-auto">
                     <div className="d-flex flex-row align-items-center">
+                        {session ? (
+                            <Nav.Link href="/settings" className="nav-link-custom" style={{ paddingRight: '20px' }}><FaCog /> Settings</Nav.Link>
+                        ) : (
+                            <Nav.Link href="/auth" className="nav-link-custom" style={{ paddingRight: '20px' }}><FaSignInAlt /> Login</Nav.Link>
+                        )}
+                    <Navbar.Brand as={Link} to="/chat" className="ml-2">
+                        <FaComment color="white" size="2em" />
+                    </Navbar.Brand>
                         <Navbar.Brand href="https://www.linkedin.com/company/codepay-cloud" target="_blank" className="ml-2">
                             <FaLinkedin color="white" size="2em" />
                         </Navbar.Brand>

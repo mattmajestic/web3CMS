@@ -9,6 +9,7 @@ import Api from './components/Api';
 import Docs from './components/Docs';
 import Chat from './components/Chat';
 import Terms from './components/Terms';
+import Deploy from './components/Deploy';
 import Workspace from './components/Workspace';
 import Pricing from './components/Pricing';
 import Settings from './components/Settings';
@@ -52,6 +53,7 @@ function App() {
           <Route path="/terms" element={<Terms />} />
           <Route path="/pricing" element={<Pricing />} />
           <Route path="/workspace" element={<Workspace session={session} />} />
+          <Route path="/Deploy" element={<Deploy session={session} />} />
           <Route path="/settings" element={<Settings session={session} />} />
           <Route path="/cloud" element={<Cloud session={session} />} />
           <Route path="/request" element={<Request session={session} />} />

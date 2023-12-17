@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Container, Button, Row, Col, Alert } from 'react-bootstrap';
+import { Container, Button, Row, Col, Alert,Nav } from 'react-bootstrap';
 import { useNavigate, Link } from 'react-router-dom';
-import { FaSignInAlt, FaPencilAlt, FaBook, FaComments, FaCodeBranch,FaGithub } from 'react-icons/fa';
+import { FaSignInAlt, FaPencilAlt, FaBook, FaComments, FaCodeBranch,FaGithub, FaRocket } from 'react-icons/fa';
 import Chat from './Chat';
 import Request from './Request'; 
 import Auth from './Auth'; 
@@ -26,7 +26,23 @@ function Home() {
             <Alert variant="info">
                 Get started getting paid for your Code!  Start by <Link to="/auth">Logging in</Link> via Github, Gitlab or Bitbucket
             </Alert>
-            <br></br>
+            <Row className="justify-content-md-center mt-4">
+                <Col xs lg="2">
+                    <Button variant="dark" href='/request' style={{backgroundColor: 'white',color: '#4B0082', fontWeight: 'bold', width: '200px', height: '60px', fontSize: '20px', margin: '10px', border: '3px solid #2c003e'}}>
+                        <FaPencilAlt /> Projects
+                    </Button>
+                </Col>
+                <Col xs lg="2">
+                    <Button variant="dark" href='/workspace' style={{backgroundColor: 'white',color: '#4B0082', fontWeight: 'bold', width: '200px', height: '60px', fontSize: '20px', margin: '10px', border: '3px solid #2c003e'}}>
+                        <FaCodeBranch /> Workspace
+                    </Button>
+                </Col>
+                <Col xs lg="2">
+                <Button variant="dark" href='/deploy' style={{backgroundColor: 'white',color: '#4B0082', fontWeight: 'bold', width: '200px', height: '60px', fontSize: '20px', margin: '10px', border: '3px solid #2c003e'}}>
+                    <FaRocket /> Deployments
+                    </Button>
+                </Col>
+            </Row>
             {showAuth && <Auth />}
             <Row className="justify-content-md-center mt-4">
                 <Col xs lg="2">
