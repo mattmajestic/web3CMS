@@ -17,9 +17,9 @@ function NavBar({ session }) {
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="ml-auto">
                     <Nav.Link as={NavLink} to="/" className="nav-link-custom nav-link-large" end> <FaHome /> Code Pay</Nav.Link>
-                    <Nav.Link href="/request" className="nav-link-custom"><FaPencilAlt /> Projects</Nav.Link>
+                    {/* <Nav.Link href="/request" className="nav-link-custom"><FaPencilAlt /> Projects</Nav.Link>
                     <Nav.Link href="/workspace" className="nav-link-custom"><FaCodeBranch /> Workspace</Nav.Link> 
-                    <Nav.Link href="/deploy" className="nav-link-custom"><FaRocket /> Deployments</Nav.Link> 
+                    <Nav.Link href="/deploy" className="nav-link-custom"><FaRocket /> Deployments</Nav.Link>  */}
                 </Nav>
                 <div className="d-flex ms-auto">
                     <div className="d-flex flex-row align-items-center">
