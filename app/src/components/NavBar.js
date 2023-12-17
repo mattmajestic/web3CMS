@@ -4,6 +4,7 @@ import { NavLink, Link } from 'react-router-dom';
 import ThemeContext from '../ThemeContext';
 import { useContext } from 'react';
 import { FaSun, FaMoon, FaHome, FaBook, FaCloud,FaList, FaSignInAlt,FaRocket, FaComment,FaPencilAlt, FaCog,FaCodeBranch,FaGithub, FaLinkedin,FaBitbucket,FaGitlab } from 'react-icons/fa';
+import '../App.css'; // Import the CSS file
 
 function NavBar({ session }) {
     const { theme, toggleTheme } = useContext(ThemeContext);
@@ -17,7 +18,7 @@ function NavBar({ session }) {
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="ml-auto">
                     <Nav.Link as={NavLink} to="/" className="nav-link-custom nav-link-large" end> </Nav.Link>
-                    <Dropdown className="mr-2">
+                    <Dropdown className="mr-2 dropdown-hover">
                         <Dropdown.Toggle variant="secondary" id="dropdown-basic">
                             <FaRocket color="white" size="2em" /> <span style={{ fontSize: '1.5em' }}>CodePay Products</span>
                         </Dropdown.Toggle>
@@ -50,19 +51,19 @@ function NavBar({ session }) {
                         <Navbar.Brand href="https://www.linkedin.com/company/codepay-cloud" target="_blank" className="ml-2">
                             <FaLinkedin color="white" size="2em" />
                         </Navbar.Brand>
-                        <Dropdown className="mr-2">
+                        <Dropdown className="mr-2 dropdown-hover">
                             <Dropdown.Toggle variant="secondary" id="dropdown-basic">
                                 <FaGithub color="white" size="2em" /> Code
                             </Dropdown.Toggle>
                             <Dropdown.Menu>
                                 <Dropdown.Item href="https://github.com/CodePayCloud" target="_blank">
-                                    <FaGithub color="black" size="1em" /> GitHub
+                                    <span style={{ fontSize: '1em', color: '#4B0082' }}><FaGithub color="#4B0082" size="1.5em" /> GitHub</span>
                                 </Dropdown.Item>
                                 <Dropdown.Item href="https://bitbucket.org/CodePayCloud" target="_blank">
-                                    <FaBitbucket color="black" size="1em" /> Bitbucket
+                                    <span style={{ fontSize: '1em', color: '#4B0082' }}><FaBitbucket color="#4B0082" size="1.5em" /> Bitbucket</span>
                                 </Dropdown.Item>
                                 <Dropdown.Item href="https://gitlab.com/CodePayCloud" target="_blank">
-                                    <FaGitlab color="black" size="1em" /> GitLab
+                                    <span style={{ fontSize: '1em', color: '#4B0082' }}><FaGitlab color="#4B0082" size="1.5em" /> GitLab</span>
                                 </Dropdown.Item>
                             </Dropdown.Menu>
                         </Dropdown>

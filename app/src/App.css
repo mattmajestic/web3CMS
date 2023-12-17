@@ -80,3 +80,7 @@ body.light {
   font-size: 1.5em; /* Increase the font size */
   padding: 10px; /* Increase the overall size */
 }
+
+.dropdown-hover:hover .dropdown-menu {
+  display: block;
+}
