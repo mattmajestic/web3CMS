@@ -1,9 +1,0 @@
-streamlit
-fpdf2
-fastapi
-uvicorn
-matplotlib
-pandas
-supabase
-openpyxl
-pydantic

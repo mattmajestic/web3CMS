@@ -32,6 +32,9 @@ function NavBar({ session }) {
                             <Dropdown.Item href="/deploy">
                                 <span style={{ fontSize: '1.5em', color: '#4B0082' }}><FaRocket color="#4B0082" size="1.5em" /> Deployments</span>
                             </Dropdown.Item>
+                            <Dropdown.Item href="/database">
+                                <span style={{ fontSize: '1.5em', color: '#4B0082' }}><FaCloud color="#4B0082" size="1.5em" /> Databases</span>
+                            </Dropdown.Item>
                         </Dropdown.Menu>
                     </Dropdown>
                     {/* <Nav.Link href="/request" className="nav-link-custom"><FaPencilAlt /> Projects</Nav.Link>
