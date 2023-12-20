@@ -19,8 +19,10 @@ function Home() {
             <br></br>
 
             <div style={{ textAlign: 'center' }}>
-                <img src="/codepay.png" alt="CodePay Logo" style={{width: '180px', height: '180px', borderRadius: '50%', objectFit: 'cover', border: '18px solid transparent', borderImageSource: 'linear-gradient(to bottom, grey, white)', borderImageSlice: 1}}/>
-                <h5>CodePay is a platform that connects coders with those who need coding tasks done.</h5>
+                <img src="/codepay.png" alt="CodePay Logo" style={{width: '180px', height: '180px', borderRadius: '50%', objectFit: 'cover', border: '18px solid transparent'}}/>
+                <br></br>
+                <h4>CodePay is a platform that connects coders with those who need coding tasks done.</h4>
+                <br></br>
                 <h3>CodePay is the place for you.</h3>
             </div>
             <br></br>
@@ -29,25 +31,6 @@ function Home() {
                     <FaSignInAlt /> Login
                 </Button>
             </div>
-            <Dropdown className="mr-2 dropdown-hover">
-                        <Dropdown.Toggle variant="secondary" id="dropdown-basic" style={{ backgroundColor: 'white' }}>
-                            <FaRocket color="#4B0082" size="2em" /> <span style={{ fontSize: '1.5em', color: '#4B0082' }}>CodePay Products</span>
-                        </Dropdown.Toggle>
-                        <Dropdown.Menu>
-                            <Dropdown.Item href="/request">
-                                <span style={{ fontSize: '1.5em', color: '#4B0082' }}><FaPencilAlt color="#4B0082" size="1.5em" /> Projects</span>
-                            </Dropdown.Item>
-                            <Dropdown.Item href="/workspace">
-                                <span style={{ fontSize: '1.5em', color: '#4B0082' }}><FaCodeBranch color="#4B0082" size="1.5em" /> Workspace</span>
-                            </Dropdown.Item>
-                            <Dropdown.Item href="/deploy">
-                                <span style={{ fontSize: '1.5em', color: '#4B0082' }}><FaRocket color="#4B0082" size="1.5em" /> Deployments</span>
-                            </Dropdown.Item>
-                            <Dropdown.Item href="/database">
-                                <span style={{ fontSize: '1.5em', color: '#4B0082' }}><FaCloud color="#4B0082" size="1.5em" /> Databases</span>
-                            </Dropdown.Item>
-                        </Dropdown.Menu>
-                    </Dropdown>  
         </Container>
     );
 }
