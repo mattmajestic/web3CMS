@@ -21,9 +21,7 @@ function Home() {
             <div style={{ textAlign: 'center' }}>
                 <img src="/codepay.png" alt="CodePay Logo" style={{width: '180px', height: '180px', borderRadius: '50%', objectFit: 'cover', border: '18px solid transparent'}}/>
                 <br></br>
-                <h4>CodePay is a platform that connects coders with those who need coding tasks done.</h4>
-                <br></br>
-                <h3>CodePay is the place for you.</h3>
+                <h4>We help you monetize your code.</h4>
             </div>
             <br></br>
             <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '20px' }}>
