@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Container, Button, Row, Col, Alert,Nav } from 'react-bootstrap';
+import { Container, Button, Row, Col, Alert,Nav,Dropdown } from 'react-bootstrap';
 import { useNavigate, Link } from 'react-router-dom';
-import { FaSignInAlt, FaPencilAlt, FaBook, FaComments, FaCodeBranch,FaGithub, FaRocket } from 'react-icons/fa';
+import { FaSignInAlt, FaPencilAlt, FaBook, FaComments, FaCodeBranch,FaGithub, FaRocket, FaCloud } from 'react-icons/fa';
 import Chat from './Chat';
 import Request from './Request'; 
 import Auth from './Auth'; 
@@ -14,81 +14,40 @@ function Home() {
     const [showAuth, setShowAuth] = useState(false);
 
     return (
-        <Container className="mt-5 p-5 rounded" style={{backgroundColor: '#3B3A54'}}>
+        <Container className="mt-5 p-5 rounded d-flex flex-column align-items-center" style={{backgroundColor: '#3B3A54'}}>
             <h1>Welcome to CodePay</h1>
             <br></br>
-            <h5>
-                CodePay is a platform that connects coders with those who need coding tasks done. 
-                Whether you're a coder looking for projects, or you need a coder to complete a task, 
-                CodePay is the place for you.
-            </h5>
+
+            <div style={{ textAlign: 'center' }}>
+                <img src="/codepay.png" alt="CodePay Logo" style={{width: '180px', height: '180px', borderRadius: '50%', objectFit: 'cover', border: '18px solid transparent', borderImageSource: 'linear-gradient(to bottom, grey, white)', borderImageSlice: 1}}/>
+                <h5>CodePay is a platform that connects coders with those who need coding tasks done.</h5>
+                <h3>CodePay is the place for you.</h3>
+            </div>
             <br></br>
-            <Alert variant="info">
-                Get started getting paid for your Code!  Start by <Link to="/auth">Logging in</Link> via Github, Gitlab or Bitbucket
-            </Alert>
-            <Row className="justify-content-md-center mt-4">
-                <Col xs lg="2">
-                    <Button variant="dark" href='/request' style={{backgroundColor: 'white',color: '#4B0082', fontWeight: 'bold', width: '200px', height: '60px', fontSize: '25px', margin: '10px', border: '3px solid #2c003e', padding: '10px', textAlign: 'center'}}>
-                        <FaPencilAlt /> Project
-                    </Button>
-                </Col>
-                <Col xs lg="2">
-                    <Button variant="dark" href='/workspace' style={{backgroundColor: 'white',color: '#4B0082', fontWeight: 'bold', width: '200px', height: '60px', fontSize: '25px', margin: '10px', border: '3px solid #2c003e', padding: '10px', textAlign: 'center'}}>
-                        <FaCodeBranch /> Workspace
-                    </Button>
-                </Col>
-                <Col xs lg="2">
-                <Button variant="dark" href='/deploy' style={{backgroundColor: 'white',color: '#4B0082', fontWeight: 'bold', width: '200px', height: '60px', fontSize: '25px', margin: '10px', border: '3px solid #2c003e', padding: '10px', textAlign: 'center'}}>
-                    <FaRocket /> Deploy
+            <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '20px' }}>
+                <Button variant="dark" href='/auth' style={{backgroundColor: 'white',color: 'green', fontWeight: 'bold', fontSize: '30px', margin: '5px', border: '3px solid #2c003e', padding: '10px', textAlign: 'center'}}>
+                    <FaSignInAlt /> Login
                 </Button>
-                </Col>
-            </Row>
-            {showAuth && <Auth />}
-            <Row className="justify-content-md-center mt-4">
-                <Col xs lg="2">
-                    <Button variant="dark" onClick={() => setShowChat(!showChat)} style={{backgroundColor: '#4B0082', fontWeight: 'bold', width: '200px', height: '60px', fontSize: '25px', margin: '10px', border: '3px solid #2c003e', padding: '10px', textAlign: 'center'}}>
-                        <FaComments /> Chat
-                    </Button>
-                </Col>
-                <Col xs lg="2">
-                    <Button variant="dark" onClick={() => window.open('https://codepaycloud.github.io/docs', '_blank')} style={{backgroundColor: '#4B0082', fontWeight: 'bold', width: '200px', height: '60px', fontSize: '25px', margin: '10px', border: '3px solid #2c003e', padding: '10px', textAlign: 'center'}}>
-                        <FaGithub /> Docs
-                    </Button>
-                </Col>
-                <Col xs lg="2">
-                    <Button onClick={() => setShowDiagram(!showDiagram)} style={{backgroundColor: '#4B0082', fontWeight: 'bold', width: '200px', height: '60px', fontSize: '25px', margin: '10px', border: '3px solid #2c003e', padding: '10px', textAlign: 'center'}}>
-                        <FaBook /> MLOps
-                    </Button>
-                </Col>
-            </Row>
-            {showChat && (
-                <Row className="justify-content-md-center mt-4">
-                    <Col xs={12}>
-                        <div style={{maxHeight: '200px', overflowY: 'auto'}}>
-                            <Chat />
-                        </div>
-                    </Col>
-                </Row>
-            )}
-            {showRequestForm && (
-                <Row className="justify-content-md-center mt-4">
-                    <Col xs={12}>
-                        <div style={{maxHeight: '200px', overflowY: 'auto'}}>
-                            <Request />
-                        </div>
-                    </Col>
-                </Row>
-            )}
-            {showDiagram && (
-                <Row className="justify-content-md-center mt-4">
-                    <Col xs={12}>
-                        <div className="d-flex justify-content-center">
-                            <img src={mermaidUrl} alt="Mermaid diagram" />
-                        </div>
-                    </Col>
-                </Row>
-            )}
-            
+            </div>
+            <Dropdown className="mr-2 dropdown-hover">
+                        <Dropdown.Toggle variant="secondary" id="dropdown-basic" style={{ backgroundColor: 'white' }}>
+                            <FaRocket color="#4B0082" size="2em" /> <span style={{ fontSize: '1.5em', color: '#4B0082' }}>CodePay Products</span>
+                        </Dropdown.Toggle>
+                        <Dropdown.Menu>
+                            <Dropdown.Item href="/request">
+                                <span style={{ fontSize: '1.5em', color: '#4B0082' }}><FaPencilAlt color="#4B0082" size="1.5em" /> Projects</span>
+                            </Dropdown.Item>
+                            <Dropdown.Item href="/workspace">
+                                <span style={{ fontSize: '1.5em', color: '#4B0082' }}><FaCodeBranch color="#4B0082" size="1.5em" /> Workspace</span>
+                            </Dropdown.Item>
+                            <Dropdown.Item href="/deploy">
+                                <span style={{ fontSize: '1.5em', color: '#4B0082' }}><FaRocket color="#4B0082" size="1.5em" /> Deployments</span>
+                            </Dropdown.Item>
+                            <Dropdown.Item href="/database">
+                                <span style={{ fontSize: '1.5em', color: '#4B0082' }}><FaCloud color="#4B0082" size="1.5em" /> Databases</span>
+                            </Dropdown.Item>
+                        </Dropdown.Menu>
+                    </Dropdown>  
         </Container>
     );
 }
