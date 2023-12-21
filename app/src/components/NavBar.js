@@ -6,6 +6,7 @@ import { useContext } from 'react';
 import { FaSun, FaMoon, FaHome, FaBook, FaCloud,FaList, FaSignInAlt,FaRocket, FaComment,FaPencilAlt, FaCog,FaCodeBranch,FaGithub, FaLinkedin,FaBitbucket,FaGitlab } from 'react-icons/fa';
 import '../App.css'; // Import the CSS file
 
+
 function NavBar({ session }) {
     const { theme, toggleTheme } = useContext(ThemeContext);
 
@@ -46,14 +47,28 @@ function NavBar({ session }) {
                 </Nav>
                 <div className="d-flex ms-auto">
                     <div className="d-flex flex-row align-items-center">
-                        {session ? (
-                            <Nav.Link href="/settings" className="nav-link-custom" style={{ paddingRight: '20px' }}><FaCog /> Settings</Nav.Link>
-                        ) : (
-                            <Nav.Link href="/auth" className="nav-link-custom" style={{ paddingRight: '20px' }}><FaSignInAlt /> Login</Nav.Link>
-                        )}
+                    {session ? (
+                        <Button 
+                            href="/settings"
+                            variant="dark" 
+                            className="fade-animation" 
+                            style={{backgroundColor: 'white',color: '#17072B', fontWeight: 'bold', fontSize: '18px', margin: '5px', border: '3px solid #2c003e', padding: '10px', textAlign: 'center'}}
+                        >
+                            <FaCog /> Settings
+                        </Button>
+                    ) : (
+                        <Button 
+                            href="/auth"
+                            variant="dark" 
+                            className="fade-animation" 
+                            style={{backgroundColor: 'white',color: '#17072B', fontWeight: 'bold', fontSize: '18px', margin: '5px', border: '3px solid #2c003e', padding: '10px', textAlign: 'center'}}
+                        >
+                            <FaSignInAlt /> Login
+                        </Button>
+                    )}
                         <Dropdown className="mr-2 dropdown-hover">
                             <Dropdown.Toggle variant="secondary" id="dropdown-basic">
-                                <FaGithub color="white" size="2em" /> Code
+                                <FaGithub color="white" size="2em" />
                             </Dropdown.Toggle>
                             <Dropdown.Menu>
                                 <Dropdown.Item href="https://github.com/CodePayCloud" target="_blank">
