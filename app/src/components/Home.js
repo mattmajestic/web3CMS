@@ -5,6 +5,8 @@ import { FaSignInAlt, FaPencilAlt, FaBook, FaComments, FaCodeBranch,FaGithub, Fa
 import Chat from './Chat';
 import Request from './Request'; 
 import Auth from './Auth'; 
+import { isMobile } from 'react-device-detect';
+import Modal from 'react-modal';
 
 function Home() {
     const mermaidUrl = "https://mermaid.ink/img/pako:eNpVkM1ugzAQhF9ltYeeSMRPgoFDpRIatYdIVZJeWnqwsJOggo2MaZIS3r02iVrVJ2tn_I13eiwk45jgrpLH4kCVhm2WCzDn4T2lLYeV0asPmEzu4fLacgXPoul0e4H0ZoOb1lSSMs5gRTVXJa2spd8qWgo7tJTh_4tFJTsGGy0V3XNYlhX_o6ZXSyaLruZCt3AHW97a2KxfGJa6sdLR9nhqKpMDVrnAsl_zr5Iff03ZFTb-pYWMagpajmZ4WRvkk0WWYg-p1AM6WHNV05KZVnoLyFEfeM1zTMyVUfWZYy6sj3Zabs6iwESrjjvYNczsnpV0r2iNyc50YKaclWbF1bXmsW0HGyow6fGEiecGUy8MfDKPg9AP48B38IyJ70bTmRv4czcOiefFXjg4-C2lwXpTl8SEhH5EXBJFczIbeW-jOGYOP72vkcc?type=png";
@@ -12,9 +14,49 @@ function Home() {
     const [showChat, setShowChat] = useState(false);
     const [showRequestForm, setShowRequestForm] = useState(false);
     const [showAuth, setShowAuth] = useState(false);
+    const [modalIsOpen, setModalIsOpen] = useState(isMobile);
+
+  const closeModal = () => {
+    setModalIsOpen(false);
+  };
+
 
     return (
         <Container className="mt-5 p-5 rounded d-flex flex-column align-items-center" style={{backgroundColor: '#3B3A54'}}>
+        <Modal
+          isOpen={modalIsOpen}
+          onRequestClose={closeModal}
+          style={{
+            overlay: { backgroundColor: 'rgba(0, 0, 0, 0.5)' },
+            content: {
+              color: 'white',
+              backgroundColor: '#17072B',
+              padding: '20px',
+              borderRadius: '10px',
+              width: '50%',
+              height: '50%',
+              position: 'absolute',
+              top: '25%',
+              left: '25%'
+            }
+          }}
+          contentLabel="Mobile Warning"
+        >
+          <h2>Mobile Optimization Coming Soon.</h2>
+          <button 
+            onClick={closeModal} 
+            style={{ 
+              backgroundColor: 'white', 
+              color: '#17072B', 
+              padding: '10px', 
+              borderRadius: '5px', 
+              border: 'none', 
+              cursor: 'pointer' 
+            }}
+          >
+            Proceed
+          </button>
+        </Modal>
             <h1>Welcome to CodePay</h1>
             <br></br>
 
