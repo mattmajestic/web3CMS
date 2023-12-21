@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { supabase } from '../supabaseClient';
 import { Auth } from '@supabase/auth-ui-react';
 import { ThemeSupa } from '@supabase/auth-ui-shared';
-import '../SignUp.css'; // Import the CSS file
+import styles from '../SignUp.module.css'; // Import the CSS file
 
 function SignUp() {
     return (
