@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Container, Button, Row, Col, Alert,Nav,Dropdown } from 'react-bootstrap';
 import { useNavigate, Link } from 'react-router-dom';
-import { FaSignInAlt, FaPencilAlt, FaBook, FaComments, FaCodeBranch,FaGithub, FaRocket, FaCloud } from 'react-icons/fa';
+import { FaSignInAlt, FaPencilAlt, FaBook, FaComments, FaCodeBranch,FaGithub, FaRocket, FaCloud,FaLinkedin } from 'react-icons/fa';
 import Chat from './Chat';
 import Request from './Request'; 
 import Auth from './Auth'; 
@@ -24,10 +24,18 @@ function Home() {
                 <h4>We help you monetize your code.</h4>
             </div>
             <br></br>
-            <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '20px' }}>
+            <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '3px' }}>
                 <Button variant="dark" href='/auth' className="fade-animation" style={{backgroundColor: 'white',color: '#17072B', fontWeight: 'bold', fontSize: '30px', margin: '5px', border: '3px solid #2c003e', padding: '10px', textAlign: 'center'}}>
                     <FaSignInAlt /> Login
-                </Button>
+                </Button>   
+            </div>
+            <div className="fade-animation" style={{ display: 'flex', justifyContent: 'center', marginBottom: '20px' }}>
+                <a href="https://www.github.com/codepaycloud" className="fade-animation" style={{color: 'white', fontWeight: 'bold', fontSize: '60px', margin: '5px', textAlign: 'center'}}>
+                    <FaGithub />
+                </a>
+                <a href="https://www.linkedin.com/company/codepay-cloud" target="_blank" className="fade-animation" style={{color: 'white', fontWeight: 'bold', fontSize: '60px', margin: '5px', textAlign: 'center'}}>
+                    <FaLinkedin />
+                </a>
             </div>
         </Container>
     );

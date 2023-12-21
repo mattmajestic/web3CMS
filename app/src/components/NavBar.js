@@ -35,6 +35,9 @@ function NavBar({ session }) {
                             <Dropdown.Item href="/database">
                                 <span style={{ fontSize: '1.5em', color: '#4B0082' }}><FaCloud color="#4B0082" size="1.5em" /> Databases</span>
                             </Dropdown.Item>
+                            <Dropdown.Item href="/chat">
+                                <span style={{ fontSize: '1.5em', color: '#4B0082' }}><FaComment color="#4B0082" size="1.5em" /> AI Chat</span>
+                            </Dropdown.Item>
                         </Dropdown.Menu>
                     </Dropdown>
                     {/* <Nav.Link href="/request" className="nav-link-custom"><FaPencilAlt /> Projects</Nav.Link>
@@ -48,12 +51,6 @@ function NavBar({ session }) {
                         ) : (
                             <Nav.Link href="/auth" className="nav-link-custom" style={{ paddingRight: '20px' }}><FaSignInAlt /> Login</Nav.Link>
                         )}
-                    <Navbar.Brand as={Link} to="/chat" className="ml-2">
-                        <FaComment color="white" size="2em" />
-                    </Navbar.Brand>
-                        <Navbar.Brand href="https://www.linkedin.com/company/codepay-cloud" target="_blank" className="ml-2">
-                            <FaLinkedin color="white" size="2em" />
-                        </Navbar.Brand>
                         <Dropdown className="mr-2 dropdown-hover">
                             <Dropdown.Toggle variant="secondary" id="dropdown-basic">
                                 <FaGithub color="white" size="2em" /> Code
