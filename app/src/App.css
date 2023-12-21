@@ -84,3 +84,13 @@ body.light {
 .dropdown-hover:hover .dropdown-menu {
   display: block;
 }
+
+@keyframes fade {
+  0% {opacity: 0.5;}
+  50% {opacity: 1;}
+  100% {opacity: 0.5;}
+}
+
+.fade-animation {
+  animation: fade 6s infinite;
+}

@@ -12,7 +12,7 @@ function NavBar({ session }) {
     return (
         <Navbar bg={theme} variant={theme} expand="lg">
             <Navbar.Brand as={NavLink} to="/">
-                <img src="/codepay.png" alt="Your Logo" height="80" style={{borderRadius: '50%'}} />
+                <img src="/codepay.png" alt="Your Logo" height="80" className="fade-animation" style={{borderRadius: '50%'}} />
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">

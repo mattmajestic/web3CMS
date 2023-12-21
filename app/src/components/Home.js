@@ -19,7 +19,7 @@ function Home() {
             <br></br>
 
             <div style={{ textAlign: 'center' }}>
-                <img src="/codepay.png" alt="CodePay Logo" style={{width: '180px', height: '180px', borderRadius: '50%', objectFit: 'cover', border: '18px solid transparent'}}/>
+                <img src="/codepay.png" alt="CodePay Logo" className="fade-animation" style={{width: '240px', height: '240px', borderRadius: '50%', objectFit: 'cover', border: '18px solid transparent'}}/>
                 <br></br>
                 <h4>We help you monetize your code.</h4>
             </div>
