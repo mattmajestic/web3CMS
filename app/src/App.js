@@ -50,7 +50,7 @@ function App() {
           <Route path="/auth" element={<Auth />} />
           <Route path="/api" element={<Api />} />
           <Route path="/docs" element={<Docs />} />
-          <Route path="/chat" element={<Chat />} />
+          <Route path="/chat" element={<Chat session={session} />} />
           <Route path="/terms" element={<Terms />} />
           <Route path="/pricing" element={<Pricing />} />
           <Route path="/workspace" element={<Workspace session={session} />} />

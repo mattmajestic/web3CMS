@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { FaPaperclip } from 'react-icons/fa';
+import { supabase } from '../supabaseClient';
+import { v4 as uuidv4 } from 'uuid';
 
 const API_URL = "https://api-inference.huggingface.co/models/gpt2";
 const headers = { "Authorization": "Bearer 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" };
@@ -14,18 +16,47 @@ async function query(payload) {
   return result;
 }
 
-function Chat() {
+function Chat({ session }) {
   const [input, setInput] = useState('');
   const [messages, setMessages] = useState([]);
   const [isTyping, setIsTyping] = useState(false);
 
+  const generateId = () => {
+    return uuidv4();
+  };
+
   const handleClick = async () => {
-    setIsTyping(true);
-    const response = await query({ "inputs": input });
-    const generated_text = response[0].generated_text.replace(/\\/g, '').split('\n').map((line, index) => <div key={index}>{line}</div>);
-    setMessages([...messages, { text: input, position: 'right' }, { text: generated_text, position: 'left' }]);
-    setInput('');
-    setIsTyping(false);
+    if (input.trim() !== '') {
+      setIsTyping(true);
+
+      const userId = generateId();
+      const newMessage = {
+        text: input,
+        created_at: new Date().toISOString(),
+        user_id: userId,
+      };
+
+      // Save the user's message in the Supabase database
+      const { error } = await supabase
+        .from('chat')
+        .insert([newMessage]);
+
+      if (error) {
+        console.error('Error saving message:', error);
+      }
+
+      // Generate the chatbot's response
+      const response = await query({ "inputs": input });
+      const generated_text = response[0].generated_text.replace(/\\/g, '').split('\n').map((line, index) => <div key={index}>{line}</div>);
+
+      // Add the user's message and the chatbot's response to the messages state
+      setMessages(prevMessages => [...prevMessages, { text: input, position: 'right' }, { text: generated_text, position: 'left' }]);
+
+      // Clear the input
+      setInput('');
+
+      setIsTyping(false);
+    }
   };
 
   const handleKeyPress = (event) => {
@@ -34,10 +65,26 @@ function Chat() {
     }
   }
 
-  const handleFileUpload = (event) => {
+  const handleFileUpload = async (event) => {
     const file = event.target.files[0];
     console.log(file);
-    // Here you can handle the uploaded file (e.g., send it to a server)
+
+    const fileExtension = file.name.split('.').pop();
+    const fileName = `${generateId()}.${fileExtension}`;
+
+    const { data, error } = await supabase
+      .storage
+      .from('codepay')
+      .upload(fileName, file, {
+        cacheControl: '3600',
+        upsert: false
+      });
+
+    if (error) {
+      console.error('Error uploading file:', error);
+    } else {
+      console.log('File uploaded successfully');
+    }
   };
 
   useEffect(() => {
