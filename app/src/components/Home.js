@@ -25,7 +25,7 @@ function Home() {
             </div>
             <br></br>
             <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '20px' }}>
-                <Button variant="dark" href='/auth' style={{backgroundColor: 'white',color: 'green', fontWeight: 'bold', fontSize: '30px', margin: '5px', border: '3px solid #2c003e', padding: '10px', textAlign: 'center'}}>
+                <Button variant="dark" href='/auth' className="fade-animation" style={{backgroundColor: 'white',color: '#17072B', fontWeight: 'bold', fontSize: '30px', margin: '5px', border: '3px solid #2c003e', padding: '10px', textAlign: 'center'}}>
                     <FaSignInAlt /> Login
                 </Button>
             </div>
