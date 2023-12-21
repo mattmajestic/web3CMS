@@ -86,9 +86,9 @@ body.light {
 }
 
 @keyframes fade {
-  0% {opacity: 0.5;}
+  0% {opacity: 0.8;}
   50% {opacity: 1;}
-  100% {opacity: 0.5;}
+  100% {opacity: 0.8;}
 }
 
 .fade-animation {
@@ -101,7 +101,7 @@ body.light {
   justify-content: center;
   align-items: center;
   width: 100%;
-  max-width: 40%;
+  max-width: 50%;
   height: 65vh; /* Adjust the height */
   margin: auto;
   position: absolute;
@@ -109,5 +109,6 @@ body.light {
   left: 0;
   bottom: 0;
   right: 0;
-  background-color: #808080; /* Grey background */
+  background: linear-gradient(to bottom, #646187, transparent); /* Grey to transparent gradient */
+  animation: fade 6s infinite; /* Add the fade animation */
 }
