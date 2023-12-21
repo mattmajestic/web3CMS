@@ -94,3 +94,20 @@ body.light {
 .fade-animation {
   animation: fade 6s infinite;
 }
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 40%;
+  height: 65vh; /* Adjust the height */
+  margin: auto;
+  position: absolute;
+  top: 10%; /* Adjust the position */
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: #808080; /* Grey background */
+}
