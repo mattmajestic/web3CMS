@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Container, Button, Row, Col, Alert,Nav,Dropdown } from 'react-bootstrap';
 import { useNavigate, Link } from 'react-router-dom';
-import { FaSignInAlt, FaDollarSign , FaPencilAlt, FaBook, FaComments, FaCodeBranch,FaGithub, FaRocket, FaCloud,FaLinkedin } from 'react-icons/fa';
+import { FaSignInAlt, FaDollarSign , FaPencilAlt,FaComment, FaBook, FaComments, FaCodeBranch,FaGithub, FaRocket, FaCloud,FaLinkedin } from 'react-icons/fa';
 import Chat from './Chat';
 import Request from './Request'; 
 import Auth from './Auth'; 
