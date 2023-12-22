@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Container, Button, Row, Col, Alert,Nav,Dropdown } from 'react-bootstrap';
 import { useNavigate, Link } from 'react-router-dom';
-import { FaSignInAlt, FaDollarSign , FaPencilAlt,FaComment, FaBook, FaComments, FaCodeBranch,FaGithub, FaRocket, FaCloud,FaLinkedin } from 'react-icons/fa';
+import { FaSignInAlt,FaBoxOpen, FaDollarSign , FaPencilAlt,FaComment, FaBook, FaComments, FaCodeBranch,FaGithub, FaRocket, FaCloud,FaLinkedin } from 'react-icons/fa';
 import Chat from './Chat';
 import Request from './Request'; 
 import Auth from './Auth'; 
@@ -64,9 +64,9 @@ function Home({ session }) {
             </div>
             <br></br>
             {session ? (
-              <Dropdown className="mr-2 dropdown-hover fade-animation" style={{backgroundColor: '#17072B',color: '#17072B', fontWeight: 'bold', fontSize: '30px', margin: '5px', border: '3px solid #2c003e', padding: '10px', textAlign: 'center'}}>
-                <Dropdown.Toggle variant="dark" id="dropdown-basic">
-                  <FaRocket color="white" size="2em" /> <span style={{ fontSize: '1.5em' }}>CodePay Products</span>
+              <Dropdown className="mr-2 dropdown-hover fade-animation" style={{backgroundColor: 'white',color: '#17072B', fontWeight: 'bold', fontSize: '30px', margin: '5px', border: '3px solid #2c003e', padding: '10px', textAlign: 'center'}}>
+                <Dropdown.Toggle variant="dark" id="dropdown-basic" style={{ backgroundColor: 'rgba(23, 7, 43, 0.8)', borderColor: 'rgba(23, 7, 43, 0.8)' }}>
+                  <FaBoxOpen color="white" size="2em" /> <span style={{ fontSize: '1.5em', color: 'white' }}> Products</span>
                 </Dropdown.Toggle>
                 <Dropdown.Menu>
                   <Dropdown.Item href="/request">

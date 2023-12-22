@@ -3,7 +3,7 @@ import { Navbar, Nav, Button, Dropdown } from 'react-bootstrap';
 import { NavLink, Link } from 'react-router-dom';
 import ThemeContext from '../ThemeContext';
 import { useContext } from 'react';
-import { FaSun, FaMoon,FaDollarSign, FaHome, FaBook, FaCloud,FaList, FaSignInAlt,FaRocket, FaComment,FaPencilAlt, FaCog,FaCodeBranch,FaGithub, FaLinkedin,FaBitbucket,FaGitlab } from 'react-icons/fa';
+import { FaSun, FaMoon,FaBoxOpen,FaDollarSign, FaHome, FaBook, FaCloud,FaList, FaSignInAlt,FaRocket, FaComment,FaPencilAlt, FaCog,FaCodeBranch,FaGithub, FaLinkedin,FaBitbucket,FaGitlab } from 'react-icons/fa';
 import '../App.css'; 
 
 
@@ -21,7 +21,7 @@ function NavBar({ session }) {
                     <Nav.Link as={NavLink} to="/" className="nav-link-custom nav-link-large" end> </Nav.Link>
                     <Dropdown className="mr-2 dropdown-hover">
                         <Dropdown.Toggle variant="secondary" id="dropdown-basic">
-                            <FaRocket color="white" size="2em" /> <span style={{ fontSize: '1.5em' }}>CodePay Products</span>
+                            <FaBoxOpen color="white" size="2em" /> <span style={{ fontSize: '1.5em' }}>CodePay Products</span>
                         </Dropdown.Toggle>
                         <Dropdown.Menu>
                             <Dropdown.Item href="/request">
