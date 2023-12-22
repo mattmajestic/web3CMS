@@ -20,7 +20,14 @@ function Settings({ session }) {
     }
 
     function DisplayObjectProperties({ data }) {
-        return data ? Object.keys(data).join(', ') : '';
+        return data ? Object.entries(data).map(([key, value], index) => {
+            const formattedKey = key.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+            return (
+                <div key={index}>
+                    <strong>{formattedKey}:</strong> {JSON.stringify(value)}
+                </div>
+            );
+        }) : '';
     }
 
     return (
@@ -28,7 +35,7 @@ function Settings({ session }) {
             <h2>Settings</h2>
             <div>
                 <h3>Supabase Session Data:</h3>
-                <p>{DisplayObjectProperties({ data: session })}</p>
+                <p>{DisplayObjectProperties({ session })}</p>
             </div>
             <p>Connected MetaMask Account: {account}</p>
             <button onClick={loadWeb3}>
