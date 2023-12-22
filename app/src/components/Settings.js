@@ -20,7 +20,7 @@ function Settings({ session }) {
     }
 
     function DisplayObjectProperties({ data }) {
-        return Object.keys(data).join(', ');
+        return data ? Object.keys(data).join(', ') : '';
     }
 
     return (
@@ -28,7 +28,7 @@ function Settings({ session }) {
             <h2>Settings</h2>
             <div>
                 <h3>Supabase Session Data:</h3>
-                <DisplayObjectProperties data={session} />
+                <p>{DisplayObjectProperties({ data: session })}</p>
             </div>
             <p>Connected MetaMask Account: {account}</p>
             <button onClick={loadWeb3}>
