@@ -101,7 +101,7 @@ function Home({ session }) {
                     <FaLinkedin />
                 </a>
             </div>
-            <h6 style={{ textAlign: 'center', color: 'white' }}>Built On</h6>
+            {/* <h6 style={{ textAlign: 'center', color: 'white' }}>Built On</h6> */}
             <div style={{ display: 'flex', justifyContent: 'center', gap: '2px' }}>
               <a href="https://supabase.io" target="_blank" rel="noopener noreferrer">
                 <img src="https://img.shields.io/badge/-Supabase-000000?style=for-the-badge&logo=supabase&logoColor=white&color=grey" alt="Supabase" />
