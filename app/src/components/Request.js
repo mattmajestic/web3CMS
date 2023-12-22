@@ -6,6 +6,7 @@ import Image from 'react-bootstrap/Image';
 import { FaCodeBranch, FaFolderOpen, FaTrash } from 'react-icons/fa';
 import axios from 'axios';
 import { ToastContainer,toast } from 'react-toastify';
+import { supabase } from '../supabaseClient';
 
 const handleSubmit = async (e) => {
     e.preventDefault();
@@ -19,12 +20,24 @@ const handleSubmit = async (e) => {
                 repository: form.repository,
                 branch: form.branch,
                 type: form.type,
-                bid: form.bid
+                bid: form.bid,
+                created_at: new Date().toISOString() // Add this line
             };
             
-            toast('GitHub Repository Found... Creating your Bid...');
-            setWorkspaces(prevWorkspaces => [...prevWorkspaces, newWorkspace]);
-            setShowModal(false);
+            // Insert the newWorkspace data into the 'bids' table in Supabase
+            const { data, error } = await supabase
+                .from('bids')
+                .insert([
+                    { id: newWorkspace.id, name: newWorkspace.name, repository: newWorkspace.repository, branch: newWorkspace.branch, type: newWorkspace.type, bid: newWorkspace.bid, created_at: newWorkspace.created_at } // Add created_at here
+                ]);
+
+            if (error) {
+                console.error('Error inserting data: ', error);
+            } else {
+                toast('GitHub Repository Found... Creating your Bid...');
+                setWorkspaces(prevWorkspaces => [...prevWorkspaces, newWorkspace]);
+                setShowModal(false);
+            }
         }
     } catch (error) {
         if (error.response && error.response.status === 404) {
