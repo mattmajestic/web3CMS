@@ -20,19 +20,16 @@ function Settings({ session }) {
     }
 
     function DisplayObjectProperties({ data }) {
-        const keysToShow = ['expires_at', 'refresh_token', 'token_type', 'user'];
-        return data ? keysToShow.map((key, index) => {
-            if (data[key]) {
-                const formattedKey = key.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
-                const value = typeof data[key] === 'object' ? JSON.stringify(data[key]) : data[key];
-                return (
-                    <div key={index}>
-                        <strong>{formattedKey}:</strong> {value}
-                    </div>
-                );
-            }
-            return null;
-        }) : '';
+        if (data && data.user) {
+            const formattedKey = 'User';
+            const value = JSON.stringify(data.user);
+            return (
+                <div>
+                    <strong>{formattedKey}:</strong> {value}
+                </div>
+            );
+        }
+        return '';
     }
 
     return (
@@ -40,7 +37,7 @@ function Settings({ session }) {
             <h2>Settings</h2>
             <div>
                 <h3>Supabase Session Data:</h3>
-                <p>{DisplayObjectProperties({ session })}</p>
+                <p>{DisplayObjectProperties({ data: session })}</p>
             </div>
             <p>Connected MetaMask Account: {account}</p>
             <button onClick={loadWeb3}>
