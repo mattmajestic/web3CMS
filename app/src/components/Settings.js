@@ -22,9 +22,9 @@ function Settings({ session }) {
     function DisplayObjectProperties({ data }) {
         if (data && data.user) {
             return (
-                <div style={{ position: 'fixed', top: '0', left: '0', width: '50%', height: '50%', backgroundColor: 'grey', overflow: 'auto' }}>
+                <div style={{ position: 'fixed', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: '50%', height: '50%', backgroundColor: 'grey', overflow: 'auto' }}>
                     <strong>User:</strong>
-                    <ReactJson src={data.user} />
+                    <ReactJson src={data.user} theme={{ base00: 'black' }} style={{ fontSize: '12px' }} />
                 </div>
             );
         }
@@ -32,7 +32,7 @@ function Settings({ session }) {
     }
 
     return (
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100vh', fontSize: '20px' }}>
+        <div style={{ position: 'fixed', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '50vh', width: '50%', fontSize: '20px' }}>
             <h2>Settings</h2>
             <div>
                 <h3>Supabase Session Data:</h3>
