@@ -101,7 +101,7 @@ body.light {
   justify-content: center;
   align-items: center;
   width: 100%;
-  max-width: 60%;
+  max-width: 50%;
   height: 65vh; /* Adjust the height */
   margin: auto;
   position: absolute;

@@ -58,7 +58,7 @@ function Home() {
           </button>
         </Modal>
             <h1>CodePay</h1>
-            <h4>We help you monetize your code.</h4>
+            <h4>Monetize your Code</h4>
             <div style={{ textAlign: 'center' }}>
                 <img src="/codepay.png" alt="CodePay Logo" className="fade-animation" style={{width: '240px', height: '240px', borderRadius: '50%', objectFit: 'cover', border: '18px solid transparent'}}/>
             </div>
