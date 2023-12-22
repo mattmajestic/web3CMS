@@ -22,7 +22,7 @@ function Settings({ session }) {
     function DisplayObjectProperties({ data }) {
         if (data && data.user) {
             return (
-                <div>
+                <div style={{ position: 'fixed', top: '0', left: '0', width: '50%', height: '50%', backgroundColor: 'grey', overflow: 'auto' }}>
                     <strong>User:</strong>
                     <ReactJson src={data.user} />
                 </div>
