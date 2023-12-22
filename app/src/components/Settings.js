@@ -21,11 +21,10 @@ function Settings({ session }) {
 
     function DisplayObjectProperties({ data }) {
         if (data && data.user) {
-            const formattedKey = 'User';
-            const value = JSON.stringify(data.user);
             return (
                 <div>
-                    <strong>{formattedKey}:</strong> {value}
+                    <strong>User:</strong>
+                    <ReactJson src={data.user} />
                 </div>
             );
         }
