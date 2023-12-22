@@ -29,7 +29,7 @@ function SignUp() {
                 <Auth
                     supabaseClient={supabase}
                     appearance={{ theme: ThemeSupa }}
-                    providers={['github', 'bitbucket', 'gitlab', 'google','linkedin']}
+                    providers={['github', 'bitbucket', 'gitlab', 'google','linkedin_oidc']}
                 />
             </div>
         </div>
