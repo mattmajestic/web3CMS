@@ -47,7 +47,7 @@ function Settings({ session }) {
             <h2>Settings</h2>
             <div>
                 <h3>Supabase Session Data:</h3>
-                {session && <DisplayObjectProperties data={session} />}
+                <DisplayObjectProperties data={session} />
             </div>
             <p>Connected MetaMask Account: {account}</p>
             <button onClick={loadWeb3}>
