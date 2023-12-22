@@ -19,11 +19,18 @@ function NavBar({ session }) {
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="ml-auto">
                     <Nav.Link as={NavLink} to="/" className="nav-link-custom nav-link-large" end> </Nav.Link>
-                    <Dropdown className="mr-2 dropdown-hover">
+                    
+                    {/* <Nav.Link href="/request" className="nav-link-custom"><FaPencilAlt /> Projects</Nav.Link>
+                    <Nav.Link href="/workspace" className="nav-link-custom"><FaCodeBranch /> Workspace</Nav.Link> 
+                    <Nav.Link href="/deploy" className="nav-link-custom"><FaRocket /> Deployments</Nav.Link>  */}
+                </Nav>
+                <div className="d-flex ms-auto">
+                <div style={{ display: 'flex', alignItems: 'center', padding: '10px' }}>
+                <Dropdown className="mr-2 dropdown-hover">
                         <Dropdown.Toggle variant="secondary" id="dropdown-basic">
-                            <FaBoxOpen color="white" size="2em" /> <span style={{ fontSize: '1.5em' }}>Products</span>
+                            <FaBoxOpen color="white" size="1.5em" /> <span style={{ fontSize: '1.5em' }}>Products</span>
                         </Dropdown.Toggle>
-                        <Dropdown.Menu>
+                        <Dropdown.Menu alignLeft>
                             <Dropdown.Item href="/request">
                                 <span style={{ fontSize: '1.5em', color: '#17072B' }}><FaDollarSign color="#17072B" size="1.5em" /> Bids</span>
                             </Dropdown.Item>
@@ -41,13 +48,25 @@ function NavBar({ session }) {
                             </Dropdown.Item>
                         </Dropdown.Menu>
                     </Dropdown>
-                    {/* <Nav.Link href="/request" className="nav-link-custom"><FaPencilAlt /> Projects</Nav.Link>
-                    <Nav.Link href="/workspace" className="nav-link-custom"><FaCodeBranch /> Workspace</Nav.Link> 
-                    <Nav.Link href="/deploy" className="nav-link-custom"><FaRocket /> Deployments</Nav.Link>  */}
-                </Nav>
-                <div className="d-flex ms-auto">
+                    </div>
                     <div className="d-flex flex-row align-items-center">
-                    {session ? (
+                        <Dropdown className="mr-2 dropdown-hover">
+                            <Dropdown.Toggle variant="secondary" id="dropdown-basic">
+                                <FaGithub color="white" size="2.2em" />
+                            </Dropdown.Toggle>
+                            <Dropdown.Menu>
+                                <Dropdown.Item href="https://github.com/CodePayCloud" target="_blank">
+                                    <span style={{ fontSize: '1em', color: '#4B0082' }}><FaGithub color="#4B0082" size="1.5em" /> GitHub</span>
+                                </Dropdown.Item>
+                                <Dropdown.Item href="https://bitbucket.org/CodePayCloud" target="_blank">
+                                    <span style={{ fontSize: '1em', color: '#4B0082' }}><FaBitbucket color="#4B0082" size="1.5em" /> Bitbucket</span>
+                                </Dropdown.Item>
+                                <Dropdown.Item href="https://gitlab.com/CodePayCloud" target="_blank">
+                                    <span style={{ fontSize: '1em', color: '#4B0082' }}><FaGitlab color="#4B0082" size="1.5em" /> GitLab</span>
+                                </Dropdown.Item>
+                            </Dropdown.Menu>
+                        </Dropdown>
+                        {session ? (
                         <Button 
                             href="/settings"
                             variant="dark" 
@@ -66,25 +85,9 @@ function NavBar({ session }) {
                             <FaSignInAlt /> Login
                         </Button>
                     )}
-                        <Dropdown className="mr-2 dropdown-hover">
-                            <Dropdown.Toggle variant="secondary" id="dropdown-basic">
-                                <FaGithub color="white" size="2em" />
-                            </Dropdown.Toggle>
-                            <Dropdown.Menu>
-                                <Dropdown.Item href="https://github.com/CodePayCloud" target="_blank">
-                                    <span style={{ fontSize: '1em', color: '#4B0082' }}><FaGithub color="#4B0082" size="1.5em" /> GitHub</span>
-                                </Dropdown.Item>
-                                <Dropdown.Item href="https://bitbucket.org/CodePayCloud" target="_blank">
-                                    <span style={{ fontSize: '1em', color: '#4B0082' }}><FaBitbucket color="#4B0082" size="1.5em" /> Bitbucket</span>
-                                </Dropdown.Item>
-                                <Dropdown.Item href="https://gitlab.com/CodePayCloud" target="_blank">
-                                    <span style={{ fontSize: '1em', color: '#4B0082' }}><FaGitlab color="#4B0082" size="1.5em" /> GitLab</span>
-                                </Dropdown.Item>
-                            </Dropdown.Menu>
-                        </Dropdown>
-                        <Button variant="secondary" onClick={toggleTheme} className="ml-3" style={{ marginLeft: '10px' }}>
+                        {/* <Button variant="secondary" onClick={toggleTheme} className="ml-3" style={{ marginLeft: '10px' }}>
                             {theme === 'dark' ? <FaSun size="2em" /> : <FaMoon size="2em" />}
-                        </Button>
+                        </Button> */}
                     </div>
                 </div>
             </Navbar.Collapse>
