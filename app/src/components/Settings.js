@@ -24,7 +24,7 @@ function Settings({ session }) {
             return (
                 <div style={{ position: 'fixed', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: '50%', height: '50%', backgroundColor: 'grey', overflow: 'auto' }}>
                     <strong>User:</strong>
-                    <ReactJson src={data.user} theme={{ base00: 'black' }} style={{ fontSize: '12px' }} />
+                    <ReactJson src={data.user} theme="monokai" style={{ fontSize: '22px' }} />
                 </div>
             );
         }
