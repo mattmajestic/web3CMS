@@ -100,13 +100,13 @@ function Chat({ session }) {
     <div className="chat-container">
       <div className="chat-header">
         <img src='./codepay.png' alt="Logo" className="chat-logo" />
-        <h2>CodePay Chat</h2>
+        <h1>CodePay Chat</h1>
       </div>
       <div className="chat-messages">
-        <div className="chat-labels">
-          <div>AI</div>
-          <div>User</div>
-        </div>
+      <div className="chat-labels">
+          <div><span role="img" aria-label="robot">🤖</span> AI</div>
+          <div><span role="img" aria-label="user">👤</span> User</div>
+      </div>
         {messages.map((message, index) => (
           <div key={index} className={`chat-message ${message.position}`}>
             {message.text}

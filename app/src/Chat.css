@@ -28,15 +28,24 @@
     margin-bottom: 20px;
     padding: 20px;
     border-radius: 10px;
-    background: linear-gradient(to bottom, #17072B, #3d1a87); /* Light grey to purple gradient */
+    background: linear-gradient(to bottom, #17072B, #646187); /* Light grey to purple gradient */
   }
 
-.chat-labels {
+  .chat-labels {
     display: flex;
     justify-content: space-between;
-    color: white;
-    margin-bottom: 10px;
-    font-size: 24px;
+    padding: 10px;
+    background-color: #17072B; /* Light grey background */
+    border-radius: 5px;
+}
+
+.chat-labels div {
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.chat-labels div span {
+    margin-right: 5px;
 }
 
 .chat-message {
@@ -64,8 +73,9 @@
 }
 
 .typing-indicator {
-    color: #17072B;
-    font-size: 24px;
+    background-color: #17072B;
+    color: #ffffff;
+    font-size: 1.8em;
     text-align: right;
 }
 
