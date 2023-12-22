@@ -22,7 +22,14 @@ function Settings({ session }) {
     return (
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100vh', fontSize: '20px' }}>
             <h2>Settings</h2>
-            <p>Supabase Session Data: {JSON.stringify(session)}</p>
+            <div>
+                <h3>Supabase Session Data:</h3>
+                {session && Object.entries(session).map(([key, value], index) => (
+                    <div key={index}>
+                        <strong>{key}:</strong> {JSON.stringify(value)}
+                    </div>
+                ))}
+            </div>
             <p>Connected MetaMask Account: {account}</p>
             <button onClick={loadWeb3}>
                 <img src="/mm_logo.png" alt="MetaMask Logo" style={{ width: '20px', height: '20px' }} />
