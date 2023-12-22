@@ -21,7 +21,7 @@ function NavBar({ session }) {
                     <Nav.Link as={NavLink} to="/" className="nav-link-custom nav-link-large" end> </Nav.Link>
                     <Dropdown className="mr-2 dropdown-hover">
                         <Dropdown.Toggle variant="secondary" id="dropdown-basic">
-                            <FaBoxOpen color="white" size="2em" /> <span style={{ fontSize: '1.5em' }}>CodePay Products</span>
+                            <FaBoxOpen color="white" size="2em" /> <span style={{ fontSize: '1.5em' }}>Products</span>
                         </Dropdown.Toggle>
                         <Dropdown.Menu>
                             <Dropdown.Item href="/request">
