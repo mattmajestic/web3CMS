@@ -20,13 +20,17 @@ function Settings({ session }) {
     }
 
     function DisplayObjectProperties({ data }) {
-        return data ? Object.entries(data).map(([key, value], index) => {
-            const formattedKey = key.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
-            return (
-                <div key={index}>
-                    <strong>{formattedKey}:</strong> {JSON.stringify(value)}
-                </div>
-            );
+        const keysToShow = ['expires_at', 'refresh_token', 'token_type', 'user'];
+        return data ? keysToShow.map((key, index) => {
+            if (data[key]) {
+                const formattedKey = key.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+                return (
+                    <div key={index}>
+                        <strong>{formattedKey}:</strong> {JSON.stringify(data[key])}
+                    </div>
+                );
+            }
+            return null;
         }) : '';
     }
 
