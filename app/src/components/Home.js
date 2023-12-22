@@ -64,7 +64,7 @@ function Home({ session }) {
             </div>
             <br></br>
             {session ? (
-              <Dropdown className="mr-2 dropdown-hover fade-animation" style={{backgroundColor: 'white',color: '#17072B', fontWeight: 'bold', fontSize: '30px', margin: '5px', border: '3px solid #2c003e', padding: '10px', textAlign: 'center'}}>
+              <Dropdown className="mr-2 dropdown-hover fade-animation" style={{backgroundColor: '#17072B',color: '#17072B', fontWeight: 'bold', fontSize: '30px', margin: '5px', border: '3px solid #2c003e', padding: '10px', textAlign: 'center'}}>
                 <Dropdown.Toggle variant="dark" id="dropdown-basic">
                   <FaRocket color="white" size="2em" /> <span style={{ fontSize: '1.5em' }}>CodePay Products</span>
                 </Dropdown.Toggle>
