@@ -22,7 +22,7 @@ function Settings({ session }) {
     function DisplayObjectProperties({ data }) {
         if (data && data.user) {
             return (
-                <div style={{ position: 'fixed', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: '50%', height: '50%', backgroundColor: 'grey', overflow: 'auto' }}>
+                <div style={{ position: 'fixed', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: '100%', height: '100%', backgroundColor: 'grey', overflow: 'auto' }}>
                     <strong>User:</strong>
                     <ReactJson src={data.user} theme="monokai" style={{ fontSize: '22px' }} />
                 </div>
