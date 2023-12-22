@@ -101,6 +101,26 @@ function Home({ session }) {
                     <FaLinkedin />
                 </a>
             </div>
+            <div style={{ textAlign: 'left', paddingBottom: '10px' }}>
+              <h2>Integrations</h2>
+            </div>
+            <div style={{ display: 'flex', justifyContent: 'center', gap: '2px' }}>
+              <a href="https://supabase.io" target="_blank" rel="noopener noreferrer">
+                <img src="https://img.shields.io/badge/-Supabase-000000?style=for-the-badge&logo=supabase&logoColor=white&color=black" alt="Supabase" />
+              </a>
+              <a href="https://stripe.com" target="_blank" rel="noopener noreferrer">
+                <img src="https://img.shields.io/badge/-Stripe-000000?style=for-the-badge&logo=stripe&logoColor=white&color=black" alt="Stripe" />
+              </a>
+              <a href="https://www.tensorflow.org" target="_blank" rel="noopener noreferrer">
+                <img src="https://img.shields.io/badge/-TensorFlow-000000?style=for-the-badge&logo=tensorflow&logoColor=white&color=black" alt="TensorFlow" />
+              </a>
+              <a href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
+                <img src="https://img.shields.io/badge/-React-000000?style=for-the-badge&logo=react&logoColor=white&color=black" alt="React" />
+              </a>
+              <a href="https://fastapi.tiangolo.com" target="_blank" rel="noopener noreferrer">
+                <img src="https://img.shields.io/badge/-FastAPI-000000?style=for-the-badge&logo=fastapi&logoColor=white&color=black" alt="FastAPI" />
+              </a>
+            </div>
         </Container>
     );
 }
