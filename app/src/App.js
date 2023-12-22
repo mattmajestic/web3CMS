@@ -46,7 +46,7 @@ function App() {
       <Router>
         <NavBar session={session} />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home session={session} />} />
           <Route path="/auth" element={<Auth />} />
           <Route path="/api" element={<Api />} />
           <Route path="/docs" element={<Docs />} />

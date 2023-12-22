@@ -3,8 +3,8 @@ import { Navbar, Nav, Button, Dropdown } from 'react-bootstrap';
 import { NavLink, Link } from 'react-router-dom';
 import ThemeContext from '../ThemeContext';
 import { useContext } from 'react';
-import { FaSun, FaMoon, FaHome, FaBook, FaCloud,FaList, FaSignInAlt,FaRocket, FaComment,FaPencilAlt, FaCog,FaCodeBranch,FaGithub, FaLinkedin,FaBitbucket,FaGitlab } from 'react-icons/fa';
-import '../App.css'; // Import the CSS file
+import { FaSun, FaMoon,FaDollarSign, FaHome, FaBook, FaCloud,FaList, FaSignInAlt,FaRocket, FaComment,FaPencilAlt, FaCog,FaCodeBranch,FaGithub, FaLinkedin,FaBitbucket,FaGitlab } from 'react-icons/fa';
+import '../App.css'; 
 
 
 function NavBar({ session }) {
@@ -25,19 +25,19 @@ function NavBar({ session }) {
                         </Dropdown.Toggle>
                         <Dropdown.Menu>
                             <Dropdown.Item href="/request">
-                                <span style={{ fontSize: '1.5em', color: '#4B0082' }}><FaPencilAlt color="#4B0082" size="1.5em" /> Projects</span>
+                                <span style={{ fontSize: '1.5em', color: '#17072B' }}><FaDollarSign color="#17072B" size="1.5em" /> Bids</span>
                             </Dropdown.Item>
                             <Dropdown.Item href="/workspace">
-                                <span style={{ fontSize: '1.5em', color: '#4B0082' }}><FaCodeBranch color="#4B0082" size="1.5em" /> Workspace</span>
+                                <span style={{ fontSize: '1.5em', color: '#17072B' }}><FaCodeBranch color="#17072B" size="1.5em" /> Workspace</span>
                             </Dropdown.Item>
                             <Dropdown.Item href="/deploy">
-                                <span style={{ fontSize: '1.5em', color: '#4B0082' }}><FaRocket color="#4B0082" size="1.5em" /> Deployments</span>
+                                <span style={{ fontSize: '1.5em', color: '#17072B' }}><FaRocket color="#17072B" size="1.5em" /> Deployments</span>
                             </Dropdown.Item>
                             <Dropdown.Item href="/database">
-                                <span style={{ fontSize: '1.5em', color: '#4B0082' }}><FaCloud color="#4B0082" size="1.5em" /> Databases</span>
+                                <span style={{ fontSize: '1.5em', color: '#17072B' }}><FaCloud color="#17072B" size="1.5em" /> Databases</span>
                             </Dropdown.Item>
                             <Dropdown.Item href="/chat">
-                                <span style={{ fontSize: '1.5em', color: '#4B0082' }}><FaComment color="#4B0082" size="1.5em" /> AI Chat</span>
+                                <span style={{ fontSize: '1.5em', color: '#17072B' }}><FaComment color="#17072B" size="1.5em" /> AI Chat</span>
                             </Dropdown.Item>
                         </Dropdown.Menu>
                     </Dropdown>
