@@ -19,27 +19,8 @@ function Settings({ session }) {
         setAccount(accounts[0]);
     }
 
-    function DisplayObjectProperties({ data, indentLevel = 0 }) {
-        return (
-            <div style={{ paddingLeft: `${indentLevel * 20}px` }}>
-                {Object.entries(data).map(([key, value], index) => {
-                    if (typeof value === 'object' && value !== null) {
-                        return (
-                            <div key={index}>
-                                <strong>{key}:</strong>
-                                <DisplayObjectProperties data={value} indentLevel={indentLevel + 1} />
-                            </div>
-                        );
-                    } else {
-                        return (
-                            <div key={index}>
-                                <strong>{key}:</strong> {JSON.stringify(value)}
-                            </div>
-                        );
-                    }
-                })}
-            </div>
-        );
+    function DisplayObjectProperties({ data }) {
+        return Object.keys(data).join(', ');
     }
 
     return (
