@@ -24,9 +24,10 @@ function Settings({ session }) {
         return data ? keysToShow.map((key, index) => {
             if (data[key]) {
                 const formattedKey = key.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+                const value = typeof data[key] === 'object' ? JSON.stringify(data[key]) : data[key];
                 return (
                     <div key={index}>
-                        <strong>{formattedKey}:</strong> {JSON.stringify(data[key])}
+                        <strong>{formattedKey}:</strong> {value}
                     </div>
                 );
             }
