@@ -19,16 +19,35 @@ function Settings({ session }) {
         setAccount(accounts[0]);
     }
 
+    function DisplayObjectProperties({ data, indentLevel = 0 }) {
+        return (
+            <div style={{ paddingLeft: `${indentLevel * 20}px` }}>
+                {Object.entries(data).map(([key, value], index) => {
+                    if (typeof value === 'object' && value !== null) {
+                        return (
+                            <div key={index}>
+                                <strong>{key}:</strong>
+                                <DisplayObjectProperties data={value} indentLevel={indentLevel + 1} />
+                            </div>
+                        );
+                    } else {
+                        return (
+                            <div key={index}>
+                                <strong>{key}:</strong> {JSON.stringify(value)}
+                            </div>
+                        );
+                    }
+                })}
+            </div>
+        );
+    }
+
     return (
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100vh', fontSize: '20px' }}>
             <h2>Settings</h2>
             <div>
                 <h3>Supabase Session Data:</h3>
-                {session && Object.entries(session).map(([key, value], index) => (
-                    <div key={index}>
-                        <strong>{key}:</strong> {JSON.stringify(value)}
-                    </div>
-                ))}
+                {session && <DisplayObjectProperties data={session} />}
             </div>
             <p>Connected MetaMask Account: {account}</p>
             <button onClick={loadWeb3}>
