@@ -105,7 +105,10 @@ function Chat({ session }) {
       <div className="chat-messages">
       <div className="chat-labels">
           <div><span role="img" aria-label="robot">🤖</span> AI</div>
-          <div><span role="img" aria-label="user">👤</span> User</div>
+          <div>
+            <span role="img" aria-label="user">�</span> 
+            {session && session.root ? session.root.email : 'Anonymous'}
+          </div>
       </div>
         {messages.map((message, index) => (
           <div key={index} className={`chat-message ${message.position}`}>
