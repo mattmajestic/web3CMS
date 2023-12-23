@@ -8,67 +8,61 @@ import axios from 'axios';
 import { ToastContainer,toast } from 'react-toastify';
 import { supabase } from '../supabaseClient';
 
-const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    try {
-        const response = await axios.get(`https://api.github.com/repos/${form.username}/${form.repository}`);
-        if (response.status === 200) {
-            const newWorkspace = {
-                id: Date.now(),
-                name: form.username,
-                repository: form.repository,
-                branch: form.branch,
-                type: form.type,
-                bid: form.bid,
-                created_at: new Date().toISOString() // Add this line
-            };
-            
-            // Insert the newWorkspace data into the 'bids' table in Supabase
-            const { data, error } = await supabase
-                .from('bids')
-                .insert([
-                    { id: newWorkspace.id, name: newWorkspace.name, repository: newWorkspace.repository, branch: newWorkspace.branch, type: newWorkspace.type, bid: newWorkspace.bid, created_at: newWorkspace.created_at } // Add created_at here
-                ]);
-
-            if (error) {
-                console.error('Error inserting data: ', error);
-            } else {
-                toast('GitHub Repository Found... Creating your Bid...');
-                setWorkspaces(prevWorkspaces => [...prevWorkspaces, newWorkspace]);
-                setShowModal(false);
-            }
-        }
-    } catch (error) {
-        if (error.response && error.response.status === 404) {
-            alert('GitHub repository not found');
-        } else {
-            alert('An error occurred');
-        }
-    }
-};
-
-const Workspace = () => {
+const Workspace = ({ session }) => {
     const [workspaces, setWorkspaces] = useState([]);
     const [showModal, setShowModal] = useState(false);
     const [form, setForm] = useState({ username: '', repository: '', branch: '', type: '', bid: 100 });
+    const newWorkspace = {
+        id: Date.now(),
+        name: form.username,
+        repository: form.repository,
+        branch: form.branch,
+        type: form.type,
+        bid: form.bid,
+        created_at: new Date().toISOString()
+    };
 
     const handleChange = (e) => {
         setForm({ ...form, [e.target.name]: e.target.value });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        const newWorkspace = {
-            id: Date.now(),
-            name: form.username,
-            repository: form.repository,
-            branch: form.branch,
-            type: form.type, // Add this line
-            bid: form.bid // Add this line
-        };
-        setWorkspaces(prevWorkspaces => [...prevWorkspaces, newWorkspace]);
-        setShowModal(false);
+    
+        try {
+            const response = await axios.get(`https://api.github.com/repos/${form.username}/${form.repository}`);
+            if (response.status === 200) {
+                const newWorkspace = {
+                    id: Date.now(),
+                    name: form.username,
+                    repository: form.repository,
+                    branch: form.branch,
+                    type: form.type,
+                    bid: form.bid,
+                    created_at: new Date().toISOString(),
+                    user: session && session.root ? session.root.email : null
+                };
+                
+                const { data, error } = await supabase
+                .from('bid')
+                .insert([newWorkspace]);
+
+                toast('GitHub Repository Found... Creating your Bid...');
+    
+                if (error) {
+                    console.error('Error inserting data: ', error);
+                } else {
+                    setWorkspaces(prevWorkspaces => [...prevWorkspaces, newWorkspace]);
+                    setShowModal(false);
+                }
+            }
+        } catch (error) {
+            if (error.response && error.response.status === 404) {
+                alert('GitHub repository not found');
+            } else {
+                alert('An error occurred');
+            }
+        }
     };
 
     const handleOpen = (workspaceId) => {
