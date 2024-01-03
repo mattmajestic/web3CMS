@@ -108,13 +108,18 @@ function Home({ session }) {
               target="_blank" 
               rel="noopener noreferrer" 
               style={{ 
-                color: '#008000', // Change the link color to a darker green
-                textDecoration: 'none', // Remove the underline
-                fontSize: '1.2em', // Increase the font size
-                border: '2px solid #008000', // Add a darker green border
-                borderRadius: '5px', // Round the corners
-                padding: '10px', // Add some padding
-                backgroundColor: '#f4f4f4' // Add a light grey background color
+                color: '#008000', // Dark green text
+                textDecoration: 'none', // Remove underline
+                fontSize: '1em', // Increase font size
+                border: '2px solid #008000', // Dark green border
+                borderRadius: '5px', // Rounded corners
+                padding: '10px 15px', // Increase padding
+                backgroundColor: '#f4f4f4', // Light grey background
+                display: 'inline-block', // Inline-block to control height
+                lineHeight: '1.2', // Adjust line height
+                height: 'auto', // Auto height
+                overflow: 'hidden', // Hide overflow
+                margin: '10px 0', // Add some margin for spacing
               }}
             >
               🌱 PreSeed Funding
