@@ -120,7 +120,7 @@ function Home({ session }) {
               🌱 PreSeed Funding
             </a>
             </div>
-            <footer style={{ textAlign: 'center', marginTop: '2rem' }}>
+            {/* <footer style={{ textAlign: 'center', marginTop: '2rem' }}>
             <a href="https://supabase.io" target="_blank" rel="noopener noreferrer">
                 <img src="https://img.shields.io/badge/-Supabase-000000?style=for-the-badge&logo=supabase&logoColor=white&color=grey" alt="Supabase" />
               </a>
@@ -136,7 +136,7 @@ function Home({ session }) {
               <a href="https://fastapi.tiangolo.com" target="_blank" rel="noopener noreferrer">
                 <img src="https://img.shields.io/badge/-FastAPI-000000?style=for-the-badge&logo=fastapi&logoColor=white&color=grey" alt="FastAPI" />
               </a>
-            </footer>
+            </footer> */}
         </Container>
     );
 }
