@@ -103,7 +103,25 @@ function Home({ session }) {
             </div>
             {/* <h6 style={{ textAlign: 'center', color: 'white' }}>Built On</h6> */}
             <div style={{ display: 'flex', justifyContent: 'center', gap: '2px' }}>
-              <a href="https://supabase.io" target="_blank" rel="noopener noreferrer">
+            <a 
+              href="https://codepaycloud.github.io/docs/" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              style={{ 
+                color: '#008000', // Change the link color to a darker green
+                textDecoration: 'none', // Remove the underline
+                fontSize: '1.2em', // Increase the font size
+                border: '2px solid #008000', // Add a darker green border
+                borderRadius: '5px', // Round the corners
+                padding: '10px', // Add some padding
+                backgroundColor: '#f4f4f4' // Add a light grey background color
+              }}
+            >
+              🌱 PreSeed Funding
+            </a>
+            </div>
+            <footer style={{ textAlign: 'center', marginTop: '2rem' }}>
+            <a href="https://supabase.io" target="_blank" rel="noopener noreferrer">
                 <img src="https://img.shields.io/badge/-Supabase-000000?style=for-the-badge&logo=supabase&logoColor=white&color=grey" alt="Supabase" />
               </a>
               <a href="https://stripe.com" target="_blank" rel="noopener noreferrer">
@@ -118,7 +136,7 @@ function Home({ session }) {
               <a href="https://fastapi.tiangolo.com" target="_blank" rel="noopener noreferrer">
                 <img src="https://img.shields.io/badge/-FastAPI-000000?style=for-the-badge&logo=fastapi&logoColor=white&color=grey" alt="FastAPI" />
               </a>
-            </div>
+            </footer>
         </Container>
     );
 }

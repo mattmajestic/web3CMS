@@ -4,8 +4,9 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Image from 'react-bootstrap/Image';
 import { FaCodeBranch, FaFolderOpen, FaTrash } from 'react-icons/fa';
+import { supabase } from '../supabaseClient';
 
-const Deploy = () => {
+const Deploy = ( {session } ) => {
     const [form, setForm] = useState({ username: '', repository: '', branch: '' });
     const [workspaces, setWorkspaces] = useState([]);
     const [showModal, setShowModal] = useState(false);
@@ -14,17 +15,29 @@ const Deploy = () => {
         setForm({ ...form, [e.target.name]: e.target.value });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         const newWorkspace = {
             id: Date.now(),
             name: form.username,
             repository: form.repository,
+            user: session && session.root ? session.root.email : null,
+            created_at: new Date().toISOString()
         };
-        setWorkspaces(prevWorkspaces => [...prevWorkspaces, newWorkspace]);
-        setShowModal(false);
-    };
 
+        // Insert the newWorkspace data into the 'workspaces' table in Supabase
+        const { data, error } = await supabase
+            .from('deployments')
+            .insert([newWorkspace]);
+
+        if (error) {
+            console.error('Error inserting workspace: ', error);
+        } else {
+            console.log('Workspace inserted: ', data);
+            setWorkspaces(prevWorkspaces => [...prevWorkspaces, newWorkspace]);
+            setShowModal(false);
+        }
+    };
     const handleOpen = (workspaceId) => {
         // Handle workspace opening here
     };

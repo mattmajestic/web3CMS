@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "@metamask/sdk-react-ui": "^0.14.1",
+    "@octokit/rest": "^20.0.2",
     "@supabase/auth-ui-react": "^0.4.6",
     "@supabase/auth-ui-shared": "^0.1.8",
     "@supabase/supabase-js": "^2.39.0",

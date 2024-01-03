@@ -4,17 +4,31 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Image from 'react-bootstrap/Image';
 import { FaCodeBranch, FaFolderOpen, FaTrash } from 'react-icons/fa';
+import { Octokit } from "@octokit/rest";
 
 const Workspace = () => {
     const [form, setForm] = useState({ username: '', repository: '', branch: '' });
     const [workspaces, setWorkspaces] = useState([]);
     const [showModal, setShowModal] = useState(false);
+    const octokit = new Octokit({ auth: process.env.REACT_APP_GH_TOKEN });
+
+    async function createDiscussion(owner, repo, team_slug, title, body) {
+        await octokit.request('POST /orgs/{org}/teams/{team_slug}/discussions', {
+            org: owner,
+            team_slug: team_slug,
+            title: title,
+            body: body,
+            mediaType: {
+                previews: ['squirrel-girl']
+            }
+        });
+    }
 
     const handleChange = (e) => {
         setForm({ ...form, [e.target.name]: e.target.value });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         const newWorkspace = {
             id: Date.now(),
@@ -24,6 +38,18 @@ const Workspace = () => {
         };
         setWorkspaces(prevWorkspaces => [...prevWorkspaces, newWorkspace]);
         setShowModal(false);
+
+        try {
+            await octokit.rest.teams.createDiscussionInOrg({
+                org: form.username,
+                team_slug: "CodePayCloud",
+                title: "Test",
+                body: "Test"
+            });
+            console.log('Discussion created successfully');
+        } catch (error) {
+            console.error('Error creating discussion: ', error);
+        }
     };
 
     const handleOpen = (workspaceId) => {
