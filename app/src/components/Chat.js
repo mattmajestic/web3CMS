@@ -177,7 +177,7 @@ function Chat({ session }) {
               }}>
         Previous Chats 📜
       </button>
-      {!isCollapsed && messages.map((hourGroup, index) => (
+      {!isCollapsed && (messages || []).map((hourGroup, index) => (
         <div key={index} style={{ border: '1px solid black', padding: '10px', margin: '10px' }}>
           <h2 style={{ color: 'white' }}>{`Hour ${hourGroup.hour}:00`}</h2>
           {hourGroup.messages.map((message, i) => (
