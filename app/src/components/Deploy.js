@@ -62,6 +62,9 @@ const Deploy = ( {session } ) => {
                 </Modal.Header>
                 <Modal.Body>
                     <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                        <select name="deploymentType" value={form.deploymentType} onChange={handleChange} required style={{ padding: '10px', fontSize: '16px' }}>
+                         <option value="Docker">Docker</option>
+                        </select>
                         <input type="text" name="username" placeholder="DockerHub Username" value={form.username} onChange={handleChange} required style={{ padding: '10px', fontSize: '16px' }} />
                         <input type="text" name="repository" placeholder="DockerHub Repository" value={form.repository} onChange={handleChange} required style={{ padding: '10px', fontSize: '16px' }} />
                         <Button type="submit" style={{ backgroundColor: '#17072B', color: 'white', fontSize: '20px', padding: '10px 20px' }}>Create Deployment</Button>

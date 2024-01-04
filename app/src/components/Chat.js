@@ -21,6 +21,7 @@ function Chat({ session }) {
   const [input, setInput] = useState('');
   const [messages, setMessages] = useState([]);
   const [isTyping, setIsTyping] = useState(false);
+  const [isCollapsed, setIsCollapsed] = useState(true);
 
   const generateId = () => {
     return uuidv4();
@@ -96,6 +97,39 @@ function Chat({ session }) {
     }
   }, [input]);
 
+  useEffect(() => {
+   const fetchPreviousMessages = async () => {
+   const { data, error } = await supabase
+    .from('chat')
+    .select('*')
+    .order('created_at', { ascending: false })
+    .limit(10);
+  
+   if (error) {
+    console.error('Error fetching messages:', error);
+   } else {
+    const groupedMessages = [];
+    let currentHour = null;
+  
+    data.forEach((message, index) => {
+      const date = new Date(message.created_at);
+      const hour = date.getHours();
+  
+      // Check if this is the first message of a new hour
+      if (currentHour !== hour) {
+        currentHour = hour;
+        groupedMessages.push({ hour, messages: [] });
+      }
+  
+      groupedMessages[groupedMessages.length - 1].messages.push({ ...message, timestamp: date.toLocaleTimeString() });
+    });
+  
+    setMessages(groupedMessages);
+   }
+   };
+  
+   fetchPreviousMessages();
+  }, []);
   return (
     <div className="chat-container">
       <div className="chat-header">
@@ -125,6 +159,32 @@ function Chat({ session }) {
         <input id="file-upload" type="file" accept=".csv,audio/*" onChange={handleFileUpload} className="file-upload-input" />
         <input type="text" value={input} onChange={e => setInput(e.target.value)} onKeyPress={handleKeyPress} className="chat-text-input" />
         <button onClick={handleClick} className="send-button">Send</button>
+      </div>
+      <div>
+      <button onClick={() => setIsCollapsed(!isCollapsed)} style={{ 
+                color: '#008000', // Dark green text
+                textDecoration: 'none', // Remove underline
+                fontSize: '1em', // Increase font size
+                border: '2px solid #008000', // Dark green border
+                borderRadius: '5px', // Rounded corners
+                padding: '10px 15px', // Increase padding
+                backgroundColor: '#f4f4f4', // Light grey background
+                display: 'inline-block', // Inline-block to control height
+                lineHeight: '1.2', // Adjust line height
+                height: 'auto', // Auto height
+                overflow: 'hidden', // Hide overflow
+                margin: '10px 0', // Add some margin for spacing
+              }}>
+        Previous Chats 📜
+      </button>
+      {!isCollapsed && messages.map((hourGroup, index) => (
+        <div key={index} style={{ border: '1px solid black', padding: '10px', margin: '10px' }}>
+          <h2 style={{ color: 'white' }}>{`Hour ${hourGroup.hour}:00`}</h2>
+          {hourGroup.messages.map((message, i) => (
+            <p key={i} style={{ color: 'green' }}>{`${message.text} (${message.timestamp})`}</p>
+          ))}
+        </div>
+      ))}
       </div>
     </div>
   );
