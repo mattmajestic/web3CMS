@@ -27,6 +27,29 @@
     <title>Code Pay</title>
   </head>
   <body>
+  <script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyD7Jos9cgNs7LvOngjY_JC5qtM8ZEPy4as",
+    authDomain: "codepay-c802f.firebaseapp.com",
+    projectId: "codepay-c802f",
+    storageBucket: "codepay-c802f.appspot.com",
+    messagingSenderId: "415875673705",
+    appId: "1:415875673705:web:b8977bafdffb0c8aefbcf8",
+    measurementId: "G-00SHLJKDS8"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+</script>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
     <!--

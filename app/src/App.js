@@ -57,6 +57,7 @@ function App() {
           <Route path="/deploy" element={<Deploy session={session} />} />
           <Route path="/database" element={<Database session={session} />} />
           <Route path="/settings" element={<Settings session={session} />} />
+          <Route path="/api" element={<Api session={session} />} />
           <Route path="/cloud" element={<Cloud session={session} />} />
           <Route path="/request" element={<Request session={session} />} />
         </Routes>

@@ -84,6 +84,9 @@ function Home({ session }) {
                   <Dropdown.Item href="/chat">
                     <span style={{ fontSize: '1.5em', color: '#17072B' }}><FaComment color="#17072B" size="1.5em" /> AI Chat</span>
                   </Dropdown.Item>
+                  <Dropdown.Item href="/api">
+                    <span style={{ fontSize: '1.5em', color: '#17072B' }}><FaComment color="#17072B" size="1.5em" /> API</span>
+                  </Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>
             ) : (
